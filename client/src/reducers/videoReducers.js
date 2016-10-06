@@ -68,6 +68,7 @@ function onPause(state, action) {
 
 function onClick(state,action) {
   const { video } = action;
+
   return {
     ...state,
     activeVideo: video.data

@@ -190,7 +190,8 @@ var TextFieldGroup = function TextFieldGroup(_ref) {
     _react2.default.createElement("input", { onChange: onChange,
       value: value,
       type: type,
-      name: field })
+      name: field,
+      placeholder: label })
   );
 };
 
@@ -442,7 +443,7 @@ var LoginPage = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'form-container' },
         _react2.default.createElement(_LoginForm2.default, null)
       );
     }
@@ -886,6 +887,14 @@ var _reactRedux = require("react-redux");
 
 var _videoActions = require("../../actions/videoActions");
 
+var _lodash = require("lodash");
+
+var _reactRouter = require("react-router");
+
+var _NavigationBar = require("../NavigationBar");
+
+var _NavigationBar2 = _interopRequireDefault(_NavigationBar);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -903,31 +912,105 @@ var SingleVideoPage = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (SingleVideoPage.__proto__ || Object.getPrototypeOf(SingleVideoPage)).call(this, props));
 
     _this.state = {
-      video: {}
+      video: {
+        name: '',
+        description: ''
+      },
+      sessionId: "",
+      expanded: false
     };
+    _this.expandedText = _this.expandedText.bind(_this);
+    _this.getMoretext = _this.getMoretext.bind(_this);
     return _this;
   }
 
   _createClass(SingleVideoPage, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      window.scrollTo(0, 0);
+    }
+  }, {
+    key: "componentWillMount",
+    value: function componentWillMount() {
       var _props$params = this.props.params;
       var sessionId = _props$params.sessionId;
       var videoId = _props$params.videoId;
 
+      this.setState({ sessionId: sessionId });
       this.props.fetchSingleVideo(sessionId, videoId);
     }
   }, {
     key: "componentWillReceiveProps",
     value: function componentWillReceiveProps(nextProps) {
-      this.setState({ video: nextProps.video });
+      console.log(nextProps);
+
+      if (this.props.video !== nextProps.video) {
+        this.setState({ video: nextProps.video });
+        this.setState({ expanded: false });
+      }
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      var _props$params2 = this.props.params;
+      var sessionId = _props$params2.sessionId;
+      var videoId = _props$params2.videoId;
+
+      if (prevProps.params !== this.props.params) {
+        this.props.fetchSingleVideo(sessionId, videoId);
+      }
+    }
+  }, {
+    key: "expandedText",
+    value: function expandedText() {
+      this.setState({ expanded: true });
+    }
+  }, {
+    key: "getMoretext",
+    value: function getMoretext() {
+      if (this.state.expanded) {
+        return this.state.video.description.substring(180);
+      } else {
+        return null;
+      }
     }
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var video = this.state.video;
+      var videos = this.props.videos;
 
       var videoUrl = "/" + video.url;
+      var expandedTexts = this.getMoretext();
+
+      var videoList = (0, _lodash.map)(videos, function (video, i) {
+        return _react2.default.createElement(
+          "div",
+          { className: "media", key: i },
+          _react2.default.createElement(
+            _reactRouter.Link,
+            { className: "media-left", to: "/video/" + _this2.state.sessionId + "/" + video._id },
+            _react2.default.createElement("video", { className: "media-object", src: "/" + video.url, width: "120", height: "120" })
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "media-body" },
+            _react2.default.createElement(
+              "h6",
+              { className: "media-heading" },
+              video.name.substring(3)
+            ),
+            _react2.default.createElement(
+              "p",
+              null,
+              video.description.substring(0, 60)
+            )
+          )
+        );
+      });
+
       return (
         // <div>
         // <h1>this is activeVideo page {video.name}</h1>
@@ -936,8 +1019,75 @@ var SingleVideoPage = function (_React$Component) {
         // </div>
         _react2.default.createElement(
           "div",
-          { className: "ui segment" },
-          _react2.default.createElement("video", { ref: video._id, src: videoUrl, width: "520", height: "440", controls: true, autoPlay: true })
+          null,
+          _react2.default.createElement(_NavigationBar2.default, null),
+          _react2.default.createElement(
+            "div",
+            { className: "container", style: { 'marginTop': '10px' } },
+            _react2.default.createElement(
+              "div",
+              { className: "row" },
+              _react2.default.createElement(
+                "div",
+                { className: "col-md-8" },
+                _react2.default.createElement(
+                  "div",
+                  { className: "card" },
+                  _react2.default.createElement("video", { className: "card-img-top", ref: video._id, src: videoUrl, width: "100%", controls: true })
+                ),
+                _react2.default.createElement(
+                  "div",
+                  { className: "card" },
+                  _react2.default.createElement(
+                    "div",
+                    { className: "card-block" },
+                    _react2.default.createElement(
+                      "h4",
+                      { className: "card-title" },
+                      video.name.substring(4)
+                    ),
+                    _react2.default.createElement(
+                      "p",
+                      { className: "card-text" },
+                      video.description.substring(0, 180),
+                      !this.state.expanded ? _react2.default.createElement(
+                        "a",
+                        { onClick: this.expandedText, style: { color: 'blue' } },
+                        " Read more"
+                      ) : null,
+                      expandedTexts
+                    )
+                  ),
+                  _react2.default.createElement(
+                    "div",
+                    { className: "container-fluid" },
+                    _react2.default.createElement(
+                      "ul",
+                      { className: "list-group list-group-flush" },
+                      _react2.default.createElement(
+                        "li",
+                        { className: "list-group-item" },
+                        "Cras justo odio"
+                      )
+                    )
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "col-md-4" },
+                _react2.default.createElement(
+                  "div",
+                  { className: "card" },
+                  _react2.default.createElement(
+                    "div",
+                    { className: "container-fluid" },
+                    videoList
+                  )
+                )
+              )
+            )
+          )
         )
       );
     }
@@ -948,13 +1098,14 @@ var SingleVideoPage = function (_React$Component) {
 
 function mapStateToProps(state) {
   return {
-    video: state.videoReducers.activeVideo
+    video: state.videoReducers.activeVideo,
+    videos: state.videoReducers.videos
   };
 }
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchSingleVideo: _videoActions.fetchSingleVideo })(SingleVideoPage);
 
-},{"../../actions/videoActions":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\actions\\videoActions.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js","react-redux":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-redux\\lib\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\video\\Video.js":[function(require,module,exports){
+},{"../../actions/videoActions":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\actions\\videoActions.js","../NavigationBar":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\NavigationBar.js","lodash":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\lodash.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js","react-redux":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-redux\\lib\\index.js","react-router":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\video\\Video.js":[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1472,6 +1623,7 @@ function onPause(state, action) {
 
 function onClick(state, action) {
     var video = action.video;
+
 
     return _extends({}, state, {
         activeVideo: video.data

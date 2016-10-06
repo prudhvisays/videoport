@@ -32,8 +32,6 @@ onPaused(){
         <Link to={videoUrl}>
           <p>{video.name.substring(3)}</p>
         </Link>
-
-
       </div>
       </div>
 

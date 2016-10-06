@@ -6,9 +6,9 @@ import { login } from '../../actions/authActions';
 class LoginPage extends React.Component {
   render() {
     return (
-      <div>
+      <div className="form-container">
   <LoginForm />
-  
+
       </div>
     );
   }
