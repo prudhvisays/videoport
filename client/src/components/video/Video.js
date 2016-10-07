@@ -1,7 +1,8 @@
 import React from "react";
 import { map } from "lodash";
 import VideoUtil from "./VideoUtil";
-import { Link } from "react-router"
+import { Link } from "react-router";
+import DefaultRate from "../rating/DefaultRate";
 
 class Video extends React.Component{
 constructor(props){
@@ -32,6 +33,9 @@ onPaused(){
         <Link to={videoUrl}>
           <p>{video.name.substring(3)}</p>
         </Link>
+      </div>
+      <div className="video-card-meta">
+      <DefaultRate rating={video.ratings}/>
       </div>
       </div>
 

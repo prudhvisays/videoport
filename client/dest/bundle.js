@@ -328,7 +328,7 @@ var LoginForm = function (_React$Component) {
       this.props.login(this.state).then(function (res) {
         console.log(_this2.props.userData.error);
         if (_this2.props.userData.isAuthenticated) {
-          _this2.context.router.push("/login");
+          _this2.context.router.push("/");
         } else {
           _this2.setState({ errors: _this2.props.userData });
           console.log(_this2.state.errors);
@@ -473,6 +473,10 @@ var _reactRedux = require("react-redux");
 
 var _authActions = require("../actions/authActions");
 
+var _classnames = require("classnames");
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -490,9 +494,11 @@ var NavigationBar = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (NavigationBar.__proto__ || Object.getPrototypeOf(NavigationBar)).call(this, props));
 
     _this.state = {
-      scrollTop: ""
+      scrollTop: "",
+      offset: ""
     };
     _this.handleScroll = _this.handleScroll.bind(_this);
+    _this.logoColor = _this.logoColor.bind(_this);
     return _this;
   }
 
@@ -500,11 +506,31 @@ var NavigationBar = function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       window.addEventListener('scroll', this.handleScroll);
+      var navBar = document.getElementById('nav-bar');
+      var navPos = navBar.offsetTop;
+      console.log('navpos' + navPos);
+      this.setState({ offset: navPos });
+      this.logoColor();
     }
   }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
       window.removeEventListener('scroll', this.handleScroll);
+    }
+  }, {
+    key: "logoColor",
+    value: function logoColor() {
+      var granimInstance = new Granim({
+        element: '#block-logo-canvas',
+        direction: 'left-right',
+        opacity: [1, 1],
+        states: {
+          "default-state": {
+            gradients: [['#EB3349', '#F45C43'], ['#FF8008', '#FFC837'], ['#4CB8C4', '#3CD3AD'], ['#24C6DC', '#514A9D'], ['#FF512F', '#DD2476'], ['#DA22FF', '#9733EE']],
+            transitionSpeed: 2000
+          }
+        }
+      });
     }
   }, {
     key: "handleScroll",
@@ -526,17 +552,26 @@ var NavigationBar = function (_React$Component) {
       var isAuthenticated = _props$authReducers.isAuthenticated;
       var user = _props$authReducers.user;
 
-      var navFixed = {
-        position: 'fixed'
-      };
       var userLinks = _react2.default.createElement(
-        "p",
-        null,
-        user.username,
+        "ul",
+        { className: "nav navbar-nav pull-md-right" },
         _react2.default.createElement(
-          "span",
-          { onClick: this.logout.bind(this) },
-          " logout"
+          "li",
+          { className: "nav-item" },
+          _react2.default.createElement(
+            "h4",
+            null,
+            user.username
+          )
+        ),
+        _react2.default.createElement(
+          "li",
+          { className: "nav-item" },
+          _react2.default.createElement(
+            "span",
+            { onClick: this.logout.bind(this), className: "btn btn-outline-warning" },
+            " logout"
+          )
         )
       );
 
@@ -550,12 +585,31 @@ var NavigationBar = function (_React$Component) {
         )
       );
 
-      return _react2.default.createElement(
-        "nav",
-        { className: "navFixed", style: this.state.scrollTop > 310 ? navFixed : null },
+      return (
+
+        // <nav className="main-nav" style={this.state.scrollTop > 310 ? navFixed : null}>
+        //     <ul>
+        //       {isAuthenticated ? userLinks: guestLinks}
+        //     </ul>
+        // </nav>
+
         _react2.default.createElement(
-          "ul",
-          null,
+          "nav",
+          { id: "nav-bar", className: (0, _classnames2.default)('navbar', 'navbar-full', 'navbar-light', 'bg-faded', { 'navbar-fixed-top': this.state.scrollTop > this.state.offset }) },
+          _react2.default.createElement(
+            "div",
+            { className: "navbar-brand" },
+            _react2.default.createElement(
+              "div",
+              { className: "block-logo" },
+              _react2.default.createElement("canvas", { id: "block-logo-canvas" }),
+              _react2.default.createElement(
+                "a",
+                { href: "index.html", className: "block-logo-mask" },
+                "Granim.js"
+              )
+            )
+          ),
           isAuthenticated ? userLinks : guestLinks
         )
       );
@@ -576,7 +630,7 @@ function mapStateToProps(state) {
 }
 exports.default = (0, _reactRedux.connect)(mapStateToProps, { logout: _authActions.logout })(NavigationBar);
 
-},{"../actions/authActions":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\actions\\authActions.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js","react-redux":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-redux\\lib\\index.js","react-router":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\header\\VideosHeader.js":[function(require,module,exports){
+},{"../actions/authActions":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\actions\\authActions.js","classnames":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\classnames\\index.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js","react-redux":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-redux\\lib\\index.js","react-router":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\header\\VideosHeader.js":[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -637,9 +691,10 @@ var VideosHeader = function (_React$Component) {
     key: "render",
     value: function render() {
       var cameraHeader = { transform: 'translate(0px, ' + this.state.transform / 50 + '%)' };
-      var bigwheelHeader = { transform: 'translate(0px, -' + this.state.transform / 35 + '%)' };
+      var bigwheelHeader = { transform: 'translate(0px, ' + this.state.transform / 18 + '%)' };
       var clapHeader = { transform: 'translate(0px, -' + this.state.transform / 60 + '%)' };
       var lineHeader = { transform: 'translate(0px, -' + this.state.transform / 60 + '%)' };
+      var titleHeader = { transform: 'translate(0px, ' + this.state.transform / 5 + '%)' };
       console.log(cameraHeader);
       return _react2.default.createElement(
         "header",
@@ -652,7 +707,7 @@ var VideosHeader = function (_React$Component) {
         _react2.default.createElement("div", { className: "nanowheel-header" }),
         _react2.default.createElement(
           "div",
-          { className: "logo" },
+          { className: "logo", style: titleHeader },
           _react2.default.createElement(
             "h1",
             null,
@@ -752,7 +807,208 @@ var LoginModal = function (_React$Component) {
 
 exports.default = LoginModal;
 
-},{"../Login/LoginPage":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\Login\\LoginPage.js","boron/WaveModal":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\boron\\WaveModal.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\test\\Greetings.js":[function(require,module,exports){
+},{"../Login/LoginPage":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\Login\\LoginPage.js","boron/WaveModal":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\boron\\WaveModal.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\rating\\DefaultRate.js":[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Star = require("./Star");
+
+var _Star2 = _interopRequireDefault(_Star);
+
+var _lodash = require("lodash");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var DefaultRate = function (_React$Component) {
+  _inherits(DefaultRate, _React$Component);
+
+  function DefaultRate(props) {
+    _classCallCheck(this, DefaultRate);
+
+    var _this = _possibleConstructorReturn(this, (DefaultRate.__proto__ || Object.getPrototypeOf(DefaultRate)).call(this, props));
+
+    _this.state = {
+      rating: "",
+      hoverAt: null
+    };
+    return _this;
+  }
+
+  _createClass(DefaultRate, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var rating = this.props.rating;
+
+      var total = (0, _lodash.reduce)(rating, function (sum, n) {
+        return sum + n;
+      });
+      var avg = total / rating.length;
+      console.log("rating:" + avg);
+      this.setState({ rating: avg });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var stars = [];
+      for (var i = 0; i < 5; i++) {
+        var rating = this.state.rating;
+        var selected = i < rating;
+        stars.push(_react2.default.createElement(_Star2.default, { key: i, selected: selected }));
+      }
+      return _react2.default.createElement(
+        "div",
+        null,
+        stars
+      );
+    }
+  }]);
+
+  return DefaultRate;
+}(_react2.default.Component);
+
+exports.default = DefaultRate;
+
+},{"./Star":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\rating\\Star.js","lodash":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\lodash.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\rating\\Star.js":[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Star = function (_React$Component) {
+  _inherits(Star, _React$Component);
+
+  function Star() {
+    _classCallCheck(this, Star);
+
+    return _possibleConstructorReturn(this, (Star.__proto__ || Object.getPrototypeOf(Star)).apply(this, arguments));
+  }
+
+  _createClass(Star, [{
+    key: 'render',
+    value: function render() {
+      var r = 'fa fa-star';
+      if (!this.props.selected) {
+        r += '-o';
+      }
+      return _react2.default.createElement('i', _extends({}, this.props, { className: r }));
+    }
+  }]);
+
+  return Star;
+}(_react2.default.Component);
+
+exports.default = Star;
+
+},{"react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\rating\\StarRating.js":[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Star = require("./Star");
+
+var _Star2 = _interopRequireDefault(_Star);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var StarRating = function (_React$Component) {
+  _inherits(StarRating, _React$Component);
+
+  function StarRating(props) {
+    _classCallCheck(this, StarRating);
+
+    var _this = _possibleConstructorReturn(this, (StarRating.__proto__ || Object.getPrototypeOf(StarRating)).call(this, props));
+
+    _this.state = {
+      rating: 3,
+      hoverAt: null
+    };
+    return _this;
+  }
+
+  // handleMouseOver(index,event){
+  //   this.state.hoverAt = index + 1;
+  //   this.forceUpdate();
+  // }
+  // handleMouseOut(index,event){
+  //   this.state.hoverAt = null;
+  //   this.forceUpdate();
+  // }
+  // handleClick(index,event){
+  //   this.state.rating = index + 1;
+  //   this.forceUpdate();
+  //   console.log("clicked");
+  // }
+
+
+  _createClass(StarRating, [{
+    key: "render",
+    value: function render() {
+      var stars = [];
+      for (var i = 0; i < 5; i++) {
+        var rating = this.state.hoverAt != null ? this.state.hoverAt : this.state.rating;
+        var selected = i < rating;
+        stars.push(_react2.default.createElement(_Star2.default, { key: i, selected: selected }));
+      }
+      return _react2.default.createElement(
+        "div",
+        null,
+        stars
+      );
+    }
+  }]);
+
+  return StarRating;
+}(_react2.default.Component);
+
+exports.default = StarRating;
+
+},{"./Star":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\rating\\Star.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\test\\Greetings.js":[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -895,6 +1151,14 @@ var _NavigationBar = require("../NavigationBar");
 
 var _NavigationBar2 = _interopRequireDefault(_NavigationBar);
 
+var _StarRating = require("../rating/StarRating");
+
+var _StarRating2 = _interopRequireDefault(_StarRating);
+
+var _DefaultRate = require("../rating/DefaultRate");
+
+var _DefaultRate2 = _interopRequireDefault(_DefaultRate);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -914,7 +1178,8 @@ var SingleVideoPage = function (_React$Component) {
     _this.state = {
       video: {
         name: '',
-        description: ''
+        description: '',
+        ratings: [2, 4]
       },
       sessionId: "",
       expanded: false
@@ -1004,8 +1269,17 @@ var SingleVideoPage = function (_React$Component) {
             ),
             _react2.default.createElement(
               "p",
-              null,
+              { className: "lead" },
               video.description.substring(0, 60)
+            ),
+            _react2.default.createElement(
+              "p",
+              { "class": "card-text" },
+              _react2.default.createElement(
+                "small",
+                { className: "text-muted" },
+                _react2.default.createElement(_DefaultRate2.default, { rating: video.ratings })
+              )
             )
           )
         );
@@ -1044,7 +1318,12 @@ var SingleVideoPage = function (_React$Component) {
                     _react2.default.createElement(
                       "h4",
                       { className: "card-title" },
-                      video.name.substring(4)
+                      video.name.substring(4),
+                      _react2.default.createElement(
+                        "span",
+                        { className: "text-xs-right" },
+                        _react2.default.createElement(_DefaultRate2.default, { rating: video.ratings })
+                      )
                     ),
                     _react2.default.createElement(
                       "p",
@@ -1052,7 +1331,7 @@ var SingleVideoPage = function (_React$Component) {
                       video.description.substring(0, 180),
                       !this.state.expanded ? _react2.default.createElement(
                         "a",
-                        { onClick: this.expandedText, style: { color: 'blue' } },
+                        { onClick: this.expandedText },
                         " Read more"
                       ) : null,
                       expandedTexts
@@ -1067,7 +1346,7 @@ var SingleVideoPage = function (_React$Component) {
                       _react2.default.createElement(
                         "li",
                         { className: "list-group-item" },
-                        "Cras justo odio"
+                        _react2.default.createElement(_StarRating2.default, null)
                       )
                     )
                   )
@@ -1105,7 +1384,7 @@ function mapStateToProps(state) {
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchSingleVideo: _videoActions.fetchSingleVideo })(SingleVideoPage);
 
-},{"../../actions/videoActions":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\actions\\videoActions.js","../NavigationBar":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\NavigationBar.js","lodash":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\lodash.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js","react-redux":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-redux\\lib\\index.js","react-router":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\video\\Video.js":[function(require,module,exports){
+},{"../../actions/videoActions":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\actions\\videoActions.js","../NavigationBar":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\NavigationBar.js","../rating/DefaultRate":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\rating\\DefaultRate.js","../rating/StarRating":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\rating\\StarRating.js","lodash":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\lodash.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js","react-redux":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-redux\\lib\\index.js","react-router":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\video\\Video.js":[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1125,6 +1404,10 @@ var _VideoUtil = require("./VideoUtil");
 var _VideoUtil2 = _interopRequireDefault(_VideoUtil);
 
 var _reactRouter = require("react-router");
+
+var _DefaultRate = require("../rating/DefaultRate");
+
+var _DefaultRate2 = _interopRequireDefault(_DefaultRate);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1185,6 +1468,11 @@ var Video = function (_React$Component) {
               video.name.substring(3)
             )
           )
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "video-card-meta" },
+          _react2.default.createElement(_DefaultRate2.default, { rating: video.ratings })
         )
       );
     }
@@ -1199,7 +1487,7 @@ Video.contextTypes = {
 
 exports.default = Video;
 
-},{"./VideoUtil":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\video\\VideoUtil.js","lodash":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\lodash.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js","react-router":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\video\\VideoGrid.js":[function(require,module,exports){
+},{"../rating/DefaultRate":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\rating\\DefaultRate.js","./VideoUtil":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\video\\VideoUtil.js","lodash":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\lodash.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js","react-router":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\video\\VideoGrid.js":[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1224,6 +1512,10 @@ var _Video = require("./Video");
 
 var _Video2 = _interopRequireDefault(_Video);
 
+var _reactWaypoint = require("react-waypoint");
+
+var _reactWaypoint2 = _interopRequireDefault(_reactWaypoint);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1235,10 +1527,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var VideoGrid = function (_React$Component) {
   _inherits(VideoGrid, _React$Component);
 
-  function VideoGrid() {
+  function VideoGrid(props) {
     _classCallCheck(this, VideoGrid);
 
-    return _possibleConstructorReturn(this, (VideoGrid.__proto__ || Object.getPrototypeOf(VideoGrid)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (VideoGrid.__proto__ || Object.getPrototypeOf(VideoGrid)).call(this, props));
   }
 
   _createClass(VideoGrid, [{
@@ -1278,7 +1570,7 @@ function mapStateToProps(state) {
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, { videoList: _videoActions.videoList, onPlay: _videoActions.onPlay, onPause: _videoActions.onPause, fetchSingleVideo: _videoActions.fetchSingleVideo })(VideoGrid);
 
-},{"../../actions/videoActions":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\actions\\videoActions.js","./Video":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\video\\Video.js","lodash":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\lodash.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js","react-redux":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-redux\\lib\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\video\\VideoPage.js":[function(require,module,exports){
+},{"../../actions/videoActions":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\actions\\videoActions.js","./Video":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\video\\Video.js","lodash":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\lodash.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js","react-redux":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-redux\\lib\\index.js","react-waypoint":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-waypoint\\build\\npm\\waypoint.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\video\\VideoPage.js":[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1327,7 +1619,11 @@ var VideoPage = function (_React$Component) {
         "div",
         null,
         _react2.default.createElement(_VideosHeader2.default, null),
-        _react2.default.createElement(_NavigationBar2.default, null),
+        _react2.default.createElement(
+          "div",
+          { style: { 'height': '59px' } },
+          _react2.default.createElement(_NavigationBar2.default, null)
+        ),
         _react2.default.createElement(
           "div",
           { className: "container" },
@@ -1487,7 +1783,9 @@ if (retrievedSessionData) {
 (0, _reactDom.render)(_react2.default.createElement(
   _reactRedux.Provider,
   { store: store },
-  _react2.default.createElement(_reactRouter.Router, { history: _reactRouter.browserHistory, routes: _routes2.default })
+  _react2.default.createElement(_reactRouter.Router, { onUpdate: function onUpdate() {
+      return window.scrollTo(0, 0);
+    }, history: _reactRouter.browserHistory, routes: _routes2.default })
 ), document.getElementById('app'));
 
 },{"../../node_modules/granim/dist/granim.min.js":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\granim\\dist\\granim.min.js","./actions/authActions":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\actions\\authActions.js","./rootReducer":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\rootReducer.js","./routes":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\routes.js","./utilities/setAuthorizationToken":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\utilities\\setAuthorizationToken.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js","react-dom":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-dom\\index.js","react-redux":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-redux\\lib\\index.js","react-router":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\index.js","redux":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\redux\\lib\\index.js","redux-thunk":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\redux-thunk\\lib\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\reducers\\authReducers.js":[function(require,module,exports){
@@ -28797,7 +29095,411 @@ function withRouter(WrappedComponent, options) {
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./PropTypes":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\PropTypes.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","hoist-non-react-statics":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\hoist-non-react-statics\\index.js","invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\invariant\\browser.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\AutoFocusUtils.js":[function(require,module,exports){
+},{"./PropTypes":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\PropTypes.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","hoist-non-react-statics":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\hoist-non-react-statics\\index.js","invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\invariant\\browser.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-waypoint\\build\\npm\\waypoint.js":[function(require,module,exports){
+'use strict';
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var POSITIONS = {
+  above: 'above',
+  inside: 'inside',
+  below: 'below',
+  invisible: 'invisible'
+};
+
+var defaultProps = {
+  topOffset: '0px',
+  bottomOffset: '0px',
+  onEnter: function onEnter() {},
+  onLeave: function onLeave() {},
+  onPositionChange: function onPositionChange() {},
+
+  fireOnRapidScroll: true,
+  throttleHandler: function throttleHandler(handler) {
+    return handler;
+  }
+};
+
+function debugLog() {
+  console.log(arguments); // eslint-disable-line no-console
+}
+
+/**
+ * Calls a function when you scroll to the element.
+ */
+
+var Waypoint = (function (_React$Component) {
+  _inherits(Waypoint, _React$Component);
+
+  function Waypoint(props) {
+    _classCallCheck(this, Waypoint);
+
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Waypoint).call(this, props));
+
+    _this.refElement = function (e) {
+      return _this._ref = e;
+    };
+    return _this;
+  }
+
+  _createClass(Waypoint, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      if (this.props.scrollableParent) {
+        // eslint-disable-line react/prop-types
+        throw new Error('The `scrollableParent` prop has changed name ' + 'to `scrollableAncestor`.');
+      }
+    }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      if (!Waypoint.getWindow()) {
+        return;
+      }
+      this._handleScroll = this.props.throttleHandler(this._handleScroll.bind(this));
+      this.scrollableAncestor = this._findScrollableAncestor();
+      if (this.props.debug) {
+        debugLog('scrollableAncestor', this.scrollableAncestor);
+      }
+      this.scrollableAncestor.addEventListener('scroll', this._handleScroll);
+      window.addEventListener('resize', this._handleScroll);
+      this._handleScroll(null);
+    }
+  }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate() {
+      if (!Waypoint.getWindow()) {
+        return;
+      }
+
+      // The element may have moved.
+      this._handleScroll(null);
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      if (!Waypoint.getWindow()) {
+        return;
+      }
+
+      if (this.scrollableAncestor) {
+        // At the time of unmounting, the scrollable ancestor might no longer
+        // exist. Guarding against this prevents the following error:
+        //
+        //   Cannot read property 'removeEventListener' of undefined
+        this.scrollableAncestor.removeEventListener('scroll', this._handleScroll);
+      }
+      window.removeEventListener('resize', this._handleScroll);
+    }
+
+    /**
+     * Traverses up the DOM to find an ancestor container which has an overflow
+     * style that allows for scrolling.
+     *
+     * @return {Object} the closest ancestor element with an overflow style that
+     *   allows for scrolling. If none is found, the `window` object is returned
+     *   as a fallback.
+     */
+
+  }, {
+    key: '_findScrollableAncestor',
+    value: function _findScrollableAncestor() {
+      if (this.props.scrollableAncestor) {
+        return this.props.scrollableAncestor;
+      }
+
+      var node = this._ref;
+
+      while (node.parentNode) {
+        node = node.parentNode;
+
+        if (node === document) {
+          // This particular node does not have a computed style.
+          continue;
+        }
+
+        if (node === document.documentElement) {
+          // This particular node does not have a scroll bar, it uses the window.
+          continue;
+        }
+
+        var style = window.getComputedStyle(node);
+        var overflowY = style.getPropertyValue('overflow-y') || style.getPropertyValue('overflow');
+
+        if (overflowY === 'auto' || overflowY === 'scroll') {
+          return node;
+        }
+      }
+
+      // A scrollable ancestor element was not found, which means that we need to
+      // do stuff on window.
+      return window;
+    }
+
+    /**
+     * @param {Object} event the native scroll event coming from the scrollable
+     *   ancestor, or resize event coming from the window. Will be undefined if
+     *   called by a React lifecyle method
+     */
+
+  }, {
+    key: '_handleScroll',
+    value: function _handleScroll(event) {
+      if (!this._ref) {
+        // There's a chance we end up here after the component has been unmounted.
+        return;
+      }
+      var bounds = this._getBounds();
+      var currentPosition = this._currentPosition(bounds);
+      var previousPosition = this._previousPosition || null;
+      if (this.props.debug) {
+        debugLog('currentPosition', currentPosition);
+        debugLog('previousPosition', previousPosition);
+      }
+
+      // Save previous position as early as possible to prevent cycles
+      this._previousPosition = currentPosition;
+
+      if (previousPosition === currentPosition) {
+        // No change since last trigger
+        return;
+      }
+
+      var callbackArg = {
+        currentPosition: currentPosition,
+        previousPosition: previousPosition,
+        event: event,
+        waypointTop: bounds.waypointTop,
+        viewportTop: bounds.viewportTop,
+        viewportBottom: bounds.viewportBottom
+      };
+      this.props.onPositionChange.call(this, callbackArg);
+
+      if (currentPosition === POSITIONS.inside) {
+        this.props.onEnter.call(this, callbackArg);
+      } else if (previousPosition === POSITIONS.inside) {
+        this.props.onLeave.call(this, callbackArg);
+      }
+
+      var isRapidScrollDown = previousPosition === POSITIONS.below && currentPosition === POSITIONS.above;
+      var isRapidScrollUp = previousPosition === POSITIONS.above && currentPosition === POSITIONS.below;
+      if (this.props.fireOnRapidScroll && (isRapidScrollDown || isRapidScrollUp)) {
+        // If the scroll event isn't fired often enough to occur while the
+        // waypoint was visible, we trigger both callbacks anyway.
+        this.props.onEnter.call(this, {
+          currentPosition: POSITIONS.inside,
+          previousPosition: previousPosition,
+          event: event,
+          waypointTop: bounds.waypointTop,
+          viewportTop: bounds.viewportTop,
+          viewportBottom: bounds.viewportBottom
+        });
+        this.props.onLeave.call(this, {
+          currentPosition: currentPosition,
+          previousPosition: POSITIONS.inside,
+          event: event,
+          waypointTop: bounds.waypointTop,
+          viewportTop: bounds.viewportTop,
+          viewportBottom: bounds.viewportBottom
+        });
+      }
+    }
+
+    /**
+     * @param {string|number} offset
+     * @param {number} contextHeight
+     * @return {number} A number representing `offset` converted into pixels.
+     */
+
+  }, {
+    key: '_computeOffsetPixels',
+    value: function _computeOffsetPixels(offset, contextHeight) {
+      var pixelOffset = this._parseOffsetAsPixels(offset);
+      if (typeof pixelOffset === 'number') {
+        return pixelOffset;
+      }
+
+      var percentOffset = this._parseOffsetAsPercentage(offset);
+      if (typeof percentOffset === 'number') {
+        return percentOffset * contextHeight;
+      }
+    }
+
+    /**
+     * Attempts to parse the offset provided as a prop as a pixel value. If
+     * parsing fails, then `undefined` is returned. Three examples of values that
+     * will be successfully parsed are:
+     * `20`
+     * "20px"
+     * "20"
+     *
+     * @param {string|number} str A string of the form "{number}" or "{number}px",
+     *   or just a number.
+     * @return {number|undefined} The numeric version of `str`. Undefined if `str`
+     *   was neither a number nor string ending in "px".
+     */
+
+  }, {
+    key: '_parseOffsetAsPixels',
+    value: function _parseOffsetAsPixels(str) {
+      if (!isNaN(parseFloat(str)) && isFinite(str)) {
+        return parseFloat(str);
+      } else if (str.slice(-2) === 'px') {
+        return parseFloat(str.slice(0, -2));
+      }
+    }
+
+    /**
+     * Attempts to parse the offset provided as a prop as a percentage. For
+     * instance, if the component has been provided with the string "20%" as
+     * a value of one of the offset props. If the value matches, then it returns
+     * a numeric version of the prop. For instance, "20%" would become `0.2`.
+     * If `str` isn't a percentage, then `undefined` will be returned.
+     *
+     * @param {string} str The value of an offset prop to be converted to a
+     *   number.
+     * @return {number|undefined} The numeric version of `str`. Undefined if `str`
+     *   was not a percentage.
+     */
+
+  }, {
+    key: '_parseOffsetAsPercentage',
+    value: function _parseOffsetAsPercentage(str) {
+      if (str.slice(-1) === '%') {
+        return parseFloat(str.slice(0, -1)) / 100;
+      }
+    }
+  }, {
+    key: '_getBounds',
+    value: function _getBounds() {
+      var waypointTop = this._ref.getBoundingClientRect().top;
+      var contextHeight = undefined;
+      var contextScrollTop = undefined;
+      if (this.scrollableAncestor === window) {
+        contextHeight = window.innerHeight;
+        contextScrollTop = 0;
+      } else {
+        contextHeight = this.scrollableAncestor.offsetHeight;
+        contextScrollTop = this.scrollableAncestor.getBoundingClientRect().top;
+      }
+      if (this.props.debug) {
+        debugLog('waypoint top', waypointTop);
+        debugLog('scrollableAncestor height', contextHeight);
+        debugLog('scrollableAncestor scrollTop', contextScrollTop);
+      }
+
+      var _props = this.props;
+      var bottomOffset = _props.bottomOffset;
+      var topOffset = _props.topOffset;
+
+      var topOffsetPx = this._computeOffsetPixels(topOffset, contextHeight);
+      var bottomOffsetPx = this._computeOffsetPixels(bottomOffset, contextHeight);
+      var contextBottom = contextScrollTop + contextHeight;
+
+      return {
+        waypointTop: waypointTop,
+        viewportTop: contextScrollTop + topOffsetPx,
+        viewportBottom: contextBottom - bottomOffsetPx
+      };
+    }
+
+    /**
+     * @param {object} bounds An object with bounds data for the waypoint and
+     *   scrollable parent
+     * @return {string} The current position of the waypoint in relation to the
+     *   visible portion of the scrollable parent. One of `POSITIONS.above`,
+     *   `POSITIONS.below`, or `POSITIONS.inside`.
+     */
+
+  }, {
+    key: '_currentPosition',
+    value: function _currentPosition(bounds) {
+      if (bounds.viewportBottom - bounds.viewportTop === 0) {
+        return Waypoint.invisible;
+      }
+
+      if (bounds.viewportTop <= bounds.waypointTop && bounds.waypointTop <= bounds.viewportBottom) {
+        return Waypoint.inside;
+      }
+
+      if (bounds.viewportBottom < bounds.waypointTop) {
+        return Waypoint.below;
+      }
+
+      if (bounds.waypointTop < bounds.viewportTop) {
+        return Waypoint.above;
+      }
+
+      return Waypoint.invisible;
+    }
+
+    /**
+     * @return {Object}
+     */
+
+  }, {
+    key: 'render',
+    value: function render() {
+      // We need an element that we can locate in the DOM to determine where it is
+      // rendered relative to the top of its context.
+      return _react2.default.createElement('span', { ref: this.refElement, style: { fontSize: 0 } });
+    }
+  }]);
+
+  return Waypoint;
+})(_react2.default.Component);
+
+exports.default = Waypoint;
+
+Waypoint.propTypes = {
+  debug: _react.PropTypes.bool,
+  onEnter: _react.PropTypes.func,
+  onLeave: _react.PropTypes.func,
+  onPositionChange: _react.PropTypes.func,
+  fireOnRapidScroll: _react.PropTypes.bool,
+  scrollableAncestor: _react.PropTypes.any,
+  throttleHandler: _react.PropTypes.func,
+  // `topOffset` can either be a number, in which case its a distance from the
+  // top of the container in pixels, or a string value. Valid string values are
+  // of the form "20px", which is parsed as pixels, or "20%", which is parsed
+  // as a percentage of the height of the containing element.
+  // For instance, if you pass "-20%", and the containing element is 100px tall,
+  // then the waypoint will be triggered when it has been scrolled 20px beyond
+  // the top of the containing element.
+  topOffset: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.number]),
+  // `bottomOffset` is like `topOffset`, but for the bottom of the container.
+  bottomOffset: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.number])
+};
+Waypoint.above = POSITIONS.above;
+Waypoint.below = POSITIONS.below;
+Waypoint.inside = POSITIONS.inside;
+Waypoint.invisible = POSITIONS.invisible;
+Waypoint.getWindow = function () {
+  if (typeof window !== 'undefined') {
+    return window;
+  }
+};
+Waypoint.defaultProps = defaultProps;
+Waypoint.displayName = 'Waypoint';
+module.exports = exports['default'];
+
+},{"react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\AutoFocusUtils.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.

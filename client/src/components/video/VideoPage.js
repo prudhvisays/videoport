@@ -7,7 +7,9 @@ import NavigationBar from "../NavigationBar";
      return (
        <div>
        <VideosHeader/>
+             <div style={{'height':'59px'}}>
        <NavigationBar/>
+       </div>
       <div className="container">
 
      <VideoGrid />

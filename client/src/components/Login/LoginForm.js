@@ -32,7 +32,7 @@ class LoginForm extends React.Component {
       (res) => {
         console.log(this.props.userData.error);
               if(this.props.userData.isAuthenticated){
-                this.context.router.push("/login");
+                this.context.router.push("/");
               }else{
                 this.setState({ errors: this.props.userData })
                 console.log(this.state.errors)

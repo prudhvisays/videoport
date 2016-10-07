@@ -41,6 +41,31 @@ main{
     text-indent: -9999px;
 }
 
+/*header logo*/
+.block-logo {
+    position: relative;
+    width: 155px;
+    height: 30px;
+    float: left;
+}
+
+.block-logo canvas,
+.block-logo .block-logo-mask {
+    display: block;
+    width: 155px;
+    height: 30px;
+}
+
+.block-logo .block-logo-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: 155px 30px;
+    background-image: url("images/logo.png");
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+}
+
 /*Buttons*/
 
 button {
@@ -218,7 +243,7 @@ button:hover {
   margin: 0;
 }
 .video-card .video-card-meta {
-  max-height: 0;
+  max-height: 2em;
   overflow: hidden;
   color: #666;
   font-size: .78em;
@@ -226,6 +251,7 @@ button:hover {
   position: absolute;
   bottom: 5%;
   padding: 0 5%;
+
   -moz-transition-property: max-height;
   -o-transition-property: max-height;
   -webkit-transition-property: max-height;
@@ -248,9 +274,7 @@ button:hover {
 .video-card:hover .video-card-title, .video-card:focus .video-card-title {
   background: rgba(157, 187, 63, 0.95);
 }
-.video-card:hover .video-card-meta, .video-card:focus .video-card-meta {
-  max-height: 1em;
-}
+
 
 
 * {
@@ -272,7 +296,7 @@ button:hover {
 
 .title-box{
  position: relative;
- height: 307px;
+ height: 188px;
  background-color:#fff;
  background-size:contain;
  background-position: top center;
@@ -295,8 +319,8 @@ button:hover {
     /*background-color: rgba(255, 192, 203, 0.18);*/
     background-image: url("images/videoheader/camera.png");
     background-repeat: no-repeat;
-    background-position: 97% -6%;
-    background-size: 200px 200px;
+    background-position: 97% -32%;
+    background-size: 170px 170px;
     position: absolute;
 
   }
@@ -306,8 +330,8 @@ button:hover {
     /*background-color: rgba(255, 192, 203, 0.18);*/
     background-image: url("images/videoheader/highreel.png");
     background-repeat: no-repeat;
-    background-position: 9% -42%;
-    background-size: 180px 180px;
+    background-position: 14% -31%;
+    background-size: 170px 170px;
     position: absolute;
   }
 
@@ -317,8 +341,8 @@ button:hover {
     /*background-color: rgba(255, 192, 203, 0.18);*/
     background-image: url("images/videoheader/miniwheel.png");
     background-repeat: no-repeat;
-    background-position: 74% -41%;
-    background-size: 150px 150px;
+    background-position: 74% -28%;
+    background-size: 130px 130px;
     position: absolute;
   }
 
@@ -328,8 +352,8 @@ button:hover {
     /*background-color: rgba(255, 192, 203, 0.18);*/
     background-image: url("images/videoheader/nanowheel.png");
     background-repeat: no-repeat;
-    background-position: -4% 13%;
-    background-size: 130px 130px;
+    background-position: -3% -6%;
+    background-size: 100px 100px;
     position: absolute;
   }
 
@@ -339,8 +363,8 @@ button:hover {
     /*background-color: rgba(255, 192, 203, 0.18);*/
     background-image: url("images/videoheader/bigwheel.png");
     background-repeat: no-repeat;
-    background-position: 48% 85%;
-    background-size: 200px 200px;
+    background-position: 48% 38%;
+    background-size: 160px 160px;
     position: absolute;
 
   }
@@ -350,8 +374,8 @@ button:hover {
     /*background-color: rgba(255, 192, 203, 0.18);*/
     background-image: url("images/videoheader/clap.png");
     background-repeat: no-repeat;
-    background-position: -2% 91%;
-    background-size: 310px 310px;
+    background-position: -2% 30%;
+    background-size: 170px 170px;
     position: absolute;
 
   }
@@ -361,8 +385,8 @@ button:hover {
     /*background-color: rgba(255, 192, 203, 0.18);*/
     background-image: url("images/videoheader/lowreel.png");
     background-repeat: no-repeat;
-    background-position: 77% 70%;
-    background-size: 210px 210px;
+    background-position: 77% 29%;
+    background-size: 160px 160px;
     position: absolute;
 
   }
@@ -566,14 +590,9 @@ fieldset {
 }
 
 /*Navbar*/
-.navFixed {
-	top: 0;
-	height: 50px;
-	z-index: 1;
-  width: 100%;
-  background-color: #596174;
-  color:#fff;
-}
+/*.navbar+.container{
+  padding-top: 40px;
+}*/
 /*Login-Page*/
 
 
@@ -593,5 +612,3 @@ h6{
 p{
   font-size: 0.86rem !important;
 }
-
-/*display*/

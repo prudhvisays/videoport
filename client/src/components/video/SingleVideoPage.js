@@ -4,6 +4,8 @@ import { fetchSingleVideo } from "../../actions/videoActions";
 import { map } from "lodash";
 import { Link } from "react-router";
 import NavigationBar from "../NavigationBar";
+import StarRating from "../rating/StarRating";
+import DefaultRate from "../rating/DefaultRate";
 
 class SingleVideoPage extends React.Component{
   constructor(props){
@@ -11,7 +13,8 @@ class SingleVideoPage extends React.Component{
     this.state = {
       video:{
         name:'',
-        description:''
+        description:'',
+        ratings:[2,4]
       },
       sessionId:"",
       expanded:false
@@ -71,8 +74,10 @@ getMoretext(){
     </Link>
     <div className="media-body">
         <h6 className="media-heading">{video.name.substring(3)}</h6>
-        <p>{video.description.substring(0,60)}</p>
+        <p className="lead">{video.description.substring(0,60)}</p>
+        <p class="card-text"><small className="text-muted"><DefaultRate rating={video.ratings}/></small></p>
     </div>
+
     </div>
   );
 
@@ -94,12 +99,16 @@ getMoretext(){
                     <div className="card">
                     <div className="card-block">
                         <h4 className="card-title">{video.name.substring(4)}</h4>
-                        <p className="card-text">{video.description.substring(0,180)}
-                        {!this.state.expanded ? <a onClick={this.expandedText} style={{color:'blue'}}> Read more</a> : null}{ expandedTexts }</p>
+<div className="text-xs-right"><DefaultRate rating={video.ratings} /><div>
+
+                          <p className="card-text">{video.description.substring(0,180)}
+                          {!this.state.expanded ? <a onClick={this.expandedText}> Read more</a> : null}{ expandedTexts }</p>
+
+
                       </div>
                       <div className="container-fluid">
                           <ul className="list-group list-group-flush">
-                            <li className="list-group-item">Cras justo odio</li>
+                            <li className="list-group-item"><StarRating/></li>
                           </ul>
                       </div>
 

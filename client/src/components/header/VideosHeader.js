@@ -25,9 +25,10 @@ handleScroll(event){
 
   render(){
     const cameraHeader = { transform : 'translate(0px, '+ this.state.transform /50 + '%)' }
-    const bigwheelHeader = { transform : 'translate(0px, -'+ this.state.transform /35 + '%)' }
+    const bigwheelHeader = { transform : 'translate(0px, '+ this.state.transform /18 + '%)' }
     const clapHeader = { transform : 'translate(0px, -'+ this.state.transform /60 + '%)' }
     const lineHeader = { transform : 'translate(0px, -'+ this.state.transform /60 + '%)' }
+    const titleHeader = { transform : 'translate(0px, '+ this.state.transform /5 + '%)' }
     console.log(cameraHeader);
     return(
   <header className="title-box">
@@ -37,7 +38,7 @@ handleScroll(event){
         <div className="highreel-header"></div>
         <div className="miniwheel-header"></div>
         <div className="nanowheel-header"></div>
-      <div className="logo">
+      <div className="logo" style={titleHeader}>
         <h1>VIDEOS</h1>
       </div>
 
