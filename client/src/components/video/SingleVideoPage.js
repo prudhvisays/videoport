@@ -89,42 +89,46 @@ getMoretext(){
       // </div>
       <div>
       <NavigationBar/>
-              <div className="container" style={{'marginTop':'10px'}}>
-                  <div className="row">
-                    <div className="col-md-8">
-                    <div className="card">
-                    <video className="card-img-top" ref={video._id} src={videoUrl} width="100%"  controls>
-                    </video>
-                    </div>
-                    <div className="card">
-                    <div className="card-block">
-                        <h4 className="card-title">{video.name.substring(4)}</h4>
-<div className="text-xs-right"><DefaultRate rating={video.ratings} /><div>
+      <div className="container" style={{ 'marginTop': '10px'}}>
+          <div className="row">
+              <div className="col-md-8">
+                  <div className="card">
+                      <video className="card-img-top" ref={video._id} src={videoUrl} width="100%" controls>
+                      </video>
+                  </div>
+                  <div className="card">
+                      <div className="card-block">
+                          <h4 className="card-title">{video.name.substring(4)}</h4>
+                          <div className="text-xs-right">
+                              <DefaultRate rating={video.ratings} />
+                              <div>
 
-                          <p className="card-text">{video.description.substring(0,180)}
-                          {!this.state.expanded ? <a onClick={this.expandedText}> Read more</a> : null}{ expandedTexts }</p>
+                                  <p className="card-text">{video.description.substring(0,180)} {!this.state.expanded ? <a onClick={this.expandedText}> Read more</a> : null}{ expandedTexts }</p>
 
 
+                              </div>
+                              <div className="container-fluid">
+                                  <ul className="list-group list-group-flush">
+                                      <li className="list-group-item">
+                                          <StarRating/>
+                                      </li>
+                                  </ul>
+                              </div>
+
+                          </div>
                       </div>
-                      <div className="container-fluid">
-                          <ul className="list-group list-group-flush">
-                            <li className="list-group-item"><StarRating/></li>
-                          </ul>
-                      </div>
+                      <div className="col-md-4">
+                          <div className="card">
+                              <div className="container-fluid">
+                                  {videoList}
+                              </div>
 
-                    </div>
-                    </div>
-                    <div className="col-md-4">
-                      <div className="card">
-                      <div className="container-fluid">
-                        {videoList}
+                          </div>
                       </div>
-
                   </div>
               </div>
-              </div>
-              </div>
-
+          </div>
+        </div>
       </div>
 
     )

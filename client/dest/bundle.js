@@ -1,4 +1,4 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\actions\\authActions.js":[function(require,module,exports){
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"D:\\React\\videoport\\client\\src\\actions\\authActions.js":[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -72,7 +72,7 @@ function login(userData) {
   };
 }
 
-},{"../utilities/setAuthorizationToken":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\utilities\\setAuthorizationToken.js","./types":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\actions\\types.js","axios":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\actions\\types.js":[function(require,module,exports){
+},{"../utilities/setAuthorizationToken":"D:\\React\\videoport\\client\\src\\utilities\\setAuthorizationToken.js","./types":"D:\\React\\videoport\\client\\src\\actions\\types.js","axios":"D:\\React\\videoport\\node_modules\\axios\\index.js"}],"D:\\React\\videoport\\client\\src\\actions\\types.js":[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -85,7 +85,7 @@ var PLAY_VIDEO = exports.PLAY_VIDEO = "PLAY_VIDEO";
 var PAUSE_VIDEO = exports.PAUSE_VIDEO = "PAUSE_VIDEO";
 var SINGLE_VIDEO = exports.SINGLE_VIDEO = "SINGLE_VIDEO";
 
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\actions\\videoActions.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\client\\src\\actions\\videoActions.js":[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -160,7 +160,7 @@ function videoList(sessionId) {
   };
 }
 
-},{"./types":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\actions\\types.js","axios":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\common\\TextFieldGroup.js":[function(require,module,exports){
+},{"./types":"D:\\React\\videoport\\client\\src\\actions\\types.js","axios":"D:\\React\\videoport\\node_modules\\axios\\index.js"}],"D:\\React\\videoport\\client\\src\\common\\TextFieldGroup.js":[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -191,7 +191,9 @@ var TextFieldGroup = function TextFieldGroup(_ref) {
       value: value,
       type: type,
       name: field,
-      placeholder: label })
+      placeholder: label,
+      className: "txtInput"
+    })
   );
 };
 
@@ -208,7 +210,7 @@ TextFieldGroup.defaultProps = {
 
 exports.default = TextFieldGroup;
 
-},{"classnames":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\classnames\\index.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\App.js":[function(require,module,exports){
+},{"classnames":"D:\\React\\videoport\\node_modules\\classnames\\index.js","react":"D:\\React\\videoport\\node_modules\\react\\react.js"}],"D:\\React\\videoport\\client\\src\\components\\App.js":[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -254,7 +256,7 @@ var App = function (_React$Component) {
 
 exports.default = App;
 
-},{"react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\Login\\LoginForm.js":[function(require,module,exports){
+},{"react":"D:\\React\\videoport\\node_modules\\react\\react.js"}],"D:\\React\\videoport\\client\\src\\components\\Login\\LoginForm.js":[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -354,11 +356,6 @@ var LoginForm = function (_React$Component) {
       return _react2.default.createElement(
         "form",
         { onSubmit: this.onSubmit },
-        errors.error && _react2.default.createElement(
-          "span",
-          null,
-          errors.error
-        ),
         _react2.default.createElement(_TextFieldGroup2.default, {
           field: "username",
           value: username,
@@ -373,9 +370,22 @@ var LoginForm = function (_React$Component) {
           type: "password"
         }),
         _react2.default.createElement(
-          "button",
+          "div",
           null,
-          "loginss"
+          errors.error && _react2.default.createElement(
+            "span",
+            null,
+            _react2.default.createElement(
+              "i",
+              { className: "errorMsg" },
+              errors.error
+            )
+          )
+        ),
+        _react2.default.createElement(
+          "button",
+          { className: "loginBtn" },
+          "LOGIN"
         )
       );
     }
@@ -400,7 +410,7 @@ function mapStateToProps(state) {
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, { login: _authActions.login })(LoginForm);
 
-},{"../../actions/authActions":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\actions\\authActions.js","../../common/TextFieldGroup":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\common\\TextFieldGroup.js","../../validations/Login.js":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\validations\\Login.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js","react-redux":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-redux\\lib\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\Login\\LoginPage.js":[function(require,module,exports){
+},{"../../actions/authActions":"D:\\React\\videoport\\client\\src\\actions\\authActions.js","../../common/TextFieldGroup":"D:\\React\\videoport\\client\\src\\common\\TextFieldGroup.js","../../validations/Login.js":"D:\\React\\videoport\\client\\src\\validations\\Login.js","react":"D:\\React\\videoport\\node_modules\\react\\react.js","react-redux":"D:\\React\\videoport\\node_modules\\react-redux\\lib\\index.js"}],"D:\\React\\videoport\\client\\src\\components\\Login\\LoginPage.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -454,7 +464,7 @@ var LoginPage = function (_React$Component) {
 
 exports.default = LoginPage;
 
-},{"../../actions/authActions":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\actions\\authActions.js","./LoginForm":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\Login\\LoginForm.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js","react-redux":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-redux\\lib\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\NavigationBar.js":[function(require,module,exports){
+},{"../../actions/authActions":"D:\\React\\videoport\\client\\src\\actions\\authActions.js","./LoginForm":"D:\\React\\videoport\\client\\src\\components\\Login\\LoginForm.js","react":"D:\\React\\videoport\\node_modules\\react\\react.js","react-redux":"D:\\React\\videoport\\node_modules\\react-redux\\lib\\index.js"}],"D:\\React\\videoport\\client\\src\\components\\NavigationBar.js":[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -630,7 +640,7 @@ function mapStateToProps(state) {
 }
 exports.default = (0, _reactRedux.connect)(mapStateToProps, { logout: _authActions.logout })(NavigationBar);
 
-},{"../actions/authActions":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\actions\\authActions.js","classnames":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\classnames\\index.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js","react-redux":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-redux\\lib\\index.js","react-router":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\header\\VideosHeader.js":[function(require,module,exports){
+},{"../actions/authActions":"D:\\React\\videoport\\client\\src\\actions\\authActions.js","classnames":"D:\\React\\videoport\\node_modules\\classnames\\index.js","react":"D:\\React\\videoport\\node_modules\\react\\react.js","react-redux":"D:\\React\\videoport\\node_modules\\react-redux\\lib\\index.js","react-router":"D:\\React\\videoport\\node_modules\\react-router\\lib\\index.js"}],"D:\\React\\videoport\\client\\src\\components\\header\\VideosHeader.js":[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -725,7 +735,7 @@ var VideosHeader = function (_React$Component) {
 
 exports.default = VideosHeader;
 
-},{"../NavigationBar":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\NavigationBar.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\modals\\LoginModal.js":[function(require,module,exports){
+},{"../NavigationBar":"D:\\React\\videoport\\client\\src\\components\\NavigationBar.js","react":"D:\\React\\videoport\\node_modules\\react\\react.js"}],"D:\\React\\videoport\\client\\src\\components\\modals\\LoginModal.js":[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -807,7 +817,7 @@ var LoginModal = function (_React$Component) {
 
 exports.default = LoginModal;
 
-},{"../Login/LoginPage":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\Login\\LoginPage.js","boron/WaveModal":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\boron\\WaveModal.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\rating\\DefaultRate.js":[function(require,module,exports){
+},{"../Login/LoginPage":"D:\\React\\videoport\\client\\src\\components\\Login\\LoginPage.js","boron/WaveModal":"D:\\React\\videoport\\node_modules\\boron\\WaveModal.js","react":"D:\\React\\videoport\\node_modules\\react\\react.js"}],"D:\\React\\videoport\\client\\src\\components\\rating\\DefaultRate.js":[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -883,7 +893,7 @@ var DefaultRate = function (_React$Component) {
 
 exports.default = DefaultRate;
 
-},{"./Star":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\rating\\Star.js","lodash":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\lodash.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\rating\\Star.js":[function(require,module,exports){
+},{"./Star":"D:\\React\\videoport\\client\\src\\components\\rating\\Star.js","lodash":"D:\\React\\videoport\\node_modules\\lodash\\lodash.js","react":"D:\\React\\videoport\\node_modules\\react\\react.js"}],"D:\\React\\videoport\\client\\src\\components\\rating\\Star.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -931,7 +941,7 @@ var Star = function (_React$Component) {
 
 exports.default = Star;
 
-},{"react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\rating\\StarRating.js":[function(require,module,exports){
+},{"react":"D:\\React\\videoport\\node_modules\\react\\react.js"}],"D:\\React\\videoport\\client\\src\\components\\rating\\StarRating.js":[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1008,7 +1018,7 @@ var StarRating = function (_React$Component) {
 
 exports.default = StarRating;
 
-},{"./Star":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\rating\\Star.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\test\\Greetings.js":[function(require,module,exports){
+},{"./Star":"D:\\React\\videoport\\client\\src\\components\\rating\\Star.js","react":"D:\\React\\videoport\\node_modules\\react\\react.js"}],"D:\\React\\videoport\\client\\src\\components\\test\\Greetings.js":[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1028,6 +1038,10 @@ var _reactRedux = require("react-redux");
 var _LoginModal = require("../modals/LoginModal");
 
 var _LoginModal2 = _interopRequireDefault(_LoginModal);
+
+var _LoginPage = require("../Login/LoginPage");
+
+var _LoginPage2 = _interopRequireDefault(_LoginPage);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1094,12 +1108,7 @@ var Greetings = function (_React$Component) {
           _react2.default.createElement(
             "div",
             { className: "panel pink" },
-            _react2.default.createElement(
-              "button",
-              null,
-              "LOGIN"
-            ),
-            _react2.default.createElement(_LoginModal2.default, null),
+            _react2.default.createElement(_LoginPage2.default, null),
             _react2.default.createElement(
               _reactRouter.Link,
               { to: "/login" },
@@ -1126,7 +1135,7 @@ function mapStateToProps(state) {
 }
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Greetings);
 
-},{"../modals/LoginModal":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\modals\\LoginModal.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js","react-redux":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-redux\\lib\\index.js","react-router":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\video\\SingleVideoPage.js":[function(require,module,exports){
+},{"../Login/LoginPage":"D:\\React\\videoport\\client\\src\\components\\Login\\LoginPage.js","../modals/LoginModal":"D:\\React\\videoport\\client\\src\\components\\modals\\LoginModal.js","react":"D:\\React\\videoport\\node_modules\\react\\react.js","react-redux":"D:\\React\\videoport\\node_modules\\react-redux\\lib\\index.js","react-router":"D:\\React\\videoport\\node_modules\\react-router\\lib\\index.js"}],"D:\\React\\videoport\\client\\src\\components\\video\\SingleVideoPage.js":[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1318,50 +1327,55 @@ var SingleVideoPage = function (_React$Component) {
                     _react2.default.createElement(
                       "h4",
                       { className: "card-title" },
-                      video.name.substring(4),
-                      _react2.default.createElement(
-                        "span",
-                        { className: "text-xs-right" },
-                        _react2.default.createElement(_DefaultRate2.default, { rating: video.ratings })
-                      )
+                      video.name.substring(4)
                     ),
                     _react2.default.createElement(
-                      "p",
-                      { className: "card-text" },
-                      video.description.substring(0, 180),
-                      !this.state.expanded ? _react2.default.createElement(
-                        "a",
-                        { onClick: this.expandedText },
-                        " Read more"
-                      ) : null,
-                      expandedTexts
+                      "div",
+                      { className: "text-xs-right" },
+                      _react2.default.createElement(_DefaultRate2.default, { rating: video.ratings }),
+                      _react2.default.createElement(
+                        "div",
+                        null,
+                        _react2.default.createElement(
+                          "p",
+                          { className: "card-text" },
+                          video.description.substring(0, 180),
+                          " ",
+                          !this.state.expanded ? _react2.default.createElement(
+                            "a",
+                            { onClick: this.expandedText },
+                            " Read more"
+                          ) : null,
+                          expandedTexts
+                        )
+                      ),
+                      _react2.default.createElement(
+                        "div",
+                        { className: "container-fluid" },
+                        _react2.default.createElement(
+                          "ul",
+                          { className: "list-group list-group-flush" },
+                          _react2.default.createElement(
+                            "li",
+                            { className: "list-group-item" },
+                            _react2.default.createElement(_StarRating2.default, null)
+                          )
+                        )
+                      )
                     )
                   ),
                   _react2.default.createElement(
                     "div",
-                    { className: "container-fluid" },
+                    { className: "col-md-4" },
                     _react2.default.createElement(
-                      "ul",
-                      { className: "list-group list-group-flush" },
+                      "div",
+                      { className: "card" },
                       _react2.default.createElement(
-                        "li",
-                        { className: "list-group-item" },
-                        _react2.default.createElement(_StarRating2.default, null)
+                        "div",
+                        { className: "container-fluid" },
+                        videoList
                       )
                     )
-                  )
-                )
-              ),
-              _react2.default.createElement(
-                "div",
-                { className: "col-md-4" },
-                _react2.default.createElement(
-                  "div",
-                  { className: "card" },
-                  _react2.default.createElement(
-                    "div",
-                    { className: "container-fluid" },
-                    videoList
                   )
                 )
               )
@@ -1384,7 +1398,7 @@ function mapStateToProps(state) {
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchSingleVideo: _videoActions.fetchSingleVideo })(SingleVideoPage);
 
-},{"../../actions/videoActions":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\actions\\videoActions.js","../NavigationBar":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\NavigationBar.js","../rating/DefaultRate":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\rating\\DefaultRate.js","../rating/StarRating":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\rating\\StarRating.js","lodash":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\lodash.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js","react-redux":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-redux\\lib\\index.js","react-router":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\video\\Video.js":[function(require,module,exports){
+},{"../../actions/videoActions":"D:\\React\\videoport\\client\\src\\actions\\videoActions.js","../NavigationBar":"D:\\React\\videoport\\client\\src\\components\\NavigationBar.js","../rating/DefaultRate":"D:\\React\\videoport\\client\\src\\components\\rating\\DefaultRate.js","../rating/StarRating":"D:\\React\\videoport\\client\\src\\components\\rating\\StarRating.js","lodash":"D:\\React\\videoport\\node_modules\\lodash\\lodash.js","react":"D:\\React\\videoport\\node_modules\\react\\react.js","react-redux":"D:\\React\\videoport\\node_modules\\react-redux\\lib\\index.js","react-router":"D:\\React\\videoport\\node_modules\\react-router\\lib\\index.js"}],"D:\\React\\videoport\\client\\src\\components\\video\\Video.js":[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1487,7 +1501,7 @@ Video.contextTypes = {
 
 exports.default = Video;
 
-},{"../rating/DefaultRate":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\rating\\DefaultRate.js","./VideoUtil":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\video\\VideoUtil.js","lodash":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\lodash.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js","react-router":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\video\\VideoGrid.js":[function(require,module,exports){
+},{"../rating/DefaultRate":"D:\\React\\videoport\\client\\src\\components\\rating\\DefaultRate.js","./VideoUtil":"D:\\React\\videoport\\client\\src\\components\\video\\VideoUtil.js","lodash":"D:\\React\\videoport\\node_modules\\lodash\\lodash.js","react":"D:\\React\\videoport\\node_modules\\react\\react.js","react-router":"D:\\React\\videoport\\node_modules\\react-router\\lib\\index.js"}],"D:\\React\\videoport\\client\\src\\components\\video\\VideoGrid.js":[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1570,7 +1584,7 @@ function mapStateToProps(state) {
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, { videoList: _videoActions.videoList, onPlay: _videoActions.onPlay, onPause: _videoActions.onPause, fetchSingleVideo: _videoActions.fetchSingleVideo })(VideoGrid);
 
-},{"../../actions/videoActions":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\actions\\videoActions.js","./Video":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\video\\Video.js","lodash":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\lodash.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js","react-redux":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-redux\\lib\\index.js","react-waypoint":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-waypoint\\build\\npm\\waypoint.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\video\\VideoPage.js":[function(require,module,exports){
+},{"../../actions/videoActions":"D:\\React\\videoport\\client\\src\\actions\\videoActions.js","./Video":"D:\\React\\videoport\\client\\src\\components\\video\\Video.js","lodash":"D:\\React\\videoport\\node_modules\\lodash\\lodash.js","react":"D:\\React\\videoport\\node_modules\\react\\react.js","react-redux":"D:\\React\\videoport\\node_modules\\react-redux\\lib\\index.js","react-waypoint":"D:\\React\\videoport\\node_modules\\react-waypoint\\build\\npm\\waypoint.js"}],"D:\\React\\videoport\\client\\src\\components\\video\\VideoPage.js":[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1638,7 +1652,7 @@ var VideoPage = function (_React$Component) {
 
 exports.default = VideoPage;
 
-},{"../NavigationBar":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\NavigationBar.js","../header/VideosHeader":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\header\\VideosHeader.js","./VideoGrid":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\video\\VideoGrid.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\video\\VideoUtil.js":[function(require,module,exports){
+},{"../NavigationBar":"D:\\React\\videoport\\client\\src\\components\\NavigationBar.js","../header/VideosHeader":"D:\\React\\videoport\\client\\src\\components\\header\\VideosHeader.js","./VideoGrid":"D:\\React\\videoport\\client\\src\\components\\video\\VideoGrid.js","react":"D:\\React\\videoport\\node_modules\\react\\react.js"}],"D:\\React\\videoport\\client\\src\\components\\video\\VideoUtil.js":[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1727,7 +1741,7 @@ var VideoUtil = function (_React$Component) {
 
 exports.default = VideoUtil;
 
-},{"react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\index.js":[function(require,module,exports){
+},{"react":"D:\\React\\videoport\\node_modules\\react\\react.js"}],"D:\\React\\videoport\\client\\src\\index.js":[function(require,module,exports){
 "use strict";
 
 var _react = require("react");
@@ -1788,7 +1802,7 @@ if (retrievedSessionData) {
     }, history: _reactRouter.browserHistory, routes: _routes2.default })
 ), document.getElementById('app'));
 
-},{"../../node_modules/granim/dist/granim.min.js":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\granim\\dist\\granim.min.js","./actions/authActions":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\actions\\authActions.js","./rootReducer":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\rootReducer.js","./routes":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\routes.js","./utilities/setAuthorizationToken":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\utilities\\setAuthorizationToken.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js","react-dom":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-dom\\index.js","react-redux":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-redux\\lib\\index.js","react-router":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\index.js","redux":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\redux\\lib\\index.js","redux-thunk":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\redux-thunk\\lib\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\reducers\\authReducers.js":[function(require,module,exports){
+},{"../../node_modules/granim/dist/granim.min.js":"D:\\React\\videoport\\node_modules\\granim\\dist\\granim.min.js","./actions/authActions":"D:\\React\\videoport\\client\\src\\actions\\authActions.js","./rootReducer":"D:\\React\\videoport\\client\\src\\rootReducer.js","./routes":"D:\\React\\videoport\\client\\src\\routes.js","./utilities/setAuthorizationToken":"D:\\React\\videoport\\client\\src\\utilities\\setAuthorizationToken.js","react":"D:\\React\\videoport\\node_modules\\react\\react.js","react-dom":"D:\\React\\videoport\\node_modules\\react-dom\\index.js","react-redux":"D:\\React\\videoport\\node_modules\\react-redux\\lib\\index.js","react-router":"D:\\React\\videoport\\node_modules\\react-router\\lib\\index.js","redux":"D:\\React\\videoport\\node_modules\\redux\\lib\\index.js","redux-thunk":"D:\\React\\videoport\\node_modules\\redux-thunk\\lib\\index.js"}],"D:\\React\\videoport\\client\\src\\reducers\\authReducers.js":[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1810,7 +1824,7 @@ var initialState = {
 };
 
 exports.default = function () {
-  var state = arguments.length <= 0 || arguments[0] === undefined ? initialState : arguments[0];
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
   var action = arguments[1];
 
   switch (action.type) {
@@ -1830,14 +1844,14 @@ exports.default = function () {
   }
 };
 
-},{"lodash/isEmpty":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\isEmpty.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\reducers\\videoReducers.js":[function(require,module,exports){
+},{"lodash/isEmpty":"D:\\React\\videoport\\node_modules\\lodash\\isEmpty.js"}],"D:\\React\\videoport\\client\\src\\reducers\\videoReducers.js":[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -1857,7 +1871,7 @@ var initialState = {
 };
 
 exports.default = function () {
-    var state = arguments.length <= 0 || arguments[0] === undefined ? initialState : arguments[0];
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
     var action = arguments[1];
 
     switch (action.type) {
@@ -1938,7 +1952,7 @@ function copy(o) {
     return output;
 };
 
-},{"../actions/types":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\actions\\types.js","lodash":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\lodash.js","lodash/isEmpty":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\isEmpty.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\rootReducer.js":[function(require,module,exports){
+},{"../actions/types":"D:\\React\\videoport\\client\\src\\actions\\types.js","lodash":"D:\\React\\videoport\\node_modules\\lodash\\lodash.js","lodash/isEmpty":"D:\\React\\videoport\\node_modules\\lodash\\isEmpty.js"}],"D:\\React\\videoport\\client\\src\\rootReducer.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1962,7 +1976,7 @@ exports.default = (0, _redux.combineReducers)({
   videoReducers: _videoReducers2.default
 });
 
-},{"./reducers/authReducers":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\reducers\\authReducers.js","./reducers/videoReducers":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\reducers\\videoReducers.js","redux":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\redux\\lib\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\routes.js":[function(require,module,exports){
+},{"./reducers/authReducers":"D:\\React\\videoport\\client\\src\\reducers\\authReducers.js","./reducers/videoReducers":"D:\\React\\videoport\\client\\src\\reducers\\videoReducers.js","redux":"D:\\React\\videoport\\node_modules\\redux\\lib\\index.js"}],"D:\\React\\videoport\\client\\src\\routes.js":[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2010,7 +2024,7 @@ exports.default = _react2.default.createElement(
   _react2.default.createElement(_reactRouter.Route, { path: "/video/:sessionId/:videoId", component: (0, _requireAuth2.default)(_SingleVideoPage2.default) })
 );
 
-},{"./components/App.js":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\App.js","./components/Login/LoginPage":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\Login\\LoginPage.js","./components/test/Greetings":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\test\\Greetings.js","./components/video/SingleVideoPage":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\video\\SingleVideoPage.js","./components/video/VideoPage":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\components\\video\\VideoPage.js","./utilities/requireAuth":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\utilities\\requireAuth.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js","react-router":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\utilities\\requireAuth.js":[function(require,module,exports){
+},{"./components/App.js":"D:\\React\\videoport\\client\\src\\components\\App.js","./components/Login/LoginPage":"D:\\React\\videoport\\client\\src\\components\\Login\\LoginPage.js","./components/test/Greetings":"D:\\React\\videoport\\client\\src\\components\\test\\Greetings.js","./components/video/SingleVideoPage":"D:\\React\\videoport\\client\\src\\components\\video\\SingleVideoPage.js","./components/video/VideoPage":"D:\\React\\videoport\\client\\src\\components\\video\\VideoPage.js","./utilities/requireAuth":"D:\\React\\videoport\\client\\src\\utilities\\requireAuth.js","react":"D:\\React\\videoport\\node_modules\\react\\react.js","react-router":"D:\\React\\videoport\\node_modules\\react-router\\lib\\index.js"}],"D:\\React\\videoport\\client\\src\\utilities\\requireAuth.js":[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2083,7 +2097,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-},{"react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js","react-redux":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-redux\\lib\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\utilities\\setAuthorizationToken.js":[function(require,module,exports){
+},{"react":"D:\\React\\videoport\\node_modules\\react\\react.js","react-redux":"D:\\React\\videoport\\node_modules\\react-redux\\lib\\index.js"}],"D:\\React\\videoport\\client\\src\\utilities\\setAuthorizationToken.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2106,7 +2120,7 @@ function setAuthorizationToken(token) {
   }
 }
 
-},{"axios":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\validations\\Login.js":[function(require,module,exports){
+},{"axios":"D:\\React\\videoport\\node_modules\\axios\\index.js"}],"D:\\React\\videoport\\client\\src\\validations\\Login.js":[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2140,9 +2154,9 @@ function validateInput(data) {
   };
 }
 
-},{"lodash/isEmpty":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\isEmpty.js","validator":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\index.js":[function(require,module,exports){
+},{"lodash/isEmpty":"D:\\React\\videoport\\node_modules\\lodash\\isEmpty.js","validator":"D:\\React\\videoport\\node_modules\\validator\\index.js"}],"D:\\React\\videoport\\node_modules\\axios\\index.js":[function(require,module,exports){
 module.exports = require('./lib/axios');
-},{"./lib/axios":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\axios.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\adapters\\xhr.js":[function(require,module,exports){
+},{"./lib/axios":"D:\\React\\videoport\\node_modules\\axios\\lib\\axios.js"}],"D:\\React\\videoport\\node_modules\\axios\\lib\\adapters\\xhr.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -2309,7 +2323,7 @@ module.exports = function xhrAdapter(config) {
 
 }).call(this,require('_process'))
 
-},{"../core/createError":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\core\\createError.js","./../core/settle":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\core\\settle.js","./../helpers/btoa":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\helpers\\btoa.js","./../helpers/buildURL":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\helpers\\buildURL.js","./../helpers/cookies":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\helpers\\cookies.js","./../helpers/isURLSameOrigin":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\helpers\\isURLSameOrigin.js","./../helpers/parseHeaders":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\helpers\\parseHeaders.js","./../utils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\utils.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\axios.js":[function(require,module,exports){
+},{"../core/createError":"D:\\React\\videoport\\node_modules\\axios\\lib\\core\\createError.js","./../core/settle":"D:\\React\\videoport\\node_modules\\axios\\lib\\core\\settle.js","./../helpers/btoa":"D:\\React\\videoport\\node_modules\\axios\\lib\\helpers\\btoa.js","./../helpers/buildURL":"D:\\React\\videoport\\node_modules\\axios\\lib\\helpers\\buildURL.js","./../helpers/cookies":"D:\\React\\videoport\\node_modules\\axios\\lib\\helpers\\cookies.js","./../helpers/isURLSameOrigin":"D:\\React\\videoport\\node_modules\\axios\\lib\\helpers\\isURLSameOrigin.js","./../helpers/parseHeaders":"D:\\React\\videoport\\node_modules\\axios\\lib\\helpers\\parseHeaders.js","./../utils":"D:\\React\\videoport\\node_modules\\axios\\lib\\utils.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js"}],"D:\\React\\videoport\\node_modules\\axios\\lib\\axios.js":[function(require,module,exports){
 'use strict';
 
 var utils = require('./utils');
@@ -2357,7 +2371,7 @@ module.exports = axios;
 // Allow use of default import syntax in TypeScript
 module.exports.default = axios;
 
-},{"./core/Axios":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\core\\Axios.js","./helpers/bind":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\helpers\\bind.js","./helpers/spread":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\helpers\\spread.js","./utils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\utils.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\core\\Axios.js":[function(require,module,exports){
+},{"./core/Axios":"D:\\React\\videoport\\node_modules\\axios\\lib\\core\\Axios.js","./helpers/bind":"D:\\React\\videoport\\node_modules\\axios\\lib\\helpers\\bind.js","./helpers/spread":"D:\\React\\videoport\\node_modules\\axios\\lib\\helpers\\spread.js","./utils":"D:\\React\\videoport\\node_modules\\axios\\lib\\utils.js"}],"D:\\React\\videoport\\node_modules\\axios\\lib\\core\\Axios.js":[function(require,module,exports){
 'use strict';
 
 var defaults = require('./../defaults');
@@ -2444,7 +2458,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = Axios;
 
-},{"./../defaults":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\defaults.js","./../helpers/combineURLs":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\helpers\\combineURLs.js","./../helpers/isAbsoluteURL":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\helpers\\isAbsoluteURL.js","./../utils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\utils.js","./InterceptorManager":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\core\\InterceptorManager.js","./dispatchRequest":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\core\\dispatchRequest.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\core\\InterceptorManager.js":[function(require,module,exports){
+},{"./../defaults":"D:\\React\\videoport\\node_modules\\axios\\lib\\defaults.js","./../helpers/combineURLs":"D:\\React\\videoport\\node_modules\\axios\\lib\\helpers\\combineURLs.js","./../helpers/isAbsoluteURL":"D:\\React\\videoport\\node_modules\\axios\\lib\\helpers\\isAbsoluteURL.js","./../utils":"D:\\React\\videoport\\node_modules\\axios\\lib\\utils.js","./InterceptorManager":"D:\\React\\videoport\\node_modules\\axios\\lib\\core\\InterceptorManager.js","./dispatchRequest":"D:\\React\\videoport\\node_modules\\axios\\lib\\core\\dispatchRequest.js"}],"D:\\React\\videoport\\node_modules\\axios\\lib\\core\\InterceptorManager.js":[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -2498,7 +2512,7 @@ InterceptorManager.prototype.forEach = function forEach(fn) {
 
 module.exports = InterceptorManager;
 
-},{"./../utils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\utils.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\core\\createError.js":[function(require,module,exports){
+},{"./../utils":"D:\\React\\videoport\\node_modules\\axios\\lib\\utils.js"}],"D:\\React\\videoport\\node_modules\\axios\\lib\\core\\createError.js":[function(require,module,exports){
 'use strict';
 
 var enhanceError = require('./enhanceError');
@@ -2517,7 +2531,7 @@ module.exports = function createError(message, config, code, response) {
   return enhanceError(error, config, code, response);
 };
 
-},{"./enhanceError":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\core\\enhanceError.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\core\\dispatchRequest.js":[function(require,module,exports){
+},{"./enhanceError":"D:\\React\\videoport\\node_modules\\axios\\lib\\core\\enhanceError.js"}],"D:\\React\\videoport\\node_modules\\axios\\lib\\core\\dispatchRequest.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -2597,7 +2611,7 @@ module.exports = function dispatchRequest(config) {
 
 }).call(this,require('_process'))
 
-},{"../adapters/http":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\adapters\\xhr.js","../adapters/xhr":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\adapters\\xhr.js","./../utils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\utils.js","./transformData":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\core\\transformData.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\core\\enhanceError.js":[function(require,module,exports){
+},{"../adapters/http":"D:\\React\\videoport\\node_modules\\axios\\lib\\adapters\\xhr.js","../adapters/xhr":"D:\\React\\videoport\\node_modules\\axios\\lib\\adapters\\xhr.js","./../utils":"D:\\React\\videoport\\node_modules\\axios\\lib\\utils.js","./transformData":"D:\\React\\videoport\\node_modules\\axios\\lib\\core\\transformData.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js"}],"D:\\React\\videoport\\node_modules\\axios\\lib\\core\\enhanceError.js":[function(require,module,exports){
 'use strict';
 
 /**
@@ -2618,7 +2632,7 @@ module.exports = function enhanceError(error, config, code, response) {
   return error;
 };
 
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\core\\settle.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\axios\\lib\\core\\settle.js":[function(require,module,exports){
 'use strict';
 
 var createError = require('./createError');
@@ -2645,7 +2659,7 @@ module.exports = function settle(resolve, reject, response) {
   }
 };
 
-},{"./createError":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\core\\createError.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\core\\transformData.js":[function(require,module,exports){
+},{"./createError":"D:\\React\\videoport\\node_modules\\axios\\lib\\core\\createError.js"}],"D:\\React\\videoport\\node_modules\\axios\\lib\\core\\transformData.js":[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -2667,7 +2681,7 @@ module.exports = function transformData(data, headers, fns) {
   return data;
 };
 
-},{"./../utils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\utils.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\defaults.js":[function(require,module,exports){
+},{"./../utils":"D:\\React\\videoport\\node_modules\\axios\\lib\\utils.js"}],"D:\\React\\videoport\\node_modules\\axios\\lib\\defaults.js":[function(require,module,exports){
 'use strict';
 
 var utils = require('./utils');
@@ -2741,7 +2755,7 @@ module.exports = {
   }
 };
 
-},{"./helpers/normalizeHeaderName":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\helpers\\normalizeHeaderName.js","./utils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\utils.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\helpers\\bind.js":[function(require,module,exports){
+},{"./helpers/normalizeHeaderName":"D:\\React\\videoport\\node_modules\\axios\\lib\\helpers\\normalizeHeaderName.js","./utils":"D:\\React\\videoport\\node_modules\\axios\\lib\\utils.js"}],"D:\\React\\videoport\\node_modules\\axios\\lib\\helpers\\bind.js":[function(require,module,exports){
 'use strict';
 
 module.exports = function bind(fn, thisArg) {
@@ -2754,7 +2768,7 @@ module.exports = function bind(fn, thisArg) {
   };
 };
 
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\helpers\\btoa.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\axios\\lib\\helpers\\btoa.js":[function(require,module,exports){
 'use strict';
 
 // btoa polyfill for IE<10 courtesy https://github.com/davidchambers/Base64.js
@@ -2792,7 +2806,7 @@ function btoa(input) {
 
 module.exports = btoa;
 
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\helpers\\buildURL.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\axios\\lib\\helpers\\buildURL.js":[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -2862,7 +2876,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
   return url;
 };
 
-},{"./../utils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\utils.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\helpers\\combineURLs.js":[function(require,module,exports){
+},{"./../utils":"D:\\React\\videoport\\node_modules\\axios\\lib\\utils.js"}],"D:\\React\\videoport\\node_modules\\axios\\lib\\helpers\\combineURLs.js":[function(require,module,exports){
 'use strict';
 
 /**
@@ -2876,7 +2890,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
   return baseURL.replace(/\/+$/, '') + '/' + relativeURL.replace(/^\/+/, '');
 };
 
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\helpers\\cookies.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\axios\\lib\\helpers\\cookies.js":[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -2931,7 +2945,7 @@ module.exports = (
   })()
 );
 
-},{"./../utils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\utils.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\helpers\\isAbsoluteURL.js":[function(require,module,exports){
+},{"./../utils":"D:\\React\\videoport\\node_modules\\axios\\lib\\utils.js"}],"D:\\React\\videoport\\node_modules\\axios\\lib\\helpers\\isAbsoluteURL.js":[function(require,module,exports){
 'use strict';
 
 /**
@@ -2947,7 +2961,7 @@ module.exports = function isAbsoluteURL(url) {
   return /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url);
 };
 
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\helpers\\isURLSameOrigin.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\axios\\lib\\helpers\\isURLSameOrigin.js":[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -3017,7 +3031,7 @@ module.exports = (
   })()
 );
 
-},{"./../utils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\utils.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\helpers\\normalizeHeaderName.js":[function(require,module,exports){
+},{"./../utils":"D:\\React\\videoport\\node_modules\\axios\\lib\\utils.js"}],"D:\\React\\videoport\\node_modules\\axios\\lib\\helpers\\normalizeHeaderName.js":[function(require,module,exports){
 'use strict';
 
 var utils = require('../utils');
@@ -3031,7 +3045,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
   });
 };
 
-},{"../utils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\utils.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\helpers\\parseHeaders.js":[function(require,module,exports){
+},{"../utils":"D:\\React\\videoport\\node_modules\\axios\\lib\\utils.js"}],"D:\\React\\videoport\\node_modules\\axios\\lib\\helpers\\parseHeaders.js":[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -3070,7 +3084,7 @@ module.exports = function parseHeaders(headers) {
   return parsed;
 };
 
-},{"./../utils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\utils.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\helpers\\spread.js":[function(require,module,exports){
+},{"./../utils":"D:\\React\\videoport\\node_modules\\axios\\lib\\utils.js"}],"D:\\React\\videoport\\node_modules\\axios\\lib\\helpers\\spread.js":[function(require,module,exports){
 'use strict';
 
 /**
@@ -3099,7 +3113,7 @@ module.exports = function spread(callback) {
   };
 };
 
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\utils.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\axios\\lib\\utils.js":[function(require,module,exports){
 'use strict';
 
 var bind = require('./helpers/bind');
@@ -3400,7 +3414,7 @@ module.exports = {
   trim: trim
 };
 
-},{"./helpers/bind":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\axios\\lib\\helpers\\bind.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\boron\\WaveModal.js":[function(require,module,exports){
+},{"./helpers/bind":"D:\\React\\videoport\\node_modules\\axios\\lib\\helpers\\bind.js"}],"D:\\React\\videoport\\node_modules\\boron\\WaveModal.js":[function(require,module,exports){
 var modalFactory = require('./modalFactory');
 var insertKeyframesRule = require('domkit/insertKeyframesRule');
 var appendVendorPrefix = require('domkit/appendVendorPrefix');
@@ -3644,7 +3658,7 @@ module.exports = modalFactory({
     }
 });
 
-},{"./modalFactory":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\boron\\modalFactory.js","domkit/appendVendorPrefix":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\domkit\\appendVendorPrefix.js","domkit/insertKeyframesRule":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\domkit\\insertKeyframesRule.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\boron\\modalFactory.js":[function(require,module,exports){
+},{"./modalFactory":"D:\\React\\videoport\\node_modules\\boron\\modalFactory.js","domkit/appendVendorPrefix":"D:\\React\\videoport\\node_modules\\domkit\\appendVendorPrefix.js","domkit/insertKeyframesRule":"D:\\React\\videoport\\node_modules\\domkit\\insertKeyframesRule.js"}],"D:\\React\\videoport\\node_modules\\boron\\modalFactory.js":[function(require,module,exports){
 var React = require('react');
 var transitionEvents = require('domkit/transitionEvents');
 var appendVendorPrefix = require('domkit/appendVendorPrefix');
@@ -3824,7 +3838,7 @@ module.exports = function(animation){
     });
 }
 
-},{"domkit/appendVendorPrefix":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\domkit\\appendVendorPrefix.js","domkit/transitionEvents":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\domkit\\transitionEvents.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\classnames\\index.js":[function(require,module,exports){
+},{"domkit/appendVendorPrefix":"D:\\React\\videoport\\node_modules\\domkit\\appendVendorPrefix.js","domkit/transitionEvents":"D:\\React\\videoport\\node_modules\\domkit\\transitionEvents.js","react":"D:\\React\\videoport\\node_modules\\react\\react.js"}],"D:\\React\\videoport\\node_modules\\classnames\\index.js":[function(require,module,exports){
 /*!
   Copyright (c) 2016 Jed Watson.
   Licensed under the MIT License (MIT), see
@@ -3874,7 +3888,7 @@ module.exports = function(animation){
 	}
 }());
 
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\deep-equal\\index.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\deep-equal\\index.js":[function(require,module,exports){
 var pSlice = Array.prototype.slice;
 var objectKeys = require('./lib/keys.js');
 var isArguments = require('./lib/is_arguments.js');
@@ -3970,7 +3984,7 @@ function objEquiv(a, b, opts) {
   return typeof a === typeof b;
 }
 
-},{"./lib/is_arguments.js":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\deep-equal\\lib\\is_arguments.js","./lib/keys.js":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\deep-equal\\lib\\keys.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\deep-equal\\lib\\is_arguments.js":[function(require,module,exports){
+},{"./lib/is_arguments.js":"D:\\React\\videoport\\node_modules\\deep-equal\\lib\\is_arguments.js","./lib/keys.js":"D:\\React\\videoport\\node_modules\\deep-equal\\lib\\keys.js"}],"D:\\React\\videoport\\node_modules\\deep-equal\\lib\\is_arguments.js":[function(require,module,exports){
 var supportsArgumentsClass = (function(){
   return Object.prototype.toString.call(arguments)
 })() == '[object Arguments]';
@@ -3992,7 +4006,7 @@ function unsupported(object){
     false;
 };
 
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\deep-equal\\lib\\keys.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\deep-equal\\lib\\keys.js":[function(require,module,exports){
 exports = module.exports = typeof Object.keys === 'function'
   ? Object.keys : shim;
 
@@ -4003,7 +4017,7 @@ function shim (obj) {
   return keys;
 }
 
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\domkit\\appendVendorPrefix.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\domkit\\appendVendorPrefix.js":[function(require,module,exports){
 'use strict';
 
 var getVendorPropertyName = require('./getVendorPropertyName');
@@ -4035,12 +4049,12 @@ module.exports = function(target, sources) {
   return prefixed
 }
 
-},{"./getVendorPropertyName":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\domkit\\getVendorPropertyName.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\domkit\\builtinStyle.js":[function(require,module,exports){
+},{"./getVendorPropertyName":"D:\\React\\videoport\\node_modules\\domkit\\getVendorPropertyName.js"}],"D:\\React\\videoport\\node_modules\\domkit\\builtinStyle.js":[function(require,module,exports){
 'use strict';
 
 module.exports = document.createElement('div').style;
 
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\domkit\\getVendorPrefix.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\domkit\\getVendorPrefix.js":[function(require,module,exports){
 'use strict';
 
 var cssVendorPrefix;
@@ -4055,7 +4069,7 @@ module.exports = function() {
   return cssVendorPrefix = '-' + pre + '-';
 }
 
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\domkit\\getVendorPropertyName.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\domkit\\getVendorPropertyName.js":[function(require,module,exports){
 'use strict';
 
 var builtinStyle = require('./builtinStyle');
@@ -4094,7 +4108,7 @@ module.exports = function(prop, isSupportTest) {
 
 }
 
-},{"./builtinStyle":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\domkit\\builtinStyle.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\domkit\\insertKeyframesRule.js":[function(require,module,exports){
+},{"./builtinStyle":"D:\\React\\videoport\\node_modules\\domkit\\builtinStyle.js"}],"D:\\React\\videoport\\node_modules\\domkit\\insertKeyframesRule.js":[function(require,module,exports){
 'use strict';
 
 var insertRule = require('./insertRule');
@@ -4126,7 +4140,7 @@ module.exports = function(keyframes) {
   return name
 }
 
-},{"./getVendorPrefix":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\domkit\\getVendorPrefix.js","./insertRule":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\domkit\\insertRule.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\domkit\\insertRule.js":[function(require,module,exports){
+},{"./getVendorPrefix":"D:\\React\\videoport\\node_modules\\domkit\\getVendorPrefix.js","./insertRule":"D:\\React\\videoport\\node_modules\\domkit\\insertRule.js"}],"D:\\React\\videoport\\node_modules\\domkit\\insertRule.js":[function(require,module,exports){
 'use strict';
 
 var extraSheet;
@@ -4147,7 +4161,7 @@ module.exports = function(css) {
   return extraSheet;
 }
 
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\domkit\\transitionEvents.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\domkit\\transitionEvents.js":[function(require,module,exports){
 'use strict';
 
 /**
@@ -4244,7 +4258,7 @@ module.exports = {
   }
 };
 
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\EventListener.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\fbjs\\lib\\EventListener.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -4331,7 +4345,7 @@ var EventListener = {
 module.exports = EventListener;
 }).call(this,require('_process'))
 
-},{"./emptyFunction":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\emptyFunction.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js":[function(require,module,exports){
+},{"./emptyFunction":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\emptyFunction.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js"}],"D:\\React\\videoport\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js":[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -4367,7 +4381,7 @@ var ExecutionEnvironment = {
 };
 
 module.exports = ExecutionEnvironment;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\camelize.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\fbjs\\lib\\camelize.js":[function(require,module,exports){
 "use strict";
 
 /**
@@ -4399,7 +4413,7 @@ function camelize(string) {
 }
 
 module.exports = camelize;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\camelizeStyleName.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\fbjs\\lib\\camelizeStyleName.js":[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -4439,7 +4453,7 @@ function camelizeStyleName(string) {
 }
 
 module.exports = camelizeStyleName;
-},{"./camelize":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\camelize.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\containsNode.js":[function(require,module,exports){
+},{"./camelize":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\camelize.js"}],"D:\\React\\videoport\\node_modules\\fbjs\\lib\\containsNode.js":[function(require,module,exports){
 'use strict';
 
 /**
@@ -4479,7 +4493,7 @@ function containsNode(outerNode, innerNode) {
 }
 
 module.exports = containsNode;
-},{"./isTextNode":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\isTextNode.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\createArrayFromMixed.js":[function(require,module,exports){
+},{"./isTextNode":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\isTextNode.js"}],"D:\\React\\videoport\\node_modules\\fbjs\\lib\\createArrayFromMixed.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -4609,7 +4623,7 @@ function createArrayFromMixed(obj) {
 module.exports = createArrayFromMixed;
 }).call(this,require('_process'))
 
-},{"./invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\createNodesFromMarkup.js":[function(require,module,exports){
+},{"./invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js"}],"D:\\React\\videoport\\node_modules\\fbjs\\lib\\createNodesFromMarkup.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -4696,7 +4710,7 @@ function createNodesFromMarkup(markup, handleScript) {
 module.exports = createNodesFromMarkup;
 }).call(this,require('_process'))
 
-},{"./ExecutionEnvironment":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js","./createArrayFromMixed":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\createArrayFromMixed.js","./getMarkupWrap":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\getMarkupWrap.js","./invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\emptyFunction.js":[function(require,module,exports){
+},{"./ExecutionEnvironment":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js","./createArrayFromMixed":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\createArrayFromMixed.js","./getMarkupWrap":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\getMarkupWrap.js","./invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js"}],"D:\\React\\videoport\\node_modules\\fbjs\\lib\\emptyFunction.js":[function(require,module,exports){
 "use strict";
 
 /**
@@ -4735,7 +4749,7 @@ emptyFunction.thatReturnsArgument = function (arg) {
 };
 
 module.exports = emptyFunction;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\emptyObject.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\fbjs\\lib\\emptyObject.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -4758,7 +4772,7 @@ if (process.env.NODE_ENV !== 'production') {
 module.exports = emptyObject;
 }).call(this,require('_process'))
 
-},{"_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\focusNode.js":[function(require,module,exports){
+},{"_process":"D:\\React\\videoport\\node_modules\\process\\browser.js"}],"D:\\React\\videoport\\node_modules\\fbjs\\lib\\focusNode.js":[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -4785,7 +4799,7 @@ function focusNode(node) {
 }
 
 module.exports = focusNode;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\getActiveElement.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\fbjs\\lib\\getActiveElement.js":[function(require,module,exports){
 'use strict';
 
 /**
@@ -4820,7 +4834,7 @@ function getActiveElement() /*?DOMElement*/{
 }
 
 module.exports = getActiveElement;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\getMarkupWrap.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\fbjs\\lib\\getMarkupWrap.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -4918,7 +4932,7 @@ function getMarkupWrap(nodeName) {
 module.exports = getMarkupWrap;
 }).call(this,require('_process'))
 
-},{"./ExecutionEnvironment":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js","./invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\getUnboundedScrollPosition.js":[function(require,module,exports){
+},{"./ExecutionEnvironment":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js","./invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js"}],"D:\\React\\videoport\\node_modules\\fbjs\\lib\\getUnboundedScrollPosition.js":[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -4957,7 +4971,7 @@ function getUnboundedScrollPosition(scrollable) {
 }
 
 module.exports = getUnboundedScrollPosition;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\hyphenate.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\fbjs\\lib\\hyphenate.js":[function(require,module,exports){
 'use strict';
 
 /**
@@ -4990,7 +5004,7 @@ function hyphenate(string) {
 }
 
 module.exports = hyphenate;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\hyphenateStyleName.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\fbjs\\lib\\hyphenateStyleName.js":[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -5029,7 +5043,7 @@ function hyphenateStyleName(string) {
 }
 
 module.exports = hyphenateStyleName;
-},{"./hyphenate":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\hyphenate.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js":[function(require,module,exports){
+},{"./hyphenate":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\hyphenate.js"}],"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -5082,7 +5096,7 @@ function invariant(condition, format, a, b, c, d, e, f) {
 module.exports = invariant;
 }).call(this,require('_process'))
 
-},{"_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\isNode.js":[function(require,module,exports){
+},{"_process":"D:\\React\\videoport\\node_modules\\process\\browser.js"}],"D:\\React\\videoport\\node_modules\\fbjs\\lib\\isNode.js":[function(require,module,exports){
 'use strict';
 
 /**
@@ -5105,7 +5119,7 @@ function isNode(object) {
 }
 
 module.exports = isNode;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\isTextNode.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\fbjs\\lib\\isTextNode.js":[function(require,module,exports){
 'use strict';
 
 /**
@@ -5130,7 +5144,7 @@ function isTextNode(object) {
 }
 
 module.exports = isTextNode;
-},{"./isNode":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\isNode.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\keyMirror.js":[function(require,module,exports){
+},{"./isNode":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\isNode.js"}],"D:\\React\\videoport\\node_modules\\fbjs\\lib\\keyMirror.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -5181,7 +5195,7 @@ var keyMirror = function keyMirror(obj) {
 module.exports = keyMirror;
 }).call(this,require('_process'))
 
-},{"./invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\keyOf.js":[function(require,module,exports){
+},{"./invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js"}],"D:\\React\\videoport\\node_modules\\fbjs\\lib\\keyOf.js":[function(require,module,exports){
 "use strict";
 
 /**
@@ -5216,7 +5230,7 @@ var keyOf = function keyOf(oneKeyObj) {
 };
 
 module.exports = keyOf;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\memoizeStringOnly.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\fbjs\\lib\\memoizeStringOnly.js":[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -5246,7 +5260,7 @@ function memoizeStringOnly(callback) {
 }
 
 module.exports = memoizeStringOnly;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\performance.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\fbjs\\lib\\performance.js":[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -5269,7 +5283,7 @@ if (ExecutionEnvironment.canUseDOM) {
 }
 
 module.exports = performance || {};
-},{"./ExecutionEnvironment":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\performanceNow.js":[function(require,module,exports){
+},{"./ExecutionEnvironment":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js"}],"D:\\React\\videoport\\node_modules\\fbjs\\lib\\performanceNow.js":[function(require,module,exports){
 'use strict';
 
 /**
@@ -5303,7 +5317,7 @@ if (performance.now) {
 }
 
 module.exports = performanceNow;
-},{"./performance":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\performance.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\shallowEqual.js":[function(require,module,exports){
+},{"./performance":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\performance.js"}],"D:\\React\\videoport\\node_modules\\fbjs\\lib\\shallowEqual.js":[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -5331,7 +5345,8 @@ function is(x, y) {
   if (x === y) {
     // Steps 1-5, 7-10
     // Steps 6.b-6.e: +0 != -0
-    return x !== 0 || 1 / x === 1 / y;
+    // Added the nonzero y check to make Flow happy, but it is redundant
+    return x !== 0 || y !== 0 || 1 / x === 1 / y;
   } else {
     // Step 6.a: NaN == NaN
     return x !== x && y !== y;
@@ -5370,7 +5385,7 @@ function shallowEqual(objA, objB) {
 }
 
 module.exports = shallowEqual;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-2015, Facebook, Inc.
@@ -5440,10 +5455,10 @@ if (process.env.NODE_ENV !== 'production') {
 module.exports = warning;
 }).call(this,require('_process'))
 
-},{"./emptyFunction":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\emptyFunction.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\granim\\dist\\granim.min.js":[function(require,module,exports){
-/*! Granim v1.0.5 - https://sarcadass.github.io/granim.js */
-!function t(e,s,i){function n(a,r){if(!s[a]){if(!e[a]){var h="function"==typeof require&&require;if(!r&&h)return h(a,!0);if(o)return o(a,!0);var c=new Error("Cannot find module '"+a+"'");throw c.code="MODULE_NOT_FOUND",c}var l=s[a]={exports:{}};e[a][0].call(l.exports,function(t){var s=e[a][1][t];return n(s?s:t)},l,l.exports,t,e,s,i)}return s[a].exports}for(var o="function"==typeof require&&require,a=0;a<i.length;a++)n(i[a]);return n}({1:[function(t,e,s){"use strict";function i(t){this.canvas=document.querySelector(t.element),this.x1=0,this.y1=0,this.name=t.name||!1,this.elToSetClassOn=t.elToSetClassOn||"body",this.direction=t.direction||"diagonal",this.isPausedWhenNotInView=t.isPausedWhenNotInView||!1,this.opacity=t.opacity,this.states=t.states,this.stateTransitionSpeed=t.stateTransitionSpeed||1e3,this.previousTimeStamp=null,this.progress=0,this.isPaused=!1,this.isPausedBecauseNotInView=!1,this.iscurrentColorsSet=!1,this.context=this.canvas.getContext("2d"),this.channels={},this.channelsIndex=0,this.activeState=t.defaultStateName||"default-state",this.isChangingState=!1,this.activeColors=[],this.activeColorDiff=[],this.activetransitionSpeed=null,this.currentColors=[],this.eventPolyfill(),this.events={start:new CustomEvent("granim:start"),end:new CustomEvent("granim:end"),gradientChange:function(t){return new CustomEvent("granim:gradientChange",{detail:{isLooping:t.isLooping,colorsFrom:t.colorsFrom,colorsTo:t.colorsTo,activeState:t.activeState},bubbles:!1,cancelable:!1})}},this.callbacks={onStart:"function"==typeof t.onStart&&t.onStart,onGradientChange:"function"==typeof t.onGradientChange&&t.onGradientChange,onEnd:"function"==typeof t.onEnd&&t.onEnd},this.getDimensions(),this.canvas.setAttribute("width",this.x1),this.canvas.setAttribute("height",this.y1),this.setColors(),this.refreshColors(),window.addEventListener("resize",this.onResize.bind(this)),this.isPausedWhenNotInView?this.pauseWhenNotInView():this.animation=requestAnimationFrame(this.animateColors.bind(this)),this.callbacks.onStart&&this.callbacks.onStart(),this.canvas.dispatchEvent(this.events.start)}i.prototype.setColors=t("./setColors.js"),i.prototype.eventPolyfill=t("./eventPolyfill.js"),i.prototype.colorDiff=t("./colorDiff.js"),i.prototype.hexToRgb=t("./hexToRgb.js"),i.prototype.setDirection=t("./setDirection.js"),i.prototype.makeGradient=t("./makeGradient.js"),i.prototype.getDimensions=t("./getDimensions.js"),i.prototype.animateColors=t("./animateColors.js"),i.prototype.getLightness=t("./getLightness.js"),i.prototype.refreshColors=t("./refreshColors.js"),i.prototype.changeState=t("./changeState.js"),i.prototype.pause=t("./pause.js"),i.prototype.play=t("./play.js"),i.prototype.clear=t("./clear.js"),i.prototype.getCurrentColors=t("./getCurrentColors.js"),i.prototype.pauseWhenNotInView=t("./pauseWhenNotInView.js"),i.prototype.onResize=t("./onResize.js"),e.exports=i},{"./animateColors.js":2,"./changeState.js":3,"./clear.js":4,"./colorDiff.js":5,"./eventPolyfill.js":6,"./getCurrentColors.js":7,"./getDimensions.js":8,"./getLightness.js":9,"./hexToRgb.js":10,"./makeGradient.js":11,"./onResize.js":12,"./pause.js":13,"./pauseWhenNotInView.js":14,"./play.js":15,"./refreshColors.js":16,"./setColors.js":17,"./setDirection.js":18}],2:[function(t,e,s){"use strict";e.exports=function(t){var e,s,i,n=t-this.previousTimeStamp>100,o=void 0===this.states[this.activeState].loop||this.states[this.activeState].loop;(null===this.previousTimeStamp||n)&&(this.previousTimeStamp=t),this.progress=this.progress+(t-this.previousTimeStamp),e=(this.progress/this.activetransitionSpeed*100).toFixed(2),this.previousTimeStamp=t,this.refreshColors(e),e<100?this.animation=requestAnimationFrame(this.animateColors.bind(this)):this.channelsIndex<this.states[this.activeState].gradients.length-2||o?(this.isChangingState&&(this.activetransitionSpeed=this.states[this.activeState].transitionSpeed||5e3),this.previousTimeStamp=null,this.progress=0,this.channelsIndex++,s=!1,this.channelsIndex===this.states[this.activeState].gradients.length-1?s=!0:this.channelsIndex===this.states[this.activeState].gradients.length&&(this.channelsIndex=0),i=void 0===this.states[this.activeState].gradients[this.channelsIndex+1]?this.states[this.activeState].gradients[0]:this.states[this.activeState].gradients[this.channelsIndex+1],this.setColors(),this.animation=requestAnimationFrame(this.animateColors.bind(this)),this.callbacks.onGradientChange&&this.callbacks.onGradientChange({isLooping:s,colorsFrom:this.states[this.activeState].gradients[this.channelsIndex],colorsTo:i,activeState:this.activeState}),this.canvas.dispatchEvent(this.events.gradientChange({isLooping:s,colorsFrom:this.states[this.activeState].gradients[this.channelsIndex],colorsTo:i,activeState:this.activeState}))):(cancelAnimationFrame(this.animation),this.callbacks.onEnd&&this.callbacks.onEnd(),this.canvas.dispatchEvent(new CustomEvent("granim:end")))}},{}],3:[function(t,e,s){"use strict";e.exports=function(t){var e,s,i=this;this.activeState!==t&&(this.isPaused||(this.isPaused=!0,this.pause()),this.channelsIndex=-1,this.activetransitionSpeed=this.stateTransitionSpeed,this.activeColorDiff=[],this.activeColors=this.getCurrentColors(),this.progress=0,this.previousTimeStamp=null,this.isChangingState=!0,this.states[t].gradients[0].forEach(function(n,o,a){e=i.hexToRgb(i.states[t].gradients[0][o]),s=i.colorDiff(i.activeColors[o],e),i.activeColorDiff.push(s)}),this.activeState=t,this.play())}},{}],4:[function(t,e,s){"use strict";e.exports=function(){cancelAnimationFrame(this.animation),this.context.clearRect(0,0,this.x1,this.y1)}},{}],5:[function(t,e,s){"use strict";e.exports=function(t,e){var s,i=[];for(s=0;s<3;s++)i.push(e[s]-t[s]);return i}},{}],6:[function(t,e,s){"use strict";e.exports=function(){function t(t,e){e=e||{bubbles:!1,cancelable:!1,detail:void 0};var s=document.createEvent("CustomEvent");return s.initCustomEvent(t,e.bubbles,e.cancelable,e.detail),s}"function"!=typeof window.CustomEvent&&(t.prototype=window.Event.prototype,window.CustomEvent=t)}},{}],7:[function(t,e,s){"use strict";e.exports=function(){var t,e=[];return this.currentColors.forEach(function(s,i,n){for(e.push([]),t=0;t<3;t++)e[i].push(s[t])}),e}},{}],8:[function(t,e,s){"use strict";e.exports=function(){this.x1=this.canvas.offsetWidth,this.y1=this.canvas.offsetHeight}},{}],9:[function(t,e,s){"use strict";e.exports=function(){var t,e=this.getCurrentColors(),s=[],i=null;return e.forEach(function(t,e,i){s.push(Math.max(t[0],t[1],t[2]))}),s.forEach(function(e,n,o){i=null===i?e:i+e,n===s.length-1&&(t=Math.round(i/(n+1)))}),t>=128?"light":"dark"}},{}],10:[function(t,e,s){"use strict";e.exports=function(t){var e=/^#?([a-f\d])([a-f\d])([a-f\d])$/i;t=t.replace(e,function(t,e,s,i){return e+e+s+s+i+i});var s=/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(t);return s?[parseInt(s[1],16),parseInt(s[2],16),parseInt(s[3],16)]:null}},{}],11:[function(t,e,s){"use strict";e.exports=function(){var t,e,s=this.setDirection(),i=document.querySelector(this.elToSetClassOn).classList;for(this.context.clearRect(0,0,this.x1,this.y1),t=0;t<this.currentColors.length;t++)e=t?(1/(this.currentColors.length-1)*t).toFixed(2):0,s.addColorStop(e,"rgba("+this.currentColors[t][0]+", "+this.currentColors[t][1]+", "+this.currentColors[t][2]+", "+this.opacity[t]+")");this.name&&("light"===this.getLightness()?(i.remove(this.name+"-dark"),i.add(this.name+"-light")):(i.remove(this.name+"-light"),i.add(this.name+"-dark"))),this.context.fillStyle=s,this.context.fillRect(0,0,this.x1,this.y1)}},{}],12:[function(t,e,s){"use strict";e.exports=function(){this.getDimensions(),this.canvas.setAttribute("width",this.x1),this.canvas.setAttribute("height",this.y1),this.refreshColors()}},{}],13:[function(t,e,s){"use strict";e.exports=function(t){var e="isPausedBecauseNotInView"===t;e||(this.isPaused=!0),cancelAnimationFrame(this.animation)}},{}],14:[function(t,e,s){"use strict";e.exports=function(){function t(t){e&&clearTimeout(e),e=setTimeout(function(){var e=s.canvas.getBoundingClientRect(),i=e.bottom<0||e.right<0||e.left>window.innerWidth||e.top>window.innerHeight;i?s.isPaused||s.isPausedBecauseNotInView||(s.isPausedBecauseNotInView=!0,s.pause("isPausedBecauseNotInView")):s.isPaused&&t!==!0||(s.isPausedBecauseNotInView=!1,s.play("isPausedBecauseNotInView"))},300)}var e,s=this;window.addEventListener("scroll",t),t(!0)}},{}],15:[function(t,e,s){"use strict";e.exports=function(t){var e="isPausedBecauseNotInView"===t;e||(this.isPaused=!1),this.animation=requestAnimationFrame(this.animateColors.bind(this))}},{}],16:[function(t,e,s){"use strict";e.exports=function(t){var e,s,i=this;this.activeColors.forEach(function(n,o,a){for(s=0;s<3;s++)e=i.activeColors[o][s]+Math.ceil(i.activeColorDiff[o][s]/100*t),e<=255&&e>=0&&(i.currentColors[o][s]=e)}),this.makeGradient()}},{}],17:[function(t,e,s){"use strict";e.exports=function(){var t,e,s=this;return this.channels[this.activeState]||(this.channels[this.activeState]=[]),void 0!==this.channels[this.activeState][this.channelsIndex]?(this.activeColors=this.channels[this.activeState][this.channelsIndex].colors,void(this.activeColorDiff=this.channels[this.activeState][this.channelsIndex].colorsDiff)):(this.channels[this.activeState].push([{}]),this.channels[this.activeState][this.channelsIndex].colors=[],this.channels[this.activeState][this.channelsIndex].colorsDiff=[],this.activeColors=[],this.activeColorDiff=[],this.states[this.activeState].gradients[this.channelsIndex].forEach(function(i,n,o){var a=s.hexToRgb(i),r=s.channels[s.activeState];r[s.channelsIndex].colors.push(a),s.activeColors.push(a),s.iscurrentColorsSet||s.currentColors.push(s.hexToRgb(i)),s.channelsIndex===s.states[s.activeState].gradients.length-1?t=s.colorDiff(r[s.channelsIndex].colors[n],r[0].colors[n]):(e=s.hexToRgb(s.states[s.activeState].gradients[s.channelsIndex+1][n]),t=s.colorDiff(r[s.channelsIndex].colors[n],e)),r[s.channelsIndex].colorsDiff.push(t),s.activeColorDiff.push(t)}),this.activetransitionSpeed=this.states[this.activeState].transitionSpeed||5e3,void(this.iscurrentColorsSet=!0))}},{}],18:[function(t,e,s){"use strict";e.exports=function(){var t=this.context;switch(this.direction){default:case"diagonal":return t.createLinearGradient(0,0,this.x1,this.y1);case"left-right":return t.createLinearGradient(0,0,this.x1,0);case"top-bottom":return t.createLinearGradient(this.x1/2,0,this.x1/2,this.y1);case"radial":return t.createRadialGradient(this.x1/2,this.y1/2,this.x1/2,this.x1/2,this.y1/2,0)}}},{}],19:[function(t,e,s){window.Granim=t("./lib/Granim.js")},{"./lib/Granim.js":1}]},{},[19]);
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\Actions.js":[function(require,module,exports){
+},{"./emptyFunction":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\emptyFunction.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js"}],"D:\\React\\videoport\\node_modules\\granim\\dist\\granim.min.js":[function(require,module,exports){
+/*! Granim v1.0.6 - https://sarcadass.github.io/granim.js */
+!function t(e,s,i){function n(a,r){if(!s[a]){if(!e[a]){var h="function"==typeof require&&require;if(!r&&h)return h(a,!0);if(o)return o(a,!0);var c=new Error("Cannot find module '"+a+"'");throw c.code="MODULE_NOT_FOUND",c}var l=s[a]={exports:{}};e[a][0].call(l.exports,function(t){var s=e[a][1][t];return n(s?s:t)},l,l.exports,t,e,s,i)}return s[a].exports}for(var o="function"==typeof require&&require,a=0;a<i.length;a++)n(i[a]);return n}({1:[function(t,e,s){"use strict";function i(t){this.getElement(t.element),this.x1=0,this.y1=0,this.name=t.name||!1,this.elToSetClassOn=t.elToSetClassOn||"body",this.direction=t.direction||"diagonal",this.isPausedWhenNotInView=t.isPausedWhenNotInView||!1,this.opacity=t.opacity,this.states=t.states,this.stateTransitionSpeed=t.stateTransitionSpeed||1e3,this.previousTimeStamp=null,this.progress=0,this.isPaused=!1,this.isCleared=!1,this.isPausedBecauseNotInView=!1,this.iscurrentColorsSet=!1,this.context=this.canvas.getContext("2d"),this.channels={},this.channelsIndex=0,this.activeState=t.defaultStateName||"default-state",this.isChangingState=!1,this.activeColors=[],this.activeColorDiff=[],this.activetransitionSpeed=null,this.currentColors=[],this.eventPolyfill(),this.events={start:new CustomEvent("granim:start"),end:new CustomEvent("granim:end"),gradientChange:function(t){return new CustomEvent("granim:gradientChange",{detail:{isLooping:t.isLooping,colorsFrom:t.colorsFrom,colorsTo:t.colorsTo,activeState:t.activeState},bubbles:!1,cancelable:!1})}},this.callbacks={onStart:"function"==typeof t.onStart&&t.onStart,onGradientChange:"function"==typeof t.onGradientChange&&t.onGradientChange,onEnd:"function"==typeof t.onEnd&&t.onEnd},this.getDimensions(),this.canvas.setAttribute("width",this.x1),this.canvas.setAttribute("height",this.y1),this.setColors(),this.refreshColors(),window.addEventListener("resize",this.onResize.bind(this)),this.isPausedWhenNotInView?this.pauseWhenNotInView():this.animation=requestAnimationFrame(this.animateColors.bind(this)),this.callbacks.onStart&&this.callbacks.onStart(),this.canvas.dispatchEvent(this.events.start)}i.prototype.setColors=t("./setColors.js"),i.prototype.eventPolyfill=t("./eventPolyfill.js"),i.prototype.colorDiff=t("./colorDiff.js"),i.prototype.hexToRgb=t("./hexToRgb.js"),i.prototype.setDirection=t("./setDirection.js"),i.prototype.makeGradient=t("./makeGradient.js"),i.prototype.getDimensions=t("./getDimensions.js"),i.prototype.getElement=t("./getElement.js"),i.prototype.animateColors=t("./animateColors.js"),i.prototype.getLightness=t("./getLightness.js"),i.prototype.refreshColors=t("./refreshColors.js"),i.prototype.changeState=t("./changeState.js"),i.prototype.pause=t("./pause.js"),i.prototype.play=t("./play.js"),i.prototype.clear=t("./clear.js"),i.prototype.getCurrentColors=t("./getCurrentColors.js"),i.prototype.pauseWhenNotInView=t("./pauseWhenNotInView.js"),i.prototype.onResize=t("./onResize.js"),e.exports=i},{"./animateColors.js":2,"./changeState.js":3,"./clear.js":4,"./colorDiff.js":5,"./eventPolyfill.js":6,"./getCurrentColors.js":7,"./getDimensions.js":8,"./getElement.js":9,"./getLightness.js":10,"./hexToRgb.js":11,"./makeGradient.js":12,"./onResize.js":13,"./pause.js":14,"./pauseWhenNotInView.js":15,"./play.js":16,"./refreshColors.js":17,"./setColors.js":18,"./setDirection.js":19}],2:[function(t,e,s){"use strict";e.exports=function(t){var e,s,i,n=t-this.previousTimeStamp>100,o=void 0===this.states[this.activeState].loop||this.states[this.activeState].loop;(null===this.previousTimeStamp||n)&&(this.previousTimeStamp=t),this.progress=this.progress+(t-this.previousTimeStamp),e=(this.progress/this.activetransitionSpeed*100).toFixed(2),this.previousTimeStamp=t,this.refreshColors(e),e<100?this.animation=requestAnimationFrame(this.animateColors.bind(this)):this.channelsIndex<this.states[this.activeState].gradients.length-2||o?(this.isChangingState&&(this.activetransitionSpeed=this.states[this.activeState].transitionSpeed||5e3),this.previousTimeStamp=null,this.progress=0,this.channelsIndex++,s=!1,this.channelsIndex===this.states[this.activeState].gradients.length-1?s=!0:this.channelsIndex===this.states[this.activeState].gradients.length&&(this.channelsIndex=0),i=void 0===this.states[this.activeState].gradients[this.channelsIndex+1]?this.states[this.activeState].gradients[0]:this.states[this.activeState].gradients[this.channelsIndex+1],this.setColors(),this.animation=requestAnimationFrame(this.animateColors.bind(this)),this.callbacks.onGradientChange&&this.callbacks.onGradientChange({isLooping:s,colorsFrom:this.states[this.activeState].gradients[this.channelsIndex],colorsTo:i,activeState:this.activeState}),this.canvas.dispatchEvent(this.events.gradientChange({isLooping:s,colorsFrom:this.states[this.activeState].gradients[this.channelsIndex],colorsTo:i,activeState:this.activeState}))):(cancelAnimationFrame(this.animation),this.callbacks.onEnd&&this.callbacks.onEnd(),this.canvas.dispatchEvent(new CustomEvent("granim:end")))}},{}],3:[function(t,e,s){"use strict";e.exports=function(t){var e,s,i=this;this.activeState!==t&&(this.isPaused||(this.isPaused=!0,this.pause()),this.channelsIndex=-1,this.activetransitionSpeed=this.stateTransitionSpeed,this.activeColorDiff=[],this.activeColors=this.getCurrentColors(),this.progress=0,this.previousTimeStamp=null,this.isChangingState=!0,this.states[t].gradients[0].forEach(function(n,o,a){e=i.hexToRgb(i.states[t].gradients[0][o]),s=i.colorDiff(i.activeColors[o],e),i.activeColorDiff.push(s)}),this.activeState=t,this.play())}},{}],4:[function(t,e,s){"use strict";e.exports=function(){this.isPaused?this.isPaused=!1:cancelAnimationFrame(this.animation),this.isCleared=!0,this.context.clearRect(0,0,this.x1,this.y1)}},{}],5:[function(t,e,s){"use strict";e.exports=function(t,e){var s,i=[];for(s=0;s<3;s++)i.push(e[s]-t[s]);return i}},{}],6:[function(t,e,s){"use strict";e.exports=function(){function t(t,e){e=e||{bubbles:!1,cancelable:!1,detail:void 0};var s=document.createEvent("CustomEvent");return s.initCustomEvent(t,e.bubbles,e.cancelable,e.detail),s}"function"!=typeof window.CustomEvent&&(t.prototype=window.Event.prototype,window.CustomEvent=t)}},{}],7:[function(t,e,s){"use strict";e.exports=function(){var t,e=[];return this.currentColors.forEach(function(s,i,n){for(e.push([]),t=0;t<3;t++)e[i].push(s[t])}),e}},{}],8:[function(t,e,s){"use strict";e.exports=function(){this.x1=this.canvas.offsetWidth,this.y1=this.canvas.offsetHeight}},{}],9:[function(t,e,s){"use strict";e.exports=function(t){if(t instanceof HTMLCanvasElement)this.canvas=t;else{if("string"!=typeof t)throw new Error("The element you used is neither a String, nor a HTMLCanvasElement");this.canvas=document.querySelector(t)}if(!this.canvas)throw new Error("`"+t+"` could not be found in the DOM")}},{}],10:[function(t,e,s){"use strict";e.exports=function(){var t,e=this.getCurrentColors(),s=[],i=null;return e.forEach(function(t,e,i){s.push(Math.max(t[0],t[1],t[2]))}),s.forEach(function(e,n,o){i=null===i?e:i+e,n===s.length-1&&(t=Math.round(i/(n+1)))}),t>=128?"light":"dark"}},{}],11:[function(t,e,s){"use strict";e.exports=function(t){var e=/^#?([a-f\d])([a-f\d])([a-f\d])$/i;t=t.replace(e,function(t,e,s,i){return e+e+s+s+i+i});var s=/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(t);return s?[parseInt(s[1],16),parseInt(s[2],16),parseInt(s[3],16)]:null}},{}],12:[function(t,e,s){"use strict";e.exports=function(){var t,e,s=this.setDirection(),i=document.querySelector(this.elToSetClassOn).classList;for(this.context.clearRect(0,0,this.x1,this.y1),t=0;t<this.currentColors.length;t++)e=t?(1/(this.currentColors.length-1)*t).toFixed(2):0,s.addColorStop(e,"rgba("+this.currentColors[t][0]+", "+this.currentColors[t][1]+", "+this.currentColors[t][2]+", "+this.opacity[t]+")");this.name&&("light"===this.getLightness()?(i.remove(this.name+"-dark"),i.add(this.name+"-light")):(i.remove(this.name+"-light"),i.add(this.name+"-dark"))),this.context.fillStyle=s,this.context.fillRect(0,0,this.x1,this.y1)}},{}],13:[function(t,e,s){"use strict";e.exports=function(){this.getDimensions(),this.canvas.setAttribute("width",this.x1),this.canvas.setAttribute("height",this.y1),this.refreshColors()}},{}],14:[function(t,e,s){"use strict";e.exports=function(t){var e="isPausedBecauseNotInView"===t;this.isCleared||(e||(this.isPaused=!0),cancelAnimationFrame(this.animation))}},{}],15:[function(t,e,s){"use strict";e.exports=function(){function t(t){e&&clearTimeout(e),e=setTimeout(function(){var e=s.canvas.getBoundingClientRect(),i=e.bottom<0||e.right<0||e.left>window.innerWidth||e.top>window.innerHeight;i?s.isPaused||s.isPausedBecauseNotInView||(s.isPausedBecauseNotInView=!0,s.pause("isPausedBecauseNotInView")):s.isPaused&&t!==!0||(s.isPausedBecauseNotInView=!1,s.play("isPausedBecauseNotInView"))},300)}var e,s=this;window.addEventListener("scroll",t),t(!0)}},{}],16:[function(t,e,s){"use strict";e.exports=function(t){var e="isPausedBecauseNotInView"===t;e||(this.isPaused=!1),this.isCleared=!1,this.animation=requestAnimationFrame(this.animateColors.bind(this))}},{}],17:[function(t,e,s){"use strict";e.exports=function(t){var e,s,i=this;this.activeColors.forEach(function(n,o,a){for(s=0;s<3;s++)e=i.activeColors[o][s]+Math.ceil(i.activeColorDiff[o][s]/100*t),e<=255&&e>=0&&(i.currentColors[o][s]=e)}),this.makeGradient()}},{}],18:[function(t,e,s){"use strict";e.exports=function(){var t,e,s=this;return this.channels[this.activeState]||(this.channels[this.activeState]=[]),void 0!==this.channels[this.activeState][this.channelsIndex]?(this.activeColors=this.channels[this.activeState][this.channelsIndex].colors,void(this.activeColorDiff=this.channels[this.activeState][this.channelsIndex].colorsDiff)):(this.channels[this.activeState].push([{}]),this.channels[this.activeState][this.channelsIndex].colors=[],this.channels[this.activeState][this.channelsIndex].colorsDiff=[],this.activeColors=[],this.activeColorDiff=[],this.states[this.activeState].gradients[this.channelsIndex].forEach(function(i,n,o){var a=s.hexToRgb(i),r=s.channels[s.activeState];r[s.channelsIndex].colors.push(a),s.activeColors.push(a),s.iscurrentColorsSet||s.currentColors.push(s.hexToRgb(i)),s.channelsIndex===s.states[s.activeState].gradients.length-1?t=s.colorDiff(r[s.channelsIndex].colors[n],r[0].colors[n]):(e=s.hexToRgb(s.states[s.activeState].gradients[s.channelsIndex+1][n]),t=s.colorDiff(r[s.channelsIndex].colors[n],e)),r[s.channelsIndex].colorsDiff.push(t),s.activeColorDiff.push(t)}),this.activetransitionSpeed=this.states[this.activeState].transitionSpeed||5e3,void(this.iscurrentColorsSet=!0))}},{}],19:[function(t,e,s){"use strict";e.exports=function(){var t=this.context;switch(this.direction){default:case"diagonal":return t.createLinearGradient(0,0,this.x1,this.y1);case"left-right":return t.createLinearGradient(0,0,this.x1,0);case"top-bottom":return t.createLinearGradient(this.x1/2,0,this.x1/2,this.y1);case"radial":return t.createRadialGradient(this.x1/2,this.y1/2,this.x1/2,this.x1/2,this.y1/2,0)}}},{}],20:[function(t,e,s){window.Granim=t("./lib/Granim.js")},{"./lib/Granim.js":1}]},{},[20]);
+},{}],"D:\\React\\videoport\\node_modules\\history\\lib\\Actions.js":[function(require,module,exports){
 /**
  * Indicates that navigation was caused by a call to history.push.
  */
@@ -5475,7 +5490,7 @@ exports['default'] = {
   REPLACE: REPLACE,
   POP: POP
 };
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\AsyncUtils.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\history\\lib\\AsyncUtils.js":[function(require,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -5534,7 +5549,7 @@ function loopAsync(turns, work, callback) {
 
   next();
 }
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\DOMStateStorage.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\history\\lib\\DOMStateStorage.js":[function(require,module,exports){
 (function (process){
 /*eslint-disable no-empty */
 'use strict';
@@ -5611,7 +5626,7 @@ function readState(key) {
 }
 }).call(this,require('_process'))
 
-},{"_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\node_modules\\warning\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\DOMUtils.js":[function(require,module,exports){
+},{"_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","warning":"D:\\React\\videoport\\node_modules\\history\\node_modules\\warning\\browser.js"}],"D:\\React\\videoport\\node_modules\\history\\lib\\DOMUtils.js":[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -5687,13 +5702,13 @@ function supportsGoWithoutReloadUsingHash() {
   var ua = navigator.userAgent;
   return ua.indexOf('Firefox') === -1;
 }
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\ExecutionEnvironment.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\history\\lib\\ExecutionEnvironment.js":[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
 var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
 exports.canUseDOM = canUseDOM;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\PathUtils.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\history\\lib\\PathUtils.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -5744,7 +5759,7 @@ function parsePath(path) {
 }
 }).call(this,require('_process'))
 
-},{"_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\node_modules\\warning\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\createBrowserHistory.js":[function(require,module,exports){
+},{"_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","warning":"D:\\React\\videoport\\node_modules\\history\\node_modules\\warning\\browser.js"}],"D:\\React\\videoport\\node_modules\\history\\lib\\createBrowserHistory.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -5928,7 +5943,7 @@ exports['default'] = createBrowserHistory;
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./Actions":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\Actions.js","./DOMStateStorage":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\DOMStateStorage.js","./DOMUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\DOMUtils.js","./ExecutionEnvironment":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\ExecutionEnvironment.js","./PathUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\PathUtils.js","./createDOMHistory":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\createDOMHistory.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\invariant\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\createDOMHistory.js":[function(require,module,exports){
+},{"./Actions":"D:\\React\\videoport\\node_modules\\history\\lib\\Actions.js","./DOMStateStorage":"D:\\React\\videoport\\node_modules\\history\\lib\\DOMStateStorage.js","./DOMUtils":"D:\\React\\videoport\\node_modules\\history\\lib\\DOMUtils.js","./ExecutionEnvironment":"D:\\React\\videoport\\node_modules\\history\\lib\\ExecutionEnvironment.js","./PathUtils":"D:\\React\\videoport\\node_modules\\history\\lib\\PathUtils.js","./createDOMHistory":"D:\\React\\videoport\\node_modules\\history\\lib\\createDOMHistory.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","invariant":"D:\\React\\videoport\\node_modules\\invariant\\browser.js"}],"D:\\React\\videoport\\node_modules\\history\\lib\\createDOMHistory.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -5972,7 +5987,7 @@ exports['default'] = createDOMHistory;
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./DOMUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\DOMUtils.js","./ExecutionEnvironment":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\ExecutionEnvironment.js","./createHistory":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\createHistory.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\invariant\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\createHashHistory.js":[function(require,module,exports){
+},{"./DOMUtils":"D:\\React\\videoport\\node_modules\\history\\lib\\DOMUtils.js","./ExecutionEnvironment":"D:\\React\\videoport\\node_modules\\history\\lib\\ExecutionEnvironment.js","./createHistory":"D:\\React\\videoport\\node_modules\\history\\lib\\createHistory.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","invariant":"D:\\React\\videoport\\node_modules\\invariant\\browser.js"}],"D:\\React\\videoport\\node_modules\\history\\lib\\createHashHistory.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -6222,7 +6237,7 @@ exports['default'] = createHashHistory;
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./Actions":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\Actions.js","./DOMStateStorage":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\DOMStateStorage.js","./DOMUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\DOMUtils.js","./ExecutionEnvironment":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\ExecutionEnvironment.js","./PathUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\PathUtils.js","./createDOMHistory":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\createDOMHistory.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\invariant\\browser.js","warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\node_modules\\warning\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\createHistory.js":[function(require,module,exports){
+},{"./Actions":"D:\\React\\videoport\\node_modules\\history\\lib\\Actions.js","./DOMStateStorage":"D:\\React\\videoport\\node_modules\\history\\lib\\DOMStateStorage.js","./DOMUtils":"D:\\React\\videoport\\node_modules\\history\\lib\\DOMUtils.js","./ExecutionEnvironment":"D:\\React\\videoport\\node_modules\\history\\lib\\ExecutionEnvironment.js","./PathUtils":"D:\\React\\videoport\\node_modules\\history\\lib\\PathUtils.js","./createDOMHistory":"D:\\React\\videoport\\node_modules\\history\\lib\\createDOMHistory.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","invariant":"D:\\React\\videoport\\node_modules\\invariant\\browser.js","warning":"D:\\React\\videoport\\node_modules\\history\\node_modules\\warning\\browser.js"}],"D:\\React\\videoport\\node_modules\\history\\lib\\createHistory.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -6514,7 +6529,7 @@ exports['default'] = createHistory;
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./Actions":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\Actions.js","./AsyncUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\AsyncUtils.js","./PathUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\PathUtils.js","./createLocation":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\createLocation.js","./deprecate":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\deprecate.js","./runTransitionHook":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\runTransitionHook.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","deep-equal":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\deep-equal\\index.js","warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\node_modules\\warning\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\createLocation.js":[function(require,module,exports){
+},{"./Actions":"D:\\React\\videoport\\node_modules\\history\\lib\\Actions.js","./AsyncUtils":"D:\\React\\videoport\\node_modules\\history\\lib\\AsyncUtils.js","./PathUtils":"D:\\React\\videoport\\node_modules\\history\\lib\\PathUtils.js","./createLocation":"D:\\React\\videoport\\node_modules\\history\\lib\\createLocation.js","./deprecate":"D:\\React\\videoport\\node_modules\\history\\lib\\deprecate.js","./runTransitionHook":"D:\\React\\videoport\\node_modules\\history\\lib\\runTransitionHook.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","deep-equal":"D:\\React\\videoport\\node_modules\\deep-equal\\index.js","warning":"D:\\React\\videoport\\node_modules\\history\\node_modules\\warning\\browser.js"}],"D:\\React\\videoport\\node_modules\\history\\lib\\createLocation.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -6569,7 +6584,7 @@ exports['default'] = createLocation;
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./Actions":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\Actions.js","./PathUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\PathUtils.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\node_modules\\warning\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\createMemoryHistory.js":[function(require,module,exports){
+},{"./Actions":"D:\\React\\videoport\\node_modules\\history\\lib\\Actions.js","./PathUtils":"D:\\React\\videoport\\node_modules\\history\\lib\\PathUtils.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","warning":"D:\\React\\videoport\\node_modules\\history\\node_modules\\warning\\browser.js"}],"D:\\React\\videoport\\node_modules\\history\\lib\\createMemoryHistory.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -6727,7 +6742,7 @@ exports['default'] = createMemoryHistory;
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./Actions":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\Actions.js","./PathUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\PathUtils.js","./createHistory":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\createHistory.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\invariant\\browser.js","warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\node_modules\\warning\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\deprecate.js":[function(require,module,exports){
+},{"./Actions":"D:\\React\\videoport\\node_modules\\history\\lib\\Actions.js","./PathUtils":"D:\\React\\videoport\\node_modules\\history\\lib\\PathUtils.js","./createHistory":"D:\\React\\videoport\\node_modules\\history\\lib\\createHistory.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","invariant":"D:\\React\\videoport\\node_modules\\invariant\\browser.js","warning":"D:\\React\\videoport\\node_modules\\history\\node_modules\\warning\\browser.js"}],"D:\\React\\videoport\\node_modules\\history\\lib\\deprecate.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -6750,7 +6765,7 @@ exports['default'] = deprecate;
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\node_modules\\warning\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\runTransitionHook.js":[function(require,module,exports){
+},{"_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","warning":"D:\\React\\videoport\\node_modules\\history\\node_modules\\warning\\browser.js"}],"D:\\React\\videoport\\node_modules\\history\\lib\\runTransitionHook.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -6778,7 +6793,7 @@ exports['default'] = runTransitionHook;
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\node_modules\\warning\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\useBasename.js":[function(require,module,exports){
+},{"_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","warning":"D:\\React\\videoport\\node_modules\\history\\node_modules\\warning\\browser.js"}],"D:\\React\\videoport\\node_modules\\history\\lib\\useBasename.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -6940,7 +6955,7 @@ exports['default'] = useBasename;
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./ExecutionEnvironment":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\ExecutionEnvironment.js","./PathUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\PathUtils.js","./deprecate":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\deprecate.js","./runTransitionHook":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\runTransitionHook.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\node_modules\\warning\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\useQueries.js":[function(require,module,exports){
+},{"./ExecutionEnvironment":"D:\\React\\videoport\\node_modules\\history\\lib\\ExecutionEnvironment.js","./PathUtils":"D:\\React\\videoport\\node_modules\\history\\lib\\PathUtils.js","./deprecate":"D:\\React\\videoport\\node_modules\\history\\lib\\deprecate.js","./runTransitionHook":"D:\\React\\videoport\\node_modules\\history\\lib\\runTransitionHook.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","warning":"D:\\React\\videoport\\node_modules\\history\\node_modules\\warning\\browser.js"}],"D:\\React\\videoport\\node_modules\\history\\lib\\useQueries.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -7120,7 +7135,7 @@ exports['default'] = useQueries;
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./PathUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\PathUtils.js","./deprecate":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\deprecate.js","./runTransitionHook":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\runTransitionHook.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","query-string":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\query-string\\index.js","warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\node_modules\\warning\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\node_modules\\warning\\browser.js":[function(require,module,exports){
+},{"./PathUtils":"D:\\React\\videoport\\node_modules\\history\\lib\\PathUtils.js","./deprecate":"D:\\React\\videoport\\node_modules\\history\\lib\\deprecate.js","./runTransitionHook":"D:\\React\\videoport\\node_modules\\history\\lib\\runTransitionHook.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","query-string":"D:\\React\\videoport\\node_modules\\query-string\\index.js","warning":"D:\\React\\videoport\\node_modules\\history\\node_modules\\warning\\browser.js"}],"D:\\React\\videoport\\node_modules\\history\\node_modules\\warning\\browser.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-2015, Facebook, Inc.
@@ -7185,7 +7200,7 @@ module.exports = warning;
 
 }).call(this,require('_process'))
 
-},{"_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\hoist-non-react-statics\\index.js":[function(require,module,exports){
+},{"_process":"D:\\React\\videoport\\node_modules\\process\\browser.js"}],"D:\\React\\videoport\\node_modules\\hoist-non-react-statics\\index.js":[function(require,module,exports){
 /**
  * Copyright 2015, Yahoo! Inc.
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
@@ -7237,7 +7252,7 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
     return targetComponent;
 };
 
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\invariant\\browser.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\invariant\\browser.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -7293,7 +7308,7 @@ module.exports = invariant;
 
 }).call(this,require('_process'))
 
-},{"_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_DataView.js":[function(require,module,exports){
+},{"_process":"D:\\React\\videoport\\node_modules\\process\\browser.js"}],"D:\\React\\videoport\\node_modules\\lodash\\_DataView.js":[function(require,module,exports){
 var getNative = require('./_getNative'),
     root = require('./_root');
 
@@ -7302,7 +7317,7 @@ var DataView = getNative(root, 'DataView');
 
 module.exports = DataView;
 
-},{"./_getNative":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_getNative.js","./_root":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_root.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_Map.js":[function(require,module,exports){
+},{"./_getNative":"D:\\React\\videoport\\node_modules\\lodash\\_getNative.js","./_root":"D:\\React\\videoport\\node_modules\\lodash\\_root.js"}],"D:\\React\\videoport\\node_modules\\lodash\\_Map.js":[function(require,module,exports){
 var getNative = require('./_getNative'),
     root = require('./_root');
 
@@ -7311,7 +7326,7 @@ var Map = getNative(root, 'Map');
 
 module.exports = Map;
 
-},{"./_getNative":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_getNative.js","./_root":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_root.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_Promise.js":[function(require,module,exports){
+},{"./_getNative":"D:\\React\\videoport\\node_modules\\lodash\\_getNative.js","./_root":"D:\\React\\videoport\\node_modules\\lodash\\_root.js"}],"D:\\React\\videoport\\node_modules\\lodash\\_Promise.js":[function(require,module,exports){
 var getNative = require('./_getNative'),
     root = require('./_root');
 
@@ -7320,7 +7335,7 @@ var Promise = getNative(root, 'Promise');
 
 module.exports = Promise;
 
-},{"./_getNative":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_getNative.js","./_root":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_root.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_Set.js":[function(require,module,exports){
+},{"./_getNative":"D:\\React\\videoport\\node_modules\\lodash\\_getNative.js","./_root":"D:\\React\\videoport\\node_modules\\lodash\\_root.js"}],"D:\\React\\videoport\\node_modules\\lodash\\_Set.js":[function(require,module,exports){
 var getNative = require('./_getNative'),
     root = require('./_root');
 
@@ -7329,7 +7344,7 @@ var Set = getNative(root, 'Set');
 
 module.exports = Set;
 
-},{"./_getNative":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_getNative.js","./_root":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_root.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_WeakMap.js":[function(require,module,exports){
+},{"./_getNative":"D:\\React\\videoport\\node_modules\\lodash\\_getNative.js","./_root":"D:\\React\\videoport\\node_modules\\lodash\\_root.js"}],"D:\\React\\videoport\\node_modules\\lodash\\_WeakMap.js":[function(require,module,exports){
 var getNative = require('./_getNative'),
     root = require('./_root');
 
@@ -7338,7 +7353,7 @@ var WeakMap = getNative(root, 'WeakMap');
 
 module.exports = WeakMap;
 
-},{"./_getNative":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_getNative.js","./_root":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_root.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_baseGetTag.js":[function(require,module,exports){
+},{"./_getNative":"D:\\React\\videoport\\node_modules\\lodash\\_getNative.js","./_root":"D:\\React\\videoport\\node_modules\\lodash\\_root.js"}],"D:\\React\\videoport\\node_modules\\lodash\\_baseGetTag.js":[function(require,module,exports){
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
 
@@ -7362,9 +7377,37 @@ function baseGetTag(value) {
 
 module.exports = baseGetTag;
 
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_baseIsNative.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\lodash\\_baseIsArguments.js":[function(require,module,exports){
+var isObjectLike = require('./isObjectLike');
+
+/** `Object#toString` result references. */
+var argsTag = '[object Arguments]';
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/**
+ * Used to resolve the
+ * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+ * of values.
+ */
+var objectToString = objectProto.toString;
+
+/**
+ * The base implementation of `_.isArguments`.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an `arguments` object,
+ */
+function baseIsArguments(value) {
+  return isObjectLike(value) && objectToString.call(value) == argsTag;
+}
+
+module.exports = baseIsArguments;
+
+},{"./isObjectLike":"D:\\React\\videoport\\node_modules\\lodash\\isObjectLike.js"}],"D:\\React\\videoport\\node_modules\\lodash\\_baseIsNative.js":[function(require,module,exports){
 var isFunction = require('./isFunction'),
-    isHostObject = require('./_isHostObject'),
     isMasked = require('./_isMasked'),
     isObject = require('./isObject'),
     toSource = require('./_toSource');
@@ -7406,13 +7449,132 @@ function baseIsNative(value) {
   if (!isObject(value) || isMasked(value)) {
     return false;
   }
-  var pattern = (isFunction(value) || isHostObject(value)) ? reIsNative : reIsHostCtor;
+  var pattern = isFunction(value) ? reIsNative : reIsHostCtor;
   return pattern.test(toSource(value));
 }
 
 module.exports = baseIsNative;
 
-},{"./_isHostObject":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_isHostObject.js","./_isMasked":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_isMasked.js","./_toSource":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_toSource.js","./isFunction":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\isFunction.js","./isObject":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\isObject.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_coreJsData.js":[function(require,module,exports){
+},{"./_isMasked":"D:\\React\\videoport\\node_modules\\lodash\\_isMasked.js","./_toSource":"D:\\React\\videoport\\node_modules\\lodash\\_toSource.js","./isFunction":"D:\\React\\videoport\\node_modules\\lodash\\isFunction.js","./isObject":"D:\\React\\videoport\\node_modules\\lodash\\isObject.js"}],"D:\\React\\videoport\\node_modules\\lodash\\_baseIsTypedArray.js":[function(require,module,exports){
+var isLength = require('./isLength'),
+    isObjectLike = require('./isObjectLike');
+
+/** `Object#toString` result references. */
+var argsTag = '[object Arguments]',
+    arrayTag = '[object Array]',
+    boolTag = '[object Boolean]',
+    dateTag = '[object Date]',
+    errorTag = '[object Error]',
+    funcTag = '[object Function]',
+    mapTag = '[object Map]',
+    numberTag = '[object Number]',
+    objectTag = '[object Object]',
+    regexpTag = '[object RegExp]',
+    setTag = '[object Set]',
+    stringTag = '[object String]',
+    weakMapTag = '[object WeakMap]';
+
+var arrayBufferTag = '[object ArrayBuffer]',
+    dataViewTag = '[object DataView]',
+    float32Tag = '[object Float32Array]',
+    float64Tag = '[object Float64Array]',
+    int8Tag = '[object Int8Array]',
+    int16Tag = '[object Int16Array]',
+    int32Tag = '[object Int32Array]',
+    uint8Tag = '[object Uint8Array]',
+    uint8ClampedTag = '[object Uint8ClampedArray]',
+    uint16Tag = '[object Uint16Array]',
+    uint32Tag = '[object Uint32Array]';
+
+/** Used to identify `toStringTag` values of typed arrays. */
+var typedArrayTags = {};
+typedArrayTags[float32Tag] = typedArrayTags[float64Tag] =
+typedArrayTags[int8Tag] = typedArrayTags[int16Tag] =
+typedArrayTags[int32Tag] = typedArrayTags[uint8Tag] =
+typedArrayTags[uint8ClampedTag] = typedArrayTags[uint16Tag] =
+typedArrayTags[uint32Tag] = true;
+typedArrayTags[argsTag] = typedArrayTags[arrayTag] =
+typedArrayTags[arrayBufferTag] = typedArrayTags[boolTag] =
+typedArrayTags[dataViewTag] = typedArrayTags[dateTag] =
+typedArrayTags[errorTag] = typedArrayTags[funcTag] =
+typedArrayTags[mapTag] = typedArrayTags[numberTag] =
+typedArrayTags[objectTag] = typedArrayTags[regexpTag] =
+typedArrayTags[setTag] = typedArrayTags[stringTag] =
+typedArrayTags[weakMapTag] = false;
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/**
+ * Used to resolve the
+ * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+ * of values.
+ */
+var objectToString = objectProto.toString;
+
+/**
+ * The base implementation of `_.isTypedArray` without Node.js optimizations.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a typed array, else `false`.
+ */
+function baseIsTypedArray(value) {
+  return isObjectLike(value) &&
+    isLength(value.length) && !!typedArrayTags[objectToString.call(value)];
+}
+
+module.exports = baseIsTypedArray;
+
+},{"./isLength":"D:\\React\\videoport\\node_modules\\lodash\\isLength.js","./isObjectLike":"D:\\React\\videoport\\node_modules\\lodash\\isObjectLike.js"}],"D:\\React\\videoport\\node_modules\\lodash\\_baseKeys.js":[function(require,module,exports){
+var isPrototype = require('./_isPrototype'),
+    nativeKeys = require('./_nativeKeys');
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/**
+ * The base implementation of `_.keys` which doesn't treat sparse arrays as dense.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @returns {Array} Returns the array of property names.
+ */
+function baseKeys(object) {
+  if (!isPrototype(object)) {
+    return nativeKeys(object);
+  }
+  var result = [];
+  for (var key in Object(object)) {
+    if (hasOwnProperty.call(object, key) && key != 'constructor') {
+      result.push(key);
+    }
+  }
+  return result;
+}
+
+module.exports = baseKeys;
+
+},{"./_isPrototype":"D:\\React\\videoport\\node_modules\\lodash\\_isPrototype.js","./_nativeKeys":"D:\\React\\videoport\\node_modules\\lodash\\_nativeKeys.js"}],"D:\\React\\videoport\\node_modules\\lodash\\_baseUnary.js":[function(require,module,exports){
+/**
+ * The base implementation of `_.unary` without support for storing metadata.
+ *
+ * @private
+ * @param {Function} func The function to cap arguments for.
+ * @returns {Function} Returns the new capped function.
+ */
+function baseUnary(func) {
+  return function(value) {
+    return func(value);
+  };
+}
+
+module.exports = baseUnary;
+
+},{}],"D:\\React\\videoport\\node_modules\\lodash\\_coreJsData.js":[function(require,module,exports){
 var root = require('./_root');
 
 /** Used to detect overreaching core-js shims. */
@@ -7420,7 +7582,7 @@ var coreJsData = root['__core-js_shared__'];
 
 module.exports = coreJsData;
 
-},{"./_root":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_root.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_freeGlobal.js":[function(require,module,exports){
+},{"./_root":"D:\\React\\videoport\\node_modules\\lodash\\_root.js"}],"D:\\React\\videoport\\node_modules\\lodash\\_freeGlobal.js":[function(require,module,exports){
 (function (global){
 /** Detect free variable `global` from Node.js. */
 var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
@@ -7429,7 +7591,7 @@ module.exports = freeGlobal;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_getNative.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\lodash\\_getNative.js":[function(require,module,exports){
 var baseIsNative = require('./_baseIsNative'),
     getValue = require('./_getValue');
 
@@ -7448,7 +7610,7 @@ function getNative(object, key) {
 
 module.exports = getNative;
 
-},{"./_baseIsNative":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_baseIsNative.js","./_getValue":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_getValue.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_getPrototype.js":[function(require,module,exports){
+},{"./_baseIsNative":"D:\\React\\videoport\\node_modules\\lodash\\_baseIsNative.js","./_getValue":"D:\\React\\videoport\\node_modules\\lodash\\_getValue.js"}],"D:\\React\\videoport\\node_modules\\lodash\\_getPrototype.js":[function(require,module,exports){
 var overArg = require('./_overArg');
 
 /** Built-in value references. */
@@ -7456,7 +7618,7 @@ var getPrototype = overArg(Object.getPrototypeOf, Object);
 
 module.exports = getPrototype;
 
-},{"./_overArg":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_overArg.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_getTag.js":[function(require,module,exports){
+},{"./_overArg":"D:\\React\\videoport\\node_modules\\lodash\\_overArg.js"}],"D:\\React\\videoport\\node_modules\\lodash\\_getTag.js":[function(require,module,exports){
 var DataView = require('./_DataView'),
     Map = require('./_Map'),
     Promise = require('./_Promise'),
@@ -7500,8 +7662,7 @@ var dataViewCtorString = toSource(DataView),
  */
 var getTag = baseGetTag;
 
-// Fallback for data views, maps, sets, and weak maps in IE 11,
-// for data views in Edge < 14, and promises in Node.js.
+// Fallback for data views, maps, sets, and weak maps in IE 11 and promises in Node.js < 6.
 if ((DataView && getTag(new DataView(new ArrayBuffer(1))) != dataViewTag) ||
     (Map && getTag(new Map) != mapTag) ||
     (Promise && getTag(Promise.resolve()) != promiseTag) ||
@@ -7527,7 +7688,7 @@ if ((DataView && getTag(new DataView(new ArrayBuffer(1))) != dataViewTag) ||
 
 module.exports = getTag;
 
-},{"./_DataView":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_DataView.js","./_Map":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_Map.js","./_Promise":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_Promise.js","./_Set":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_Set.js","./_WeakMap":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_WeakMap.js","./_baseGetTag":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_baseGetTag.js","./_toSource":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_toSource.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_getValue.js":[function(require,module,exports){
+},{"./_DataView":"D:\\React\\videoport\\node_modules\\lodash\\_DataView.js","./_Map":"D:\\React\\videoport\\node_modules\\lodash\\_Map.js","./_Promise":"D:\\React\\videoport\\node_modules\\lodash\\_Promise.js","./_Set":"D:\\React\\videoport\\node_modules\\lodash\\_Set.js","./_WeakMap":"D:\\React\\videoport\\node_modules\\lodash\\_WeakMap.js","./_baseGetTag":"D:\\React\\videoport\\node_modules\\lodash\\_baseGetTag.js","./_toSource":"D:\\React\\videoport\\node_modules\\lodash\\_toSource.js"}],"D:\\React\\videoport\\node_modules\\lodash\\_getValue.js":[function(require,module,exports){
 /**
  * Gets the value at `key` of `object`.
  *
@@ -7542,29 +7703,7 @@ function getValue(object, key) {
 
 module.exports = getValue;
 
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_isHostObject.js":[function(require,module,exports){
-/**
- * Checks if `value` is a host object in IE < 9.
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a host object, else `false`.
- */
-function isHostObject(value) {
-  // Many host objects are `Object` objects that can coerce to strings
-  // despite having improperly defined `toString` methods.
-  var result = false;
-  if (value != null && typeof value.toString != 'function') {
-    try {
-      result = !!(value + '');
-    } catch (e) {}
-  }
-  return result;
-}
-
-module.exports = isHostObject;
-
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_isMasked.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\lodash\\_isMasked.js":[function(require,module,exports){
 var coreJsData = require('./_coreJsData');
 
 /** Used to detect methods masquerading as native. */
@@ -7586,7 +7725,7 @@ function isMasked(func) {
 
 module.exports = isMasked;
 
-},{"./_coreJsData":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_coreJsData.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_isPrototype.js":[function(require,module,exports){
+},{"./_coreJsData":"D:\\React\\videoport\\node_modules\\lodash\\_coreJsData.js"}],"D:\\React\\videoport\\node_modules\\lodash\\_isPrototype.js":[function(require,module,exports){
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
 
@@ -7606,7 +7745,7 @@ function isPrototype(value) {
 
 module.exports = isPrototype;
 
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_nativeKeys.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\lodash\\_nativeKeys.js":[function(require,module,exports){
 var overArg = require('./_overArg');
 
 /* Built-in method references for those with the same name as other `lodash` methods. */
@@ -7614,7 +7753,31 @@ var nativeKeys = overArg(Object.keys, Object);
 
 module.exports = nativeKeys;
 
-},{"./_overArg":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_overArg.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_overArg.js":[function(require,module,exports){
+},{"./_overArg":"D:\\React\\videoport\\node_modules\\lodash\\_overArg.js"}],"D:\\React\\videoport\\node_modules\\lodash\\_nodeUtil.js":[function(require,module,exports){
+var freeGlobal = require('./_freeGlobal');
+
+/** Detect free variable `exports`. */
+var freeExports = typeof exports == 'object' && exports && !exports.nodeType && exports;
+
+/** Detect free variable `module`. */
+var freeModule = freeExports && typeof module == 'object' && module && !module.nodeType && module;
+
+/** Detect the popular CommonJS extension `module.exports`. */
+var moduleExports = freeModule && freeModule.exports === freeExports;
+
+/** Detect free variable `process` from Node.js. */
+var freeProcess = moduleExports && freeGlobal.process;
+
+/** Used to access faster Node.js helpers. */
+var nodeUtil = (function() {
+  try {
+    return freeProcess && freeProcess.binding('util');
+  } catch (e) {}
+}());
+
+module.exports = nodeUtil;
+
+},{"./_freeGlobal":"D:\\React\\videoport\\node_modules\\lodash\\_freeGlobal.js"}],"D:\\React\\videoport\\node_modules\\lodash\\_overArg.js":[function(require,module,exports){
 /**
  * Creates a unary function that invokes `func` with its argument transformed.
  *
@@ -7631,7 +7794,7 @@ function overArg(func, transform) {
 
 module.exports = overArg;
 
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_root.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\lodash\\_root.js":[function(require,module,exports){
 var freeGlobal = require('./_freeGlobal');
 
 /** Detect free variable `self`. */
@@ -7642,7 +7805,7 @@ var root = freeGlobal || freeSelf || Function('return this')();
 
 module.exports = root;
 
-},{"./_freeGlobal":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_freeGlobal.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_toSource.js":[function(require,module,exports){
+},{"./_freeGlobal":"D:\\React\\videoport\\node_modules\\lodash\\_freeGlobal.js"}],"D:\\React\\videoport\\node_modules\\lodash\\_toSource.js":[function(require,module,exports){
 /** Used for built-in method references. */
 var funcProto = Function.prototype;
 
@@ -7670,24 +7833,15 @@ function toSource(func) {
 
 module.exports = toSource;
 
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\isArguments.js":[function(require,module,exports){
-var isArrayLikeObject = require('./isArrayLikeObject');
-
-/** `Object#toString` result references. */
-var argsTag = '[object Arguments]';
+},{}],"D:\\React\\videoport\\node_modules\\lodash\\isArguments.js":[function(require,module,exports){
+var baseIsArguments = require('./_baseIsArguments'),
+    isObjectLike = require('./isObjectLike');
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
 
 /** Used to check objects for own properties. */
 var hasOwnProperty = objectProto.hasOwnProperty;
-
-/**
- * Used to resolve the
- * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
- * of values.
- */
-var objectToString = objectProto.toString;
 
 /** Built-in value references. */
 var propertyIsEnumerable = objectProto.propertyIsEnumerable;
@@ -7710,15 +7864,14 @@ var propertyIsEnumerable = objectProto.propertyIsEnumerable;
  * _.isArguments([1, 2, 3]);
  * // => false
  */
-function isArguments(value) {
-  // Safari 8.1 makes `arguments.callee` enumerable in strict mode.
-  return isArrayLikeObject(value) && hasOwnProperty.call(value, 'callee') &&
-    (!propertyIsEnumerable.call(value, 'callee') || objectToString.call(value) == argsTag);
-}
+var isArguments = baseIsArguments(function() { return arguments; }()) ? baseIsArguments : function(value) {
+  return isObjectLike(value) && hasOwnProperty.call(value, 'callee') &&
+    !propertyIsEnumerable.call(value, 'callee');
+};
 
 module.exports = isArguments;
 
-},{"./isArrayLikeObject":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\isArrayLikeObject.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\isArray.js":[function(require,module,exports){
+},{"./_baseIsArguments":"D:\\React\\videoport\\node_modules\\lodash\\_baseIsArguments.js","./isObjectLike":"D:\\React\\videoport\\node_modules\\lodash\\isObjectLike.js"}],"D:\\React\\videoport\\node_modules\\lodash\\isArray.js":[function(require,module,exports){
 /**
  * Checks if `value` is classified as an `Array` object.
  *
@@ -7746,7 +7899,7 @@ var isArray = Array.isArray;
 
 module.exports = isArray;
 
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\isArrayLike.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\lodash\\isArrayLike.js":[function(require,module,exports){
 var isFunction = require('./isFunction'),
     isLength = require('./isLength');
 
@@ -7781,42 +7934,7 @@ function isArrayLike(value) {
 
 module.exports = isArrayLike;
 
-},{"./isFunction":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\isFunction.js","./isLength":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\isLength.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\isArrayLikeObject.js":[function(require,module,exports){
-var isArrayLike = require('./isArrayLike'),
-    isObjectLike = require('./isObjectLike');
-
-/**
- * This method is like `_.isArrayLike` except that it also checks if `value`
- * is an object.
- *
- * @static
- * @memberOf _
- * @since 4.0.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is an array-like object,
- *  else `false`.
- * @example
- *
- * _.isArrayLikeObject([1, 2, 3]);
- * // => true
- *
- * _.isArrayLikeObject(document.body.children);
- * // => true
- *
- * _.isArrayLikeObject('abc');
- * // => false
- *
- * _.isArrayLikeObject(_.noop);
- * // => false
- */
-function isArrayLikeObject(value) {
-  return isObjectLike(value) && isArrayLike(value);
-}
-
-module.exports = isArrayLikeObject;
-
-},{"./isArrayLike":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\isArrayLike.js","./isObjectLike":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\isObjectLike.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\isBuffer.js":[function(require,module,exports){
+},{"./isFunction":"D:\\React\\videoport\\node_modules\\lodash\\isFunction.js","./isLength":"D:\\React\\videoport\\node_modules\\lodash\\isLength.js"}],"D:\\React\\videoport\\node_modules\\lodash\\isBuffer.js":[function(require,module,exports){
 var root = require('./_root'),
     stubFalse = require('./stubFalse');
 
@@ -7856,14 +7974,15 @@ var isBuffer = nativeIsBuffer || stubFalse;
 
 module.exports = isBuffer;
 
-},{"./_root":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_root.js","./stubFalse":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\stubFalse.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\isEmpty.js":[function(require,module,exports){
-var getTag = require('./_getTag'),
+},{"./_root":"D:\\React\\videoport\\node_modules\\lodash\\_root.js","./stubFalse":"D:\\React\\videoport\\node_modules\\lodash\\stubFalse.js"}],"D:\\React\\videoport\\node_modules\\lodash\\isEmpty.js":[function(require,module,exports){
+var baseKeys = require('./_baseKeys'),
+    getTag = require('./_getTag'),
     isArguments = require('./isArguments'),
     isArray = require('./isArray'),
     isArrayLike = require('./isArrayLike'),
     isBuffer = require('./isBuffer'),
     isPrototype = require('./_isPrototype'),
-    nativeKeys = require('./_nativeKeys');
+    isTypedArray = require('./isTypedArray');
 
 /** `Object#toString` result references. */
 var mapTag = '[object Map]',
@@ -7874,12 +7993,6 @@ var objectProto = Object.prototype;
 
 /** Used to check objects for own properties. */
 var hasOwnProperty = objectProto.hasOwnProperty;
-
-/** Built-in value references. */
-var propertyIsEnumerable = objectProto.propertyIsEnumerable;
-
-/** Detect if properties shadowing those on `Object.prototype` are non-enumerable. */
-var nonEnumShadows = !propertyIsEnumerable.call({ 'valueOf': 1 }, 'valueOf');
 
 /**
  * Checks if `value` is an empty object, collection, map, or set.
@@ -7916,16 +8029,16 @@ var nonEnumShadows = !propertyIsEnumerable.call({ 'valueOf': 1 }, 'valueOf');
  */
 function isEmpty(value) {
   if (isArrayLike(value) &&
-      (isArray(value) || typeof value == 'string' ||
-        typeof value.splice == 'function' || isBuffer(value) || isArguments(value))) {
+      (isArray(value) || typeof value == 'string' || typeof value.splice == 'function' ||
+        isBuffer(value) || isTypedArray(value) || isArguments(value))) {
     return !value.length;
   }
   var tag = getTag(value);
   if (tag == mapTag || tag == setTag) {
     return !value.size;
   }
-  if (nonEnumShadows || isPrototype(value)) {
-    return !nativeKeys(value).length;
+  if (isPrototype(value)) {
+    return !baseKeys(value).length;
   }
   for (var key in value) {
     if (hasOwnProperty.call(value, key)) {
@@ -7937,12 +8050,13 @@ function isEmpty(value) {
 
 module.exports = isEmpty;
 
-},{"./_getTag":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_getTag.js","./_isPrototype":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_isPrototype.js","./_nativeKeys":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_nativeKeys.js","./isArguments":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\isArguments.js","./isArray":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\isArray.js","./isArrayLike":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\isArrayLike.js","./isBuffer":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\isBuffer.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\isFunction.js":[function(require,module,exports){
+},{"./_baseKeys":"D:\\React\\videoport\\node_modules\\lodash\\_baseKeys.js","./_getTag":"D:\\React\\videoport\\node_modules\\lodash\\_getTag.js","./_isPrototype":"D:\\React\\videoport\\node_modules\\lodash\\_isPrototype.js","./isArguments":"D:\\React\\videoport\\node_modules\\lodash\\isArguments.js","./isArray":"D:\\React\\videoport\\node_modules\\lodash\\isArray.js","./isArrayLike":"D:\\React\\videoport\\node_modules\\lodash\\isArrayLike.js","./isBuffer":"D:\\React\\videoport\\node_modules\\lodash\\isBuffer.js","./isTypedArray":"D:\\React\\videoport\\node_modules\\lodash\\isTypedArray.js"}],"D:\\React\\videoport\\node_modules\\lodash\\isFunction.js":[function(require,module,exports){
 var isObject = require('./isObject');
 
 /** `Object#toString` result references. */
 var funcTag = '[object Function]',
-    genTag = '[object GeneratorFunction]';
+    genTag = '[object GeneratorFunction]',
+    proxyTag = '[object Proxy]';
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -7973,14 +8087,14 @@ var objectToString = objectProto.toString;
  */
 function isFunction(value) {
   // The use of `Object#toString` avoids issues with the `typeof` operator
-  // in Safari 8-9 which returns 'object' for typed array and other constructors.
+  // in Safari 9 which returns 'object' for typed array and other constructors.
   var tag = isObject(value) ? objectToString.call(value) : '';
-  return tag == funcTag || tag == genTag;
+  return tag == funcTag || tag == genTag || tag == proxyTag;
 }
 
 module.exports = isFunction;
 
-},{"./isObject":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\isObject.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\isLength.js":[function(require,module,exports){
+},{"./isObject":"D:\\React\\videoport\\node_modules\\lodash\\isObject.js"}],"D:\\React\\videoport\\node_modules\\lodash\\isLength.js":[function(require,module,exports){
 /** Used as references for various `Number` constants. */
 var MAX_SAFE_INTEGER = 9007199254740991;
 
@@ -8017,7 +8131,7 @@ function isLength(value) {
 
 module.exports = isLength;
 
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\isObject.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\lodash\\isObject.js":[function(require,module,exports){
 /**
  * Checks if `value` is the
  * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
@@ -8045,12 +8159,12 @@ module.exports = isLength;
  */
 function isObject(value) {
   var type = typeof value;
-  return !!value && (type == 'object' || type == 'function');
+  return value != null && (type == 'object' || type == 'function');
 }
 
 module.exports = isObject;
 
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\isObjectLike.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\lodash\\isObjectLike.js":[function(require,module,exports){
 /**
  * Checks if `value` is object-like. A value is object-like if it's not `null`
  * and has a `typeof` result of "object".
@@ -8076,14 +8190,13 @@ module.exports = isObject;
  * // => false
  */
 function isObjectLike(value) {
-  return !!value && typeof value == 'object';
+  return value != null && typeof value == 'object';
 }
 
 module.exports = isObjectLike;
 
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\isPlainObject.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\lodash\\isPlainObject.js":[function(require,module,exports){
 var getPrototype = require('./_getPrototype'),
-    isHostObject = require('./_isHostObject'),
     isObjectLike = require('./isObjectLike');
 
 /** `Object#toString` result references. */
@@ -8138,8 +8251,7 @@ var objectToString = objectProto.toString;
  * // => true
  */
 function isPlainObject(value) {
-  if (!isObjectLike(value) ||
-      objectToString.call(value) != objectTag || isHostObject(value)) {
+  if (!isObjectLike(value) || objectToString.call(value) != objectTag) {
     return false;
   }
   var proto = getPrototype(value);
@@ -8153,7 +8265,36 @@ function isPlainObject(value) {
 
 module.exports = isPlainObject;
 
-},{"./_getPrototype":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_getPrototype.js","./_isHostObject":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\_isHostObject.js","./isObjectLike":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\isObjectLike.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\lodash.js":[function(require,module,exports){
+},{"./_getPrototype":"D:\\React\\videoport\\node_modules\\lodash\\_getPrototype.js","./isObjectLike":"D:\\React\\videoport\\node_modules\\lodash\\isObjectLike.js"}],"D:\\React\\videoport\\node_modules\\lodash\\isTypedArray.js":[function(require,module,exports){
+var baseIsTypedArray = require('./_baseIsTypedArray'),
+    baseUnary = require('./_baseUnary'),
+    nodeUtil = require('./_nodeUtil');
+
+/* Node.js helper references. */
+var nodeIsTypedArray = nodeUtil && nodeUtil.isTypedArray;
+
+/**
+ * Checks if `value` is classified as a typed array.
+ *
+ * @static
+ * @memberOf _
+ * @since 3.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a typed array, else `false`.
+ * @example
+ *
+ * _.isTypedArray(new Uint8Array);
+ * // => true
+ *
+ * _.isTypedArray([]);
+ * // => false
+ */
+var isTypedArray = nodeIsTypedArray ? baseUnary(nodeIsTypedArray) : baseIsTypedArray;
+
+module.exports = isTypedArray;
+
+},{"./_baseIsTypedArray":"D:\\React\\videoport\\node_modules\\lodash\\_baseIsTypedArray.js","./_baseUnary":"D:\\React\\videoport\\node_modules\\lodash\\_baseUnary.js","./_nodeUtil":"D:\\React\\videoport\\node_modules\\lodash\\_nodeUtil.js"}],"D:\\React\\videoport\\node_modules\\lodash\\lodash.js":[function(require,module,exports){
 (function (global){
 /**
  * @license
@@ -8169,16 +8310,20 @@ module.exports = isPlainObject;
   var undefined;
 
   /** Used as the semantic version number. */
-  var VERSION = '4.15.0';
+  var VERSION = '4.16.4';
 
   /** Used as the size to enable large array optimizations. */
   var LARGE_ARRAY_SIZE = 200;
 
-  /** Used as the `TypeError` message for "Functions" methods. */
-  var FUNC_ERROR_TEXT = 'Expected a function';
+  /** Error message constants. */
+  var CORE_ERROR_TEXT = 'Unsupported core-js use. Try https://github.com/es-shims.',
+      FUNC_ERROR_TEXT = 'Expected a function';
 
   /** Used to stand-in for `undefined` hash values. */
   var HASH_UNDEFINED = '__lodash_hash_undefined__';
+
+  /** Used as the maximum memoize cache size. */
+  var MAX_MEMOIZE_SIZE = 500;
 
   /** Used as the internal argument placeholder. */
   var PLACEHOLDER = '__lodash_placeholder__';
@@ -8204,7 +8349,7 @@ module.exports = isPlainObject;
       DEFAULT_TRUNC_OMISSION = '...';
 
   /** Used to detect hot functions by number of calls within a span of milliseconds. */
-  var HOT_COUNT = 150,
+  var HOT_COUNT = 500,
       HOT_SPAN = 16;
 
   /** Used to indicate the type of lazy iteratees. */
@@ -8248,6 +8393,7 @@ module.exports = isPlainObject;
       numberTag = '[object Number]',
       objectTag = '[object Object]',
       promiseTag = '[object Promise]',
+      proxyTag = '[object Proxy]',
       regexpTag = '[object RegExp]',
       setTag = '[object Set]',
       stringTag = '[object String]',
@@ -8273,8 +8419,8 @@ module.exports = isPlainObject;
       reEmptyStringTrailing = /(__e\(.*?\)|\b__t\)) \+\n'';/g;
 
   /** Used to match HTML entities and HTML characters. */
-  var reEscapedHtml = /&(?:amp|lt|gt|quot|#39|#96);/g,
-      reUnescapedHtml = /[&<>"'`]/g,
+  var reEscapedHtml = /&(?:amp|lt|gt|quot|#39);/g,
+      reUnescapedHtml = /[&<>"']/g,
       reHasEscapedHtml = RegExp(reEscapedHtml.source),
       reHasUnescapedHtml = RegExp(reUnescapedHtml.source);
 
@@ -8320,9 +8466,6 @@ module.exports = isPlainObject;
 
   /** Used to match `RegExp` flags from their coerced string values. */
   var reFlags = /\w*$/;
-
-  /** Used to detect hexadecimal string values. */
-  var reHasHexPrefix = /^0x/i;
 
   /** Used to detect bad signed hexadecimal string values. */
   var reIsBadHex = /^[-+]0x[0-9a-f]+$/i;
@@ -8518,7 +8661,7 @@ module.exports = isPlainObject;
     '\u017a': 'z',  '\u017c': 'z', '\u017e': 'z',
     '\u0132': 'IJ', '\u0133': 'ij',
     '\u0152': 'Oe', '\u0153': 'oe',
-    '\u0149': "'n", '\u017f': 'ss'
+    '\u0149': "'n", '\u017f': 's'
   };
 
   /** Used to map characters to HTML entities. */
@@ -8527,8 +8670,7 @@ module.exports = isPlainObject;
     '<': '&lt;',
     '>': '&gt;',
     '"': '&quot;',
-    "'": '&#39;',
-    '`': '&#96;'
+    "'": '&#39;'
   };
 
   /** Used to map HTML entities to characters. */
@@ -8537,8 +8679,7 @@ module.exports = isPlainObject;
     '&lt;': '<',
     '&gt;': '>',
     '&quot;': '"',
-    '&#39;': "'",
-    '&#96;': '`'
+    '&#39;': "'"
   };
 
   /** Used to escape characters for inclusion in compiled string literals. */
@@ -8979,18 +9120,9 @@ module.exports = isPlainObject;
    * @returns {number} Returns the index of the matched value, else `-1`.
    */
   function baseIndexOf(array, value, fromIndex) {
-    if (value !== value) {
-      return baseFindIndex(array, baseIsNaN, fromIndex);
-    }
-    var index = fromIndex - 1,
-        length = array.length;
-
-    while (++index < length) {
-      if (array[index] === value) {
-        return index;
-      }
-    }
-    return -1;
+    return value === value
+      ? strictIndexOf(array, value, fromIndex)
+      : baseFindIndex(array, baseIsNaN, fromIndex);
   }
 
   /**
@@ -9195,7 +9327,7 @@ module.exports = isPlainObject;
   }
 
   /**
-   * Checks if a cache value for `key` exists.
+   * Checks if a `cache` value for `key` exists.
    *
    * @private
    * @param {Object} cache The cache to query.
@@ -9253,7 +9385,7 @@ module.exports = isPlainObject;
 
     while (length--) {
       if (array[length] === placeholder) {
-        result++;
+        ++result;
       }
     }
     return result;
@@ -9321,25 +9453,6 @@ module.exports = isPlainObject;
    */
   function hasUnicodeWord(string) {
     return reHasUnicodeWord.test(string);
-  }
-
-  /**
-   * Checks if `value` is a host object in IE < 9.
-   *
-   * @private
-   * @param {*} value The value to check.
-   * @returns {boolean} Returns `true` if `value` is a host object, else `false`.
-   */
-  function isHostObject(value) {
-    // Many host objects are `Object` objects that can coerce to strings
-    // despite having improperly defined `toString` methods.
-    var result = false;
-    if (value != null && typeof value.toString != 'function') {
-      try {
-        result = !!(value + '');
-      } catch (e) {}
-    }
-    return result;
   }
 
   /**
@@ -9450,6 +9563,48 @@ module.exports = isPlainObject;
   }
 
   /**
+   * A specialized version of `_.indexOf` which performs strict equality
+   * comparisons of values, i.e. `===`.
+   *
+   * @private
+   * @param {Array} array The array to inspect.
+   * @param {*} value The value to search for.
+   * @param {number} fromIndex The index to search from.
+   * @returns {number} Returns the index of the matched value, else `-1`.
+   */
+  function strictIndexOf(array, value, fromIndex) {
+    var index = fromIndex - 1,
+        length = array.length;
+
+    while (++index < length) {
+      if (array[index] === value) {
+        return index;
+      }
+    }
+    return -1;
+  }
+
+  /**
+   * A specialized version of `_.lastIndexOf` which performs strict equality
+   * comparisons of values, i.e. `===`.
+   *
+   * @private
+   * @param {Array} array The array to inspect.
+   * @param {*} value The value to search for.
+   * @param {number} fromIndex The index to search from.
+   * @returns {number} Returns the index of the matched value, else `-1`.
+   */
+  function strictLastIndexOf(array, value, fromIndex) {
+    var index = fromIndex + 1;
+    while (index--) {
+      if (array[index] === value) {
+        return index;
+      }
+    }
+    return index;
+  }
+
+  /**
    * Gets the number of symbols in `string`.
    *
    * @private
@@ -9494,7 +9649,7 @@ module.exports = isPlainObject;
   function unicodeSize(string) {
     var result = reUnicode.lastIndex = 0;
     while (reUnicode.test(string)) {
-      result++;
+      ++result;
     }
     return result;
   }
@@ -9549,17 +9704,10 @@ module.exports = isPlainObject;
    * lodash.isFunction(lodash.bar);
    * // => true
    *
-   * // Use `context` to stub `Date#getTime` use in `_.now`.
-   * var stubbed = _.runInContext({
-   *   'Date': function() {
-   *     return { 'getTime': stubGetTime };
-   *   }
-   * });
-   *
    * // Create a suped-up `defer` in Node.js.
    * var defer = _.runInContext({ 'setTimeout': setImmediate }).defer;
    */
-  function runInContext(context) {
+  var runInContext = (function runInContext(context) {
     context = context ? _.defaults(root.Object(), context, _.pick(root, contextProps)) : root;
 
     /** Built-in constructor references. */
@@ -9619,12 +9767,21 @@ module.exports = isPlainObject;
     var Buffer = moduleExports ? context.Buffer : undefined,
         Symbol = context.Symbol,
         Uint8Array = context.Uint8Array,
+        allocUnsafe = Buffer ? Buffer.allocUnsafe : undefined,
         getPrototype = overArg(Object.getPrototypeOf, Object),
         iteratorSymbol = Symbol ? Symbol.iterator : undefined,
         objectCreate = Object.create,
         propertyIsEnumerable = objectProto.propertyIsEnumerable,
         splice = arrayProto.splice,
         spreadableSymbol = Symbol ? Symbol.isConcatSpreadable : undefined;
+
+    var defineProperty = (function() {
+      try {
+        var func = getNative(Object, 'defineProperty');
+        func({}, '', {});
+        return func;
+      } catch (e) {}
+    }());
 
     /** Mocked built-ins. */
     var ctxClearTimeout = context.clearTimeout !== root.clearTimeout && context.clearTimeout,
@@ -9641,6 +9798,7 @@ module.exports = isPlainObject;
         nativeKeys = overArg(Object.keys, Object),
         nativeMax = Math.max,
         nativeMin = Math.min,
+        nativeNow = Date.now,
         nativeParseInt = context.parseInt,
         nativeRandom = Math.random,
         nativeReverse = arrayProto.reverse;
@@ -9653,19 +9811,8 @@ module.exports = isPlainObject;
         WeakMap = getNative(context, 'WeakMap'),
         nativeCreate = getNative(Object, 'create');
 
-    /* Used to set `toString` methods. */
-    var defineProperty = (function() {
-      var func = getNative(Object, 'defineProperty'),
-          name = getNative.name;
-
-      return (name && name.length > 2) ? func : undefined;
-    }());
-
     /** Used to store function metadata. */
     var metaMap = WeakMap && new WeakMap;
-
-    /** Detect if properties shadowing those on `Object.prototype` are non-enumerable. */
-    var nonEnumShadows = !propertyIsEnumerable.call({ 'valueOf': 1 }, 'valueOf');
 
     /** Used to lookup unminified function names. */
     var realNames = {};
@@ -9812,6 +9959,30 @@ module.exports = isPlainObject;
       }
       return new LodashWrapper(value);
     }
+
+    /**
+     * The base implementation of `_.create` without support for assigning
+     * properties to the created object.
+     *
+     * @private
+     * @param {Object} proto The object to inherit from.
+     * @returns {Object} Returns the new object.
+     */
+    var baseCreate = (function() {
+      function object() {}
+      return function(proto) {
+        if (!isObject(proto)) {
+          return {};
+        }
+        if (objectCreate) {
+          return objectCreate(proto);
+        }
+        object.prototype = proto;
+        var result = new object;
+        object.prototype = undefined;
+        return result;
+      };
+    }());
 
     /**
      * The function whose prototype chain sequence wrappers inherit from.
@@ -10054,6 +10225,7 @@ module.exports = isPlainObject;
      */
     function hashClear() {
       this.__data__ = nativeCreate ? nativeCreate(null) : {};
+      this.size = 0;
     }
 
     /**
@@ -10067,7 +10239,9 @@ module.exports = isPlainObject;
      * @returns {boolean} Returns `true` if the entry was removed, else `false`.
      */
     function hashDelete(key) {
-      return this.has(key) && delete this.__data__[key];
+      var result = this.has(key) && delete this.__data__[key];
+      this.size -= result ? 1 : 0;
+      return result;
     }
 
     /**
@@ -10114,6 +10288,7 @@ module.exports = isPlainObject;
      */
     function hashSet(key, value) {
       var data = this.__data__;
+      this.size += this.has(key) ? 0 : 1;
       data[key] = (nativeCreate && value === undefined) ? HASH_UNDEFINED : value;
       return this;
     }
@@ -10154,6 +10329,7 @@ module.exports = isPlainObject;
      */
     function listCacheClear() {
       this.__data__ = [];
+      this.size = 0;
     }
 
     /**
@@ -10178,6 +10354,7 @@ module.exports = isPlainObject;
       } else {
         splice.call(data, index, 1);
       }
+      --this.size;
       return true;
     }
 
@@ -10225,6 +10402,7 @@ module.exports = isPlainObject;
           index = assocIndexOf(data, key);
 
       if (index < 0) {
+        ++this.size;
         data.push([key, value]);
       } else {
         data[index][1] = value;
@@ -10267,6 +10445,7 @@ module.exports = isPlainObject;
      * @memberOf MapCache
      */
     function mapCacheClear() {
+      this.size = 0;
       this.__data__ = {
         'hash': new Hash,
         'map': new (Map || ListCache),
@@ -10284,7 +10463,9 @@ module.exports = isPlainObject;
      * @returns {boolean} Returns `true` if the entry was removed, else `false`.
      */
     function mapCacheDelete(key) {
-      return getMapData(this, key)['delete'](key);
+      var result = getMapData(this, key)['delete'](key);
+      this.size -= result ? 1 : 0;
+      return result;
     }
 
     /**
@@ -10324,7 +10505,11 @@ module.exports = isPlainObject;
      * @returns {Object} Returns the map cache instance.
      */
     function mapCacheSet(key, value) {
-      getMapData(this, key).set(key, value);
+      var data = getMapData(this, key),
+          size = data.size;
+
+      data.set(key, value);
+      this.size += data.size == size ? 0 : 1;
       return this;
     }
 
@@ -10397,7 +10582,8 @@ module.exports = isPlainObject;
      * @param {Array} [entries] The key-value pairs to cache.
      */
     function Stack(entries) {
-      this.__data__ = new ListCache(entries);
+      var data = this.__data__ = new ListCache(entries);
+      this.size = data.size;
     }
 
     /**
@@ -10409,6 +10595,7 @@ module.exports = isPlainObject;
      */
     function stackClear() {
       this.__data__ = new ListCache;
+      this.size = 0;
     }
 
     /**
@@ -10421,7 +10608,11 @@ module.exports = isPlainObject;
      * @returns {boolean} Returns `true` if the entry was removed, else `false`.
      */
     function stackDelete(key) {
-      return this.__data__['delete'](key);
+      var data = this.__data__,
+          result = data['delete'](key);
+
+      this.size = data.size;
+      return result;
     }
 
     /**
@@ -10461,16 +10652,18 @@ module.exports = isPlainObject;
      * @returns {Object} Returns the stack cache instance.
      */
     function stackSet(key, value) {
-      var cache = this.__data__;
-      if (cache instanceof ListCache) {
-        var pairs = cache.__data__;
+      var data = this.__data__;
+      if (data instanceof ListCache) {
+        var pairs = data.__data__;
         if (!Map || (pairs.length < LARGE_ARRAY_SIZE - 1)) {
           pairs.push([key, value]);
+          this.size = ++data.size;
           return this;
         }
-        cache = this.__data__ = new MapCache(pairs);
+        data = this.__data__ = new MapCache(pairs);
       }
-      cache.set(key, value);
+      data.set(key, value);
+      this.size = data.size;
       return this;
     }
 
@@ -10492,22 +10685,65 @@ module.exports = isPlainObject;
      * @returns {Array} Returns the array of property names.
      */
     function arrayLikeKeys(value, inherited) {
-      // Safari 8.1 makes `arguments.callee` enumerable in strict mode.
-      // Safari 9 makes `arguments.length` enumerable in strict mode.
-      var result = (isArray(value) || isArguments(value))
-        ? baseTimes(value.length, String)
-        : [];
-
-      var length = result.length,
-          skipIndexes = !!length;
+      var isArr = isArray(value),
+          isArg = !isArr && isArguments(value),
+          isBuff = !isArr && !isArg && isBuffer(value),
+          isType = !isArr && !isArg && !isBuff && isTypedArray(value),
+          skipIndexes = isArr || isArg || isBuff || isType,
+          result = skipIndexes ? baseTimes(value.length, String) : [],
+          length = result.length;
 
       for (var key in value) {
         if ((inherited || hasOwnProperty.call(value, key)) &&
-            !(skipIndexes && (key == 'length' || isIndex(key, length)))) {
+            !(skipIndexes && (
+               // Safari 9 has enumerable `arguments.length` in strict mode.
+               key == 'length' ||
+               // Node.js 0.10 has enumerable non-index properties on buffers.
+               (isBuff && (key == 'offset' || key == 'parent')) ||
+               // PhantomJS 2 has enumerable non-index properties on typed arrays.
+               (isType && (key == 'buffer' || key == 'byteLength' || key == 'byteOffset')) ||
+               // Skip index properties.
+               isIndex(key, length)
+            ))) {
           result.push(key);
         }
       }
       return result;
+    }
+
+    /**
+     * A specialized version of `_.sample` for arrays.
+     *
+     * @private
+     * @param {Array} array The array to sample.
+     * @returns {*} Returns the random element.
+     */
+    function arraySample(array) {
+      var length = array.length;
+      return length ? array[baseRandom(0, length - 1)] : undefined;
+    }
+
+    /**
+     * A specialized version of `_.sampleSize` for arrays.
+     *
+     * @private
+     * @param {Array} array The array to sample.
+     * @param {number} n The number of elements to sample.
+     * @returns {Array} Returns the random elements.
+     */
+    function arraySampleSize(array, n) {
+      return shuffleSelf(copyArray(array), baseClamp(n, 0, array.length));
+    }
+
+    /**
+     * A specialized version of `_.shuffle` for arrays.
+     *
+     * @private
+     * @param {Array} array The array to shuffle.
+     * @returns {Array} Returns the new shuffled array.
+     */
+    function arrayShuffle(array) {
+      return shuffleSelf(copyArray(array));
     }
 
     /**
@@ -10539,8 +10775,8 @@ module.exports = isPlainObject;
      */
     function assignMergeValue(object, key, value) {
       if ((value !== undefined && !eq(object[key], value)) ||
-          (typeof key == 'number' && value === undefined && !(key in object))) {
-        object[key] = value;
+          (value === undefined && !(key in object))) {
+        baseAssignValue(object, key, value);
       }
     }
 
@@ -10558,7 +10794,7 @@ module.exports = isPlainObject;
       var objValue = object[key];
       if (!(hasOwnProperty.call(object, key) && eq(objValue, value)) ||
           (value === undefined && !(key in object))) {
-        object[key] = value;
+        baseAssignValue(object, key, value);
       }
     }
 
@@ -10609,6 +10845,28 @@ module.exports = isPlainObject;
      */
     function baseAssign(object, source) {
       return object && copyObject(source, keys(source), object);
+    }
+
+    /**
+     * The base implementation of `assignValue` and `assignMergeValue` without
+     * value checks.
+     *
+     * @private
+     * @param {Object} object The object to modify.
+     * @param {string} key The key of the property to assign.
+     * @param {*} value The value to assign.
+     */
+    function baseAssignValue(object, key, value) {
+      if (key == '__proto__' && defineProperty) {
+        defineProperty(object, key, {
+          'configurable': true,
+          'enumerable': true,
+          'value': value,
+          'writable': true
+        });
+      } else {
+        object[key] = value;
+      }
     }
 
     /**
@@ -10691,9 +10949,6 @@ module.exports = isPlainObject;
           return cloneBuffer(value, isDeep);
         }
         if (tag == objectTag || tag == argsTag || (isFunc && !object)) {
-          if (isHostObject(value)) {
-            return object ? value : {};
-          }
           result = initCloneObject(isFunc ? {} : value);
           if (!isDeep) {
             return copySymbols(value, baseAssign(result, value));
@@ -10713,9 +10968,7 @@ module.exports = isPlainObject;
       }
       stack.set(value, result);
 
-      if (!isArr) {
-        var props = isFull ? getAllKeys(value) : keys(value);
-      }
+      var props = isArr ? undefined : (isFull ? getAllKeys : keys)(value);
       arrayEach(props || value, function(subValue, key) {
         if (props) {
           key = subValue;
@@ -10765,18 +11018,6 @@ module.exports = isPlainObject;
         }
       }
       return true;
-    }
-
-    /**
-     * The base implementation of `_.create` without support for assigning
-     * properties to the created object.
-     *
-     * @private
-     * @param {Object} prototype The object to inherit from.
-     * @returns {Object} Returns the new object.
-     */
-    function baseCreate(proto) {
-      return isObject(proto) ? objectCreate(proto) : {};
     }
 
     /**
@@ -11262,6 +11503,17 @@ module.exports = isPlainObject;
     }
 
     /**
+     * The base implementation of `_.isArguments`.
+     *
+     * @private
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is an `arguments` object,
+     */
+    function baseIsArguments(value) {
+      return isObjectLike(value) && objectToString.call(value) == argsTag;
+    }
+
+    /**
      * The base implementation of `_.isArrayBuffer` without Node.js optimizations.
      *
      * @private
@@ -11337,10 +11589,17 @@ module.exports = isPlainObject;
         othTag = getTag(other);
         othTag = othTag == argsTag ? objectTag : othTag;
       }
-      var objIsObj = objTag == objectTag && !isHostObject(object),
-          othIsObj = othTag == objectTag && !isHostObject(other),
+      var objIsObj = objTag == objectTag,
+          othIsObj = othTag == objectTag,
           isSameTag = objTag == othTag;
 
+      if (isSameTag && isBuffer(object)) {
+        if (!isBuffer(other)) {
+          return false;
+        }
+        objIsArr = true;
+        objIsObj = false;
+      }
       if (isSameTag && !objIsObj) {
         stack || (stack = new Stack);
         return (objIsArr || isTypedArray(object))
@@ -11443,7 +11702,7 @@ module.exports = isPlainObject;
       if (!isObject(value) || isMasked(value)) {
         return false;
       }
-      var pattern = (isFunction(value) || isHostObject(value)) ? reIsNative : reIsHostCtor;
+      var pattern = isFunction(value) ? reIsNative : reIsHostCtor;
       return pattern.test(toSource(value));
     }
 
@@ -11630,14 +11889,7 @@ module.exports = isPlainObject;
       if (object === source) {
         return;
       }
-      if (!(isArray(source) || isTypedArray(source))) {
-        var props = baseKeysIn(source);
-      }
-      arrayEach(props || source, function(srcValue, key) {
-        if (props) {
-          key = srcValue;
-          srcValue = source[key];
-        }
+      baseFor(source, function(srcValue, key) {
         if (isObject(srcValue)) {
           stack || (stack = new Stack);
           baseMergeDeep(object, source, key, srcIndex, baseMerge, customizer, stack);
@@ -11652,7 +11904,7 @@ module.exports = isPlainObject;
           }
           assignMergeValue(object, key, newValue);
         }
-      });
+      }, keysIn);
     }
 
     /**
@@ -11686,29 +11938,37 @@ module.exports = isPlainObject;
       var isCommon = newValue === undefined;
 
       if (isCommon) {
+        var isArr = isArray(srcValue),
+            isBuff = !isArr && isBuffer(srcValue),
+            isTyped = !isArr && !isBuff && isTypedArray(srcValue);
+
         newValue = srcValue;
-        if (isArray(srcValue) || isTypedArray(srcValue)) {
+        if (isArr || isBuff || isTyped) {
           if (isArray(objValue)) {
             newValue = objValue;
           }
           else if (isArrayLikeObject(objValue)) {
             newValue = copyArray(objValue);
           }
-          else {
+          else if (isBuff) {
             isCommon = false;
-            newValue = baseClone(srcValue, true);
+            newValue = cloneBuffer(srcValue, true);
+          }
+          else if (isTyped) {
+            isCommon = false;
+            newValue = cloneTypedArray(srcValue, true);
+          }
+          else {
+            newValue = [];
           }
         }
         else if (isPlainObject(srcValue) || isArguments(srcValue)) {
+          newValue = objValue;
           if (isArguments(objValue)) {
             newValue = toPlainObject(objValue);
           }
           else if (!isObject(objValue) || (srcIndex && isFunction(objValue))) {
-            isCommon = false;
-            newValue = baseClone(srcValue, true);
-          }
-          else {
-            newValue = objValue;
+            newValue = initCloneObject(srcValue);
           }
         }
         else {
@@ -11801,7 +12061,7 @@ module.exports = isPlainObject;
             value = object[key];
 
         if (predicate(value, key)) {
-          result[key] = value;
+          baseAssignValue(result, key, value);
         }
       }
       return result;
@@ -11967,24 +12227,31 @@ module.exports = isPlainObject;
      * @returns {Function} Returns the new function.
      */
     function baseRest(func, start) {
-      start = nativeMax(start === undefined ? (func.length - 1) : start, 0);
-      return function() {
-        var args = arguments,
-            index = -1,
-            length = nativeMax(args.length - start, 0),
-            array = Array(length);
+      return setToString(overRest(func, start, identity), func + '');
+    }
 
-        while (++index < length) {
-          array[index] = args[start + index];
-        }
-        index = -1;
-        var otherArgs = Array(start + 1);
-        while (++index < start) {
-          otherArgs[index] = args[index];
-        }
-        otherArgs[start] = array;
-        return apply(func, this, otherArgs);
-      };
+    /**
+     * The base implementation of `_.sample`.
+     *
+     * @private
+     * @param {Array|Object} collection The collection to sample.
+     * @returns {*} Returns the random element.
+     */
+    function baseSample(collection) {
+      return arraySample(values(collection));
+    }
+
+    /**
+     * The base implementation of `_.sampleSize` without param guards.
+     *
+     * @private
+     * @param {Array|Object} collection The collection to sample.
+     * @param {number} n The number of elements to sample.
+     * @returns {Array} Returns the random elements.
+     */
+    function baseSampleSize(collection, n) {
+      var array = values(collection);
+      return shuffleSelf(array, baseClamp(n, 0, array.length));
     }
 
     /**
@@ -12028,7 +12295,7 @@ module.exports = isPlainObject;
     }
 
     /**
-     * The base implementation of `setData` without support for hot loop detection.
+     * The base implementation of `setData` without support for hot loop shorting.
      *
      * @private
      * @param {Function} func The function to associate metadata with.
@@ -12039,6 +12306,34 @@ module.exports = isPlainObject;
       metaMap.set(func, data);
       return func;
     };
+
+    /**
+     * The base implementation of `setToString` without support for hot loop shorting.
+     *
+     * @private
+     * @param {Function} func The function to modify.
+     * @param {Function} string The `toString` result.
+     * @returns {Function} Returns `func`.
+     */
+    var baseSetToString = !defineProperty ? identity : function(func, string) {
+      return defineProperty(func, 'toString', {
+        'configurable': true,
+        'enumerable': false,
+        'value': constant(string),
+        'writable': true
+      });
+    };
+
+    /**
+     * The base implementation of `_.shuffle`.
+     *
+     * @private
+     * @param {Array|Object} collection The collection to shuffle.
+     * @returns {Array} Returns the new shuffled array.
+     */
+    function baseShuffle(collection) {
+      return shuffleSelf(values(collection));
+    }
 
     /**
      * The base implementation of `_.slice` without an iteratee call guard.
@@ -12232,6 +12527,10 @@ module.exports = isPlainObject;
       // Exit early for strings to avoid a performance hit in some environments.
       if (typeof value == 'string') {
         return value;
+      }
+      if (isArray(value)) {
+        // Recursively convert values (susceptible to call stack limits).
+        return arrayMap(value, baseToString) + '';
       }
       if (isSymbol(value)) {
         return symbolToString ? symbolToString.call(value) : '';
@@ -12455,6 +12754,17 @@ module.exports = isPlainObject;
     }
 
     /**
+     * A `baseRest` alias which can be replaced with `identity` by module
+     * replacement plugins.
+     *
+     * @private
+     * @type {Function}
+     * @param {Function} func The function to apply a rest parameter to.
+     * @returns {Function} Returns the new function.
+     */
+    var castRest = baseRest;
+
+    /**
      * Casts `array` to a slice if it's needed.
      *
      * @private
@@ -12491,7 +12801,9 @@ module.exports = isPlainObject;
       if (isDeep) {
         return buffer.slice();
       }
-      var result = new buffer.constructor(buffer.length);
+      var length = buffer.length,
+          result = allocUnsafe ? allocUnsafe(length) : new buffer.constructor(length);
+
       buffer.copy(result);
       return result;
     }
@@ -12768,6 +13080,7 @@ module.exports = isPlainObject;
      * @returns {Object} Returns `object`.
      */
     function copyObject(source, props, object, customizer) {
+      var isNew = !object;
       object || (object = {});
 
       var index = -1,
@@ -12780,7 +13093,14 @@ module.exports = isPlainObject;
           ? customizer(object[key], source[key], key, object, source)
           : undefined;
 
-        assignValue(object, key, newValue === undefined ? source[key] : newValue);
+        if (newValue === undefined) {
+          newValue = source[key];
+        }
+        if (isNew) {
+          baseAssignValue(object, key, newValue);
+        } else {
+          assignValue(object, key, newValue);
+        }
       }
       return object;
     }
@@ -13059,9 +13379,7 @@ module.exports = isPlainObject;
      * @returns {Function} Returns the new flow function.
      */
     function createFlow(fromRight) {
-      return baseRest(function(funcs) {
-        funcs = baseFlatten(funcs, 1);
-
+      return flatRest(function(funcs) {
         var length = funcs.length,
             index = length,
             prereq = LodashWrapper.prototype.thru;
@@ -13244,11 +13562,8 @@ module.exports = isPlainObject;
      * @returns {Function} Returns the new over function.
      */
     function createOver(arrayFunc) {
-      return baseRest(function(iteratees) {
-        iteratees = (iteratees.length == 1 && isArray(iteratees[0]))
-          ? arrayMap(iteratees[0], baseUnary(getIteratee()))
-          : arrayMap(baseFlatten(iteratees, 1), baseUnary(getIteratee()));
-
+      return flatRest(function(iteratees) {
+        iteratees = arrayMap(iteratees, baseUnary(getIteratee()));
         return baseRest(function(args) {
           var thisArg = this;
           return arrayFunc(iteratees, function(iteratee) {
@@ -13591,9 +13906,9 @@ module.exports = isPlainObject;
         // Recursively compare arrays (susceptible to call stack limits).
         if (seen) {
           if (!arraySome(other, function(othValue, othIndex) {
-                if (!seen.has(othIndex) &&
+                if (!cacheHas(seen, othIndex) &&
                     (arrValue === othValue || equalFunc(arrValue, othValue, customizer, bitmask, stack))) {
-                  return seen.add(othIndex);
+                  return seen.push(othIndex);
                 }
               })) {
             result = false;
@@ -13774,6 +14089,17 @@ module.exports = isPlainObject;
     }
 
     /**
+     * A specialized version of `baseRest` which flattens the rest array.
+     *
+     * @private
+     * @param {Function} func The function to apply a rest parameter to.
+     * @returns {Function} Returns the new function.
+     */
+    function flatRest(func) {
+      return setToString(overRest(func, undefined, flatten), func + '');
+    }
+
+    /**
      * Creates an array of own enumerable property names and symbols of `object`.
      *
      * @private
@@ -13941,8 +14267,7 @@ module.exports = isPlainObject;
      */
     var getTag = baseGetTag;
 
-    // Fallback for data views, maps, sets, and weak maps in IE 11,
-    // for data views in Edge < 14, and promises in Node.js.
+    // Fallback for data views, maps, sets, and weak maps in IE 11 and promises in Node.js < 6.
     if ((DataView && getTag(new DataView(new ArrayBuffer(1))) != dataViewTag) ||
         (Map && getTag(new Map) != mapTag) ||
         (Promise && getTag(Promise.resolve()) != promiseTag) ||
@@ -14018,9 +14343,9 @@ module.exports = isPlainObject;
     function hasPath(object, path, hasFunc) {
       path = isKey(path, object) ? [path] : castPath(path);
 
-      var result,
-          index = -1,
-          length = path.length;
+      var index = -1,
+          length = path.length,
+          result = false;
 
       while (++index < length) {
         var key = toKey(path[index]);
@@ -14029,10 +14354,10 @@ module.exports = isPlainObject;
         }
         object = object[key];
       }
-      if (result) {
+      if (result || ++index != length) {
         return result;
       }
-      var length = object ? object.length : 0;
+      length = object ? object.length : 0;
       return !!length && isLength(length) && isIndex(key, length) &&
         (isArray(object) || isArguments(object));
     }
@@ -14127,9 +14452,11 @@ module.exports = isPlainObject;
      * @returns {string} Returns the modified source.
      */
     function insertWrapDetails(source, details) {
-      var length = details.length,
-          lastIndex = length - 1;
-
+      var length = details.length;
+      if (!length) {
+        return source;
+      }
+      var lastIndex = length - 1;
       details[lastIndex] = (length > 1 ? '& ' : '') + details[lastIndex];
       details = details.join(length > 2 ? ', ' : ' ');
       return source.replace(reWrapComment, '{\n/* [wrapped with ' + details + '] */\n');
@@ -14309,6 +14636,26 @@ module.exports = isPlainObject;
     }
 
     /**
+     * A specialized version of `_.memoize` which clears the memoized function's
+     * cache when it exceeds `MAX_MEMOIZE_SIZE`.
+     *
+     * @private
+     * @param {Function} func The function to have its output memoized.
+     * @returns {Function} Returns the new memoized function.
+     */
+    function memoizeCapped(func) {
+      var result = memoize(func, function(key) {
+        if (cache.size === MAX_MEMOIZE_SIZE) {
+          cache.clear();
+        }
+        return key;
+      });
+
+      var cache = result.cache;
+      return result;
+    }
+
+    /**
      * Merges the function metadata of `source` into `data`.
      *
      * Merging metadata reduces the number of wrappers used to invoke a function.
@@ -14422,6 +14769,36 @@ module.exports = isPlainObject;
     }
 
     /**
+     * A specialized version of `baseRest` which transforms the rest array.
+     *
+     * @private
+     * @param {Function} func The function to apply a rest parameter to.
+     * @param {number} [start=func.length-1] The start position of the rest parameter.
+     * @param {Function} transform The rest array transform.
+     * @returns {Function} Returns the new function.
+     */
+    function overRest(func, start, transform) {
+      start = nativeMax(start === undefined ? (func.length - 1) : start, 0);
+      return function() {
+        var args = arguments,
+            index = -1,
+            length = nativeMax(args.length - start, 0),
+            array = Array(length);
+
+        while (++index < length) {
+          array[index] = args[start + index];
+        }
+        index = -1;
+        var otherArgs = Array(start + 1);
+        while (++index < start) {
+          otherArgs[index] = args[index];
+        }
+        otherArgs[start] = transform(array);
+        return apply(func, this, otherArgs);
+      };
+    }
+
+    /**
      * Gets the parent value at `path` of `object`.
      *
      * @private
@@ -14469,25 +14846,7 @@ module.exports = isPlainObject;
      * @param {*} data The metadata.
      * @returns {Function} Returns `func`.
      */
-    var setData = (function() {
-      var count = 0,
-          lastCalled = 0;
-
-      return function(key, value) {
-        var stamp = now(),
-            remaining = HOT_SPAN - (stamp - lastCalled);
-
-        lastCalled = stamp;
-        if (remaining > 0) {
-          if (++count >= HOT_COUNT) {
-            return key;
-          }
-        } else {
-          count = 0;
-        }
-        return baseSetData(key, value);
-      };
-    }());
+    var setData = shortOut(baseSetData);
 
     /**
      * A simple wrapper around the global [`setTimeout`](https://mdn.io/setTimeout).
@@ -14502,6 +14861,16 @@ module.exports = isPlainObject;
     };
 
     /**
+     * Sets the `toString` method of `func` to return `string`.
+     *
+     * @private
+     * @param {Function} func The function to modify.
+     * @param {Function} string The `toString` result.
+     * @returns {Function} Returns `func`.
+     */
+    var setToString = shortOut(baseSetToString);
+
+    /**
      * Sets the `toString` method of `wrapper` to mimic the source of `reference`
      * with wrapper details in a comment at the top of the source body.
      *
@@ -14511,14 +14880,64 @@ module.exports = isPlainObject;
      * @param {number} bitmask The bitmask flags. See `createWrap` for more details.
      * @returns {Function} Returns `wrapper`.
      */
-    var setWrapToString = !defineProperty ? identity : function(wrapper, reference, bitmask) {
+    function setWrapToString(wrapper, reference, bitmask) {
       var source = (reference + '');
-      return defineProperty(wrapper, 'toString', {
-        'configurable': true,
-        'enumerable': false,
-        'value': constant(insertWrapDetails(source, updateWrapDetails(getWrapDetails(source), bitmask)))
-      });
-    };
+      return setToString(wrapper, insertWrapDetails(source, updateWrapDetails(getWrapDetails(source), bitmask)));
+    }
+
+    /**
+     * Creates a function that'll short out and invoke `identity` instead
+     * of `func` when it's called `HOT_COUNT` or more times in `HOT_SPAN`
+     * milliseconds.
+     *
+     * @private
+     * @param {Function} func The function to restrict.
+     * @returns {Function} Returns the new shortable function.
+     */
+    function shortOut(func) {
+      var count = 0,
+          lastCalled = 0;
+
+      return function() {
+        var stamp = nativeNow(),
+            remaining = HOT_SPAN - (stamp - lastCalled);
+
+        lastCalled = stamp;
+        if (remaining > 0) {
+          if (++count >= HOT_COUNT) {
+            return arguments[0];
+          }
+        } else {
+          count = 0;
+        }
+        return func.apply(undefined, arguments);
+      };
+    }
+
+    /**
+     * A specialized version of `_.shuffle` which mutates and sets the size of `array`.
+     *
+     * @private
+     * @param {Array} array The array to shuffle.
+     * @param {number} [size=array.length] The size of `array`.
+     * @returns {Array} Returns `array`.
+     */
+    function shuffleSelf(array, size) {
+      var index = -1,
+          length = array.length,
+          lastIndex = length - 1;
+
+      size = size === undefined ? length : size;
+      while (++index < size) {
+        var rand = baseRandom(index, lastIndex),
+            value = array[rand];
+
+        array[rand] = array[index];
+        array[index] = value;
+      }
+      array.length = size;
+      return array;
+    }
 
     /**
      * Converts `string` to a property path array.
@@ -14527,7 +14946,7 @@ module.exports = isPlainObject;
      * @param {string} string The string to convert.
      * @returns {Array} Returns the property path array.
      */
-    var stringToPath = memoize(function(string) {
+    var stringToPath = memoizeCapped(function(string) {
       string = toString(string);
 
       var result = [];
@@ -14706,24 +15125,25 @@ module.exports = isPlainObject;
      * // => [1]
      */
     function concat() {
-      var length = arguments.length,
-          args = Array(length ? length - 1 : 0),
+      var length = arguments.length;
+      if (!length) {
+        return [];
+      }
+      var args = Array(length - 1),
           array = arguments[0],
           index = length;
 
       while (index--) {
         args[index - 1] = arguments[index];
       }
-      return length
-        ? arrayPush(isArray(array) ? copyArray(array) : [array], baseFlatten(args, 1))
-        : [];
+      return arrayPush(isArray(array) ? copyArray(array) : [array], baseFlatten(args, 1));
     }
 
     /**
      * Creates an array of `array` values not included in the other given arrays
      * using [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
-     * for equality comparisons. The order of result values is determined by the
-     * order they occur in the first array.
+     * for equality comparisons. The order and references of result values are
+     * determined by the first array.
      *
      * **Note:** Unlike `_.pullAll`, this method returns a new array.
      *
@@ -14749,8 +15169,9 @@ module.exports = isPlainObject;
     /**
      * This method is like `_.difference` except that it accepts `iteratee` which
      * is invoked for each element of `array` and `values` to generate the criterion
-     * by which they're compared. Result values are chosen from the first array.
-     * The iteratee is invoked with one argument: (value).
+     * by which they're compared. The order and references of result values are
+     * determined by the first array. The iteratee is invoked with one argument:
+     * (value).
      *
      * **Note:** Unlike `_.pullAllBy`, this method returns a new array.
      *
@@ -14783,9 +15204,9 @@ module.exports = isPlainObject;
 
     /**
      * This method is like `_.difference` except that it accepts `comparator`
-     * which is invoked to compare elements of `array` to `values`. Result values
-     * are chosen from the first array. The comparator is invoked with two arguments:
-     * (arrVal, othVal).
+     * which is invoked to compare elements of `array` to `values`. The order and
+     * references of result values are determined by the first array. The comparator
+     * is invoked with two arguments: (arrVal, othVal).
      *
      * **Note:** Unlike `_.pullAllWith`, this method returns a new array.
      *
@@ -15279,8 +15700,8 @@ module.exports = isPlainObject;
     /**
      * Creates an array of unique values that are included in all given arrays
      * using [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
-     * for equality comparisons. The order of result values is determined by the
-     * order they occur in the first array.
+     * for equality comparisons. The order and references of result values are
+     * determined by the first array.
      *
      * @static
      * @memberOf _
@@ -15303,8 +15724,9 @@ module.exports = isPlainObject;
     /**
      * This method is like `_.intersection` except that it accepts `iteratee`
      * which is invoked for each element of each `arrays` to generate the criterion
-     * by which they're compared. Result values are chosen from the first array.
-     * The iteratee is invoked with one argument: (value).
+     * by which they're compared. The order and references of result values are
+     * determined by the first array. The iteratee is invoked with one argument:
+     * (value).
      *
      * @static
      * @memberOf _
@@ -15338,9 +15760,9 @@ module.exports = isPlainObject;
 
     /**
      * This method is like `_.intersection` except that it accepts `comparator`
-     * which is invoked to compare elements of `arrays`. Result values are chosen
-     * from the first array. The comparator is invoked with two arguments:
-     * (arrVal, othVal).
+     * which is invoked to compare elements of `arrays`. The order and references
+     * of result values are determined by the first array. The comparator is
+     * invoked with two arguments: (arrVal, othVal).
      *
      * @static
      * @memberOf _
@@ -15438,21 +15860,11 @@ module.exports = isPlainObject;
       var index = length;
       if (fromIndex !== undefined) {
         index = toInteger(fromIndex);
-        index = (
-          index < 0
-            ? nativeMax(length + index, 0)
-            : nativeMin(index, length - 1)
-        ) + 1;
+        index = index < 0 ? nativeMax(length + index, 0) : nativeMin(index, length - 1);
       }
-      if (value !== value) {
-        return baseFindIndex(array, baseIsNaN, index - 1, true);
-      }
-      while (index--) {
-        if (array[index] === value) {
-          return index;
-        }
-      }
-      return -1;
+      return value === value
+        ? strictLastIndexOf(array, value, index)
+        : baseFindIndex(array, baseIsNaN, index, true);
     }
 
     /**
@@ -15614,9 +16026,7 @@ module.exports = isPlainObject;
      * console.log(pulled);
      * // => ['b', 'd']
      */
-    var pullAt = baseRest(function(array, indexes) {
-      indexes = baseFlatten(indexes, 1);
-
+    var pullAt = flatRest(function(array, indexes) {
       var length = array ? array.length : 0,
           result = baseAt(array, indexes);
 
@@ -16191,8 +16601,9 @@ module.exports = isPlainObject;
     /**
      * Creates a duplicate-free version of an array, using
      * [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
-     * for equality comparisons, in which only the first occurrence of each
-     * element is kept.
+     * for equality comparisons, in which only the first occurrence of each element
+     * is kept. The order of result values is determined by the order they occur
+     * in the array.
      *
      * @static
      * @memberOf _
@@ -16214,7 +16625,9 @@ module.exports = isPlainObject;
     /**
      * This method is like `_.uniq` except that it accepts `iteratee` which is
      * invoked for each element in `array` to generate the criterion by which
-     * uniqueness is computed. The iteratee is invoked with one argument: (value).
+     * uniqueness is computed. The order of result values is determined by the
+     * order they occur in the array. The iteratee is invoked with one argument:
+     * (value).
      *
      * @static
      * @memberOf _
@@ -16241,8 +16654,9 @@ module.exports = isPlainObject;
 
     /**
      * This method is like `_.uniq` except that it accepts `comparator` which
-     * is invoked to compare elements of `array`. The comparator is invoked with
-     * two arguments: (arrVal, othVal).
+     * is invoked to compare elements of `array`. The order of result values is
+     * determined by the order they occur in the array.The comparator is invoked
+     * with two arguments: (arrVal, othVal).
      *
      * @static
      * @memberOf _
@@ -16384,8 +16798,9 @@ module.exports = isPlainObject;
     /**
      * This method is like `_.xor` except that it accepts `iteratee` which is
      * invoked for each element of each `arrays` to generate the criterion by
-     * which by which they're compared. The iteratee is invoked with one argument:
-     * (value).
+     * which by which they're compared. The order of result values is determined
+     * by the order they occur in the arrays. The iteratee is invoked with one
+     * argument: (value).
      *
      * @static
      * @memberOf _
@@ -16414,8 +16829,9 @@ module.exports = isPlainObject;
 
     /**
      * This method is like `_.xor` except that it accepts `comparator` which is
-     * invoked to compare elements of `arrays`. The comparator is invoked with
-     * two arguments: (arrVal, othVal).
+     * invoked to compare elements of `arrays`. The order of result values is
+     * determined by the order they occur in the arrays. The comparator is invoked
+     * with two arguments: (arrVal, othVal).
      *
      * @static
      * @memberOf _
@@ -16632,8 +17048,7 @@ module.exports = isPlainObject;
      * _(object).at(['a[0].b.c', 'a[1]']).value();
      * // => [3, 4]
      */
-    var wrapperAt = baseRest(function(paths) {
-      paths = baseFlatten(paths, 1);
+    var wrapperAt = flatRest(function(paths) {
       var length = paths.length,
           start = length ? paths[0] : 0,
           value = this.__wrapped__,
@@ -16898,7 +17313,11 @@ module.exports = isPlainObject;
      * // => { '3': 2, '5': 1 }
      */
     var countBy = createAggregator(function(result, value, key) {
-      hasOwnProperty.call(result, key) ? ++result[key] : (result[key] = 1);
+      if (hasOwnProperty.call(result, key)) {
+        ++result[key];
+      } else {
+        baseAssignValue(result, key, 1);
+      }
     });
 
     /**
@@ -17153,7 +17572,7 @@ module.exports = isPlainObject;
      * @see _.forEachRight
      * @example
      *
-     * _([1, 2]).forEach(function(value) {
+     * _.forEach([1, 2], function(value) {
      *   console.log(value);
      * });
      * // => Logs `1` then `2`.
@@ -17221,7 +17640,7 @@ module.exports = isPlainObject;
       if (hasOwnProperty.call(result, key)) {
         result[key].push(value);
       } else {
-        result[key] = [value];
+        baseAssignValue(result, key, [value]);
       }
     });
 
@@ -17334,7 +17753,7 @@ module.exports = isPlainObject;
      * // => { 'left': { 'dir': 'left', 'code': 97 }, 'right': { 'dir': 'right', 'code': 100 } }
      */
     var keyBy = createAggregator(function(result, value, key) {
-      result[key] = value;
+      baseAssignValue(result, key, value);
     });
 
     /**
@@ -17594,10 +18013,8 @@ module.exports = isPlainObject;
      * // => 2
      */
     function sample(collection) {
-      var array = isArrayLike(collection) ? collection : values(collection),
-          length = array.length;
-
-      return length > 0 ? array[baseRandom(0, length - 1)] : undefined;
+      var func = isArray(collection) ? arraySample : baseSample;
+      return func(collection);
     }
 
     /**
@@ -17621,25 +18038,13 @@ module.exports = isPlainObject;
      * // => [2, 3, 1]
      */
     function sampleSize(collection, n, guard) {
-      var index = -1,
-          result = toArray(collection),
-          length = result.length,
-          lastIndex = length - 1;
-
       if ((guard ? isIterateeCall(collection, n, guard) : n === undefined)) {
         n = 1;
       } else {
-        n = baseClamp(toInteger(n), 0, length);
+        n = toInteger(n);
       }
-      while (++index < n) {
-        var rand = baseRandom(index, lastIndex),
-            value = result[rand];
-
-        result[rand] = result[index];
-        result[index] = value;
-      }
-      result.length = n;
-      return result;
+      var func = isArray(collection) ? arraySampleSize : baseSampleSize;
+      return func(collection, n);
     }
 
     /**
@@ -17658,7 +18063,8 @@ module.exports = isPlainObject;
      * // => [4, 1, 3, 2]
      */
     function shuffle(collection) {
-      return sampleSize(collection, MAX_ARRAY_LENGTH);
+      var func = isArray(collection) ? arrayShuffle : baseShuffle;
+      return func(collection);
     }
 
     /**
@@ -17763,16 +18169,11 @@ module.exports = isPlainObject;
      *   { 'user': 'barney', 'age': 34 }
      * ];
      *
-     * _.sortBy(users, function(o) { return o.user; });
+     * _.sortBy(users, [function(o) { return o.user; }]);
      * // => objects for [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 40]]
      *
      * _.sortBy(users, ['user', 'age']);
      * // => objects for [['barney', 34], ['barney', 36], ['fred', 40], ['fred', 48]]
-     *
-     * _.sortBy(users, 'user', function(o) {
-     *   return Math.floor(o.age / 10);
-     * });
-     * // => objects for [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 40]]
      */
     var sortBy = baseRest(function(collection, iteratees) {
       if (collection == null) {
@@ -18287,7 +18688,7 @@ module.exports = isPlainObject;
      * _.defer(function(text) {
      *   console.log(text);
      * }, 'deferred');
-     * // => Logs 'deferred' after one or more milliseconds.
+     * // => Logs 'deferred' after one millisecond.
      */
     var defer = baseRest(function(func, args) {
       return baseDelay(func, 1, args);
@@ -18395,14 +18796,14 @@ module.exports = isPlainObject;
           return cache.get(key);
         }
         var result = func.apply(this, args);
-        memoized.cache = cache.set(key, result);
+        memoized.cache = cache.set(key, result) || cache;
         return result;
       };
       memoized.cache = new (memoize.Cache || MapCache);
       return memoized;
     }
 
-    // Assign cache to `_.memoize`.
+    // Expose `MapCache`.
     memoize.Cache = MapCache;
 
     /**
@@ -18494,7 +18895,7 @@ module.exports = isPlainObject;
      * func(10, 5);
      * // => [100, 10]
      */
-    var overArgs = baseRest(function(func, transforms) {
+    var overArgs = castRest(function(func, transforms) {
       transforms = (transforms.length == 1 && isArray(transforms[0]))
         ? arrayMap(transforms[0], baseUnary(getIteratee()))
         : arrayMap(baseFlatten(transforms, 1), baseUnary(getIteratee()));
@@ -18608,8 +19009,8 @@ module.exports = isPlainObject;
      * rearged('b', 'c', 'a')
      * // => ['a', 'b', 'c']
      */
-    var rearg = baseRest(function(func, indexes) {
-      return createWrap(func, REARG_FLAG, undefined, undefined, undefined, baseFlatten(indexes, 1));
+    var rearg = flatRest(function(func, indexes) {
+      return createWrap(func, REARG_FLAG, undefined, undefined, undefined, indexes);
     });
 
     /**
@@ -19099,11 +19500,10 @@ module.exports = isPlainObject;
      * _.isArguments([1, 2, 3]);
      * // => false
      */
-    function isArguments(value) {
-      // Safari 8.1 makes `arguments.callee` enumerable in strict mode.
-      return isArrayLikeObject(value) && hasOwnProperty.call(value, 'callee') &&
-        (!propertyIsEnumerable.call(value, 'callee') || objectToString.call(value) == argsTag);
-    }
+    var isArguments = baseIsArguments(function() { return arguments; }()) ? baseIsArguments : function(value) {
+      return isObjectLike(value) && hasOwnProperty.call(value, 'callee') &&
+        !propertyIsEnumerable.call(value, 'callee');
+    };
 
     /**
      * Checks if `value` is classified as an `Array` object.
@@ -19285,7 +19685,7 @@ module.exports = isPlainObject;
      * // => false
      */
     function isElement(value) {
-      return !!value && value.nodeType === 1 && isObjectLike(value) && !isPlainObject(value);
+      return value != null && value.nodeType === 1 && isObjectLike(value) && !isPlainObject(value);
     }
 
     /**
@@ -19323,16 +19723,16 @@ module.exports = isPlainObject;
      */
     function isEmpty(value) {
       if (isArrayLike(value) &&
-          (isArray(value) || typeof value == 'string' ||
-            typeof value.splice == 'function' || isBuffer(value) || isArguments(value))) {
+          (isArray(value) || typeof value == 'string' || typeof value.splice == 'function' ||
+            isBuffer(value) || isTypedArray(value) || isArguments(value))) {
         return !value.length;
       }
       var tag = getTag(value);
       if (tag == mapTag || tag == setTag) {
         return !value.size;
       }
-      if (nonEnumShadows || isPrototype(value)) {
-        return !nativeKeys(value).length;
+      if (isPrototype(value)) {
+        return !baseKeys(value).length;
       }
       for (var key in value) {
         if (hasOwnProperty.call(value, key)) {
@@ -19487,9 +19887,9 @@ module.exports = isPlainObject;
      */
     function isFunction(value) {
       // The use of `Object#toString` avoids issues with the `typeof` operator
-      // in Safari 8-9 which returns 'object' for typed array and other constructors.
+      // in Safari 9 which returns 'object' for typed array and other constructors.
       var tag = isObject(value) ? objectToString.call(value) : '';
-      return tag == funcTag || tag == genTag;
+      return tag == funcTag || tag == genTag || tag == proxyTag;
     }
 
     /**
@@ -19580,7 +19980,7 @@ module.exports = isPlainObject;
      */
     function isObject(value) {
       var type = typeof value;
-      return !!value && (type == 'object' || type == 'function');
+      return value != null && (type == 'object' || type == 'function');
     }
 
     /**
@@ -19608,7 +20008,7 @@ module.exports = isPlainObject;
      * // => false
      */
     function isObjectLike(value) {
-      return !!value && typeof value == 'object';
+      return value != null && typeof value == 'object';
     }
 
     /**
@@ -19762,7 +20162,7 @@ module.exports = isPlainObject;
      */
     function isNative(value) {
       if (isMaskable(value)) {
-        throw new Error('This method is not supported with core-js. Try https://github.com/es-shims.');
+        throw new Error(CORE_ERROR_TEXT);
       }
       return baseIsNative(value);
     }
@@ -19872,8 +20272,7 @@ module.exports = isPlainObject;
      * // => true
      */
     function isPlainObject(value) {
-      if (!isObjectLike(value) ||
-          objectToString.call(value) != objectTag || isHostObject(value)) {
+      if (!isObjectLike(value) || objectToString.call(value) != objectTag) {
         return false;
       }
       var proto = getPrototype(value);
@@ -20378,8 +20777,8 @@ module.exports = isPlainObject;
      * @memberOf _
      * @since 4.0.0
      * @category Lang
-     * @param {*} value The value to process.
-     * @returns {string} Returns the string.
+     * @param {*} value The value to convert.
+     * @returns {string} Returns the converted string.
      * @example
      *
      * _.toString(null);
@@ -20430,7 +20829,7 @@ module.exports = isPlainObject;
      * // => { 'a': 1, 'c': 3 }
      */
     var assign = createAssigner(function(object, source) {
-      if (nonEnumShadows || isPrototype(source) || isArrayLike(source)) {
+      if (isPrototype(source) || isArrayLike(source)) {
         copyObject(source, keys(source), object);
         return;
       }
@@ -20558,9 +20957,7 @@ module.exports = isPlainObject;
      * _.at(object, ['a[0].b.c', 'a[1]']);
      * // => [3, 4]
      */
-    var at = baseRest(function(object, paths) {
-      return baseAt(object, baseFlatten(paths, 1));
-    });
+    var at = flatRest(baseAt);
 
     /**
      * Creates an object that inherits from the `prototype` object. If a
@@ -21163,7 +21560,7 @@ module.exports = isPlainObject;
       iteratee = getIteratee(iteratee, 3);
 
       baseForOwn(object, function(value, key, object) {
-        result[iteratee(value, key, object)] = value;
+        baseAssignValue(result, iteratee(value, key, object), value);
       });
       return result;
     }
@@ -21201,7 +21598,7 @@ module.exports = isPlainObject;
       iteratee = getIteratee(iteratee, 3);
 
       baseForOwn(object, function(value, key, object) {
-        result[key] = iteratee(value, key, object);
+        baseAssignValue(result, key, iteratee(value, key, object));
       });
       return result;
     }
@@ -21245,7 +21642,7 @@ module.exports = isPlainObject;
      * This method is like `_.merge` except that it accepts `customizer` which
      * is invoked to produce the merged values of the destination and source
      * properties. If `customizer` returns `undefined`, merging is handled by the
-     * method instead. The `customizer` is invoked with seven arguments:
+     * method instead. The `customizer` is invoked with six arguments:
      * (objValue, srcValue, key, object, source, stack).
      *
      * **Note:** This method mutates `object`.
@@ -21295,11 +21692,11 @@ module.exports = isPlainObject;
      * _.omit(object, ['a', 'c']);
      * // => { 'b': '2' }
      */
-    var omit = baseRest(function(object, props) {
+    var omit = flatRest(function(object, props) {
       if (object == null) {
         return {};
       }
-      props = arrayMap(baseFlatten(props, 1), toKey);
+      props = arrayMap(props, toKey);
       return basePick(object, baseDifference(getAllKeysIn(object), props));
     });
 
@@ -21344,8 +21741,8 @@ module.exports = isPlainObject;
      * _.pick(object, ['a', 'c']);
      * // => { 'a': 1, 'c': 3 }
      */
-    var pick = baseRest(function(object, props) {
-      return object == null ? {} : basePick(object, arrayMap(baseFlatten(props, 1), toKey));
+    var pick = flatRest(function(object, props) {
+      return object == null ? {} : basePick(object, arrayMap(props, toKey));
     });
 
     /**
@@ -21565,22 +21962,23 @@ module.exports = isPlainObject;
      * // => { '1': ['a', 'c'], '2': ['b'] }
      */
     function transform(object, iteratee, accumulator) {
-      var isArr = isArray(object) || isTypedArray(object);
-      iteratee = getIteratee(iteratee, 4);
+      var isArr = isArray(object),
+          isArrLike = isArr || isBuffer(object) || isTypedArray(object);
 
+      iteratee = getIteratee(iteratee, 4);
       if (accumulator == null) {
-        if (isArr || isObject(object)) {
-          var Ctor = object.constructor;
-          if (isArr) {
-            accumulator = isArray(object) ? new Ctor : [];
-          } else {
-            accumulator = isFunction(Ctor) ? baseCreate(getPrototype(object)) : {};
-          }
-        } else {
+        var Ctor = object && object.constructor;
+        if (isArrLike) {
+          accumulator = isArr ? new Ctor : [];
+        }
+        else if (isObject(object)) {
+          accumulator = isFunction(Ctor) ? baseCreate(getPrototype(object)) : {};
+        }
+        else {
           accumulator = {};
         }
       }
-      (isArr ? arrayEach : baseForOwn)(object, function(value, index, object) {
+      (isArrLike ? arrayEach : baseForOwn)(object, function(value, index, object) {
         return iteratee(accumulator, value, index, object);
       });
       return accumulator;
@@ -21999,8 +22397,8 @@ module.exports = isPlainObject;
     }
 
     /**
-     * Converts the characters "&", "<", ">", '"', "'", and "\`" in `string` to
-     * their corresponding HTML entities.
+     * Converts the characters "&", "<", ">", '"', and "'" in `string` to their
+     * corresponding HTML entities.
      *
      * **Note:** No other characters are escaped. To escape additional
      * characters use a third-party library like [_he_](https://mths.be/he).
@@ -22010,12 +22408,6 @@ module.exports = isPlainObject;
      * unless they're part of a tag or unquoted attribute value. See
      * [Mathias Bynens's article](https://mathiasbynens.be/notes/ambiguous-ampersands)
      * (under "semi-related fun fact") for more details.
-     *
-     * Backticks are escaped because in IE < 9, they can break out of
-     * attribute values or HTML comments. See [#59](https://html5sec.org/#59),
-     * [#102](https://html5sec.org/#102), [#108](https://html5sec.org/#108), and
-     * [#133](https://html5sec.org/#133) of the
-     * [HTML5 Security Cheatsheet](https://html5sec.org/) for more details.
      *
      * When working with HTML you should always
      * [quote attribute values](http://wonko.com/post/html-escaping) to reduce
@@ -22259,15 +22651,12 @@ module.exports = isPlainObject;
      * // => [6, 8, 10]
      */
     function parseInt(string, radix, guard) {
-      // Chrome fails to trim leading <BOM> whitespace characters.
-      // See https://bugs.chromium.org/p/v8/issues/detail?id=3109 for more details.
       if (guard || radix == null) {
         radix = 0;
       } else if (radix) {
         radix = +radix;
       }
-      string = toString(string).replace(reTrim, '');
-      return nativeParseInt(string, radix || (reHasHexPrefix.test(string) ? 16 : 10));
+      return nativeParseInt(toString(string).replace(reTrimStart, ''), radix || 0);
     }
 
     /**
@@ -22506,7 +22895,8 @@ module.exports = isPlainObject;
      * compiled({ 'user': 'barney' });
      * // => 'hello barney!'
      *
-     * // Use the ES delimiter as an alternative to the default "interpolate" delimiter.
+     * // Use the ES template literal delimiter as an "interpolate" delimiter.
+     * // Disable support by replacing the "interpolate" delimiter.
      * var compiled = _.template('hello ${ user }!');
      * compiled({ 'user': 'pebbles' });
      * // => 'hello pebbles!'
@@ -22907,7 +23297,7 @@ module.exports = isPlainObject;
 
     /**
      * The inverse of `_.escape`; this method converts the HTML entities
-     * `&amp;`, `&lt;`, `&gt;`, `&quot;`, `&#39;`, and `&#96;` in `string` to
+     * `&amp;`, `&lt;`, `&gt;`, `&quot;`, and `&#39;` in `string` to
      * their corresponding characters.
      *
      * **Note:** No other HTML entities are unescaped. To unescape additional
@@ -23061,10 +23451,10 @@ module.exports = isPlainObject;
      * jQuery(element).on('click', view.click);
      * // => Logs 'clicked docs' when clicked.
      */
-    var bindAll = baseRest(function(object, methodNames) {
-      arrayEach(baseFlatten(methodNames, 1), function(key) {
+    var bindAll = flatRest(function(object, methodNames) {
+      arrayEach(methodNames, function(key) {
         key = toKey(key);
-        object[key] = bind(object[key], object);
+        baseAssignValue(object, key, bind(object[key], object));
       });
       return object;
     });
@@ -24855,7 +25245,7 @@ module.exports = isPlainObject;
       lodash.prototype[iteratorSymbol] = wrapperToIterator;
     }
     return lodash;
-  }
+  });
 
   /*--------------------------------------------------------------------------*/
 
@@ -24891,7 +25281,7 @@ module.exports = isPlainObject;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\stubFalse.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\lodash\\stubFalse.js":[function(require,module,exports){
 /**
  * This method returns `false`.
  *
@@ -24911,7 +25301,92 @@ function stubFalse() {
 
 module.exports = stubFalse;
 
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\object-assign\\index.js":[function(require,module,exports){
+'use strict';
+/* eslint-disable no-unused-vars */
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+
+function toObject(val) {
+	if (val === null || val === undefined) {
+		throw new TypeError('Object.assign cannot be called with null or undefined');
+	}
+
+	return Object(val);
+}
+
+function shouldUseNative() {
+	try {
+		if (!Object.assign) {
+			return false;
+		}
+
+		// Detect buggy property enumeration order in older V8 versions.
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
+		var test1 = new String('abc');  // eslint-disable-line
+		test1[5] = 'de';
+		if (Object.getOwnPropertyNames(test1)[0] === '5') {
+			return false;
+		}
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+		var test2 = {};
+		for (var i = 0; i < 10; i++) {
+			test2['_' + String.fromCharCode(i)] = i;
+		}
+		var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
+			return test2[n];
+		});
+		if (order2.join('') !== '0123456789') {
+			return false;
+		}
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+		var test3 = {};
+		'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
+			test3[letter] = letter;
+		});
+		if (Object.keys(Object.assign({}, test3)).join('') !==
+				'abcdefghijklmnopqrst') {
+			return false;
+		}
+
+		return true;
+	} catch (e) {
+		// We don't expect any of the above to throw, but better to be safe.
+		return false;
+	}
+}
+
+module.exports = shouldUseNative() ? Object.assign : function (target, source) {
+	var from;
+	var to = toObject(target);
+	var symbols;
+
+	for (var s = 1; s < arguments.length; s++) {
+		from = Object(arguments[s]);
+
+		for (var key in from) {
+			if (hasOwnProperty.call(from, key)) {
+				to[key] = from[key];
+			}
+		}
+
+		if (Object.getOwnPropertySymbols) {
+			symbols = Object.getOwnPropertySymbols(from);
+			for (var i = 0; i < symbols.length; i++) {
+				if (propIsEnumerable.call(from, symbols[i])) {
+					to[symbols[i]] = from[symbols[i]];
+				}
+			}
+		}
+	}
+
+	return to;
+};
+
+},{}],"D:\\React\\videoport\\node_modules\\process\\browser.js":[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -25093,7 +25568,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\query-string\\index.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\query-string\\index.js":[function(require,module,exports){
 'use strict';
 var strictUriEncode = require('strict-uri-encode');
 
@@ -25161,12 +25636,12 @@ exports.stringify = function (obj) {
 	}).join('&') : '';
 };
 
-},{"strict-uri-encode":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\strict-uri-encode\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-dom\\index.js":[function(require,module,exports){
+},{"strict-uri-encode":"D:\\React\\videoport\\node_modules\\strict-uri-encode\\index.js"}],"D:\\React\\videoport\\node_modules\\react-dom\\index.js":[function(require,module,exports){
 'use strict';
 
 module.exports = require('react/lib/ReactDOM');
 
-},{"react/lib/ReactDOM":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOM.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-redux\\lib\\components\\Provider.js":[function(require,module,exports){
+},{"react/lib/ReactDOM":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOM.js"}],"D:\\React\\videoport\\node_modules\\react-redux\\lib\\components\\Provider.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -25248,7 +25723,7 @@ Provider.childContextTypes = {
 };
 }).call(this,require('_process'))
 
-},{"../utils/storeShape":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-redux\\lib\\utils\\storeShape.js","../utils/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-redux\\lib\\utils\\warning.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-redux\\lib\\components\\connect.js":[function(require,module,exports){
+},{"../utils/storeShape":"D:\\React\\videoport\\node_modules\\react-redux\\lib\\utils\\storeShape.js","../utils/warning":"D:\\React\\videoport\\node_modules\\react-redux\\lib\\utils\\warning.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","react":"D:\\React\\videoport\\node_modules\\react\\react.js"}],"D:\\React\\videoport\\node_modules\\react-redux\\lib\\components\\connect.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -25645,7 +26120,7 @@ function connect(mapStateToProps, mapDispatchToProps, mergeProps) {
 }
 }).call(this,require('_process'))
 
-},{"../utils/shallowEqual":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-redux\\lib\\utils\\shallowEqual.js","../utils/storeShape":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-redux\\lib\\utils\\storeShape.js","../utils/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-redux\\lib\\utils\\warning.js","../utils/wrapActionCreators":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-redux\\lib\\utils\\wrapActionCreators.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","hoist-non-react-statics":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\hoist-non-react-statics\\index.js","invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\invariant\\browser.js","lodash/isPlainObject":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\isPlainObject.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-redux\\lib\\index.js":[function(require,module,exports){
+},{"../utils/shallowEqual":"D:\\React\\videoport\\node_modules\\react-redux\\lib\\utils\\shallowEqual.js","../utils/storeShape":"D:\\React\\videoport\\node_modules\\react-redux\\lib\\utils\\storeShape.js","../utils/warning":"D:\\React\\videoport\\node_modules\\react-redux\\lib\\utils\\warning.js","../utils/wrapActionCreators":"D:\\React\\videoport\\node_modules\\react-redux\\lib\\utils\\wrapActionCreators.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","hoist-non-react-statics":"D:\\React\\videoport\\node_modules\\hoist-non-react-statics\\index.js","invariant":"D:\\React\\videoport\\node_modules\\invariant\\browser.js","lodash/isPlainObject":"D:\\React\\videoport\\node_modules\\lodash\\isPlainObject.js","react":"D:\\React\\videoport\\node_modules\\react\\react.js"}],"D:\\React\\videoport\\node_modules\\react-redux\\lib\\index.js":[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -25663,7 +26138,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 
 exports.Provider = _Provider2["default"];
 exports.connect = _connect2["default"];
-},{"./components/Provider":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-redux\\lib\\components\\Provider.js","./components/connect":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-redux\\lib\\components\\connect.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-redux\\lib\\utils\\shallowEqual.js":[function(require,module,exports){
+},{"./components/Provider":"D:\\React\\videoport\\node_modules\\react-redux\\lib\\components\\Provider.js","./components/connect":"D:\\React\\videoport\\node_modules\\react-redux\\lib\\components\\connect.js"}],"D:\\React\\videoport\\node_modules\\react-redux\\lib\\utils\\shallowEqual.js":[function(require,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -25690,7 +26165,7 @@ function shallowEqual(objA, objB) {
 
   return true;
 }
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-redux\\lib\\utils\\storeShape.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\react-redux\\lib\\utils\\storeShape.js":[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -25702,7 +26177,7 @@ exports["default"] = _react.PropTypes.shape({
   dispatch: _react.PropTypes.func.isRequired,
   getState: _react.PropTypes.func.isRequired
 });
-},{"react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-redux\\lib\\utils\\warning.js":[function(require,module,exports){
+},{"react":"D:\\React\\videoport\\node_modules\\react\\react.js"}],"D:\\React\\videoport\\node_modules\\react-redux\\lib\\utils\\warning.js":[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -25727,7 +26202,7 @@ function warning(message) {
   } catch (e) {}
   /* eslint-enable no-empty */
 }
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-redux\\lib\\utils\\wrapActionCreators.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\react-redux\\lib\\utils\\wrapActionCreators.js":[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -25740,7 +26215,7 @@ function wrapActionCreators(actionCreators) {
     return (0, _redux.bindActionCreators)(actionCreators, dispatch);
   };
 }
-},{"redux":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\redux\\lib\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\AsyncUtils.js":[function(require,module,exports){
+},{"redux":"D:\\React\\videoport\\node_modules\\redux\\lib\\index.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\AsyncUtils.js":[function(require,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -25829,7 +26304,7 @@ function mapAsync(array, work, callback) {
     });
   });
 }
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\History.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\History.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -25862,7 +26337,7 @@ exports.default = History;
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./InternalPropTypes":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\InternalPropTypes.js","./routerWarning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\routerWarning.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\IndexLink.js":[function(require,module,exports){
+},{"./InternalPropTypes":"D:\\React\\videoport\\node_modules\\react-router\\lib\\InternalPropTypes.js","./routerWarning":"D:\\React\\videoport\\node_modules\\react-router\\lib\\routerWarning.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\IndexLink.js":[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -25891,7 +26366,7 @@ var IndexLink = _react2.default.createClass({
 
 exports.default = IndexLink;
 module.exports = exports['default'];
-},{"./Link":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\Link.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\IndexRedirect.js":[function(require,module,exports){
+},{"./Link":"D:\\React\\videoport\\node_modules\\react-router\\lib\\Link.js","react":"D:\\React\\videoport\\node_modules\\react\\react.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\IndexRedirect.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -25958,7 +26433,7 @@ exports.default = IndexRedirect;
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./InternalPropTypes":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\InternalPropTypes.js","./Redirect":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\Redirect.js","./routerWarning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\routerWarning.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\invariant\\browser.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\IndexRoute.js":[function(require,module,exports){
+},{"./InternalPropTypes":"D:\\React\\videoport\\node_modules\\react-router\\lib\\InternalPropTypes.js","./Redirect":"D:\\React\\videoport\\node_modules\\react-router\\lib\\Redirect.js","./routerWarning":"D:\\React\\videoport\\node_modules\\react-router\\lib\\routerWarning.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","invariant":"D:\\React\\videoport\\node_modules\\invariant\\browser.js","react":"D:\\React\\videoport\\node_modules\\react\\react.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\IndexRoute.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -26022,7 +26497,7 @@ exports.default = IndexRoute;
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./InternalPropTypes":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\InternalPropTypes.js","./RouteUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\RouteUtils.js","./routerWarning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\routerWarning.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\invariant\\browser.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\InternalPropTypes.js":[function(require,module,exports){
+},{"./InternalPropTypes":"D:\\React\\videoport\\node_modules\\react-router\\lib\\InternalPropTypes.js","./RouteUtils":"D:\\React\\videoport\\node_modules\\react-router\\lib\\RouteUtils.js","./routerWarning":"D:\\React\\videoport\\node_modules\\react-router\\lib\\routerWarning.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","invariant":"D:\\React\\videoport\\node_modules\\invariant\\browser.js","react":"D:\\React\\videoport\\node_modules\\react\\react.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\InternalPropTypes.js":[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -26055,7 +26530,7 @@ var component = exports.component = oneOfType([func, string]);
 var components = exports.components = oneOfType([component, object]);
 var route = exports.route = oneOfType([object, element]);
 var routes = exports.routes = oneOfType([route, arrayOf(route)]);
-},{"react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\Lifecycle.js":[function(require,module,exports){
+},{"react":"D:\\React\\videoport\\node_modules\\react\\react.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\Lifecycle.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -26127,7 +26602,7 @@ exports.default = Lifecycle;
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./routerWarning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\routerWarning.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\invariant\\browser.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\Link.js":[function(require,module,exports){
+},{"./routerWarning":"D:\\React\\videoport\\node_modules\\react-router\\lib\\routerWarning.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","invariant":"D:\\React\\videoport\\node_modules\\invariant\\browser.js","react":"D:\\React\\videoport\\node_modules\\react\\react.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\Link.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -26215,7 +26690,7 @@ var Link = _react2.default.createClass({
   },
 
   propTypes: {
-    to: oneOfType([string, object]).isRequired,
+    to: oneOfType([string, object]),
     query: object,
     hash: string,
     state: object,
@@ -26276,6 +26751,11 @@ var Link = _react2.default.createClass({
 
 
     if (router) {
+      // If user does not specify a `to` prop, return an empty anchor tag.
+      if (to == null) {
+        return _react2.default.createElement('a', props);
+      }
+
       var location = createLocationDescriptor(to, { query: query, hash: hash, state: state });
       props.href = router.createHref(location);
 
@@ -26302,7 +26782,7 @@ exports.default = Link;
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./PropTypes":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\PropTypes.js","./routerWarning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\routerWarning.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\invariant\\browser.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\PatternUtils.js":[function(require,module,exports){
+},{"./PropTypes":"D:\\React\\videoport\\node_modules\\react-router\\lib\\PropTypes.js","./routerWarning":"D:\\React\\videoport\\node_modules\\react-router\\lib\\routerWarning.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","invariant":"D:\\React\\videoport\\node_modules\\invariant\\browser.js","react":"D:\\React\\videoport\\node_modules\\react\\react.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\PatternUtils.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -26518,7 +26998,7 @@ function formatPattern(pattern, params) {
 }
 }).call(this,require('_process'))
 
-},{"_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\invariant\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\PropTypes.js":[function(require,module,exports){
+},{"_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","invariant":"D:\\React\\videoport\\node_modules\\invariant\\browser.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\PropTypes.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -26623,7 +27103,7 @@ if (process.env.NODE_ENV !== 'production') {
 exports.default = defaultExport;
 }).call(this,require('_process'))
 
-},{"./InternalPropTypes":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\InternalPropTypes.js","./deprecateObjectProperties":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\deprecateObjectProperties.js","./routerWarning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\routerWarning.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\Redirect.js":[function(require,module,exports){
+},{"./InternalPropTypes":"D:\\React\\videoport\\node_modules\\react-router\\lib\\InternalPropTypes.js","./deprecateObjectProperties":"D:\\React\\videoport\\node_modules\\react-router\\lib\\deprecateObjectProperties.js","./routerWarning":"D:\\React\\videoport\\node_modules\\react-router\\lib\\routerWarning.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","react":"D:\\React\\videoport\\node_modules\\react\\react.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\Redirect.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -26729,7 +27209,7 @@ exports.default = Redirect;
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./InternalPropTypes":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\InternalPropTypes.js","./PatternUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\PatternUtils.js","./RouteUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\RouteUtils.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\invariant\\browser.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\Route.js":[function(require,module,exports){
+},{"./InternalPropTypes":"D:\\React\\videoport\\node_modules\\react-router\\lib\\InternalPropTypes.js","./PatternUtils":"D:\\React\\videoport\\node_modules\\react-router\\lib\\PatternUtils.js","./RouteUtils":"D:\\React\\videoport\\node_modules\\react-router\\lib\\RouteUtils.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","invariant":"D:\\React\\videoport\\node_modules\\invariant\\browser.js","react":"D:\\React\\videoport\\node_modules\\react\\react.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\Route.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -26790,7 +27270,7 @@ exports.default = Route;
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./InternalPropTypes":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\InternalPropTypes.js","./RouteUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\RouteUtils.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\invariant\\browser.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\RouteContext.js":[function(require,module,exports){
+},{"./InternalPropTypes":"D:\\React\\videoport\\node_modules\\react-router\\lib\\InternalPropTypes.js","./RouteUtils":"D:\\React\\videoport\\node_modules\\react-router\\lib\\RouteUtils.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","invariant":"D:\\React\\videoport\\node_modules\\invariant\\browser.js","react":"D:\\React\\videoport\\node_modules\\react\\react.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\RouteContext.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -26839,7 +27319,7 @@ exports.default = RouteContext;
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./routerWarning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\routerWarning.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\RouteUtils.js":[function(require,module,exports){
+},{"./routerWarning":"D:\\React\\videoport\\node_modules\\react-router\\lib\\routerWarning.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","react":"D:\\React\\videoport\\node_modules\\react\\react.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\RouteUtils.js":[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -26933,7 +27413,7 @@ function createRoutes(routes) {
 
   return routes;
 }
-},{"react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\Router.js":[function(require,module,exports){
+},{"react":"D:\\React\\videoport\\node_modules\\react\\react.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\Router.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -27161,7 +27641,7 @@ exports.default = Router;
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./InternalPropTypes":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\InternalPropTypes.js","./RouteUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\RouteUtils.js","./RouterContext":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\RouterContext.js","./RouterUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\RouterUtils.js","./createTransitionManager":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\createTransitionManager.js","./routerWarning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\routerWarning.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","history/lib/createHashHistory":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\createHashHistory.js","history/lib/useQueries":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\useQueries.js","invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\invariant\\browser.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\RouterContext.js":[function(require,module,exports){
+},{"./InternalPropTypes":"D:\\React\\videoport\\node_modules\\react-router\\lib\\InternalPropTypes.js","./RouteUtils":"D:\\React\\videoport\\node_modules\\react-router\\lib\\RouteUtils.js","./RouterContext":"D:\\React\\videoport\\node_modules\\react-router\\lib\\RouterContext.js","./RouterUtils":"D:\\React\\videoport\\node_modules\\react-router\\lib\\RouterUtils.js","./createTransitionManager":"D:\\React\\videoport\\node_modules\\react-router\\lib\\createTransitionManager.js","./routerWarning":"D:\\React\\videoport\\node_modules\\react-router\\lib\\routerWarning.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","history/lib/createHashHistory":"D:\\React\\videoport\\node_modules\\history\\lib\\createHashHistory.js","history/lib/useQueries":"D:\\React\\videoport\\node_modules\\history\\lib\\useQueries.js","invariant":"D:\\React\\videoport\\node_modules\\invariant\\browser.js","react":"D:\\React\\videoport\\node_modules\\react\\react.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\RouterContext.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -27321,7 +27801,7 @@ exports.default = RouterContext;
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./RouteUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\RouteUtils.js","./deprecateObjectProperties":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\deprecateObjectProperties.js","./getRouteParams":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\getRouteParams.js","./routerWarning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\routerWarning.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\invariant\\browser.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\RouterUtils.js":[function(require,module,exports){
+},{"./RouteUtils":"D:\\React\\videoport\\node_modules\\react-router\\lib\\RouteUtils.js","./deprecateObjectProperties":"D:\\React\\videoport\\node_modules\\react-router\\lib\\deprecateObjectProperties.js","./getRouteParams":"D:\\React\\videoport\\node_modules\\react-router\\lib\\getRouteParams.js","./routerWarning":"D:\\React\\videoport\\node_modules\\react-router\\lib\\routerWarning.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","invariant":"D:\\React\\videoport\\node_modules\\invariant\\browser.js","react":"D:\\React\\videoport\\node_modules\\react\\react.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\RouterUtils.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -27357,7 +27837,7 @@ function createRoutingHistory(history, transitionManager) {
 }
 }).call(this,require('_process'))
 
-},{"./deprecateObjectProperties":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\deprecateObjectProperties.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\RoutingContext.js":[function(require,module,exports){
+},{"./deprecateObjectProperties":"D:\\React\\videoport\\node_modules\\react-router\\lib\\deprecateObjectProperties.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\RoutingContext.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -27391,7 +27871,7 @@ exports.default = RoutingContext;
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./RouterContext":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\RouterContext.js","./routerWarning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\routerWarning.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\TransitionUtils.js":[function(require,module,exports){
+},{"./RouterContext":"D:\\React\\videoport\\node_modules\\react-router\\lib\\RouterContext.js","./routerWarning":"D:\\React\\videoport\\node_modules\\react-router\\lib\\routerWarning.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","react":"D:\\React\\videoport\\node_modules\\react\\react.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\TransitionUtils.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -27517,7 +27997,7 @@ function runLeaveHooks(routes, prevState) {
 }
 }).call(this,require('_process'))
 
-},{"./AsyncUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\AsyncUtils.js","./routerWarning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\routerWarning.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\applyRouterMiddleware.js":[function(require,module,exports){
+},{"./AsyncUtils":"D:\\React\\videoport\\node_modules\\react-router\\lib\\AsyncUtils.js","./routerWarning":"D:\\React\\videoport\\node_modules\\react-router\\lib\\routerWarning.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\applyRouterMiddleware.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -27578,7 +28058,7 @@ exports.default = function () {
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./RouterContext":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\RouterContext.js","./routerWarning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\routerWarning.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\browserHistory.js":[function(require,module,exports){
+},{"./RouterContext":"D:\\React\\videoport\\node_modules\\react-router\\lib\\RouterContext.js","./routerWarning":"D:\\React\\videoport\\node_modules\\react-router\\lib\\routerWarning.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","react":"D:\\React\\videoport\\node_modules\\react\\react.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\browserHistory.js":[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -27595,7 +28075,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = (0, _createRouterHistory2.default)(_createBrowserHistory2.default);
 module.exports = exports['default'];
-},{"./createRouterHistory":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\createRouterHistory.js","history/lib/createBrowserHistory":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\createBrowserHistory.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\computeChangedRoutes.js":[function(require,module,exports){
+},{"./createRouterHistory":"D:\\React\\videoport\\node_modules\\react-router\\lib\\createRouterHistory.js","history/lib/createBrowserHistory":"D:\\React\\videoport\\node_modules\\history\\lib\\createBrowserHistory.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\computeChangedRoutes.js":[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -27673,7 +28153,7 @@ function computeChangedRoutes(prevState, nextState) {
 
 exports.default = computeChangedRoutes;
 module.exports = exports['default'];
-},{"./PatternUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\PatternUtils.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\createMemoryHistory.js":[function(require,module,exports){
+},{"./PatternUtils":"D:\\React\\videoport\\node_modules\\react-router\\lib\\PatternUtils.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\createMemoryHistory.js":[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -27706,7 +28186,7 @@ function createMemoryHistory(options) {
   return history;
 }
 module.exports = exports['default'];
-},{"history/lib/createMemoryHistory":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\createMemoryHistory.js","history/lib/useBasename":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\useBasename.js","history/lib/useQueries":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\useQueries.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\createRouterHistory.js":[function(require,module,exports){
+},{"history/lib/createMemoryHistory":"D:\\React\\videoport\\node_modules\\history\\lib\\createMemoryHistory.js","history/lib/useBasename":"D:\\React\\videoport\\node_modules\\history\\lib\\useBasename.js","history/lib/useQueries":"D:\\React\\videoport\\node_modules\\history\\lib\\useQueries.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\createRouterHistory.js":[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -27726,7 +28206,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
 
 module.exports = exports['default'];
-},{"./useRouterHistory":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\useRouterHistory.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\createTransitionManager.js":[function(require,module,exports){
+},{"./useRouterHistory":"D:\\React\\videoport\\node_modules\\react-router\\lib\\useRouterHistory.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\createTransitionManager.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -27739,8 +28219,6 @@ exports.default = createTransitionManager;
 var _routerWarning = require('./routerWarning');
 
 var _routerWarning2 = _interopRequireDefault(_routerWarning);
-
-var _Actions = require('history/lib/Actions');
 
 var _computeChangedRoutes2 = require('./computeChangedRoutes');
 
@@ -27788,10 +28266,6 @@ function createTransitionManager(history, routes) {
     }
 
     return (0, _isActive3.default)(location, indexOnly, state.location, state.routes, state.params);
-  }
-
-  function createLocationFromRedirectInfo(location) {
-    return history.createLocation(location, _Actions.REPLACE);
   }
 
   var partialNextState = void 0;
@@ -27851,7 +28325,7 @@ function createTransitionManager(history, routes) {
     }
 
     function handleErrorOrRedirect(error, redirectInfo) {
-      if (error) callback(error);else callback(null, createLocationFromRedirectInfo(redirectInfo));
+      if (error) callback(error);else callback(null, redirectInfo);
     }
   }
 
@@ -28014,7 +28488,7 @@ function createTransitionManager(history, routes) {
           if (error) {
             listener(error);
           } else if (redirectLocation) {
-            history.transitionTo(redirectLocation);
+            history.replace(redirectLocation);
           } else if (nextState) {
             listener(null, nextState);
           } else {
@@ -28038,7 +28512,7 @@ function createTransitionManager(history, routes) {
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./TransitionUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\TransitionUtils.js","./computeChangedRoutes":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\computeChangedRoutes.js","./getComponents":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\getComponents.js","./isActive":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\isActive.js","./matchRoutes":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\matchRoutes.js","./routerWarning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\routerWarning.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","history/lib/Actions":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\Actions.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\deprecateObjectProperties.js":[function(require,module,exports){
+},{"./TransitionUtils":"D:\\React\\videoport\\node_modules\\react-router\\lib\\TransitionUtils.js","./computeChangedRoutes":"D:\\React\\videoport\\node_modules\\react-router\\lib\\computeChangedRoutes.js","./getComponents":"D:\\React\\videoport\\node_modules\\react-router\\lib\\getComponents.js","./isActive":"D:\\React\\videoport\\node_modules\\react-router\\lib\\isActive.js","./matchRoutes":"D:\\React\\videoport\\node_modules\\react-router\\lib\\matchRoutes.js","./routerWarning":"D:\\React\\videoport\\node_modules\\react-router\\lib\\routerWarning.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\deprecateObjectProperties.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -28117,7 +28591,7 @@ if (process.env.NODE_ENV !== 'production') {
 exports.default = deprecateObjectProperties;
 }).call(this,require('_process'))
 
-},{"./routerWarning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\routerWarning.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\getComponents.js":[function(require,module,exports){
+},{"./routerWarning":"D:\\React\\videoport\\node_modules\\react-router\\lib\\routerWarning.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\getComponents.js":[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -28164,7 +28638,7 @@ function getComponents(nextState, callback) {
 
 exports.default = getComponents;
 module.exports = exports['default'];
-},{"./AsyncUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\AsyncUtils.js","./makeStateWithLocation":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\makeStateWithLocation.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\getRouteParams.js":[function(require,module,exports){
+},{"./AsyncUtils":"D:\\React\\videoport\\node_modules\\react-router\\lib\\AsyncUtils.js","./makeStateWithLocation":"D:\\React\\videoport\\node_modules\\react-router\\lib\\makeStateWithLocation.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\getRouteParams.js":[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -28191,7 +28665,7 @@ function getRouteParams(route, params) {
 
 exports.default = getRouteParams;
 module.exports = exports['default'];
-},{"./PatternUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\PatternUtils.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\hashHistory.js":[function(require,module,exports){
+},{"./PatternUtils":"D:\\React\\videoport\\node_modules\\react-router\\lib\\PatternUtils.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\hashHistory.js":[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -28208,7 +28682,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = (0, _createRouterHistory2.default)(_createHashHistory2.default);
 module.exports = exports['default'];
-},{"./createRouterHistory":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\createRouterHistory.js","history/lib/createHashHistory":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\createHashHistory.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\index.js":[function(require,module,exports){
+},{"./createRouterHistory":"D:\\React\\videoport\\node_modules\\react-router\\lib\\createRouterHistory.js","history/lib/createHashHistory":"D:\\React\\videoport\\node_modules\\history\\lib\\createHashHistory.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\index.js":[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -28365,7 +28839,7 @@ exports.applyRouterMiddleware = _applyRouterMiddleware3.default;
 exports.browserHistory = _browserHistory3.default;
 exports.hashHistory = _hashHistory3.default;
 exports.createMemoryHistory = _createMemoryHistory3.default;
-},{"./History":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\History.js","./IndexLink":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\IndexLink.js","./IndexRedirect":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\IndexRedirect.js","./IndexRoute":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\IndexRoute.js","./Lifecycle":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\Lifecycle.js","./Link":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\Link.js","./PatternUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\PatternUtils.js","./PropTypes":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\PropTypes.js","./Redirect":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\Redirect.js","./Route":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\Route.js","./RouteContext":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\RouteContext.js","./RouteUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\RouteUtils.js","./Router":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\Router.js","./RouterContext":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\RouterContext.js","./RoutingContext":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\RoutingContext.js","./applyRouterMiddleware":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\applyRouterMiddleware.js","./browserHistory":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\browserHistory.js","./createMemoryHistory":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\createMemoryHistory.js","./hashHistory":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\hashHistory.js","./match":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\match.js","./useRouterHistory":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\useRouterHistory.js","./useRoutes":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\useRoutes.js","./withRouter":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\withRouter.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\isActive.js":[function(require,module,exports){
+},{"./History":"D:\\React\\videoport\\node_modules\\react-router\\lib\\History.js","./IndexLink":"D:\\React\\videoport\\node_modules\\react-router\\lib\\IndexLink.js","./IndexRedirect":"D:\\React\\videoport\\node_modules\\react-router\\lib\\IndexRedirect.js","./IndexRoute":"D:\\React\\videoport\\node_modules\\react-router\\lib\\IndexRoute.js","./Lifecycle":"D:\\React\\videoport\\node_modules\\react-router\\lib\\Lifecycle.js","./Link":"D:\\React\\videoport\\node_modules\\react-router\\lib\\Link.js","./PatternUtils":"D:\\React\\videoport\\node_modules\\react-router\\lib\\PatternUtils.js","./PropTypes":"D:\\React\\videoport\\node_modules\\react-router\\lib\\PropTypes.js","./Redirect":"D:\\React\\videoport\\node_modules\\react-router\\lib\\Redirect.js","./Route":"D:\\React\\videoport\\node_modules\\react-router\\lib\\Route.js","./RouteContext":"D:\\React\\videoport\\node_modules\\react-router\\lib\\RouteContext.js","./RouteUtils":"D:\\React\\videoport\\node_modules\\react-router\\lib\\RouteUtils.js","./Router":"D:\\React\\videoport\\node_modules\\react-router\\lib\\Router.js","./RouterContext":"D:\\React\\videoport\\node_modules\\react-router\\lib\\RouterContext.js","./RoutingContext":"D:\\React\\videoport\\node_modules\\react-router\\lib\\RoutingContext.js","./applyRouterMiddleware":"D:\\React\\videoport\\node_modules\\react-router\\lib\\applyRouterMiddleware.js","./browserHistory":"D:\\React\\videoport\\node_modules\\react-router\\lib\\browserHistory.js","./createMemoryHistory":"D:\\React\\videoport\\node_modules\\react-router\\lib\\createMemoryHistory.js","./hashHistory":"D:\\React\\videoport\\node_modules\\react-router\\lib\\hashHistory.js","./match":"D:\\React\\videoport\\node_modules\\react-router\\lib\\match.js","./useRouterHistory":"D:\\React\\videoport\\node_modules\\react-router\\lib\\useRouterHistory.js","./useRoutes":"D:\\React\\videoport\\node_modules\\react-router\\lib\\useRoutes.js","./withRouter":"D:\\React\\videoport\\node_modules\\react-router\\lib\\withRouter.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\isActive.js":[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -28518,7 +28992,7 @@ function isActive(_ref, indexOnly, currentLocation, routes, params) {
   return queryIsActive(query, currentLocation.query);
 }
 module.exports = exports['default'];
-},{"./PatternUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\PatternUtils.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\makeStateWithLocation.js":[function(require,module,exports){
+},{"./PatternUtils":"D:\\React\\videoport\\node_modules\\react-router\\lib\\PatternUtils.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\makeStateWithLocation.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -28571,13 +29045,15 @@ function makeStateWithLocation(state, location) {
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./deprecateObjectProperties":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\deprecateObjectProperties.js","./routerWarning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\routerWarning.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\match.js":[function(require,module,exports){
+},{"./deprecateObjectProperties":"D:\\React\\videoport\\node_modules\\react-router\\lib\\deprecateObjectProperties.js","./routerWarning":"D:\\React\\videoport\\node_modules\\react-router\\lib\\routerWarning.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\match.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
 exports.__esModule = true;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _Actions = require('history/lib/Actions');
 
 var _invariant = require('invariant');
 
@@ -28637,7 +29113,7 @@ function match(_ref, callback) {
   history = (0, _RouterUtils.createRoutingHistory)(history, transitionManager);
 
   transitionManager.match(location, function (error, redirectLocation, nextState) {
-    callback(error, redirectLocation, nextState && _extends({}, nextState, {
+    callback(error, redirectLocation && router.createLocation(redirectLocation, _Actions.REPLACE), nextState && _extends({}, nextState, {
       history: history,
       router: router,
       matchContext: { history: history, transitionManager: transitionManager, router: router }
@@ -28656,7 +29132,7 @@ exports.default = match;
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./RouteUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\RouteUtils.js","./RouterUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\RouterUtils.js","./createMemoryHistory":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\createMemoryHistory.js","./createTransitionManager":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\createTransitionManager.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\invariant\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\matchRoutes.js":[function(require,module,exports){
+},{"./RouteUtils":"D:\\React\\videoport\\node_modules\\react-router\\lib\\RouteUtils.js","./RouterUtils":"D:\\React\\videoport\\node_modules\\react-router\\lib\\RouterUtils.js","./createMemoryHistory":"D:\\React\\videoport\\node_modules\\react-router\\lib\\createMemoryHistory.js","./createTransitionManager":"D:\\React\\videoport\\node_modules\\react-router\\lib\\createTransitionManager.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","history/lib/Actions":"D:\\React\\videoport\\node_modules\\history\\lib\\Actions.js","invariant":"D:\\React\\videoport\\node_modules\\invariant\\browser.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\matchRoutes.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -28911,7 +29387,7 @@ function matchRoutes(routes, location, callback, remainingPathname) {
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./AsyncUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\AsyncUtils.js","./PatternUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\PatternUtils.js","./RouteUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\RouteUtils.js","./makeStateWithLocation":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\makeStateWithLocation.js","./routerWarning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\routerWarning.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\routerWarning.js":[function(require,module,exports){
+},{"./AsyncUtils":"D:\\React\\videoport\\node_modules\\react-router\\lib\\AsyncUtils.js","./PatternUtils":"D:\\React\\videoport\\node_modules\\react-router\\lib\\PatternUtils.js","./RouteUtils":"D:\\React\\videoport\\node_modules\\react-router\\lib\\RouteUtils.js","./makeStateWithLocation":"D:\\React\\videoport\\node_modules\\react-router\\lib\\makeStateWithLocation.js","./routerWarning":"D:\\React\\videoport\\node_modules\\react-router\\lib\\routerWarning.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\routerWarning.js":[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -28948,7 +29424,7 @@ function routerWarning(falseToWarn, message) {
 function _resetWarned() {
   warned = {};
 }
-},{"warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\warning\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\useRouterHistory.js":[function(require,module,exports){
+},{"warning":"D:\\React\\videoport\\node_modules\\warning\\browser.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\useRouterHistory.js":[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -28972,7 +29448,7 @@ function useRouterHistory(createHistory) {
   };
 }
 module.exports = exports['default'];
-},{"history/lib/useBasename":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\useBasename.js","history/lib/useQueries":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\useQueries.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\useRoutes.js":[function(require,module,exports){
+},{"history/lib/useBasename":"D:\\React\\videoport\\node_modules\\history\\lib\\useBasename.js","history/lib/useQueries":"D:\\React\\videoport\\node_modules\\history\\lib\\useQueries.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\useRoutes.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -29027,7 +29503,7 @@ exports.default = useRoutes;
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./createTransitionManager":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\createTransitionManager.js","./routerWarning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\routerWarning.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","history/lib/useQueries":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\history\\lib\\useQueries.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\withRouter.js":[function(require,module,exports){
+},{"./createTransitionManager":"D:\\React\\videoport\\node_modules\\react-router\\lib\\createTransitionManager.js","./routerWarning":"D:\\React\\videoport\\node_modules\\react-router\\lib\\routerWarning.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","history/lib/useQueries":"D:\\React\\videoport\\node_modules\\history\\lib\\useQueries.js"}],"D:\\React\\videoport\\node_modules\\react-router\\lib\\withRouter.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -29095,7 +29571,7 @@ function withRouter(WrappedComponent, options) {
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./PropTypes":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-router\\lib\\PropTypes.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","hoist-non-react-statics":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\hoist-non-react-statics\\index.js","invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\invariant\\browser.js","react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react-waypoint\\build\\npm\\waypoint.js":[function(require,module,exports){
+},{"./PropTypes":"D:\\React\\videoport\\node_modules\\react-router\\lib\\PropTypes.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","hoist-non-react-statics":"D:\\React\\videoport\\node_modules\\hoist-non-react-statics\\index.js","invariant":"D:\\React\\videoport\\node_modules\\invariant\\browser.js","react":"D:\\React\\videoport\\node_modules\\react\\react.js"}],"D:\\React\\videoport\\node_modules\\react-waypoint\\build\\npm\\waypoint.js":[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -29499,7 +29975,7 @@ Waypoint.defaultProps = defaultProps;
 Waypoint.displayName = 'Waypoint';
 module.exports = exports['default'];
 
-},{"react":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\AutoFocusUtils.js":[function(require,module,exports){
+},{"react":"D:\\React\\videoport\\node_modules\\react\\react.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\AutoFocusUtils.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -29524,7 +30000,7 @@ var AutoFocusUtils = {
 };
 
 module.exports = AutoFocusUtils;
-},{"./ReactDOMComponentTree":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMComponentTree.js","fbjs/lib/focusNode":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\focusNode.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\BeforeInputEventPlugin.js":[function(require,module,exports){
+},{"./ReactDOMComponentTree":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMComponentTree.js","fbjs/lib/focusNode":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\focusNode.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\BeforeInputEventPlugin.js":[function(require,module,exports){
 /**
  * Copyright 2013-present Facebook, Inc.
  * All rights reserved.
@@ -29814,8 +30290,10 @@ function getNativeBeforeInputChars(topLevelType, nativeEvent) {
 function getFallbackBeforeInputChars(topLevelType, nativeEvent) {
   // If we are currently composing (IME) and using a fallback to do so,
   // try to extract the composed characters from the fallback object.
+  // If composition event is available, we extract a string only at
+  // compositionevent, otherwise extract it at fallback events.
   if (currentComposition) {
-    if (topLevelType === topLevelTypes.topCompositionEnd || isFallbackCompositionEnd(topLevelType, nativeEvent)) {
+    if (topLevelType === topLevelTypes.topCompositionEnd || !canUseCompositionEvent && isFallbackCompositionEnd(topLevelType, nativeEvent)) {
       var chars = currentComposition.getData();
       FallbackCompositionState.release(currentComposition);
       currentComposition = null;
@@ -29913,7 +30391,7 @@ var BeforeInputEventPlugin = {
 };
 
 module.exports = BeforeInputEventPlugin;
-},{"./EventConstants":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\EventConstants.js","./EventPropagators":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\EventPropagators.js","./FallbackCompositionState":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\FallbackCompositionState.js","./SyntheticCompositionEvent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticCompositionEvent.js","./SyntheticInputEvent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticInputEvent.js","fbjs/lib/ExecutionEnvironment":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js","fbjs/lib/keyOf":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\keyOf.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\CSSProperty.js":[function(require,module,exports){
+},{"./EventConstants":"D:\\React\\videoport\\node_modules\\react\\lib\\EventConstants.js","./EventPropagators":"D:\\React\\videoport\\node_modules\\react\\lib\\EventPropagators.js","./FallbackCompositionState":"D:\\React\\videoport\\node_modules\\react\\lib\\FallbackCompositionState.js","./SyntheticCompositionEvent":"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticCompositionEvent.js","./SyntheticInputEvent":"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticInputEvent.js","fbjs/lib/ExecutionEnvironment":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js","fbjs/lib/keyOf":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\keyOf.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\CSSProperty.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -30062,7 +30540,7 @@ var CSSProperty = {
 };
 
 module.exports = CSSProperty;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\CSSPropertyOperations.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\react\\lib\\CSSPropertyOperations.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -30271,7 +30749,7 @@ var CSSPropertyOperations = {
 module.exports = CSSPropertyOperations;
 }).call(this,require('_process'))
 
-},{"./CSSProperty":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\CSSProperty.js","./ReactInstrumentation":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactInstrumentation.js","./dangerousStyleValue":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\dangerousStyleValue.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/ExecutionEnvironment":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js","fbjs/lib/camelizeStyleName":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\camelizeStyleName.js","fbjs/lib/hyphenateStyleName":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\hyphenateStyleName.js","fbjs/lib/memoizeStringOnly":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\memoizeStringOnly.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\CallbackQueue.js":[function(require,module,exports){
+},{"./CSSProperty":"D:\\React\\videoport\\node_modules\\react\\lib\\CSSProperty.js","./ReactInstrumentation":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactInstrumentation.js","./dangerousStyleValue":"D:\\React\\videoport\\node_modules\\react\\lib\\dangerousStyleValue.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/ExecutionEnvironment":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js","fbjs/lib/camelizeStyleName":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\camelizeStyleName.js","fbjs/lib/hyphenateStyleName":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\hyphenateStyleName.js","fbjs/lib/memoizeStringOnly":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\memoizeStringOnly.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\CallbackQueue.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -30381,7 +30859,7 @@ PooledClass.addPoolingTo(CallbackQueue);
 module.exports = CallbackQueue;
 }).call(this,require('_process'))
 
-},{"./PooledClass":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\PooledClass.js","./reactProdInvariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js","object-assign":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\node_modules\\object-assign\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ChangeEventPlugin.js":[function(require,module,exports){
+},{"./PooledClass":"D:\\React\\videoport\\node_modules\\react\\lib\\PooledClass.js","./reactProdInvariant":"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js","object-assign":"D:\\React\\videoport\\node_modules\\object-assign\\index.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ChangeEventPlugin.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -30439,7 +30917,7 @@ function shouldUseChangeEvent(elem) {
 var doesChangeEventBubble = false;
 if (ExecutionEnvironment.canUseDOM) {
   // See `handleChange` comment below
-  doesChangeEventBubble = isEventSupported('change') && (!('documentMode' in document) || document.documentMode > 8);
+  doesChangeEventBubble = isEventSupported('change') && (!document.documentMode || document.documentMode > 8);
 }
 
 function manualDispatchChangeEvent(nativeEvent) {
@@ -30505,7 +30983,7 @@ if (ExecutionEnvironment.canUseDOM) {
   // deleting text, so we ignore its input events.
   // IE10+ fire input events to often, such when a placeholder
   // changes or when an input with a placeholder is focused.
-  isInputEventSupported = isEventSupported('input') && (!('documentMode' in document) || document.documentMode > 11);
+  isInputEventSupported = isEventSupported('input') && (!document.documentMode || document.documentMode > 11);
 }
 
 /**
@@ -30707,7 +31185,7 @@ var ChangeEventPlugin = {
 };
 
 module.exports = ChangeEventPlugin;
-},{"./EventConstants":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\EventConstants.js","./EventPluginHub":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\EventPluginHub.js","./EventPropagators":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\EventPropagators.js","./ReactDOMComponentTree":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMComponentTree.js","./ReactUpdates":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactUpdates.js","./SyntheticEvent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticEvent.js","./getEventTarget":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\getEventTarget.js","./isEventSupported":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\isEventSupported.js","./isTextInputElement":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\isTextInputElement.js","fbjs/lib/ExecutionEnvironment":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js","fbjs/lib/keyOf":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\keyOf.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\DOMChildrenOperations.js":[function(require,module,exports){
+},{"./EventConstants":"D:\\React\\videoport\\node_modules\\react\\lib\\EventConstants.js","./EventPluginHub":"D:\\React\\videoport\\node_modules\\react\\lib\\EventPluginHub.js","./EventPropagators":"D:\\React\\videoport\\node_modules\\react\\lib\\EventPropagators.js","./ReactDOMComponentTree":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMComponentTree.js","./ReactUpdates":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactUpdates.js","./SyntheticEvent":"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticEvent.js","./getEventTarget":"D:\\React\\videoport\\node_modules\\react\\lib\\getEventTarget.js","./isEventSupported":"D:\\React\\videoport\\node_modules\\react\\lib\\isEventSupported.js","./isTextInputElement":"D:\\React\\videoport\\node_modules\\react\\lib\\isTextInputElement.js","fbjs/lib/ExecutionEnvironment":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js","fbjs/lib/keyOf":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\keyOf.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\DOMChildrenOperations.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -30905,7 +31383,7 @@ var DOMChildrenOperations = {
 module.exports = DOMChildrenOperations;
 }).call(this,require('_process'))
 
-},{"./DOMLazyTree":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\DOMLazyTree.js","./Danger":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\Danger.js","./ReactDOMComponentTree":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMComponentTree.js","./ReactInstrumentation":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactInstrumentation.js","./ReactMultiChildUpdateTypes":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactMultiChildUpdateTypes.js","./createMicrosoftUnsafeLocalFunction":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\createMicrosoftUnsafeLocalFunction.js","./setInnerHTML":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\setInnerHTML.js","./setTextContent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\setTextContent.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\DOMLazyTree.js":[function(require,module,exports){
+},{"./DOMLazyTree":"D:\\React\\videoport\\node_modules\\react\\lib\\DOMLazyTree.js","./Danger":"D:\\React\\videoport\\node_modules\\react\\lib\\Danger.js","./ReactDOMComponentTree":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMComponentTree.js","./ReactInstrumentation":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactInstrumentation.js","./ReactMultiChildUpdateTypes":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactMultiChildUpdateTypes.js","./createMicrosoftUnsafeLocalFunction":"D:\\React\\videoport\\node_modules\\react\\lib\\createMicrosoftUnsafeLocalFunction.js","./setInnerHTML":"D:\\React\\videoport\\node_modules\\react\\lib\\setInnerHTML.js","./setTextContent":"D:\\React\\videoport\\node_modules\\react\\lib\\setTextContent.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\DOMLazyTree.js":[function(require,module,exports){
 /**
  * Copyright 2015-present, Facebook, Inc.
  * All rights reserved.
@@ -31024,7 +31502,7 @@ DOMLazyTree.queueHTML = queueHTML;
 DOMLazyTree.queueText = queueText;
 
 module.exports = DOMLazyTree;
-},{"./DOMNamespaces":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\DOMNamespaces.js","./createMicrosoftUnsafeLocalFunction":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\createMicrosoftUnsafeLocalFunction.js","./setInnerHTML":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\setInnerHTML.js","./setTextContent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\setTextContent.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\DOMNamespaces.js":[function(require,module,exports){
+},{"./DOMNamespaces":"D:\\React\\videoport\\node_modules\\react\\lib\\DOMNamespaces.js","./createMicrosoftUnsafeLocalFunction":"D:\\React\\videoport\\node_modules\\react\\lib\\createMicrosoftUnsafeLocalFunction.js","./setInnerHTML":"D:\\React\\videoport\\node_modules\\react\\lib\\setInnerHTML.js","./setTextContent":"D:\\React\\videoport\\node_modules\\react\\lib\\setTextContent.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\DOMNamespaces.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -31045,7 +31523,7 @@ var DOMNamespaces = {
 };
 
 module.exports = DOMNamespaces;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\DOMProperty.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\react\\lib\\DOMProperty.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -31255,7 +31733,7 @@ var DOMProperty = {
 module.exports = DOMProperty;
 }).call(this,require('_process'))
 
-},{"./reactProdInvariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\DOMPropertyOperations.js":[function(require,module,exports){
+},{"./reactProdInvariant":"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\DOMPropertyOperations.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -31480,7 +31958,7 @@ var DOMPropertyOperations = {
 module.exports = DOMPropertyOperations;
 }).call(this,require('_process'))
 
-},{"./DOMProperty":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\DOMProperty.js","./ReactDOMComponentTree":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMComponentTree.js","./ReactInstrumentation":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactInstrumentation.js","./quoteAttributeValueForBrowser":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\quoteAttributeValueForBrowser.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\Danger.js":[function(require,module,exports){
+},{"./DOMProperty":"D:\\React\\videoport\\node_modules\\react\\lib\\DOMProperty.js","./ReactDOMComponentTree":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMComponentTree.js","./ReactInstrumentation":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactInstrumentation.js","./quoteAttributeValueForBrowser":"D:\\React\\videoport\\node_modules\\react\\lib\\quoteAttributeValueForBrowser.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\Danger.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -31532,7 +32010,7 @@ var Danger = {
 module.exports = Danger;
 }).call(this,require('_process'))
 
-},{"./DOMLazyTree":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\DOMLazyTree.js","./reactProdInvariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/ExecutionEnvironment":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js","fbjs/lib/createNodesFromMarkup":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\createNodesFromMarkup.js","fbjs/lib/emptyFunction":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\emptyFunction.js","fbjs/lib/invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\DefaultEventPluginOrder.js":[function(require,module,exports){
+},{"./DOMLazyTree":"D:\\React\\videoport\\node_modules\\react\\lib\\DOMLazyTree.js","./reactProdInvariant":"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/ExecutionEnvironment":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js","fbjs/lib/createNodesFromMarkup":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\createNodesFromMarkup.js","fbjs/lib/emptyFunction":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\emptyFunction.js","fbjs/lib/invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\DefaultEventPluginOrder.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -31560,7 +32038,7 @@ var keyOf = require('fbjs/lib/keyOf');
 var DefaultEventPluginOrder = [keyOf({ ResponderEventPlugin: null }), keyOf({ SimpleEventPlugin: null }), keyOf({ TapEventPlugin: null }), keyOf({ EnterLeaveEventPlugin: null }), keyOf({ ChangeEventPlugin: null }), keyOf({ SelectEventPlugin: null }), keyOf({ BeforeInputEventPlugin: null })];
 
 module.exports = DefaultEventPluginOrder;
-},{"fbjs/lib/keyOf":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\keyOf.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\DisabledInputUtils.js":[function(require,module,exports){
+},{"fbjs/lib/keyOf":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\keyOf.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\DisabledInputUtils.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -31611,7 +32089,7 @@ var DisabledInputUtils = {
 };
 
 module.exports = DisabledInputUtils;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\EnterLeaveEventPlugin.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\react\\lib\\EnterLeaveEventPlugin.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -31717,7 +32195,7 @@ var EnterLeaveEventPlugin = {
 };
 
 module.exports = EnterLeaveEventPlugin;
-},{"./EventConstants":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\EventConstants.js","./EventPropagators":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\EventPropagators.js","./ReactDOMComponentTree":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMComponentTree.js","./SyntheticMouseEvent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticMouseEvent.js","fbjs/lib/keyOf":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\keyOf.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\EventConstants.js":[function(require,module,exports){
+},{"./EventConstants":"D:\\React\\videoport\\node_modules\\react\\lib\\EventConstants.js","./EventPropagators":"D:\\React\\videoport\\node_modules\\react\\lib\\EventPropagators.js","./ReactDOMComponentTree":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMComponentTree.js","./SyntheticMouseEvent":"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticMouseEvent.js","fbjs/lib/keyOf":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\keyOf.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\EventConstants.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -31815,7 +32293,7 @@ var EventConstants = {
 };
 
 module.exports = EventConstants;
-},{"fbjs/lib/keyMirror":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\keyMirror.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\EventPluginHub.js":[function(require,module,exports){
+},{"fbjs/lib/keyMirror":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\keyMirror.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\EventPluginHub.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -32070,7 +32548,7 @@ var EventPluginHub = {
 module.exports = EventPluginHub;
 }).call(this,require('_process'))
 
-},{"./EventPluginRegistry":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\EventPluginRegistry.js","./EventPluginUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\EventPluginUtils.js","./ReactErrorUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactErrorUtils.js","./accumulateInto":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\accumulateInto.js","./forEachAccumulated":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\forEachAccumulated.js","./reactProdInvariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\EventPluginRegistry.js":[function(require,module,exports){
+},{"./EventPluginRegistry":"D:\\React\\videoport\\node_modules\\react\\lib\\EventPluginRegistry.js","./EventPluginUtils":"D:\\React\\videoport\\node_modules\\react\\lib\\EventPluginUtils.js","./ReactErrorUtils":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactErrorUtils.js","./accumulateInto":"D:\\React\\videoport\\node_modules\\react\\lib\\accumulateInto.js","./forEachAccumulated":"D:\\React\\videoport\\node_modules\\react\\lib\\forEachAccumulated.js","./reactProdInvariant":"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\EventPluginRegistry.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -32321,7 +32799,7 @@ var EventPluginRegistry = {
 module.exports = EventPluginRegistry;
 }).call(this,require('_process'))
 
-},{"./reactProdInvariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\EventPluginUtils.js":[function(require,module,exports){
+},{"./reactProdInvariant":"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\EventPluginUtils.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -32554,7 +33032,7 @@ var EventPluginUtils = {
 module.exports = EventPluginUtils;
 }).call(this,require('_process'))
 
-},{"./EventConstants":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\EventConstants.js","./ReactErrorUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactErrorUtils.js","./reactProdInvariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\EventPropagators.js":[function(require,module,exports){
+},{"./EventConstants":"D:\\React\\videoport\\node_modules\\react\\lib\\EventConstants.js","./ReactErrorUtils":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactErrorUtils.js","./reactProdInvariant":"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\EventPropagators.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -32695,7 +33173,7 @@ var EventPropagators = {
 module.exports = EventPropagators;
 }).call(this,require('_process'))
 
-},{"./EventConstants":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\EventConstants.js","./EventPluginHub":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\EventPluginHub.js","./EventPluginUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\EventPluginUtils.js","./accumulateInto":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\accumulateInto.js","./forEachAccumulated":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\forEachAccumulated.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\FallbackCompositionState.js":[function(require,module,exports){
+},{"./EventConstants":"D:\\React\\videoport\\node_modules\\react\\lib\\EventConstants.js","./EventPluginHub":"D:\\React\\videoport\\node_modules\\react\\lib\\EventPluginHub.js","./EventPluginUtils":"D:\\React\\videoport\\node_modules\\react\\lib\\EventPluginUtils.js","./accumulateInto":"D:\\React\\videoport\\node_modules\\react\\lib\\accumulateInto.js","./forEachAccumulated":"D:\\React\\videoport\\node_modules\\react\\lib\\forEachAccumulated.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\FallbackCompositionState.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -32791,7 +33269,7 @@ _assign(FallbackCompositionState.prototype, {
 PooledClass.addPoolingTo(FallbackCompositionState);
 
 module.exports = FallbackCompositionState;
-},{"./PooledClass":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\PooledClass.js","./getTextContentAccessor":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\getTextContentAccessor.js","object-assign":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\node_modules\\object-assign\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\HTMLDOMPropertyConfig.js":[function(require,module,exports){
+},{"./PooledClass":"D:\\React\\videoport\\node_modules\\react\\lib\\PooledClass.js","./getTextContentAccessor":"D:\\React\\videoport\\node_modules\\react\\lib\\getTextContentAccessor.js","object-assign":"D:\\React\\videoport\\node_modules\\object-assign\\index.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\HTMLDOMPropertyConfig.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -32826,6 +33304,8 @@ var HTMLDOMPropertyConfig = {
     allowFullScreen: HAS_BOOLEAN_VALUE,
     allowTransparency: 0,
     alt: 0,
+    // specifies target context for links with `preload` type
+    as: 0,
     async: HAS_BOOLEAN_VALUE,
     autoComplete: 0,
     // autoFocus is polyfilled/normalized by AutoFocusUtils
@@ -32906,6 +33386,7 @@ var HTMLDOMPropertyConfig = {
     optimum: 0,
     pattern: 0,
     placeholder: 0,
+    playsInline: HAS_BOOLEAN_VALUE,
     poster: 0,
     preload: 0,
     profile: 0,
@@ -33001,7 +33482,7 @@ var HTMLDOMPropertyConfig = {
 };
 
 module.exports = HTMLDOMPropertyConfig;
-},{"./DOMProperty":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\DOMProperty.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\KeyEscapeUtils.js":[function(require,module,exports){
+},{"./DOMProperty":"D:\\React\\videoport\\node_modules\\react\\lib\\DOMProperty.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\KeyEscapeUtils.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -33061,7 +33542,7 @@ var KeyEscapeUtils = {
 };
 
 module.exports = KeyEscapeUtils;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\LinkedValueUtils.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\react\\lib\\LinkedValueUtils.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -33201,7 +33682,7 @@ var LinkedValueUtils = {
 module.exports = LinkedValueUtils;
 }).call(this,require('_process'))
 
-},{"./ReactPropTypeLocations":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactPropTypeLocations.js","./ReactPropTypes":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactPropTypes.js","./ReactPropTypesSecret":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactPropTypesSecret.js","./reactProdInvariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\PooledClass.js":[function(require,module,exports){
+},{"./ReactPropTypeLocations":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactPropTypeLocations.js","./ReactPropTypes":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactPropTypes.js","./ReactPropTypesSecret":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactPropTypesSecret.js","./reactProdInvariant":"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\PooledClass.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -33326,7 +33807,7 @@ var PooledClass = {
 module.exports = PooledClass;
 }).call(this,require('_process'))
 
-},{"./reactProdInvariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\React.js":[function(require,module,exports){
+},{"./reactProdInvariant":"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\React.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -33419,7 +33900,7 @@ var React = {
 module.exports = React;
 }).call(this,require('_process'))
 
-},{"./ReactChildren":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactChildren.js","./ReactClass":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactClass.js","./ReactComponent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactComponent.js","./ReactDOMFactories":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMFactories.js","./ReactElement":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactElement.js","./ReactElementValidator":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactElementValidator.js","./ReactPropTypes":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactPropTypes.js","./ReactPureComponent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactPureComponent.js","./ReactVersion":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactVersion.js","./onlyChild":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\onlyChild.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js","object-assign":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\node_modules\\object-assign\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactBrowserEventEmitter.js":[function(require,module,exports){
+},{"./ReactChildren":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactChildren.js","./ReactClass":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactClass.js","./ReactComponent":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactComponent.js","./ReactDOMFactories":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMFactories.js","./ReactElement":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactElement.js","./ReactElementValidator":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactElementValidator.js","./ReactPropTypes":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactPropTypes.js","./ReactPureComponent":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactPureComponent.js","./ReactVersion":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactVersion.js","./onlyChild":"D:\\React\\videoport\\node_modules\\react\\lib\\onlyChild.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js","object-assign":"D:\\React\\videoport\\node_modules\\object-assign\\index.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactBrowserEventEmitter.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -33713,6 +34194,19 @@ var ReactBrowserEventEmitter = _assign({}, ReactEventEmitterMixin, {
   },
 
   /**
+   * Protect against document.createEvent() returning null
+   * Some popup blocker extensions appear to do this:
+   * https://github.com/facebook/react/issues/6887
+   */
+  supportsEventPageXY: function () {
+    if (!document.createEvent) {
+      return false;
+    }
+    var ev = document.createEvent('MouseEvent');
+    return ev != null && 'pageX' in ev;
+  },
+
+  /**
    * Listens to window scroll and resize events. We cache scroll values so that
    * application code can access them without triggering reflows.
    *
@@ -33725,7 +34219,7 @@ var ReactBrowserEventEmitter = _assign({}, ReactEventEmitterMixin, {
    */
   ensureScrollValueMonitoring: function () {
     if (hasEventPageXY === undefined) {
-      hasEventPageXY = document.createEvent && 'pageX' in document.createEvent('MouseEvent');
+      hasEventPageXY = ReactBrowserEventEmitter.supportsEventPageXY();
     }
     if (!hasEventPageXY && !isMonitoringScrollValue) {
       var refresh = ViewportMetrics.refreshScrollValues;
@@ -33737,7 +34231,7 @@ var ReactBrowserEventEmitter = _assign({}, ReactEventEmitterMixin, {
 });
 
 module.exports = ReactBrowserEventEmitter;
-},{"./EventConstants":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\EventConstants.js","./EventPluginRegistry":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\EventPluginRegistry.js","./ReactEventEmitterMixin":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactEventEmitterMixin.js","./ViewportMetrics":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ViewportMetrics.js","./getVendorPrefixedEventName":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\getVendorPrefixedEventName.js","./isEventSupported":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\isEventSupported.js","object-assign":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\node_modules\\object-assign\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactChildReconciler.js":[function(require,module,exports){
+},{"./EventConstants":"D:\\React\\videoport\\node_modules\\react\\lib\\EventConstants.js","./EventPluginRegistry":"D:\\React\\videoport\\node_modules\\react\\lib\\EventPluginRegistry.js","./ReactEventEmitterMixin":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactEventEmitterMixin.js","./ViewportMetrics":"D:\\React\\videoport\\node_modules\\react\\lib\\ViewportMetrics.js","./getVendorPrefixedEventName":"D:\\React\\videoport\\node_modules\\react\\lib\\getVendorPrefixedEventName.js","./isEventSupported":"D:\\React\\videoport\\node_modules\\react\\lib\\isEventSupported.js","object-assign":"D:\\React\\videoport\\node_modules\\object-assign\\index.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactChildReconciler.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-present, Facebook, Inc.
@@ -33895,7 +34389,7 @@ var ReactChildReconciler = {
 module.exports = ReactChildReconciler;
 }).call(this,require('_process'))
 
-},{"./KeyEscapeUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\KeyEscapeUtils.js","./ReactComponentTreeHook":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactComponentTreeHook.js","./ReactReconciler":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactReconciler.js","./instantiateReactComponent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\instantiateReactComponent.js","./shouldUpdateReactComponent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\shouldUpdateReactComponent.js","./traverseAllChildren":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\traverseAllChildren.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactChildren.js":[function(require,module,exports){
+},{"./KeyEscapeUtils":"D:\\React\\videoport\\node_modules\\react\\lib\\KeyEscapeUtils.js","./ReactComponentTreeHook":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactComponentTreeHook.js","./ReactReconciler":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactReconciler.js","./instantiateReactComponent":"D:\\React\\videoport\\node_modules\\react\\lib\\instantiateReactComponent.js","./shouldUpdateReactComponent":"D:\\React\\videoport\\node_modules\\react\\lib\\shouldUpdateReactComponent.js","./traverseAllChildren":"D:\\React\\videoport\\node_modules\\react\\lib\\traverseAllChildren.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactChildren.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -34087,7 +34581,7 @@ var ReactChildren = {
 };
 
 module.exports = ReactChildren;
-},{"./PooledClass":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\PooledClass.js","./ReactElement":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactElement.js","./traverseAllChildren":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\traverseAllChildren.js","fbjs/lib/emptyFunction":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\emptyFunction.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactChildrenMutationWarningHook.js":[function(require,module,exports){
+},{"./PooledClass":"D:\\React\\videoport\\node_modules\\react\\lib\\PooledClass.js","./ReactElement":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactElement.js","./traverseAllChildren":"D:\\React\\videoport\\node_modules\\react\\lib\\traverseAllChildren.js","fbjs/lib/emptyFunction":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\emptyFunction.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactChildrenMutationWarningHook.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -34145,7 +34639,7 @@ var ReactChildrenMutationWarningHook = {
 module.exports = ReactChildrenMutationWarningHook;
 }).call(this,require('_process'))
 
-},{"./ReactComponentTreeHook":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactComponentTreeHook.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactClass.js":[function(require,module,exports){
+},{"./ReactComponentTreeHook":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactComponentTreeHook.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactClass.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -34881,7 +35375,7 @@ var ReactClass = {
 module.exports = ReactClass;
 }).call(this,require('_process'))
 
-},{"./ReactComponent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactComponent.js","./ReactElement":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactElement.js","./ReactNoopUpdateQueue":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactNoopUpdateQueue.js","./ReactPropTypeLocationNames":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactPropTypeLocationNames.js","./ReactPropTypeLocations":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactPropTypeLocations.js","./reactProdInvariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/emptyObject":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\emptyObject.js","fbjs/lib/invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/keyMirror":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\keyMirror.js","fbjs/lib/keyOf":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\keyOf.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js","object-assign":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\node_modules\\object-assign\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactComponent.js":[function(require,module,exports){
+},{"./ReactComponent":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactComponent.js","./ReactElement":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactElement.js","./ReactNoopUpdateQueue":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactNoopUpdateQueue.js","./ReactPropTypeLocationNames":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactPropTypeLocationNames.js","./ReactPropTypeLocations":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactPropTypeLocations.js","./reactProdInvariant":"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/emptyObject":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\emptyObject.js","fbjs/lib/invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/keyMirror":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\keyMirror.js","fbjs/lib/keyOf":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\keyOf.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js","object-assign":"D:\\React\\videoport\\node_modules\\object-assign\\index.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactComponent.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -35003,7 +35497,7 @@ if (process.env.NODE_ENV !== 'production') {
 module.exports = ReactComponent;
 }).call(this,require('_process'))
 
-},{"./ReactNoopUpdateQueue":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactNoopUpdateQueue.js","./canDefineProperty":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\canDefineProperty.js","./reactProdInvariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/emptyObject":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\emptyObject.js","fbjs/lib/invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactComponentBrowserEnvironment.js":[function(require,module,exports){
+},{"./ReactNoopUpdateQueue":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactNoopUpdateQueue.js","./canDefineProperty":"D:\\React\\videoport\\node_modules\\react\\lib\\canDefineProperty.js","./reactProdInvariant":"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/emptyObject":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\emptyObject.js","fbjs/lib/invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactComponentBrowserEnvironment.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -35034,7 +35528,7 @@ var ReactComponentBrowserEnvironment = {
 };
 
 module.exports = ReactComponentBrowserEnvironment;
-},{"./DOMChildrenOperations":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\DOMChildrenOperations.js","./ReactDOMIDOperations":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMIDOperations.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactComponentEnvironment.js":[function(require,module,exports){
+},{"./DOMChildrenOperations":"D:\\React\\videoport\\node_modules\\react\\lib\\DOMChildrenOperations.js","./ReactDOMIDOperations":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMIDOperations.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactComponentEnvironment.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-present, Facebook, Inc.
@@ -35083,7 +35577,7 @@ var ReactComponentEnvironment = {
 module.exports = ReactComponentEnvironment;
 }).call(this,require('_process'))
 
-},{"./reactProdInvariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactComponentTreeHook.js":[function(require,module,exports){
+},{"./reactProdInvariant":"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactComponentTreeHook.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2016-present, Facebook, Inc.
@@ -35429,7 +35923,7 @@ var ReactComponentTreeHook = {
 module.exports = ReactComponentTreeHook;
 }).call(this,require('_process'))
 
-},{"./ReactCurrentOwner":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactCurrentOwner.js","./reactProdInvariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactCompositeComponent.js":[function(require,module,exports){
+},{"./ReactCurrentOwner":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactCurrentOwner.js","./reactProdInvariant":"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactCompositeComponent.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -35485,34 +35979,29 @@ function warnIfInvalidElement(Component, element) {
   }
 }
 
-function invokeComponentDidMountWithTimer() {
-  var publicInstance = this._instance;
-  if (this._debugID !== 0) {
-    ReactInstrumentation.debugTool.onBeginLifeCycleTimer(this._debugID, 'componentDidMount');
-  }
-  publicInstance.componentDidMount();
-  if (this._debugID !== 0) {
-    ReactInstrumentation.debugTool.onEndLifeCycleTimer(this._debugID, 'componentDidMount');
-  }
-}
-
-function invokeComponentDidUpdateWithTimer(prevProps, prevState, prevContext) {
-  var publicInstance = this._instance;
-  if (this._debugID !== 0) {
-    ReactInstrumentation.debugTool.onBeginLifeCycleTimer(this._debugID, 'componentDidUpdate');
-  }
-  publicInstance.componentDidUpdate(prevProps, prevState, prevContext);
-  if (this._debugID !== 0) {
-    ReactInstrumentation.debugTool.onEndLifeCycleTimer(this._debugID, 'componentDidUpdate');
-  }
-}
-
 function shouldConstruct(Component) {
   return !!(Component.prototype && Component.prototype.isReactComponent);
 }
 
 function isPureComponent(Component) {
   return !!(Component.prototype && Component.prototype.isPureReactComponent);
+}
+
+// Separated into a function to contain deoptimizations caused by try/finally.
+function measureLifeCyclePerf(fn, debugID, timerType) {
+  if (debugID === 0) {
+    // Top-level wrappers (see ReactMount) and empty components (see
+    // ReactDOMEmptyComponent) are invisible to hooks and devtools.
+    // Both are implementation details that should go away in the future.
+    return fn();
+  }
+
+  ReactInstrumentation.debugTool.onBeginLifeCycleTimer(debugID, timerType);
+  try {
+    return fn();
+  } finally {
+    ReactInstrumentation.debugTool.onEndLifeCycleTimer(debugID, timerType);
+  }
 }
 
 /**
@@ -35606,6 +36095,8 @@ var ReactCompositeComponentMixin = {
    * @internal
    */
   mountComponent: function (transaction, hostParent, hostContainerInfo, context) {
+    var _this = this;
+
     this._context = context;
     this._mountOrder = nextMountID++;
     this._hostParent = hostParent;
@@ -35695,7 +36186,11 @@ var ReactCompositeComponentMixin = {
 
     if (inst.componentDidMount) {
       if (process.env.NODE_ENV !== 'production') {
-        transaction.getReactMountReady().enqueue(invokeComponentDidMountWithTimer, this);
+        transaction.getReactMountReady().enqueue(function () {
+          measureLifeCyclePerf(function () {
+            return inst.componentDidMount();
+          }, _this._debugID, 'componentDidMount');
+        });
       } else {
         transaction.getReactMountReady().enqueue(inst.componentDidMount, inst);
       }
@@ -35719,35 +36214,26 @@ var ReactCompositeComponentMixin = {
 
   _constructComponentWithoutOwner: function (doConstruct, publicProps, publicContext, updateQueue) {
     var Component = this._currentElement.type;
-    var instanceOrElement;
+
     if (doConstruct) {
       if (process.env.NODE_ENV !== 'production') {
-        if (this._debugID !== 0) {
-          ReactInstrumentation.debugTool.onBeginLifeCycleTimer(this._debugID, 'ctor');
-        }
-      }
-      instanceOrElement = new Component(publicProps, publicContext, updateQueue);
-      if (process.env.NODE_ENV !== 'production') {
-        if (this._debugID !== 0) {
-          ReactInstrumentation.debugTool.onEndLifeCycleTimer(this._debugID, 'ctor');
-        }
-      }
-    } else {
-      // This can still be an instance in case of factory components
-      // but we'll count this as time spent rendering as the more common case.
-      if (process.env.NODE_ENV !== 'production') {
-        if (this._debugID !== 0) {
-          ReactInstrumentation.debugTool.onBeginLifeCycleTimer(this._debugID, 'render');
-        }
-      }
-      instanceOrElement = Component(publicProps, publicContext, updateQueue);
-      if (process.env.NODE_ENV !== 'production') {
-        if (this._debugID !== 0) {
-          ReactInstrumentation.debugTool.onEndLifeCycleTimer(this._debugID, 'render');
-        }
+        return measureLifeCyclePerf(function () {
+          return new Component(publicProps, publicContext, updateQueue);
+        }, this._debugID, 'ctor');
+      } else {
+        return new Component(publicProps, publicContext, updateQueue);
       }
     }
-    return instanceOrElement;
+
+    // This can still be an instance in case of factory components
+    // but we'll count this as time spent rendering as the more common case.
+    if (process.env.NODE_ENV !== 'production') {
+      return measureLifeCyclePerf(function () {
+        return Component(publicProps, publicContext, updateQueue);
+      }, this._debugID, 'render');
+    } else {
+      return Component(publicProps, publicContext, updateQueue);
+    }
   },
 
   performInitialMountWithErrorHandling: function (renderedElement, hostParent, hostContainerInfo, transaction, context) {
@@ -35756,11 +36242,6 @@ var ReactCompositeComponentMixin = {
     try {
       markup = this.performInitialMount(renderedElement, hostParent, hostContainerInfo, transaction, context);
     } catch (e) {
-      if (process.env.NODE_ENV !== 'production') {
-        if (this._debugID !== 0) {
-          ReactInstrumentation.debugTool.onError();
-        }
-      }
       // Roll back to checkpoint, handle error (which may add items to the transaction), and take a new checkpoint
       transaction.rollback(checkpoint);
       this._instance.unstable_handleError(e);
@@ -35781,17 +36262,19 @@ var ReactCompositeComponentMixin = {
 
   performInitialMount: function (renderedElement, hostParent, hostContainerInfo, transaction, context) {
     var inst = this._instance;
+
+    var debugID = 0;
+    if (process.env.NODE_ENV !== 'production') {
+      debugID = this._debugID;
+    }
+
     if (inst.componentWillMount) {
       if (process.env.NODE_ENV !== 'production') {
-        if (this._debugID !== 0) {
-          ReactInstrumentation.debugTool.onBeginLifeCycleTimer(this._debugID, 'componentWillMount');
-        }
-      }
-      inst.componentWillMount();
-      if (process.env.NODE_ENV !== 'production') {
-        if (this._debugID !== 0) {
-          ReactInstrumentation.debugTool.onEndLifeCycleTimer(this._debugID, 'componentWillMount');
-        }
+        measureLifeCyclePerf(function () {
+          return inst.componentWillMount();
+        }, debugID, 'componentWillMount');
+      } else {
+        inst.componentWillMount();
       }
       // When mounting, calls to `setState` by `componentWillMount` will set
       // `this._pendingStateQueue` without triggering a re-render.
@@ -35811,15 +36294,12 @@ var ReactCompositeComponentMixin = {
     );
     this._renderedComponent = child;
 
-    var selfDebugID = 0;
-    if (process.env.NODE_ENV !== 'production') {
-      selfDebugID = this._debugID;
-    }
-    var markup = ReactReconciler.mountComponent(child, transaction, hostParent, hostContainerInfo, this._processChildContext(context), selfDebugID);
+    var markup = ReactReconciler.mountComponent(child, transaction, hostParent, hostContainerInfo, this._processChildContext(context), debugID);
 
     if (process.env.NODE_ENV !== 'production') {
-      if (this._debugID !== 0) {
-        ReactInstrumentation.debugTool.onSetChildren(this._debugID, child._debugID !== 0 ? [child._debugID] : []);
+      if (debugID !== 0) {
+        var childDebugIDs = child._debugID !== 0 ? [child._debugID] : [];
+        ReactInstrumentation.debugTool.onSetChildren(debugID, childDebugIDs);
       }
     }
 
@@ -35840,24 +36320,22 @@ var ReactCompositeComponentMixin = {
     if (!this._renderedComponent) {
       return;
     }
+
     var inst = this._instance;
 
     if (inst.componentWillUnmount && !inst._calledComponentWillUnmount) {
       inst._calledComponentWillUnmount = true;
-      if (process.env.NODE_ENV !== 'production') {
-        if (this._debugID !== 0) {
-          ReactInstrumentation.debugTool.onBeginLifeCycleTimer(this._debugID, 'componentWillUnmount');
-        }
-      }
+
       if (safely) {
         var name = this.getName() + '.componentWillUnmount()';
         ReactErrorUtils.invokeGuardedCallback(name, inst.componentWillUnmount.bind(inst));
       } else {
-        inst.componentWillUnmount();
-      }
-      if (process.env.NODE_ENV !== 'production') {
-        if (this._debugID !== 0) {
-          ReactInstrumentation.debugTool.onEndLifeCycleTimer(this._debugID, 'componentWillUnmount');
+        if (process.env.NODE_ENV !== 'production') {
+          measureLifeCyclePerf(function () {
+            return inst.componentWillUnmount();
+          }, this._debugID, 'componentWillUnmount');
+        } else {
+          inst.componentWillUnmount();
         }
       }
     }
@@ -35944,13 +36422,21 @@ var ReactCompositeComponentMixin = {
   _processChildContext: function (currentContext) {
     var Component = this._currentElement.type;
     var inst = this._instance;
-    if (process.env.NODE_ENV !== 'production') {
-      ReactInstrumentation.debugTool.onBeginProcessingChildContext();
+    var childContext;
+
+    if (inst.getChildContext) {
+      if (process.env.NODE_ENV !== 'production') {
+        ReactInstrumentation.debugTool.onBeginProcessingChildContext();
+        try {
+          childContext = inst.getChildContext();
+        } finally {
+          ReactInstrumentation.debugTool.onEndProcessingChildContext();
+        }
+      } else {
+        childContext = inst.getChildContext();
+      }
     }
-    var childContext = inst.getChildContext && inst.getChildContext();
-    if (process.env.NODE_ENV !== 'production') {
-      ReactInstrumentation.debugTool.onEndProcessingChildContext();
-    }
+
     if (childContext) {
       !(typeof Component.childContextTypes === 'object') ? process.env.NODE_ENV !== 'production' ? invariant(false, '%s.getChildContext(): childContextTypes must be defined in order to use getChildContext().', this.getName() || 'ReactCompositeComponent') : _prodInvariant('107', this.getName() || 'ReactCompositeComponent') : void 0;
       if (process.env.NODE_ENV !== 'production') {
@@ -36045,15 +36531,11 @@ var ReactCompositeComponentMixin = {
     // immediately reconciled instead of waiting for the next batch.
     if (willReceive && inst.componentWillReceiveProps) {
       if (process.env.NODE_ENV !== 'production') {
-        if (this._debugID !== 0) {
-          ReactInstrumentation.debugTool.onBeginLifeCycleTimer(this._debugID, 'componentWillReceiveProps');
-        }
-      }
-      inst.componentWillReceiveProps(nextProps, nextContext);
-      if (process.env.NODE_ENV !== 'production') {
-        if (this._debugID !== 0) {
-          ReactInstrumentation.debugTool.onEndLifeCycleTimer(this._debugID, 'componentWillReceiveProps');
-        }
+        measureLifeCyclePerf(function () {
+          return inst.componentWillReceiveProps(nextProps, nextContext);
+        }, this._debugID, 'componentWillReceiveProps');
+      } else {
+        inst.componentWillReceiveProps(nextProps, nextContext);
       }
     }
 
@@ -36063,15 +36545,11 @@ var ReactCompositeComponentMixin = {
     if (!this._pendingForceUpdate) {
       if (inst.shouldComponentUpdate) {
         if (process.env.NODE_ENV !== 'production') {
-          if (this._debugID !== 0) {
-            ReactInstrumentation.debugTool.onBeginLifeCycleTimer(this._debugID, 'shouldComponentUpdate');
-          }
-        }
-        shouldUpdate = inst.shouldComponentUpdate(nextProps, nextState, nextContext);
-        if (process.env.NODE_ENV !== 'production') {
-          if (this._debugID !== 0) {
-            ReactInstrumentation.debugTool.onEndLifeCycleTimer(this._debugID, 'shouldComponentUpdate');
-          }
+          shouldUpdate = measureLifeCyclePerf(function () {
+            return inst.shouldComponentUpdate(nextProps, nextState, nextContext);
+          }, this._debugID, 'shouldComponentUpdate');
+        } else {
+          shouldUpdate = inst.shouldComponentUpdate(nextProps, nextState, nextContext);
         }
       } else {
         if (this._compositeType === CompositeTypes.PureClass) {
@@ -36137,6 +36615,8 @@ var ReactCompositeComponentMixin = {
    * @private
    */
   _performComponentUpdate: function (nextElement, nextProps, nextState, nextContext, transaction, unmaskedContext) {
+    var _this2 = this;
+
     var inst = this._instance;
 
     var hasComponentDidUpdate = Boolean(inst.componentDidUpdate);
@@ -36151,15 +36631,11 @@ var ReactCompositeComponentMixin = {
 
     if (inst.componentWillUpdate) {
       if (process.env.NODE_ENV !== 'production') {
-        if (this._debugID !== 0) {
-          ReactInstrumentation.debugTool.onBeginLifeCycleTimer(this._debugID, 'componentWillUpdate');
-        }
-      }
-      inst.componentWillUpdate(nextProps, nextState, nextContext);
-      if (process.env.NODE_ENV !== 'production') {
-        if (this._debugID !== 0) {
-          ReactInstrumentation.debugTool.onEndLifeCycleTimer(this._debugID, 'componentWillUpdate');
-        }
+        measureLifeCyclePerf(function () {
+          return inst.componentWillUpdate(nextProps, nextState, nextContext);
+        }, this._debugID, 'componentWillUpdate');
+      } else {
+        inst.componentWillUpdate(nextProps, nextState, nextContext);
       }
     }
 
@@ -36173,7 +36649,9 @@ var ReactCompositeComponentMixin = {
 
     if (hasComponentDidUpdate) {
       if (process.env.NODE_ENV !== 'production') {
-        transaction.getReactMountReady().enqueue(invokeComponentDidUpdateWithTimer.bind(this, prevProps, prevState, prevContext), this);
+        transaction.getReactMountReady().enqueue(function () {
+          measureLifeCyclePerf(inst.componentDidUpdate.bind(inst, prevProps, prevState, prevContext), _this2._debugID, 'componentDidUpdate');
+        });
       } else {
         transaction.getReactMountReady().enqueue(inst.componentDidUpdate.bind(inst, prevProps, prevState, prevContext), inst);
       }
@@ -36190,6 +36668,12 @@ var ReactCompositeComponentMixin = {
     var prevComponentInstance = this._renderedComponent;
     var prevRenderedElement = prevComponentInstance._currentElement;
     var nextRenderedElement = this._renderValidatedComponent();
+
+    var debugID = 0;
+    if (process.env.NODE_ENV !== 'production') {
+      debugID = this._debugID;
+    }
+
     if (shouldUpdateReactComponent(prevRenderedElement, nextRenderedElement)) {
       ReactReconciler.receiveComponent(prevComponentInstance, nextRenderedElement, transaction, this._processChildContext(context));
     } else {
@@ -36202,15 +36686,12 @@ var ReactCompositeComponentMixin = {
       );
       this._renderedComponent = child;
 
-      var selfDebugID = 0;
-      if (process.env.NODE_ENV !== 'production') {
-        selfDebugID = this._debugID;
-      }
-      var nextMarkup = ReactReconciler.mountComponent(child, transaction, this._hostParent, this._hostContainerInfo, this._processChildContext(context), selfDebugID);
+      var nextMarkup = ReactReconciler.mountComponent(child, transaction, this._hostParent, this._hostContainerInfo, this._processChildContext(context), debugID);
 
       if (process.env.NODE_ENV !== 'production') {
-        if (this._debugID !== 0) {
-          ReactInstrumentation.debugTool.onSetChildren(this._debugID, child._debugID !== 0 ? [child._debugID] : []);
+        if (debugID !== 0) {
+          var childDebugIDs = child._debugID !== 0 ? [child._debugID] : [];
+          ReactInstrumentation.debugTool.onSetChildren(debugID, childDebugIDs);
         }
       }
 
@@ -36232,17 +36713,14 @@ var ReactCompositeComponentMixin = {
    */
   _renderValidatedComponentWithoutOwnerOrContext: function () {
     var inst = this._instance;
+    var renderedComponent;
 
     if (process.env.NODE_ENV !== 'production') {
-      if (this._debugID !== 0) {
-        ReactInstrumentation.debugTool.onBeginLifeCycleTimer(this._debugID, 'render');
-      }
-    }
-    var renderedComponent = inst.render();
-    if (process.env.NODE_ENV !== 'production') {
-      if (this._debugID !== 0) {
-        ReactInstrumentation.debugTool.onEndLifeCycleTimer(this._debugID, 'render');
-      }
+      renderedComponent = measureLifeCyclePerf(function () {
+        return inst.render();
+      }, this._debugID, 'render');
+    } else {
+      renderedComponent = inst.render();
     }
 
     if (process.env.NODE_ENV !== 'production') {
@@ -36293,7 +36771,7 @@ var ReactCompositeComponentMixin = {
     var publicComponentInstance = component.getPublicInstance();
     if (process.env.NODE_ENV !== 'production') {
       var componentName = component && component.getName ? component.getName() : 'a component';
-      process.env.NODE_ENV !== 'production' ? warning(publicComponentInstance != null, 'Stateless function components cannot be given refs ' + '(See ref "%s" in %s created by %s). ' + 'Attempts to access this ref will fail.', ref, componentName, this.getName()) : void 0;
+      process.env.NODE_ENV !== 'production' ? warning(publicComponentInstance != null || component._compositeType !== CompositeTypes.StatelessFunctional, 'Stateless function components cannot be given refs ' + '(See ref "%s" in %s created by %s). ' + 'Attempts to access this ref will fail.', ref, componentName, this.getName()) : void 0;
     }
     var refs = inst.refs === emptyObject ? inst.refs = {} : inst.refs;
     refs[ref] = publicComponentInstance;
@@ -36353,7 +36831,7 @@ var ReactCompositeComponent = {
 module.exports = ReactCompositeComponent;
 }).call(this,require('_process'))
 
-},{"./ReactComponentEnvironment":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactComponentEnvironment.js","./ReactCurrentOwner":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactCurrentOwner.js","./ReactElement":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactElement.js","./ReactErrorUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactErrorUtils.js","./ReactInstanceMap":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactInstanceMap.js","./ReactInstrumentation":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactInstrumentation.js","./ReactNodeTypes":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactNodeTypes.js","./ReactPropTypeLocations":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactPropTypeLocations.js","./ReactReconciler":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactReconciler.js","./checkReactTypeSpec":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\checkReactTypeSpec.js","./reactProdInvariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js","./shouldUpdateReactComponent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\shouldUpdateReactComponent.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/emptyObject":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\emptyObject.js","fbjs/lib/invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/shallowEqual":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\shallowEqual.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js","object-assign":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\node_modules\\object-assign\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactCurrentOwner.js":[function(require,module,exports){
+},{"./ReactComponentEnvironment":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactComponentEnvironment.js","./ReactCurrentOwner":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactCurrentOwner.js","./ReactElement":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactElement.js","./ReactErrorUtils":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactErrorUtils.js","./ReactInstanceMap":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactInstanceMap.js","./ReactInstrumentation":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactInstrumentation.js","./ReactNodeTypes":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactNodeTypes.js","./ReactPropTypeLocations":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactPropTypeLocations.js","./ReactReconciler":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactReconciler.js","./checkReactTypeSpec":"D:\\React\\videoport\\node_modules\\react\\lib\\checkReactTypeSpec.js","./reactProdInvariant":"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js","./shouldUpdateReactComponent":"D:\\React\\videoport\\node_modules\\react\\lib\\shouldUpdateReactComponent.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/emptyObject":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\emptyObject.js","fbjs/lib/invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/shallowEqual":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\shallowEqual.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js","object-assign":"D:\\React\\videoport\\node_modules\\object-assign\\index.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactCurrentOwner.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -36385,7 +36863,7 @@ var ReactCurrentOwner = {
 };
 
 module.exports = ReactCurrentOwner;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOM.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOM.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -36499,7 +36977,7 @@ if (process.env.NODE_ENV !== 'production') {
 module.exports = ReactDOM;
 }).call(this,require('_process'))
 
-},{"./ReactDOMComponentTree":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMComponentTree.js","./ReactDOMNullInputValuePropHook":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMNullInputValuePropHook.js","./ReactDOMUnknownPropertyHook":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMUnknownPropertyHook.js","./ReactDefaultInjection":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDefaultInjection.js","./ReactInstrumentation":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactInstrumentation.js","./ReactMount":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactMount.js","./ReactReconciler":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactReconciler.js","./ReactUpdates":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactUpdates.js","./ReactVersion":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactVersion.js","./findDOMNode":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\findDOMNode.js","./getHostComponentFromComposite":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\getHostComponentFromComposite.js","./renderSubtreeIntoContainer":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\renderSubtreeIntoContainer.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/ExecutionEnvironment":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMButton.js":[function(require,module,exports){
+},{"./ReactDOMComponentTree":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMComponentTree.js","./ReactDOMNullInputValuePropHook":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMNullInputValuePropHook.js","./ReactDOMUnknownPropertyHook":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMUnknownPropertyHook.js","./ReactDefaultInjection":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDefaultInjection.js","./ReactInstrumentation":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactInstrumentation.js","./ReactMount":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactMount.js","./ReactReconciler":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactReconciler.js","./ReactUpdates":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactUpdates.js","./ReactVersion":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactVersion.js","./findDOMNode":"D:\\React\\videoport\\node_modules\\react\\lib\\findDOMNode.js","./getHostComponentFromComposite":"D:\\React\\videoport\\node_modules\\react\\lib\\getHostComponentFromComposite.js","./renderSubtreeIntoContainer":"D:\\React\\videoport\\node_modules\\react\\lib\\renderSubtreeIntoContainer.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/ExecutionEnvironment":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMButton.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -36524,7 +37002,7 @@ var ReactDOMButton = {
 };
 
 module.exports = ReactDOMButton;
-},{"./DisabledInputUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\DisabledInputUtils.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMComponent.js":[function(require,module,exports){
+},{"./DisabledInputUtils":"D:\\React\\videoport\\node_modules\\react\\lib\\DisabledInputUtils.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMComponent.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -36723,9 +37201,9 @@ function optionPostMount() {
   ReactDOMOption.postMountWrapper(inst);
 }
 
-var setContentChildForInstrumentation = emptyFunction;
+var setAndValidateContentChildDev = emptyFunction;
 if (process.env.NODE_ENV !== 'production') {
-  setContentChildForInstrumentation = function (content) {
+  setAndValidateContentChildDev = function (content) {
     var hasExistingContent = this._contentDebugID != null;
     var debugID = this._debugID;
     // This ID represents the inlined child that has no backing instance:
@@ -36739,6 +37217,7 @@ if (process.env.NODE_ENV !== 'production') {
       return;
     }
 
+    validateDOMNesting(null, String(content), this, this._ancestorInfo);
     this._contentDebugID = contentDebugID;
     if (hasExistingContent) {
       ReactInstrumentation.debugTool.onBeforeUpdateComponent(contentDebugID, content);
@@ -36913,7 +37392,7 @@ function ReactDOMComponent(element) {
   this._flags = 0;
   if (process.env.NODE_ENV !== 'production') {
     this._ancestorInfo = null;
-    setContentChildForInstrumentation.call(this, null);
+    setAndValidateContentChildDev.call(this, null);
   }
 }
 
@@ -37013,7 +37492,7 @@ ReactDOMComponent.Mixin = {
       if (parentInfo) {
         // parentInfo should always be present except for the top-level
         // component when server rendering
-        validateDOMNesting(this._tag, this, parentInfo);
+        validateDOMNesting(this._tag, null, this, parentInfo);
       }
       this._ancestorInfo = validateDOMNesting.updatedAncestorInfo(parentInfo, this._tag, this);
     }
@@ -37182,7 +37661,7 @@ ReactDOMComponent.Mixin = {
         // TODO: Validate that text is allowed as a child of this node
         ret = escapeTextContentForBrowser(contentToUse);
         if (process.env.NODE_ENV !== 'production') {
-          setContentChildForInstrumentation.call(this, contentToUse);
+          setAndValidateContentChildDev.call(this, contentToUse);
         }
       } else if (childrenToUse != null) {
         var mountImages = this.mountChildren(childrenToUse, transaction, context);
@@ -37219,7 +37698,7 @@ ReactDOMComponent.Mixin = {
       if (contentToUse != null) {
         // TODO: Validate that text is allowed as a child of this node
         if (process.env.NODE_ENV !== 'production') {
-          setContentChildForInstrumentation.call(this, contentToUse);
+          setAndValidateContentChildDev.call(this, contentToUse);
         }
         DOMLazyTree.queueText(lazyTree, contentToUse);
       } else if (childrenToUse != null) {
@@ -37451,7 +37930,7 @@ ReactDOMComponent.Mixin = {
       if (lastContent !== nextContent) {
         this.updateTextContent('' + nextContent);
         if (process.env.NODE_ENV !== 'production') {
-          setContentChildForInstrumentation.call(this, nextContent);
+          setAndValidateContentChildDev.call(this, nextContent);
         }
       }
     } else if (nextHtml != null) {
@@ -37463,7 +37942,7 @@ ReactDOMComponent.Mixin = {
       }
     } else if (nextChildren != null) {
       if (process.env.NODE_ENV !== 'production') {
-        setContentChildForInstrumentation.call(this, null);
+        setAndValidateContentChildDev.call(this, null);
       }
 
       this.updateChildren(nextChildren, transaction, context);
@@ -37518,7 +37997,7 @@ ReactDOMComponent.Mixin = {
     this._wrapperState = null;
 
     if (process.env.NODE_ENV !== 'production') {
-      setContentChildForInstrumentation.call(this, null);
+      setAndValidateContentChildDev.call(this, null);
     }
   },
 
@@ -37533,7 +38012,7 @@ _assign(ReactDOMComponent.prototype, ReactDOMComponent.Mixin, ReactMultiChild.Mi
 module.exports = ReactDOMComponent;
 }).call(this,require('_process'))
 
-},{"./AutoFocusUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\AutoFocusUtils.js","./CSSPropertyOperations":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\CSSPropertyOperations.js","./DOMLazyTree":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\DOMLazyTree.js","./DOMNamespaces":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\DOMNamespaces.js","./DOMProperty":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\DOMProperty.js","./DOMPropertyOperations":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\DOMPropertyOperations.js","./EventConstants":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\EventConstants.js","./EventPluginHub":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\EventPluginHub.js","./EventPluginRegistry":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\EventPluginRegistry.js","./ReactBrowserEventEmitter":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactBrowserEventEmitter.js","./ReactDOMButton":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMButton.js","./ReactDOMComponentFlags":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMComponentFlags.js","./ReactDOMComponentTree":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMComponentTree.js","./ReactDOMInput":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMInput.js","./ReactDOMOption":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMOption.js","./ReactDOMSelect":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMSelect.js","./ReactDOMTextarea":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMTextarea.js","./ReactInstrumentation":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactInstrumentation.js","./ReactMultiChild":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactMultiChild.js","./ReactServerRenderingTransaction":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactServerRenderingTransaction.js","./escapeTextContentForBrowser":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\escapeTextContentForBrowser.js","./isEventSupported":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\isEventSupported.js","./reactProdInvariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js","./validateDOMNesting":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\validateDOMNesting.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/emptyFunction":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\emptyFunction.js","fbjs/lib/invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/keyOf":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\keyOf.js","fbjs/lib/shallowEqual":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\shallowEqual.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js","object-assign":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\node_modules\\object-assign\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMComponentFlags.js":[function(require,module,exports){
+},{"./AutoFocusUtils":"D:\\React\\videoport\\node_modules\\react\\lib\\AutoFocusUtils.js","./CSSPropertyOperations":"D:\\React\\videoport\\node_modules\\react\\lib\\CSSPropertyOperations.js","./DOMLazyTree":"D:\\React\\videoport\\node_modules\\react\\lib\\DOMLazyTree.js","./DOMNamespaces":"D:\\React\\videoport\\node_modules\\react\\lib\\DOMNamespaces.js","./DOMProperty":"D:\\React\\videoport\\node_modules\\react\\lib\\DOMProperty.js","./DOMPropertyOperations":"D:\\React\\videoport\\node_modules\\react\\lib\\DOMPropertyOperations.js","./EventConstants":"D:\\React\\videoport\\node_modules\\react\\lib\\EventConstants.js","./EventPluginHub":"D:\\React\\videoport\\node_modules\\react\\lib\\EventPluginHub.js","./EventPluginRegistry":"D:\\React\\videoport\\node_modules\\react\\lib\\EventPluginRegistry.js","./ReactBrowserEventEmitter":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactBrowserEventEmitter.js","./ReactDOMButton":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMButton.js","./ReactDOMComponentFlags":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMComponentFlags.js","./ReactDOMComponentTree":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMComponentTree.js","./ReactDOMInput":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMInput.js","./ReactDOMOption":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMOption.js","./ReactDOMSelect":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMSelect.js","./ReactDOMTextarea":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMTextarea.js","./ReactInstrumentation":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactInstrumentation.js","./ReactMultiChild":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactMultiChild.js","./ReactServerRenderingTransaction":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactServerRenderingTransaction.js","./escapeTextContentForBrowser":"D:\\React\\videoport\\node_modules\\react\\lib\\escapeTextContentForBrowser.js","./isEventSupported":"D:\\React\\videoport\\node_modules\\react\\lib\\isEventSupported.js","./reactProdInvariant":"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js","./validateDOMNesting":"D:\\React\\videoport\\node_modules\\react\\lib\\validateDOMNesting.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/emptyFunction":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\emptyFunction.js","fbjs/lib/invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/keyOf":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\keyOf.js","fbjs/lib/shallowEqual":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\shallowEqual.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js","object-assign":"D:\\React\\videoport\\node_modules\\object-assign\\index.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMComponentFlags.js":[function(require,module,exports){
 /**
  * Copyright 2015-present, Facebook, Inc.
  * All rights reserved.
@@ -37552,7 +38031,7 @@ var ReactDOMComponentFlags = {
 };
 
 module.exports = ReactDOMComponentFlags;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMComponentTree.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMComponentTree.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -37744,7 +38223,7 @@ var ReactDOMComponentTree = {
 module.exports = ReactDOMComponentTree;
 }).call(this,require('_process'))
 
-},{"./DOMProperty":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\DOMProperty.js","./ReactDOMComponentFlags":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMComponentFlags.js","./reactProdInvariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMContainerInfo.js":[function(require,module,exports){
+},{"./DOMProperty":"D:\\React\\videoport\\node_modules\\react\\lib\\DOMProperty.js","./ReactDOMComponentFlags":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMComponentFlags.js","./reactProdInvariant":"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMContainerInfo.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -37781,7 +38260,7 @@ function ReactDOMContainerInfo(topLevelWrapper, node) {
 module.exports = ReactDOMContainerInfo;
 }).call(this,require('_process'))
 
-},{"./validateDOMNesting":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\validateDOMNesting.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMEmptyComponent.js":[function(require,module,exports){
+},{"./validateDOMNesting":"D:\\React\\videoport\\node_modules\\react\\lib\\validateDOMNesting.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMEmptyComponent.js":[function(require,module,exports){
 /**
  * Copyright 2014-present, Facebook, Inc.
  * All rights reserved.
@@ -37842,7 +38321,7 @@ _assign(ReactDOMEmptyComponent.prototype, {
 });
 
 module.exports = ReactDOMEmptyComponent;
-},{"./DOMLazyTree":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\DOMLazyTree.js","./ReactDOMComponentTree":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMComponentTree.js","object-assign":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\node_modules\\object-assign\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMFactories.js":[function(require,module,exports){
+},{"./DOMLazyTree":"D:\\React\\videoport\\node_modules\\react\\lib\\DOMLazyTree.js","./ReactDOMComponentTree":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMComponentTree.js","object-assign":"D:\\React\\videoport\\node_modules\\object-assign\\index.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMFactories.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -38016,7 +38495,7 @@ var ReactDOMFactories = {
 module.exports = ReactDOMFactories;
 }).call(this,require('_process'))
 
-},{"./ReactElement":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactElement.js","./ReactElementValidator":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactElementValidator.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMFeatureFlags.js":[function(require,module,exports){
+},{"./ReactElement":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactElement.js","./ReactElementValidator":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactElementValidator.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMFeatureFlags.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -38035,7 +38514,7 @@ var ReactDOMFeatureFlags = {
 };
 
 module.exports = ReactDOMFeatureFlags;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMIDOperations.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMIDOperations.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -38070,7 +38549,7 @@ var ReactDOMIDOperations = {
 };
 
 module.exports = ReactDOMIDOperations;
-},{"./DOMChildrenOperations":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\DOMChildrenOperations.js","./ReactDOMComponentTree":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMComponentTree.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMInput.js":[function(require,module,exports){
+},{"./DOMChildrenOperations":"D:\\React\\videoport\\node_modules\\react\\lib\\DOMChildrenOperations.js","./ReactDOMComponentTree":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMComponentTree.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMInput.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -38113,7 +38592,7 @@ function forceUpdateIfMounted() {
 
 function isControlled(props) {
   var usesChecked = props.type === 'checkbox' || props.type === 'radio';
-  return usesChecked ? props.checked !== undefined : props.value !== undefined;
+  return usesChecked ? props.checked != null : props.value != null;
 }
 
 /**
@@ -38343,7 +38822,7 @@ function _handleChange(event) {
 module.exports = ReactDOMInput;
 }).call(this,require('_process'))
 
-},{"./DOMPropertyOperations":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\DOMPropertyOperations.js","./DisabledInputUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\DisabledInputUtils.js","./LinkedValueUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\LinkedValueUtils.js","./ReactDOMComponentTree":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMComponentTree.js","./ReactUpdates":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactUpdates.js","./reactProdInvariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js","object-assign":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\node_modules\\object-assign\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMNullInputValuePropHook.js":[function(require,module,exports){
+},{"./DOMPropertyOperations":"D:\\React\\videoport\\node_modules\\react\\lib\\DOMPropertyOperations.js","./DisabledInputUtils":"D:\\React\\videoport\\node_modules\\react\\lib\\DisabledInputUtils.js","./LinkedValueUtils":"D:\\React\\videoport\\node_modules\\react\\lib\\LinkedValueUtils.js","./ReactDOMComponentTree":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMComponentTree.js","./ReactUpdates":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactUpdates.js","./reactProdInvariant":"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js","object-assign":"D:\\React\\videoport\\node_modules\\object-assign\\index.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMNullInputValuePropHook.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -38390,7 +38869,7 @@ var ReactDOMNullInputValuePropHook = {
 module.exports = ReactDOMNullInputValuePropHook;
 }).call(this,require('_process'))
 
-},{"./ReactComponentTreeHook":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactComponentTreeHook.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMOption.js":[function(require,module,exports){
+},{"./ReactComponentTreeHook":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactComponentTreeHook.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMOption.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -38517,7 +38996,7 @@ var ReactDOMOption = {
 module.exports = ReactDOMOption;
 }).call(this,require('_process'))
 
-},{"./ReactChildren":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactChildren.js","./ReactDOMComponentTree":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMComponentTree.js","./ReactDOMSelect":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMSelect.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js","object-assign":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\node_modules\\object-assign\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMSelect.js":[function(require,module,exports){
+},{"./ReactChildren":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactChildren.js","./ReactDOMComponentTree":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMComponentTree.js","./ReactDOMSelect":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMSelect.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js","object-assign":"D:\\React\\videoport\\node_modules\\object-assign\\index.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMSelect.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -38722,7 +39201,7 @@ function _handleChange(event) {
 module.exports = ReactDOMSelect;
 }).call(this,require('_process'))
 
-},{"./DisabledInputUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\DisabledInputUtils.js","./LinkedValueUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\LinkedValueUtils.js","./ReactDOMComponentTree":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMComponentTree.js","./ReactUpdates":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactUpdates.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js","object-assign":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\node_modules\\object-assign\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMSelection.js":[function(require,module,exports){
+},{"./DisabledInputUtils":"D:\\React\\videoport\\node_modules\\react\\lib\\DisabledInputUtils.js","./LinkedValueUtils":"D:\\React\\videoport\\node_modules\\react\\lib\\LinkedValueUtils.js","./ReactDOMComponentTree":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMComponentTree.js","./ReactUpdates":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactUpdates.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js","object-assign":"D:\\React\\videoport\\node_modules\\object-assign\\index.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMSelection.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -38935,7 +39414,7 @@ var ReactDOMSelection = {
 };
 
 module.exports = ReactDOMSelection;
-},{"./getNodeForCharacterOffset":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\getNodeForCharacterOffset.js","./getTextContentAccessor":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\getTextContentAccessor.js","fbjs/lib/ExecutionEnvironment":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMTextComponent.js":[function(require,module,exports){
+},{"./getNodeForCharacterOffset":"D:\\React\\videoport\\node_modules\\react\\lib\\getNodeForCharacterOffset.js","./getTextContentAccessor":"D:\\React\\videoport\\node_modules\\react\\lib\\getTextContentAccessor.js","fbjs/lib/ExecutionEnvironment":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMTextComponent.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -39012,7 +39491,7 @@ _assign(ReactDOMTextComponent.prototype, {
       if (parentInfo) {
         // parentInfo should always be present except for the top-level
         // component when server rendering
-        validateDOMNesting('#text', this, parentInfo);
+        validateDOMNesting(null, this._stringText, this, parentInfo);
       }
     }
 
@@ -39103,7 +39582,7 @@ _assign(ReactDOMTextComponent.prototype, {
 module.exports = ReactDOMTextComponent;
 }).call(this,require('_process'))
 
-},{"./DOMChildrenOperations":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\DOMChildrenOperations.js","./DOMLazyTree":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\DOMLazyTree.js","./ReactDOMComponentTree":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMComponentTree.js","./escapeTextContentForBrowser":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\escapeTextContentForBrowser.js","./reactProdInvariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js","./validateDOMNesting":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\validateDOMNesting.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js","object-assign":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\node_modules\\object-assign\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMTextarea.js":[function(require,module,exports){
+},{"./DOMChildrenOperations":"D:\\React\\videoport\\node_modules\\react\\lib\\DOMChildrenOperations.js","./DOMLazyTree":"D:\\React\\videoport\\node_modules\\react\\lib\\DOMLazyTree.js","./ReactDOMComponentTree":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMComponentTree.js","./escapeTextContentForBrowser":"D:\\React\\videoport\\node_modules\\react\\lib\\escapeTextContentForBrowser.js","./reactProdInvariant":"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js","./validateDOMNesting":"D:\\React\\videoport\\node_modules\\react\\lib\\validateDOMNesting.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js","object-assign":"D:\\React\\videoport\\node_modules\\object-assign\\index.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMTextarea.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -39262,7 +39741,7 @@ function _handleChange(event) {
 module.exports = ReactDOMTextarea;
 }).call(this,require('_process'))
 
-},{"./DisabledInputUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\DisabledInputUtils.js","./LinkedValueUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\LinkedValueUtils.js","./ReactDOMComponentTree":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMComponentTree.js","./ReactUpdates":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactUpdates.js","./reactProdInvariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js","object-assign":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\node_modules\\object-assign\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMTreeTraversal.js":[function(require,module,exports){
+},{"./DisabledInputUtils":"D:\\React\\videoport\\node_modules\\react\\lib\\DisabledInputUtils.js","./LinkedValueUtils":"D:\\React\\videoport\\node_modules\\react\\lib\\LinkedValueUtils.js","./ReactDOMComponentTree":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMComponentTree.js","./ReactUpdates":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactUpdates.js","./reactProdInvariant":"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js","object-assign":"D:\\React\\videoport\\node_modules\\object-assign\\index.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMTreeTraversal.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2015-present, Facebook, Inc.
@@ -39402,7 +39881,7 @@ module.exports = {
 };
 }).call(this,require('_process'))
 
-},{"./reactProdInvariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMUnknownPropertyHook.js":[function(require,module,exports){
+},{"./reactProdInvariant":"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMUnknownPropertyHook.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -39518,7 +39997,7 @@ var ReactDOMUnknownPropertyHook = {
 module.exports = ReactDOMUnknownPropertyHook;
 }).call(this,require('_process'))
 
-},{"./DOMProperty":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\DOMProperty.js","./EventPluginRegistry":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\EventPluginRegistry.js","./ReactComponentTreeHook":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactComponentTreeHook.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDebugTool.js":[function(require,module,exports){
+},{"./DOMProperty":"D:\\React\\videoport\\node_modules\\react\\lib\\DOMProperty.js","./EventPluginRegistry":"D:\\React\\videoport\\node_modules\\react\\lib\\EventPluginRegistry.js","./ReactComponentTreeHook":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactComponentTreeHook.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDebugTool.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2016-present, Facebook, Inc.
@@ -39760,12 +40239,6 @@ var ReactDebugTool = {
     endLifeCycleTimer(debugID, timerType);
     emitEvent('onEndLifeCycleTimer', debugID, timerType);
   },
-  onError: function (debugID) {
-    if (currentTimerDebugID != null) {
-      endLifeCycleTimer(currentTimerDebugID, currentTimerType);
-    }
-    emitEvent('onError', debugID);
-  },
   onBeginProcessingChildContext: function () {
     emitEvent('onBeginProcessingChildContext');
   },
@@ -39829,7 +40302,7 @@ if (/[?&]react_perf\b/.test(url)) {
 module.exports = ReactDebugTool;
 }).call(this,require('_process'))
 
-},{"./ReactChildrenMutationWarningHook":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactChildrenMutationWarningHook.js","./ReactComponentTreeHook":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactComponentTreeHook.js","./ReactHostOperationHistoryHook":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactHostOperationHistoryHook.js","./ReactInvalidSetStateWarningHook":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactInvalidSetStateWarningHook.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/ExecutionEnvironment":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js","fbjs/lib/performanceNow":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\performanceNow.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDefaultBatchingStrategy.js":[function(require,module,exports){
+},{"./ReactChildrenMutationWarningHook":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactChildrenMutationWarningHook.js","./ReactComponentTreeHook":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactComponentTreeHook.js","./ReactHostOperationHistoryHook":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactHostOperationHistoryHook.js","./ReactInvalidSetStateWarningHook":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactInvalidSetStateWarningHook.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/ExecutionEnvironment":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js","fbjs/lib/performanceNow":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\performanceNow.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDefaultBatchingStrategy.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -39898,7 +40371,7 @@ var ReactDefaultBatchingStrategy = {
 };
 
 module.exports = ReactDefaultBatchingStrategy;
-},{"./ReactUpdates":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactUpdates.js","./Transaction":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\Transaction.js","fbjs/lib/emptyFunction":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\emptyFunction.js","object-assign":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\node_modules\\object-assign\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDefaultInjection.js":[function(require,module,exports){
+},{"./ReactUpdates":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactUpdates.js","./Transaction":"D:\\React\\videoport\\node_modules\\react\\lib\\Transaction.js","fbjs/lib/emptyFunction":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\emptyFunction.js","object-assign":"D:\\React\\videoport\\node_modules\\object-assign\\index.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDefaultInjection.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -39983,7 +40456,7 @@ function inject() {
 module.exports = {
   inject: inject
 };
-},{"./BeforeInputEventPlugin":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\BeforeInputEventPlugin.js","./ChangeEventPlugin":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ChangeEventPlugin.js","./DefaultEventPluginOrder":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\DefaultEventPluginOrder.js","./EnterLeaveEventPlugin":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\EnterLeaveEventPlugin.js","./HTMLDOMPropertyConfig":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\HTMLDOMPropertyConfig.js","./ReactComponentBrowserEnvironment":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactComponentBrowserEnvironment.js","./ReactDOMComponent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMComponent.js","./ReactDOMComponentTree":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMComponentTree.js","./ReactDOMEmptyComponent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMEmptyComponent.js","./ReactDOMTextComponent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMTextComponent.js","./ReactDOMTreeTraversal":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMTreeTraversal.js","./ReactDefaultBatchingStrategy":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDefaultBatchingStrategy.js","./ReactEventListener":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactEventListener.js","./ReactInjection":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactInjection.js","./ReactReconcileTransaction":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactReconcileTransaction.js","./SVGDOMPropertyConfig":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SVGDOMPropertyConfig.js","./SelectEventPlugin":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SelectEventPlugin.js","./SimpleEventPlugin":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SimpleEventPlugin.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactElement.js":[function(require,module,exports){
+},{"./BeforeInputEventPlugin":"D:\\React\\videoport\\node_modules\\react\\lib\\BeforeInputEventPlugin.js","./ChangeEventPlugin":"D:\\React\\videoport\\node_modules\\react\\lib\\ChangeEventPlugin.js","./DefaultEventPluginOrder":"D:\\React\\videoport\\node_modules\\react\\lib\\DefaultEventPluginOrder.js","./EnterLeaveEventPlugin":"D:\\React\\videoport\\node_modules\\react\\lib\\EnterLeaveEventPlugin.js","./HTMLDOMPropertyConfig":"D:\\React\\videoport\\node_modules\\react\\lib\\HTMLDOMPropertyConfig.js","./ReactComponentBrowserEnvironment":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactComponentBrowserEnvironment.js","./ReactDOMComponent":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMComponent.js","./ReactDOMComponentTree":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMComponentTree.js","./ReactDOMEmptyComponent":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMEmptyComponent.js","./ReactDOMTextComponent":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMTextComponent.js","./ReactDOMTreeTraversal":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMTreeTraversal.js","./ReactDefaultBatchingStrategy":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDefaultBatchingStrategy.js","./ReactEventListener":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactEventListener.js","./ReactInjection":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactInjection.js","./ReactReconcileTransaction":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactReconcileTransaction.js","./SVGDOMPropertyConfig":"D:\\React\\videoport\\node_modules\\react\\lib\\SVGDOMPropertyConfig.js","./SelectEventPlugin":"D:\\React\\videoport\\node_modules\\react\\lib\\SelectEventPlugin.js","./SimpleEventPlugin":"D:\\React\\videoport\\node_modules\\react\\lib\\SimpleEventPlugin.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactElement.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-present, Facebook, Inc.
@@ -40177,14 +40650,6 @@ ReactElement.createElement = function (type, config, children) {
   var source = null;
 
   if (config != null) {
-    if (process.env.NODE_ENV !== 'production') {
-      process.env.NODE_ENV !== 'production' ? warning(
-      /* eslint-disable no-proto */
-      config.__proto__ == null || config.__proto__ === Object.prototype,
-      /* eslint-enable no-proto */
-      'React.createElement(...): Expected props argument to be a plain object. ' + 'Properties defined in its prototype chain will be ignored.') : void 0;
-    }
-
     if (hasValidRef(config)) {
       ref = config.ref;
     }
@@ -40285,14 +40750,6 @@ ReactElement.cloneElement = function (element, config, children) {
   var owner = element._owner;
 
   if (config != null) {
-    if (process.env.NODE_ENV !== 'production') {
-      process.env.NODE_ENV !== 'production' ? warning(
-      /* eslint-disable no-proto */
-      config.__proto__ == null || config.__proto__ === Object.prototype,
-      /* eslint-enable no-proto */
-      'React.cloneElement(...): Expected props argument to be a plain object. ' + 'Properties defined in its prototype chain will be ignored.') : void 0;
-    }
-
     if (hasValidRef(config)) {
       // Silently steal the ref from the parent.
       ref = config.ref;
@@ -40351,7 +40808,7 @@ ReactElement.REACT_ELEMENT_TYPE = REACT_ELEMENT_TYPE;
 module.exports = ReactElement;
 }).call(this,require('_process'))
 
-},{"./ReactCurrentOwner":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactCurrentOwner.js","./canDefineProperty":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\canDefineProperty.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js","object-assign":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\node_modules\\object-assign\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactElementValidator.js":[function(require,module,exports){
+},{"./ReactCurrentOwner":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactCurrentOwner.js","./canDefineProperty":"D:\\React\\videoport\\node_modules\\react\\lib\\canDefineProperty.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js","object-assign":"D:\\React\\videoport\\node_modules\\object-assign\\index.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactElementValidator.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-present, Facebook, Inc.
@@ -40583,7 +41040,7 @@ var ReactElementValidator = {
 module.exports = ReactElementValidator;
 }).call(this,require('_process'))
 
-},{"./ReactComponentTreeHook":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactComponentTreeHook.js","./ReactCurrentOwner":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactCurrentOwner.js","./ReactElement":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactElement.js","./ReactPropTypeLocations":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactPropTypeLocations.js","./canDefineProperty":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\canDefineProperty.js","./checkReactTypeSpec":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\checkReactTypeSpec.js","./getIteratorFn":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\getIteratorFn.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactEmptyComponent.js":[function(require,module,exports){
+},{"./ReactComponentTreeHook":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactComponentTreeHook.js","./ReactCurrentOwner":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactCurrentOwner.js","./ReactElement":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactElement.js","./ReactPropTypeLocations":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactPropTypeLocations.js","./canDefineProperty":"D:\\React\\videoport\\node_modules\\react\\lib\\canDefineProperty.js","./checkReactTypeSpec":"D:\\React\\videoport\\node_modules\\react\\lib\\checkReactTypeSpec.js","./getIteratorFn":"D:\\React\\videoport\\node_modules\\react\\lib\\getIteratorFn.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactEmptyComponent.js":[function(require,module,exports){
 /**
  * Copyright 2014-present, Facebook, Inc.
  * All rights reserved.
@@ -40614,7 +41071,7 @@ var ReactEmptyComponent = {
 ReactEmptyComponent.injection = ReactEmptyComponentInjection;
 
 module.exports = ReactEmptyComponent;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactErrorUtils.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactErrorUtils.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -40694,7 +41151,7 @@ if (process.env.NODE_ENV !== 'production') {
 module.exports = ReactErrorUtils;
 }).call(this,require('_process'))
 
-},{"_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactEventEmitterMixin.js":[function(require,module,exports){
+},{"_process":"D:\\React\\videoport\\node_modules\\process\\browser.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactEventEmitterMixin.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -40728,7 +41185,7 @@ var ReactEventEmitterMixin = {
 };
 
 module.exports = ReactEventEmitterMixin;
-},{"./EventPluginHub":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\EventPluginHub.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactEventListener.js":[function(require,module,exports){
+},{"./EventPluginHub":"D:\\React\\videoport\\node_modules\\react\\lib\\EventPluginHub.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactEventListener.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -40886,7 +41343,7 @@ var ReactEventListener = {
 };
 
 module.exports = ReactEventListener;
-},{"./PooledClass":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\PooledClass.js","./ReactDOMComponentTree":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMComponentTree.js","./ReactUpdates":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactUpdates.js","./getEventTarget":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\getEventTarget.js","fbjs/lib/EventListener":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\EventListener.js","fbjs/lib/ExecutionEnvironment":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js","fbjs/lib/getUnboundedScrollPosition":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\getUnboundedScrollPosition.js","object-assign":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\node_modules\\object-assign\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactFeatureFlags.js":[function(require,module,exports){
+},{"./PooledClass":"D:\\React\\videoport\\node_modules\\react\\lib\\PooledClass.js","./ReactDOMComponentTree":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMComponentTree.js","./ReactUpdates":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactUpdates.js","./getEventTarget":"D:\\React\\videoport\\node_modules\\react\\lib\\getEventTarget.js","fbjs/lib/EventListener":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\EventListener.js","fbjs/lib/ExecutionEnvironment":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js","fbjs/lib/getUnboundedScrollPosition":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\getUnboundedScrollPosition.js","object-assign":"D:\\React\\videoport\\node_modules\\object-assign\\index.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactFeatureFlags.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -40909,7 +41366,7 @@ var ReactFeatureFlags = {
 };
 
 module.exports = ReactFeatureFlags;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactHostComponent.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactHostComponent.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-present, Facebook, Inc.
@@ -40989,7 +41446,7 @@ var ReactHostComponent = {
 module.exports = ReactHostComponent;
 }).call(this,require('_process'))
 
-},{"./reactProdInvariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js","object-assign":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\node_modules\\object-assign\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactHostOperationHistoryHook.js":[function(require,module,exports){
+},{"./reactProdInvariant":"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js","object-assign":"D:\\React\\videoport\\node_modules\\object-assign\\index.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactHostOperationHistoryHook.js":[function(require,module,exports){
 /**
  * Copyright 2016-present, Facebook, Inc.
  * All rights reserved.
@@ -41027,7 +41484,7 @@ var ReactHostOperationHistoryHook = {
 };
 
 module.exports = ReactHostOperationHistoryHook;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactInjection.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactInjection.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -41064,7 +41521,7 @@ var ReactInjection = {
 };
 
 module.exports = ReactInjection;
-},{"./DOMProperty":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\DOMProperty.js","./EventPluginHub":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\EventPluginHub.js","./EventPluginUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\EventPluginUtils.js","./ReactBrowserEventEmitter":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactBrowserEventEmitter.js","./ReactClass":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactClass.js","./ReactComponentEnvironment":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactComponentEnvironment.js","./ReactEmptyComponent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactEmptyComponent.js","./ReactHostComponent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactHostComponent.js","./ReactUpdates":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactUpdates.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactInputSelection.js":[function(require,module,exports){
+},{"./DOMProperty":"D:\\React\\videoport\\node_modules\\react\\lib\\DOMProperty.js","./EventPluginHub":"D:\\React\\videoport\\node_modules\\react\\lib\\EventPluginHub.js","./EventPluginUtils":"D:\\React\\videoport\\node_modules\\react\\lib\\EventPluginUtils.js","./ReactBrowserEventEmitter":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactBrowserEventEmitter.js","./ReactClass":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactClass.js","./ReactComponentEnvironment":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactComponentEnvironment.js","./ReactEmptyComponent":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactEmptyComponent.js","./ReactHostComponent":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactHostComponent.js","./ReactUpdates":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactUpdates.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactInputSelection.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -41189,7 +41646,7 @@ var ReactInputSelection = {
 };
 
 module.exports = ReactInputSelection;
-},{"./ReactDOMSelection":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMSelection.js","fbjs/lib/containsNode":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\containsNode.js","fbjs/lib/focusNode":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\focusNode.js","fbjs/lib/getActiveElement":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\getActiveElement.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactInstanceMap.js":[function(require,module,exports){
+},{"./ReactDOMSelection":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMSelection.js","fbjs/lib/containsNode":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\containsNode.js","fbjs/lib/focusNode":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\focusNode.js","fbjs/lib/getActiveElement":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\getActiveElement.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactInstanceMap.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -41238,7 +41695,7 @@ var ReactInstanceMap = {
 };
 
 module.exports = ReactInstanceMap;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactInstrumentation.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactInstrumentation.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2016-present, Facebook, Inc.
@@ -41263,7 +41720,7 @@ if (process.env.NODE_ENV !== 'production') {
 module.exports = { debugTool: debugTool };
 }).call(this,require('_process'))
 
-},{"./ReactDebugTool":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDebugTool.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactInvalidSetStateWarningHook.js":[function(require,module,exports){
+},{"./ReactDebugTool":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDebugTool.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactInvalidSetStateWarningHook.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2016-present, Facebook, Inc.
@@ -41303,7 +41760,7 @@ var ReactInvalidSetStateWarningHook = {
 module.exports = ReactInvalidSetStateWarningHook;
 }).call(this,require('_process'))
 
-},{"_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactMarkupChecksum.js":[function(require,module,exports){
+},{"_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactMarkupChecksum.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -41354,7 +41811,7 @@ var ReactMarkupChecksum = {
 };
 
 module.exports = ReactMarkupChecksum;
-},{"./adler32":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\adler32.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactMount.js":[function(require,module,exports){
+},{"./adler32":"D:\\React\\videoport\\node_modules\\react\\lib\\adler32.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactMount.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -41892,7 +42349,7 @@ var ReactMount = {
 module.exports = ReactMount;
 }).call(this,require('_process'))
 
-},{"./DOMLazyTree":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\DOMLazyTree.js","./DOMProperty":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\DOMProperty.js","./ReactBrowserEventEmitter":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactBrowserEventEmitter.js","./ReactCurrentOwner":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactCurrentOwner.js","./ReactDOMComponentTree":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMComponentTree.js","./ReactDOMContainerInfo":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMContainerInfo.js","./ReactDOMFeatureFlags":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMFeatureFlags.js","./ReactElement":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactElement.js","./ReactFeatureFlags":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactFeatureFlags.js","./ReactInstanceMap":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactInstanceMap.js","./ReactInstrumentation":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactInstrumentation.js","./ReactMarkupChecksum":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactMarkupChecksum.js","./ReactReconciler":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactReconciler.js","./ReactUpdateQueue":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactUpdateQueue.js","./ReactUpdates":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactUpdates.js","./instantiateReactComponent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\instantiateReactComponent.js","./reactProdInvariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js","./setInnerHTML":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\setInnerHTML.js","./shouldUpdateReactComponent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\shouldUpdateReactComponent.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/emptyObject":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\emptyObject.js","fbjs/lib/invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactMultiChild.js":[function(require,module,exports){
+},{"./DOMLazyTree":"D:\\React\\videoport\\node_modules\\react\\lib\\DOMLazyTree.js","./DOMProperty":"D:\\React\\videoport\\node_modules\\react\\lib\\DOMProperty.js","./ReactBrowserEventEmitter":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactBrowserEventEmitter.js","./ReactCurrentOwner":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactCurrentOwner.js","./ReactDOMComponentTree":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMComponentTree.js","./ReactDOMContainerInfo":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMContainerInfo.js","./ReactDOMFeatureFlags":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMFeatureFlags.js","./ReactElement":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactElement.js","./ReactFeatureFlags":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactFeatureFlags.js","./ReactInstanceMap":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactInstanceMap.js","./ReactInstrumentation":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactInstrumentation.js","./ReactMarkupChecksum":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactMarkupChecksum.js","./ReactReconciler":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactReconciler.js","./ReactUpdateQueue":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactUpdateQueue.js","./ReactUpdates":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactUpdates.js","./instantiateReactComponent":"D:\\React\\videoport\\node_modules\\react\\lib\\instantiateReactComponent.js","./reactProdInvariant":"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js","./setInnerHTML":"D:\\React\\videoport\\node_modules\\react\\lib\\setInnerHTML.js","./shouldUpdateReactComponent":"D:\\React\\videoport\\node_modules\\react\\lib\\shouldUpdateReactComponent.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/emptyObject":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\emptyObject.js","fbjs/lib/invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactMultiChild.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -42347,7 +42804,7 @@ var ReactMultiChild = {
 module.exports = ReactMultiChild;
 }).call(this,require('_process'))
 
-},{"./ReactChildReconciler":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactChildReconciler.js","./ReactComponentEnvironment":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactComponentEnvironment.js","./ReactCurrentOwner":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactCurrentOwner.js","./ReactInstanceMap":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactInstanceMap.js","./ReactInstrumentation":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactInstrumentation.js","./ReactMultiChildUpdateTypes":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactMultiChildUpdateTypes.js","./ReactReconciler":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactReconciler.js","./flattenChildren":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\flattenChildren.js","./reactProdInvariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/emptyFunction":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\emptyFunction.js","fbjs/lib/invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactMultiChildUpdateTypes.js":[function(require,module,exports){
+},{"./ReactChildReconciler":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactChildReconciler.js","./ReactComponentEnvironment":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactComponentEnvironment.js","./ReactCurrentOwner":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactCurrentOwner.js","./ReactInstanceMap":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactInstanceMap.js","./ReactInstrumentation":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactInstrumentation.js","./ReactMultiChildUpdateTypes":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactMultiChildUpdateTypes.js","./ReactReconciler":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactReconciler.js","./flattenChildren":"D:\\React\\videoport\\node_modules\\react\\lib\\flattenChildren.js","./reactProdInvariant":"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/emptyFunction":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\emptyFunction.js","fbjs/lib/invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactMultiChildUpdateTypes.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -42380,7 +42837,7 @@ var ReactMultiChildUpdateTypes = keyMirror({
 });
 
 module.exports = ReactMultiChildUpdateTypes;
-},{"fbjs/lib/keyMirror":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\keyMirror.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactNodeTypes.js":[function(require,module,exports){
+},{"fbjs/lib/keyMirror":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\keyMirror.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactNodeTypes.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -42424,7 +42881,7 @@ var ReactNodeTypes = {
 module.exports = ReactNodeTypes;
 }).call(this,require('_process'))
 
-},{"./ReactElement":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactElement.js","./reactProdInvariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactNoopUpdateQueue.js":[function(require,module,exports){
+},{"./ReactElement":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactElement.js","./reactProdInvariant":"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactNoopUpdateQueue.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2015-present, Facebook, Inc.
@@ -42524,7 +42981,7 @@ var ReactNoopUpdateQueue = {
 module.exports = ReactNoopUpdateQueue;
 }).call(this,require('_process'))
 
-},{"_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactOwner.js":[function(require,module,exports){
+},{"_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactOwner.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -42622,7 +43079,7 @@ var ReactOwner = {
 module.exports = ReactOwner;
 }).call(this,require('_process'))
 
-},{"./reactProdInvariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactPropTypeLocationNames.js":[function(require,module,exports){
+},{"./reactProdInvariant":"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactPropTypeLocationNames.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -42650,7 +43107,7 @@ if (process.env.NODE_ENV !== 'production') {
 module.exports = ReactPropTypeLocationNames;
 }).call(this,require('_process'))
 
-},{"_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactPropTypeLocations.js":[function(require,module,exports){
+},{"_process":"D:\\React\\videoport\\node_modules\\process\\browser.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactPropTypeLocations.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -42673,7 +43130,7 @@ var ReactPropTypeLocations = keyMirror({
 });
 
 module.exports = ReactPropTypeLocations;
-},{"fbjs/lib/keyMirror":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\keyMirror.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactPropTypes.js":[function(require,module,exports){
+},{"fbjs/lib/keyMirror":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\keyMirror.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactPropTypes.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -43108,7 +43565,7 @@ function getClassName(propValue) {
 module.exports = ReactPropTypes;
 }).call(this,require('_process'))
 
-},{"./ReactElement":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactElement.js","./ReactPropTypeLocationNames":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactPropTypeLocationNames.js","./ReactPropTypesSecret":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactPropTypesSecret.js","./getIteratorFn":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\getIteratorFn.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/emptyFunction":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\emptyFunction.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactPropTypesSecret.js":[function(require,module,exports){
+},{"./ReactElement":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactElement.js","./ReactPropTypeLocationNames":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactPropTypeLocationNames.js","./ReactPropTypesSecret":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactPropTypesSecret.js","./getIteratorFn":"D:\\React\\videoport\\node_modules\\react\\lib\\getIteratorFn.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/emptyFunction":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\emptyFunction.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactPropTypesSecret.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -43125,7 +43582,7 @@ module.exports = ReactPropTypes;
 var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 module.exports = ReactPropTypesSecret;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactPureComponent.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactPureComponent.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -43168,7 +43625,7 @@ _assign(ReactPureComponent.prototype, ReactComponent.prototype);
 ReactPureComponent.prototype.isPureReactComponent = true;
 
 module.exports = ReactPureComponent;
-},{"./ReactComponent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactComponent.js","./ReactNoopUpdateQueue":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactNoopUpdateQueue.js","fbjs/lib/emptyObject":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\emptyObject.js","object-assign":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\node_modules\\object-assign\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactReconcileTransaction.js":[function(require,module,exports){
+},{"./ReactComponent":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactComponent.js","./ReactNoopUpdateQueue":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactNoopUpdateQueue.js","fbjs/lib/emptyObject":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\emptyObject.js","object-assign":"D:\\React\\videoport\\node_modules\\object-assign\\index.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactReconcileTransaction.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -43350,7 +43807,7 @@ PooledClass.addPoolingTo(ReactReconcileTransaction);
 module.exports = ReactReconcileTransaction;
 }).call(this,require('_process'))
 
-},{"./CallbackQueue":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\CallbackQueue.js","./PooledClass":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\PooledClass.js","./ReactBrowserEventEmitter":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactBrowserEventEmitter.js","./ReactInputSelection":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactInputSelection.js","./ReactInstrumentation":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactInstrumentation.js","./ReactUpdateQueue":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactUpdateQueue.js","./Transaction":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\Transaction.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","object-assign":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\node_modules\\object-assign\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactReconciler.js":[function(require,module,exports){
+},{"./CallbackQueue":"D:\\React\\videoport\\node_modules\\react\\lib\\CallbackQueue.js","./PooledClass":"D:\\React\\videoport\\node_modules\\react\\lib\\PooledClass.js","./ReactBrowserEventEmitter":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactBrowserEventEmitter.js","./ReactInputSelection":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactInputSelection.js","./ReactInstrumentation":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactInstrumentation.js","./ReactUpdateQueue":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactUpdateQueue.js","./Transaction":"D:\\React\\videoport\\node_modules\\react\\lib\\Transaction.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","object-assign":"D:\\React\\videoport\\node_modules\\object-assign\\index.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactReconciler.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -43522,7 +43979,7 @@ var ReactReconciler = {
 module.exports = ReactReconciler;
 }).call(this,require('_process'))
 
-},{"./ReactInstrumentation":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactInstrumentation.js","./ReactRef":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactRef.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactRef.js":[function(require,module,exports){
+},{"./ReactInstrumentation":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactInstrumentation.js","./ReactRef":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactRef.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactRef.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -43603,7 +44060,7 @@ ReactRef.detachRefs = function (instance, element) {
 };
 
 module.exports = ReactRef;
-},{"./ReactOwner":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactOwner.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactServerRenderingTransaction.js":[function(require,module,exports){
+},{"./ReactOwner":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactOwner.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactServerRenderingTransaction.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-present, Facebook, Inc.
@@ -43697,7 +44154,7 @@ PooledClass.addPoolingTo(ReactServerRenderingTransaction);
 module.exports = ReactServerRenderingTransaction;
 }).call(this,require('_process'))
 
-},{"./PooledClass":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\PooledClass.js","./ReactInstrumentation":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactInstrumentation.js","./ReactServerUpdateQueue":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactServerUpdateQueue.js","./Transaction":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\Transaction.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","object-assign":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\node_modules\\object-assign\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactServerUpdateQueue.js":[function(require,module,exports){
+},{"./PooledClass":"D:\\React\\videoport\\node_modules\\react\\lib\\PooledClass.js","./ReactInstrumentation":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactInstrumentation.js","./ReactServerUpdateQueue":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactServerUpdateQueue.js","./Transaction":"D:\\React\\videoport\\node_modules\\react\\lib\\Transaction.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","object-assign":"D:\\React\\videoport\\node_modules\\object-assign\\index.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactServerUpdateQueue.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2015-present, Facebook, Inc.
@@ -43842,7 +44299,7 @@ var ReactServerUpdateQueue = function () {
 module.exports = ReactServerUpdateQueue;
 }).call(this,require('_process'))
 
-},{"./ReactUpdateQueue":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactUpdateQueue.js","./Transaction":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\Transaction.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactUpdateQueue.js":[function(require,module,exports){
+},{"./ReactUpdateQueue":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactUpdateQueue.js","./Transaction":"D:\\React\\videoport\\node_modules\\react\\lib\\Transaction.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactUpdateQueue.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2015-present, Facebook, Inc.
@@ -44072,7 +44529,7 @@ var ReactUpdateQueue = {
 module.exports = ReactUpdateQueue;
 }).call(this,require('_process'))
 
-},{"./ReactCurrentOwner":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactCurrentOwner.js","./ReactInstanceMap":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactInstanceMap.js","./ReactInstrumentation":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactInstrumentation.js","./ReactUpdates":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactUpdates.js","./reactProdInvariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactUpdates.js":[function(require,module,exports){
+},{"./ReactCurrentOwner":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactCurrentOwner.js","./ReactInstanceMap":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactInstanceMap.js","./ReactInstrumentation":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactInstrumentation.js","./ReactUpdates":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactUpdates.js","./reactProdInvariant":"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactUpdates.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -44327,7 +44784,7 @@ var ReactUpdates = {
 module.exports = ReactUpdates;
 }).call(this,require('_process'))
 
-},{"./CallbackQueue":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\CallbackQueue.js","./PooledClass":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\PooledClass.js","./ReactFeatureFlags":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactFeatureFlags.js","./ReactReconciler":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactReconciler.js","./Transaction":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\Transaction.js","./reactProdInvariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js","object-assign":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\node_modules\\object-assign\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactVersion.js":[function(require,module,exports){
+},{"./CallbackQueue":"D:\\React\\videoport\\node_modules\\react\\lib\\CallbackQueue.js","./PooledClass":"D:\\React\\videoport\\node_modules\\react\\lib\\PooledClass.js","./ReactFeatureFlags":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactFeatureFlags.js","./ReactReconciler":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactReconciler.js","./Transaction":"D:\\React\\videoport\\node_modules\\react\\lib\\Transaction.js","./reactProdInvariant":"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js","object-assign":"D:\\React\\videoport\\node_modules\\object-assign\\index.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ReactVersion.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -44341,8 +44798,8 @@ module.exports = ReactUpdates;
 
 'use strict';
 
-module.exports = '15.3.1';
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SVGDOMPropertyConfig.js":[function(require,module,exports){
+module.exports = '15.3.2';
+},{}],"D:\\React\\videoport\\node_modules\\react\\lib\\SVGDOMPropertyConfig.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -44645,7 +45102,7 @@ Object.keys(ATTRS).forEach(function (key) {
 });
 
 module.exports = SVGDOMPropertyConfig;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SelectEventPlugin.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\react\\lib\\SelectEventPlugin.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -44681,7 +45138,7 @@ var eventTypes = {
       bubbled: keyOf({ onSelect: null }),
       captured: keyOf({ onSelectCapture: null })
     },
-    dependencies: [topLevelTypes.topBlur, topLevelTypes.topContextMenu, topLevelTypes.topFocus, topLevelTypes.topKeyDown, topLevelTypes.topMouseDown, topLevelTypes.topMouseUp, topLevelTypes.topSelectionChange]
+    dependencies: [topLevelTypes.topBlur, topLevelTypes.topContextMenu, topLevelTypes.topFocus, topLevelTypes.topKeyDown, topLevelTypes.topKeyUp, topLevelTypes.topMouseDown, topLevelTypes.topMouseUp, topLevelTypes.topSelectionChange]
   }
 };
 
@@ -44842,7 +45299,7 @@ var SelectEventPlugin = {
 };
 
 module.exports = SelectEventPlugin;
-},{"./EventConstants":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\EventConstants.js","./EventPropagators":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\EventPropagators.js","./ReactDOMComponentTree":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMComponentTree.js","./ReactInputSelection":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactInputSelection.js","./SyntheticEvent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticEvent.js","./isTextInputElement":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\isTextInputElement.js","fbjs/lib/ExecutionEnvironment":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js","fbjs/lib/getActiveElement":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\getActiveElement.js","fbjs/lib/keyOf":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\keyOf.js","fbjs/lib/shallowEqual":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\shallowEqual.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SimpleEventPlugin.js":[function(require,module,exports){
+},{"./EventConstants":"D:\\React\\videoport\\node_modules\\react\\lib\\EventConstants.js","./EventPropagators":"D:\\React\\videoport\\node_modules\\react\\lib\\EventPropagators.js","./ReactDOMComponentTree":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMComponentTree.js","./ReactInputSelection":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactInputSelection.js","./SyntheticEvent":"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticEvent.js","./isTextInputElement":"D:\\React\\videoport\\node_modules\\react\\lib\\isTextInputElement.js","fbjs/lib/ExecutionEnvironment":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js","fbjs/lib/getActiveElement":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\getActiveElement.js","fbjs/lib/keyOf":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\keyOf.js","fbjs/lib/shallowEqual":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\shallowEqual.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\SimpleEventPlugin.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -45481,7 +45938,7 @@ var SimpleEventPlugin = {
 module.exports = SimpleEventPlugin;
 }).call(this,require('_process'))
 
-},{"./EventConstants":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\EventConstants.js","./EventPropagators":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\EventPropagators.js","./ReactDOMComponentTree":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMComponentTree.js","./SyntheticAnimationEvent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticAnimationEvent.js","./SyntheticClipboardEvent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticClipboardEvent.js","./SyntheticDragEvent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticDragEvent.js","./SyntheticEvent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticEvent.js","./SyntheticFocusEvent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticFocusEvent.js","./SyntheticKeyboardEvent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticKeyboardEvent.js","./SyntheticMouseEvent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticMouseEvent.js","./SyntheticTouchEvent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticTouchEvent.js","./SyntheticTransitionEvent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticTransitionEvent.js","./SyntheticUIEvent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticUIEvent.js","./SyntheticWheelEvent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticWheelEvent.js","./getEventCharCode":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\getEventCharCode.js","./reactProdInvariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/EventListener":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\EventListener.js","fbjs/lib/emptyFunction":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\emptyFunction.js","fbjs/lib/invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/keyOf":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\keyOf.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticAnimationEvent.js":[function(require,module,exports){
+},{"./EventConstants":"D:\\React\\videoport\\node_modules\\react\\lib\\EventConstants.js","./EventPropagators":"D:\\React\\videoport\\node_modules\\react\\lib\\EventPropagators.js","./ReactDOMComponentTree":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMComponentTree.js","./SyntheticAnimationEvent":"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticAnimationEvent.js","./SyntheticClipboardEvent":"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticClipboardEvent.js","./SyntheticDragEvent":"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticDragEvent.js","./SyntheticEvent":"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticEvent.js","./SyntheticFocusEvent":"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticFocusEvent.js","./SyntheticKeyboardEvent":"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticKeyboardEvent.js","./SyntheticMouseEvent":"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticMouseEvent.js","./SyntheticTouchEvent":"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticTouchEvent.js","./SyntheticTransitionEvent":"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticTransitionEvent.js","./SyntheticUIEvent":"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticUIEvent.js","./SyntheticWheelEvent":"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticWheelEvent.js","./getEventCharCode":"D:\\React\\videoport\\node_modules\\react\\lib\\getEventCharCode.js","./reactProdInvariant":"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/EventListener":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\EventListener.js","fbjs/lib/emptyFunction":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\emptyFunction.js","fbjs/lib/invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/keyOf":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\keyOf.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticAnimationEvent.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -45521,7 +45978,7 @@ function SyntheticAnimationEvent(dispatchConfig, dispatchMarker, nativeEvent, na
 SyntheticEvent.augmentClass(SyntheticAnimationEvent, AnimationEventInterface);
 
 module.exports = SyntheticAnimationEvent;
-},{"./SyntheticEvent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticEvent.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticClipboardEvent.js":[function(require,module,exports){
+},{"./SyntheticEvent":"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticEvent.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticClipboardEvent.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -45560,7 +46017,7 @@ function SyntheticClipboardEvent(dispatchConfig, dispatchMarker, nativeEvent, na
 SyntheticEvent.augmentClass(SyntheticClipboardEvent, ClipboardEventInterface);
 
 module.exports = SyntheticClipboardEvent;
-},{"./SyntheticEvent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticEvent.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticCompositionEvent.js":[function(require,module,exports){
+},{"./SyntheticEvent":"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticEvent.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticCompositionEvent.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -45597,7 +46054,7 @@ function SyntheticCompositionEvent(dispatchConfig, dispatchMarker, nativeEvent, 
 SyntheticEvent.augmentClass(SyntheticCompositionEvent, CompositionEventInterface);
 
 module.exports = SyntheticCompositionEvent;
-},{"./SyntheticEvent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticEvent.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticDragEvent.js":[function(require,module,exports){
+},{"./SyntheticEvent":"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticEvent.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticDragEvent.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -45634,7 +46091,7 @@ function SyntheticDragEvent(dispatchConfig, dispatchMarker, nativeEvent, nativeE
 SyntheticMouseEvent.augmentClass(SyntheticDragEvent, DragEventInterface);
 
 module.exports = SyntheticDragEvent;
-},{"./SyntheticMouseEvent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticMouseEvent.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticEvent.js":[function(require,module,exports){
+},{"./SyntheticMouseEvent":"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticMouseEvent.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticEvent.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -45751,7 +46208,8 @@ _assign(SyntheticEvent.prototype, {
 
     if (event.preventDefault) {
       event.preventDefault();
-    } else {
+    } else if (typeof event.returnValue !== 'unknown') {
+      // eslint-disable-line valid-typeof
       event.returnValue = false;
     }
     this.isDefaultPrevented = emptyFunction.thatReturnsTrue;
@@ -45905,7 +46363,7 @@ function getPooledWarningPropertyDefinition(propName, getVal) {
 }
 }).call(this,require('_process'))
 
-},{"./PooledClass":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\PooledClass.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/emptyFunction":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\emptyFunction.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js","object-assign":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\node_modules\\object-assign\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticFocusEvent.js":[function(require,module,exports){
+},{"./PooledClass":"D:\\React\\videoport\\node_modules\\react\\lib\\PooledClass.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/emptyFunction":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\emptyFunction.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js","object-assign":"D:\\React\\videoport\\node_modules\\object-assign\\index.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticFocusEvent.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -45942,7 +46400,7 @@ function SyntheticFocusEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 SyntheticUIEvent.augmentClass(SyntheticFocusEvent, FocusEventInterface);
 
 module.exports = SyntheticFocusEvent;
-},{"./SyntheticUIEvent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticUIEvent.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticInputEvent.js":[function(require,module,exports){
+},{"./SyntheticUIEvent":"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticUIEvent.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticInputEvent.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -45980,7 +46438,7 @@ function SyntheticInputEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 SyntheticEvent.augmentClass(SyntheticInputEvent, InputEventInterface);
 
 module.exports = SyntheticInputEvent;
-},{"./SyntheticEvent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticEvent.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticKeyboardEvent.js":[function(require,module,exports){
+},{"./SyntheticEvent":"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticEvent.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticKeyboardEvent.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -46065,7 +46523,7 @@ function SyntheticKeyboardEvent(dispatchConfig, dispatchMarker, nativeEvent, nat
 SyntheticUIEvent.augmentClass(SyntheticKeyboardEvent, KeyboardEventInterface);
 
 module.exports = SyntheticKeyboardEvent;
-},{"./SyntheticUIEvent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticUIEvent.js","./getEventCharCode":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\getEventCharCode.js","./getEventKey":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\getEventKey.js","./getEventModifierState":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\getEventModifierState.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticMouseEvent.js":[function(require,module,exports){
+},{"./SyntheticUIEvent":"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticUIEvent.js","./getEventCharCode":"D:\\React\\videoport\\node_modules\\react\\lib\\getEventCharCode.js","./getEventKey":"D:\\React\\videoport\\node_modules\\react\\lib\\getEventKey.js","./getEventModifierState":"D:\\React\\videoport\\node_modules\\react\\lib\\getEventModifierState.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticMouseEvent.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -46138,7 +46596,7 @@ function SyntheticMouseEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 SyntheticUIEvent.augmentClass(SyntheticMouseEvent, MouseEventInterface);
 
 module.exports = SyntheticMouseEvent;
-},{"./SyntheticUIEvent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticUIEvent.js","./ViewportMetrics":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ViewportMetrics.js","./getEventModifierState":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\getEventModifierState.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticTouchEvent.js":[function(require,module,exports){
+},{"./SyntheticUIEvent":"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticUIEvent.js","./ViewportMetrics":"D:\\React\\videoport\\node_modules\\react\\lib\\ViewportMetrics.js","./getEventModifierState":"D:\\React\\videoport\\node_modules\\react\\lib\\getEventModifierState.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticTouchEvent.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -46184,7 +46642,7 @@ function SyntheticTouchEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 SyntheticUIEvent.augmentClass(SyntheticTouchEvent, TouchEventInterface);
 
 module.exports = SyntheticTouchEvent;
-},{"./SyntheticUIEvent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticUIEvent.js","./getEventModifierState":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\getEventModifierState.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticTransitionEvent.js":[function(require,module,exports){
+},{"./SyntheticUIEvent":"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticUIEvent.js","./getEventModifierState":"D:\\React\\videoport\\node_modules\\react\\lib\\getEventModifierState.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticTransitionEvent.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -46224,7 +46682,7 @@ function SyntheticTransitionEvent(dispatchConfig, dispatchMarker, nativeEvent, n
 SyntheticEvent.augmentClass(SyntheticTransitionEvent, TransitionEventInterface);
 
 module.exports = SyntheticTransitionEvent;
-},{"./SyntheticEvent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticEvent.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticUIEvent.js":[function(require,module,exports){
+},{"./SyntheticEvent":"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticEvent.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticUIEvent.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -46284,7 +46742,7 @@ function SyntheticUIEvent(dispatchConfig, dispatchMarker, nativeEvent, nativeEve
 SyntheticEvent.augmentClass(SyntheticUIEvent, UIEventInterface);
 
 module.exports = SyntheticUIEvent;
-},{"./SyntheticEvent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticEvent.js","./getEventTarget":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\getEventTarget.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticWheelEvent.js":[function(require,module,exports){
+},{"./SyntheticEvent":"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticEvent.js","./getEventTarget":"D:\\React\\videoport\\node_modules\\react\\lib\\getEventTarget.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticWheelEvent.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -46339,7 +46797,7 @@ function SyntheticWheelEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 SyntheticMouseEvent.augmentClass(SyntheticWheelEvent, WheelEventInterface);
 
 module.exports = SyntheticWheelEvent;
-},{"./SyntheticMouseEvent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\SyntheticMouseEvent.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\Transaction.js":[function(require,module,exports){
+},{"./SyntheticMouseEvent":"D:\\React\\videoport\\node_modules\\react\\lib\\SyntheticMouseEvent.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\Transaction.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -46576,7 +47034,7 @@ var Transaction = {
 module.exports = Transaction;
 }).call(this,require('_process'))
 
-},{"./reactProdInvariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ViewportMetrics.js":[function(require,module,exports){
+},{"./reactProdInvariant":"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\ViewportMetrics.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -46604,7 +47062,7 @@ var ViewportMetrics = {
 };
 
 module.exports = ViewportMetrics;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\accumulateInto.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\react\\lib\\accumulateInto.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-present, Facebook, Inc.
@@ -46666,7 +47124,7 @@ function accumulateInto(current, next) {
 module.exports = accumulateInto;
 }).call(this,require('_process'))
 
-},{"./reactProdInvariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\adler32.js":[function(require,module,exports){
+},{"./reactProdInvariant":"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\adler32.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -46711,7 +47169,7 @@ function adler32(data) {
 }
 
 module.exports = adler32;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\canDefineProperty.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\react\\lib\\canDefineProperty.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -46739,7 +47197,7 @@ if (process.env.NODE_ENV !== 'production') {
 module.exports = canDefineProperty;
 }).call(this,require('_process'))
 
-},{"_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\checkReactTypeSpec.js":[function(require,module,exports){
+},{"_process":"D:\\React\\videoport\\node_modules\\process\\browser.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\checkReactTypeSpec.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -46830,7 +47288,7 @@ function checkReactTypeSpec(typeSpecs, values, location, componentName, element,
 module.exports = checkReactTypeSpec;
 }).call(this,require('_process'))
 
-},{"./ReactComponentTreeHook":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactComponentTreeHook.js","./ReactPropTypeLocationNames":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactPropTypeLocationNames.js","./ReactPropTypesSecret":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactPropTypesSecret.js","./reactProdInvariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\createMicrosoftUnsafeLocalFunction.js":[function(require,module,exports){
+},{"./ReactComponentTreeHook":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactComponentTreeHook.js","./ReactPropTypeLocationNames":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactPropTypeLocationNames.js","./ReactPropTypesSecret":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactPropTypesSecret.js","./reactProdInvariant":"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\createMicrosoftUnsafeLocalFunction.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -46863,7 +47321,7 @@ var createMicrosoftUnsafeLocalFunction = function (func) {
 };
 
 module.exports = createMicrosoftUnsafeLocalFunction;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\dangerousStyleValue.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\react\\lib\\dangerousStyleValue.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -46946,7 +47404,7 @@ function dangerousStyleValue(name, value, component) {
 module.exports = dangerousStyleValue;
 }).call(this,require('_process'))
 
-},{"./CSSProperty":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\CSSProperty.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\escapeTextContentForBrowser.js":[function(require,module,exports){
+},{"./CSSProperty":"D:\\React\\videoport\\node_modules\\react\\lib\\CSSProperty.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\escapeTextContentForBrowser.js":[function(require,module,exports){
 /**
  * Copyright 2016-present, Facebook, Inc.
  * All rights reserved.
@@ -47070,7 +47528,7 @@ function escapeTextContentForBrowser(text) {
 }
 
 module.exports = escapeTextContentForBrowser;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\findDOMNode.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\react\\lib\\findDOMNode.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -47134,7 +47592,7 @@ function findDOMNode(componentOrElement) {
 module.exports = findDOMNode;
 }).call(this,require('_process'))
 
-},{"./ReactCurrentOwner":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactCurrentOwner.js","./ReactDOMComponentTree":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactDOMComponentTree.js","./ReactInstanceMap":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactInstanceMap.js","./getHostComponentFromComposite":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\getHostComponentFromComposite.js","./reactProdInvariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\flattenChildren.js":[function(require,module,exports){
+},{"./ReactCurrentOwner":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactCurrentOwner.js","./ReactDOMComponentTree":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactDOMComponentTree.js","./ReactInstanceMap":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactInstanceMap.js","./getHostComponentFromComposite":"D:\\React\\videoport\\node_modules\\react\\lib\\getHostComponentFromComposite.js","./reactProdInvariant":"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\flattenChildren.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -47214,7 +47672,7 @@ function flattenChildren(children, selfDebugID) {
 module.exports = flattenChildren;
 }).call(this,require('_process'))
 
-},{"./KeyEscapeUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\KeyEscapeUtils.js","./ReactComponentTreeHook":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactComponentTreeHook.js","./traverseAllChildren":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\traverseAllChildren.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\forEachAccumulated.js":[function(require,module,exports){
+},{"./KeyEscapeUtils":"D:\\React\\videoport\\node_modules\\react\\lib\\KeyEscapeUtils.js","./ReactComponentTreeHook":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactComponentTreeHook.js","./traverseAllChildren":"D:\\React\\videoport\\node_modules\\react\\lib\\traverseAllChildren.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\forEachAccumulated.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -47246,7 +47704,7 @@ function forEachAccumulated(arr, cb, scope) {
 }
 
 module.exports = forEachAccumulated;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\getEventCharCode.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\react\\lib\\getEventCharCode.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -47297,7 +47755,7 @@ function getEventCharCode(nativeEvent) {
 }
 
 module.exports = getEventCharCode;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\getEventKey.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\react\\lib\\getEventKey.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -47400,7 +47858,7 @@ function getEventKey(nativeEvent) {
 }
 
 module.exports = getEventKey;
-},{"./getEventCharCode":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\getEventCharCode.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\getEventModifierState.js":[function(require,module,exports){
+},{"./getEventCharCode":"D:\\React\\videoport\\node_modules\\react\\lib\\getEventCharCode.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\getEventModifierState.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -47444,7 +47902,7 @@ function getEventModifierState(nativeEvent) {
 }
 
 module.exports = getEventModifierState;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\getEventTarget.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\react\\lib\\getEventTarget.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -47480,7 +47938,7 @@ function getEventTarget(nativeEvent) {
 }
 
 module.exports = getEventTarget;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\getHostComponentFromComposite.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\react\\lib\\getHostComponentFromComposite.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -47511,7 +47969,7 @@ function getHostComponentFromComposite(inst) {
 }
 
 module.exports = getHostComponentFromComposite;
-},{"./ReactNodeTypes":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactNodeTypes.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\getIteratorFn.js":[function(require,module,exports){
+},{"./ReactNodeTypes":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactNodeTypes.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\getIteratorFn.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -47553,7 +48011,7 @@ function getIteratorFn(maybeIterable) {
 }
 
 module.exports = getIteratorFn;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\getNodeForCharacterOffset.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\react\\lib\\getNodeForCharacterOffset.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -47628,7 +48086,7 @@ function getNodeForCharacterOffset(root, offset) {
 }
 
 module.exports = getNodeForCharacterOffset;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\getTextContentAccessor.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\react\\lib\\getTextContentAccessor.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -47662,7 +48120,7 @@ function getTextContentAccessor() {
 }
 
 module.exports = getTextContentAccessor;
-},{"fbjs/lib/ExecutionEnvironment":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\getVendorPrefixedEventName.js":[function(require,module,exports){
+},{"fbjs/lib/ExecutionEnvironment":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\getVendorPrefixedEventName.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -47764,7 +48222,7 @@ function getVendorPrefixedEventName(eventName) {
 }
 
 module.exports = getVendorPrefixedEventName;
-},{"fbjs/lib/ExecutionEnvironment":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\instantiateReactComponent.js":[function(require,module,exports){
+},{"fbjs/lib/ExecutionEnvironment":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\instantiateReactComponent.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -47887,7 +48345,7 @@ function instantiateReactComponent(node, shouldHaveDebugID) {
 module.exports = instantiateReactComponent;
 }).call(this,require('_process'))
 
-},{"./ReactCompositeComponent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactCompositeComponent.js","./ReactEmptyComponent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactEmptyComponent.js","./ReactHostComponent":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactHostComponent.js","./reactProdInvariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js","object-assign":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\node_modules\\object-assign\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\isEventSupported.js":[function(require,module,exports){
+},{"./ReactCompositeComponent":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactCompositeComponent.js","./ReactEmptyComponent":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactEmptyComponent.js","./ReactHostComponent":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactHostComponent.js","./reactProdInvariant":"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js","object-assign":"D:\\React\\videoport\\node_modules\\object-assign\\index.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\isEventSupported.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -47948,7 +48406,7 @@ function isEventSupported(eventNameSuffix, capture) {
 }
 
 module.exports = isEventSupported;
-},{"fbjs/lib/ExecutionEnvironment":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\isTextInputElement.js":[function(require,module,exports){
+},{"fbjs/lib/ExecutionEnvironment":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\isTextInputElement.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -48000,7 +48458,7 @@ function isTextInputElement(elem) {
 }
 
 module.exports = isTextInputElement;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\onlyChild.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\react\\lib\\onlyChild.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -48042,7 +48500,7 @@ function onlyChild(children) {
 module.exports = onlyChild;
 }).call(this,require('_process'))
 
-},{"./ReactElement":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactElement.js","./reactProdInvariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\quoteAttributeValueForBrowser.js":[function(require,module,exports){
+},{"./ReactElement":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactElement.js","./reactProdInvariant":"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\quoteAttributeValueForBrowser.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -48069,7 +48527,7 @@ function quoteAttributeValueForBrowser(value) {
 }
 
 module.exports = quoteAttributeValueForBrowser;
-},{"./escapeTextContentForBrowser":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\escapeTextContentForBrowser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js":[function(require,module,exports){
+},{"./escapeTextContentForBrowser":"D:\\React\\videoport\\node_modules\\react\\lib\\escapeTextContentForBrowser.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js":[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -48109,7 +48567,7 @@ function reactProdInvariant(code) {
 }
 
 module.exports = reactProdInvariant;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\renderSubtreeIntoContainer.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\react\\lib\\renderSubtreeIntoContainer.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -48126,7 +48584,7 @@ module.exports = reactProdInvariant;
 var ReactMount = require('./ReactMount');
 
 module.exports = ReactMount.renderSubtreeIntoContainer;
-},{"./ReactMount":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactMount.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\setInnerHTML.js":[function(require,module,exports){
+},{"./ReactMount":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactMount.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\setInnerHTML.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -48166,9 +48624,9 @@ var setInnerHTML = createMicrosoftUnsafeLocalFunction(function (node, html) {
   if (node.namespaceURI === DOMNamespaces.svg && !('innerHTML' in node)) {
     reusableSVGContainer = reusableSVGContainer || document.createElement('div');
     reusableSVGContainer.innerHTML = '<svg>' + html + '</svg>';
-    var newNodes = reusableSVGContainer.firstChild.childNodes;
-    for (var i = 0; i < newNodes.length; i++) {
-      node.appendChild(newNodes[i]);
+    var svgNode = reusableSVGContainer.firstChild;
+    while (svgNode.firstChild) {
+      node.appendChild(svgNode.firstChild);
     }
   } else {
     node.innerHTML = html;
@@ -48225,7 +48683,7 @@ if (ExecutionEnvironment.canUseDOM) {
 }
 
 module.exports = setInnerHTML;
-},{"./DOMNamespaces":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\DOMNamespaces.js","./createMicrosoftUnsafeLocalFunction":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\createMicrosoftUnsafeLocalFunction.js","fbjs/lib/ExecutionEnvironment":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\setTextContent.js":[function(require,module,exports){
+},{"./DOMNamespaces":"D:\\React\\videoport\\node_modules\\react\\lib\\DOMNamespaces.js","./createMicrosoftUnsafeLocalFunction":"D:\\React\\videoport\\node_modules\\react\\lib\\createMicrosoftUnsafeLocalFunction.js","fbjs/lib/ExecutionEnvironment":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\setTextContent.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -48274,7 +48732,7 @@ if (ExecutionEnvironment.canUseDOM) {
 }
 
 module.exports = setTextContent;
-},{"./escapeTextContentForBrowser":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\escapeTextContentForBrowser.js","./setInnerHTML":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\setInnerHTML.js","fbjs/lib/ExecutionEnvironment":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\shouldUpdateReactComponent.js":[function(require,module,exports){
+},{"./escapeTextContentForBrowser":"D:\\React\\videoport\\node_modules\\react\\lib\\escapeTextContentForBrowser.js","./setInnerHTML":"D:\\React\\videoport\\node_modules\\react\\lib\\setInnerHTML.js","fbjs/lib/ExecutionEnvironment":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\ExecutionEnvironment.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\shouldUpdateReactComponent.js":[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -48317,7 +48775,7 @@ function shouldUpdateReactComponent(prevElement, nextElement) {
 }
 
 module.exports = shouldUpdateReactComponent;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\traverseAllChildren.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\react\\lib\\traverseAllChildren.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -48488,7 +48946,7 @@ function traverseAllChildren(children, callback, traverseContext) {
 module.exports = traverseAllChildren;
 }).call(this,require('_process'))
 
-},{"./KeyEscapeUtils":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\KeyEscapeUtils.js","./ReactCurrentOwner":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactCurrentOwner.js","./ReactElement":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\ReactElement.js","./getIteratorFn":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\getIteratorFn.js","./reactProdInvariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/invariant":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\validateDOMNesting.js":[function(require,module,exports){
+},{"./KeyEscapeUtils":"D:\\React\\videoport\\node_modules\\react\\lib\\KeyEscapeUtils.js","./ReactCurrentOwner":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactCurrentOwner.js","./ReactElement":"D:\\React\\videoport\\node_modules\\react\\lib\\ReactElement.js","./getIteratorFn":"D:\\React\\videoport\\node_modules\\react\\lib\\getIteratorFn.js","./reactProdInvariant":"D:\\React\\videoport\\node_modules\\react\\lib\\reactProdInvariant.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/invariant":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\invariant.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js"}],"D:\\React\\videoport\\node_modules\\react\\lib\\validateDOMNesting.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2015-present, Facebook, Inc.
@@ -48779,10 +49237,15 @@ if (process.env.NODE_ENV !== 'production') {
 
   var didWarn = {};
 
-  validateDOMNesting = function (childTag, childInstance, ancestorInfo) {
+  validateDOMNesting = function (childTag, childText, childInstance, ancestorInfo) {
     ancestorInfo = ancestorInfo || emptyAncestorInfo;
     var parentInfo = ancestorInfo.current;
     var parentTag = parentInfo && parentInfo.tag;
+
+    if (childText != null) {
+      process.env.NODE_ENV !== 'production' ? warning(childTag == null, 'validateDOMNesting: when childText is passed, childTag should be null') : void 0;
+      childTag = '#text';
+    }
 
     var invalidParent = isTagValidWithParent(childTag, parentTag) ? null : parentInfo;
     var invalidAncestor = invalidParent ? null : findInvalidAncestorForTag(childTag, ancestorInfo);
@@ -48831,7 +49294,15 @@ if (process.env.NODE_ENV !== 'production') {
       didWarn[warnKey] = true;
 
       var tagDisplayName = childTag;
-      if (childTag !== '#text') {
+      var whitespaceInfo = '';
+      if (childTag === '#text') {
+        if (/\S/.test(childText)) {
+          tagDisplayName = 'Text nodes';
+        } else {
+          tagDisplayName = 'Whitespace text nodes';
+          whitespaceInfo = ' Make sure you don\'t have any extra whitespace between tags on ' + 'each line of your source code.';
+        }
+      } else {
         tagDisplayName = '<' + childTag + '>';
       }
 
@@ -48840,7 +49311,7 @@ if (process.env.NODE_ENV !== 'production') {
         if (ancestorTag === 'table' && childTag === 'tr') {
           info += ' Add a <tbody> to your code to match the DOM tree generated by ' + 'the browser.';
         }
-        process.env.NODE_ENV !== 'production' ? warning(false, 'validateDOMNesting(...): %s cannot appear as a child of <%s>. ' + 'See %s.%s', tagDisplayName, ancestorTag, ownerInfo, info) : void 0;
+        process.env.NODE_ENV !== 'production' ? warning(false, 'validateDOMNesting(...): %s cannot appear as a child of <%s>.%s ' + 'See %s.%s', tagDisplayName, ancestorTag, whitespaceInfo, ownerInfo, info) : void 0;
       } else {
         process.env.NODE_ENV !== 'production' ? warning(false, 'validateDOMNesting(...): %s cannot appear as a descendant of ' + '<%s>. See %s.', tagDisplayName, ancestorTag, ownerInfo) : void 0;
       }
@@ -48861,97 +49332,12 @@ if (process.env.NODE_ENV !== 'production') {
 module.exports = validateDOMNesting;
 }).call(this,require('_process'))
 
-},{"_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","fbjs/lib/emptyFunction":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\emptyFunction.js","fbjs/lib/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\fbjs\\lib\\warning.js","object-assign":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\node_modules\\object-assign\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\node_modules\\object-assign\\index.js":[function(require,module,exports){
-'use strict';
-/* eslint-disable no-unused-vars */
-var hasOwnProperty = Object.prototype.hasOwnProperty;
-var propIsEnumerable = Object.prototype.propertyIsEnumerable;
-
-function toObject(val) {
-	if (val === null || val === undefined) {
-		throw new TypeError('Object.assign cannot be called with null or undefined');
-	}
-
-	return Object(val);
-}
-
-function shouldUseNative() {
-	try {
-		if (!Object.assign) {
-			return false;
-		}
-
-		// Detect buggy property enumeration order in older V8 versions.
-
-		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
-		var test1 = new String('abc');  // eslint-disable-line
-		test1[5] = 'de';
-		if (Object.getOwnPropertyNames(test1)[0] === '5') {
-			return false;
-		}
-
-		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
-		var test2 = {};
-		for (var i = 0; i < 10; i++) {
-			test2['_' + String.fromCharCode(i)] = i;
-		}
-		var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
-			return test2[n];
-		});
-		if (order2.join('') !== '0123456789') {
-			return false;
-		}
-
-		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
-		var test3 = {};
-		'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
-			test3[letter] = letter;
-		});
-		if (Object.keys(Object.assign({}, test3)).join('') !==
-				'abcdefghijklmnopqrst') {
-			return false;
-		}
-
-		return true;
-	} catch (e) {
-		// We don't expect any of the above to throw, but better to be safe.
-		return false;
-	}
-}
-
-module.exports = shouldUseNative() ? Object.assign : function (target, source) {
-	var from;
-	var to = toObject(target);
-	var symbols;
-
-	for (var s = 1; s < arguments.length; s++) {
-		from = Object(arguments[s]);
-
-		for (var key in from) {
-			if (hasOwnProperty.call(from, key)) {
-				to[key] = from[key];
-			}
-		}
-
-		if (Object.getOwnPropertySymbols) {
-			symbols = Object.getOwnPropertySymbols(from);
-			for (var i = 0; i < symbols.length; i++) {
-				if (propIsEnumerable.call(from, symbols[i])) {
-					to[symbols[i]] = from[symbols[i]];
-				}
-			}
-		}
-	}
-
-	return to;
-};
-
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\react.js":[function(require,module,exports){
+},{"_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","fbjs/lib/emptyFunction":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\emptyFunction.js","fbjs/lib/warning":"D:\\React\\videoport\\node_modules\\fbjs\\lib\\warning.js","object-assign":"D:\\React\\videoport\\node_modules\\object-assign\\index.js"}],"D:\\React\\videoport\\node_modules\\react\\react.js":[function(require,module,exports){
 'use strict';
 
 module.exports = require('./lib/React');
 
-},{"./lib/React":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\react\\lib\\React.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\redux-thunk\\lib\\index.js":[function(require,module,exports){
+},{"./lib/React":"D:\\React\\videoport\\node_modules\\react\\lib\\React.js"}],"D:\\React\\videoport\\node_modules\\redux-thunk\\lib\\index.js":[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -48975,7 +49361,7 @@ var thunk = createThunkMiddleware();
 thunk.withExtraArgument = createThunkMiddleware;
 
 exports['default'] = thunk;
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\redux\\lib\\applyMiddleware.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\redux\\lib\\applyMiddleware.js":[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -49034,7 +49420,7 @@ function applyMiddleware() {
     };
   };
 }
-},{"./compose":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\redux\\lib\\compose.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\redux\\lib\\bindActionCreators.js":[function(require,module,exports){
+},{"./compose":"D:\\React\\videoport\\node_modules\\redux\\lib\\compose.js"}],"D:\\React\\videoport\\node_modules\\redux\\lib\\bindActionCreators.js":[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -49086,7 +49472,7 @@ function bindActionCreators(actionCreators, dispatch) {
   }
   return boundActionCreators;
 }
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\redux\\lib\\combineReducers.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\redux\\lib\\combineReducers.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -49232,7 +49618,7 @@ function combineReducers(reducers) {
 }
 }).call(this,require('_process'))
 
-},{"./createStore":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\redux\\lib\\createStore.js","./utils/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\redux\\lib\\utils\\warning.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js","lodash/isPlainObject":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\isPlainObject.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\redux\\lib\\compose.js":[function(require,module,exports){
+},{"./createStore":"D:\\React\\videoport\\node_modules\\redux\\lib\\createStore.js","./utils/warning":"D:\\React\\videoport\\node_modules\\redux\\lib\\utils\\warning.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js","lodash/isPlainObject":"D:\\React\\videoport\\node_modules\\lodash\\isPlainObject.js"}],"D:\\React\\videoport\\node_modules\\redux\\lib\\compose.js":[function(require,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -49271,7 +49657,7 @@ function compose() {
     }, last.apply(undefined, arguments));
   };
 }
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\redux\\lib\\createStore.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\redux\\lib\\createStore.js":[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -49533,7 +49919,7 @@ function createStore(reducer, preloadedState, enhancer) {
     replaceReducer: replaceReducer
   }, _ref2[_symbolObservable2['default']] = observable, _ref2;
 }
-},{"lodash/isPlainObject":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\lodash\\isPlainObject.js","symbol-observable":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\symbol-observable\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\redux\\lib\\index.js":[function(require,module,exports){
+},{"lodash/isPlainObject":"D:\\React\\videoport\\node_modules\\lodash\\isPlainObject.js","symbol-observable":"D:\\React\\videoport\\node_modules\\symbol-observable\\index.js"}],"D:\\React\\videoport\\node_modules\\redux\\lib\\index.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -49583,7 +49969,7 @@ exports.applyMiddleware = _applyMiddleware2['default'];
 exports.compose = _compose2['default'];
 }).call(this,require('_process'))
 
-},{"./applyMiddleware":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\redux\\lib\\applyMiddleware.js","./bindActionCreators":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\redux\\lib\\bindActionCreators.js","./combineReducers":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\redux\\lib\\combineReducers.js","./compose":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\redux\\lib\\compose.js","./createStore":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\redux\\lib\\createStore.js","./utils/warning":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\redux\\lib\\utils\\warning.js","_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\redux\\lib\\utils\\warning.js":[function(require,module,exports){
+},{"./applyMiddleware":"D:\\React\\videoport\\node_modules\\redux\\lib\\applyMiddleware.js","./bindActionCreators":"D:\\React\\videoport\\node_modules\\redux\\lib\\bindActionCreators.js","./combineReducers":"D:\\React\\videoport\\node_modules\\redux\\lib\\combineReducers.js","./compose":"D:\\React\\videoport\\node_modules\\redux\\lib\\compose.js","./createStore":"D:\\React\\videoport\\node_modules\\redux\\lib\\createStore.js","./utils/warning":"D:\\React\\videoport\\node_modules\\redux\\lib\\utils\\warning.js","_process":"D:\\React\\videoport\\node_modules\\process\\browser.js"}],"D:\\React\\videoport\\node_modules\\redux\\lib\\utils\\warning.js":[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -49609,7 +49995,7 @@ function warning(message) {
   } catch (e) {}
   /* eslint-enable no-empty */
 }
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\strict-uri-encode\\index.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\strict-uri-encode\\index.js":[function(require,module,exports){
 'use strict';
 module.exports = function (str) {
 	return encodeURIComponent(str).replace(/[!'()*]/g, function (c) {
@@ -49617,10 +50003,10 @@ module.exports = function (str) {
 	});
 };
 
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\symbol-observable\\index.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\symbol-observable\\index.js":[function(require,module,exports){
 module.exports = require('./lib/index');
 
-},{"./lib/index":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\symbol-observable\\lib\\index.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\symbol-observable\\lib\\index.js":[function(require,module,exports){
+},{"./lib/index":"D:\\React\\videoport\\node_modules\\symbol-observable\\lib\\index.js"}],"D:\\React\\videoport\\node_modules\\symbol-observable\\lib\\index.js":[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -49646,7 +50032,7 @@ var result = (0, _ponyfill2['default'])(root);
 exports['default'] = result;
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"./ponyfill":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\symbol-observable\\lib\\ponyfill.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\symbol-observable\\lib\\ponyfill.js":[function(require,module,exports){
+},{"./ponyfill":"D:\\React\\videoport\\node_modules\\symbol-observable\\lib\\ponyfill.js"}],"D:\\React\\videoport\\node_modules\\symbol-observable\\lib\\ponyfill.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -49670,7 +50056,7 @@ function symbolObservablePonyfill(root) {
 
 	return result;
 };
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\index.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\validator\\index.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -49957,7 +50343,7 @@ var validator = {
 
 exports.default = validator;
 module.exports = exports['default'];
-},{"./lib/blacklist":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\blacklist.js","./lib/contains":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\contains.js","./lib/equals":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\equals.js","./lib/escape":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\escape.js","./lib/isAfter":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isAfter.js","./lib/isAlpha":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isAlpha.js","./lib/isAlphanumeric":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isAlphanumeric.js","./lib/isAscii":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isAscii.js","./lib/isBase64":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isBase64.js","./lib/isBefore":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isBefore.js","./lib/isBoolean":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isBoolean.js","./lib/isByteLength":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isByteLength.js","./lib/isCreditCard":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isCreditCard.js","./lib/isCurrency":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isCurrency.js","./lib/isDataURI":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isDataURI.js","./lib/isDate":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isDate.js","./lib/isDecimal":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isDecimal.js","./lib/isDivisibleBy":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isDivisibleBy.js","./lib/isEmail":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isEmail.js","./lib/isFQDN":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isFQDN.js","./lib/isFloat":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isFloat.js","./lib/isFullWidth":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isFullWidth.js","./lib/isHalfWidth":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isHalfWidth.js","./lib/isHexColor":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isHexColor.js","./lib/isHexadecimal":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isHexadecimal.js","./lib/isIP":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isIP.js","./lib/isISBN":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isISBN.js","./lib/isISIN":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isISIN.js","./lib/isISO8601":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isISO8601.js","./lib/isIn":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isIn.js","./lib/isInt":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isInt.js","./lib/isJSON":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isJSON.js","./lib/isLength":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isLength.js","./lib/isLowercase":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isLowercase.js","./lib/isMACAddress":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isMACAddress.js","./lib/isMD5":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isMD5.js","./lib/isMobilePhone":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isMobilePhone.js","./lib/isMongoId":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isMongoId.js","./lib/isMultibyte":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isMultibyte.js","./lib/isNull":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isNull.js","./lib/isNumeric":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isNumeric.js","./lib/isSurrogatePair":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isSurrogatePair.js","./lib/isURL":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isURL.js","./lib/isUUID":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isUUID.js","./lib/isUppercase":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isUppercase.js","./lib/isVariableWidth":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isVariableWidth.js","./lib/isWhitelisted":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isWhitelisted.js","./lib/ltrim":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\ltrim.js","./lib/matches":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\matches.js","./lib/normalizeEmail":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\normalizeEmail.js","./lib/rtrim":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\rtrim.js","./lib/stripLow":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\stripLow.js","./lib/toBoolean":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\toBoolean.js","./lib/toDate":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\toDate.js","./lib/toFloat":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\toFloat.js","./lib/toInt":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\toInt.js","./lib/trim":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\trim.js","./lib/unescape":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\unescape.js","./lib/util/toString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\toString.js","./lib/whitelist":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\whitelist.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\alpha.js":[function(require,module,exports){
+},{"./lib/blacklist":"D:\\React\\videoport\\node_modules\\validator\\lib\\blacklist.js","./lib/contains":"D:\\React\\videoport\\node_modules\\validator\\lib\\contains.js","./lib/equals":"D:\\React\\videoport\\node_modules\\validator\\lib\\equals.js","./lib/escape":"D:\\React\\videoport\\node_modules\\validator\\lib\\escape.js","./lib/isAfter":"D:\\React\\videoport\\node_modules\\validator\\lib\\isAfter.js","./lib/isAlpha":"D:\\React\\videoport\\node_modules\\validator\\lib\\isAlpha.js","./lib/isAlphanumeric":"D:\\React\\videoport\\node_modules\\validator\\lib\\isAlphanumeric.js","./lib/isAscii":"D:\\React\\videoport\\node_modules\\validator\\lib\\isAscii.js","./lib/isBase64":"D:\\React\\videoport\\node_modules\\validator\\lib\\isBase64.js","./lib/isBefore":"D:\\React\\videoport\\node_modules\\validator\\lib\\isBefore.js","./lib/isBoolean":"D:\\React\\videoport\\node_modules\\validator\\lib\\isBoolean.js","./lib/isByteLength":"D:\\React\\videoport\\node_modules\\validator\\lib\\isByteLength.js","./lib/isCreditCard":"D:\\React\\videoport\\node_modules\\validator\\lib\\isCreditCard.js","./lib/isCurrency":"D:\\React\\videoport\\node_modules\\validator\\lib\\isCurrency.js","./lib/isDataURI":"D:\\React\\videoport\\node_modules\\validator\\lib\\isDataURI.js","./lib/isDate":"D:\\React\\videoport\\node_modules\\validator\\lib\\isDate.js","./lib/isDecimal":"D:\\React\\videoport\\node_modules\\validator\\lib\\isDecimal.js","./lib/isDivisibleBy":"D:\\React\\videoport\\node_modules\\validator\\lib\\isDivisibleBy.js","./lib/isEmail":"D:\\React\\videoport\\node_modules\\validator\\lib\\isEmail.js","./lib/isFQDN":"D:\\React\\videoport\\node_modules\\validator\\lib\\isFQDN.js","./lib/isFloat":"D:\\React\\videoport\\node_modules\\validator\\lib\\isFloat.js","./lib/isFullWidth":"D:\\React\\videoport\\node_modules\\validator\\lib\\isFullWidth.js","./lib/isHalfWidth":"D:\\React\\videoport\\node_modules\\validator\\lib\\isHalfWidth.js","./lib/isHexColor":"D:\\React\\videoport\\node_modules\\validator\\lib\\isHexColor.js","./lib/isHexadecimal":"D:\\React\\videoport\\node_modules\\validator\\lib\\isHexadecimal.js","./lib/isIP":"D:\\React\\videoport\\node_modules\\validator\\lib\\isIP.js","./lib/isISBN":"D:\\React\\videoport\\node_modules\\validator\\lib\\isISBN.js","./lib/isISIN":"D:\\React\\videoport\\node_modules\\validator\\lib\\isISIN.js","./lib/isISO8601":"D:\\React\\videoport\\node_modules\\validator\\lib\\isISO8601.js","./lib/isIn":"D:\\React\\videoport\\node_modules\\validator\\lib\\isIn.js","./lib/isInt":"D:\\React\\videoport\\node_modules\\validator\\lib\\isInt.js","./lib/isJSON":"D:\\React\\videoport\\node_modules\\validator\\lib\\isJSON.js","./lib/isLength":"D:\\React\\videoport\\node_modules\\validator\\lib\\isLength.js","./lib/isLowercase":"D:\\React\\videoport\\node_modules\\validator\\lib\\isLowercase.js","./lib/isMACAddress":"D:\\React\\videoport\\node_modules\\validator\\lib\\isMACAddress.js","./lib/isMD5":"D:\\React\\videoport\\node_modules\\validator\\lib\\isMD5.js","./lib/isMobilePhone":"D:\\React\\videoport\\node_modules\\validator\\lib\\isMobilePhone.js","./lib/isMongoId":"D:\\React\\videoport\\node_modules\\validator\\lib\\isMongoId.js","./lib/isMultibyte":"D:\\React\\videoport\\node_modules\\validator\\lib\\isMultibyte.js","./lib/isNull":"D:\\React\\videoport\\node_modules\\validator\\lib\\isNull.js","./lib/isNumeric":"D:\\React\\videoport\\node_modules\\validator\\lib\\isNumeric.js","./lib/isSurrogatePair":"D:\\React\\videoport\\node_modules\\validator\\lib\\isSurrogatePair.js","./lib/isURL":"D:\\React\\videoport\\node_modules\\validator\\lib\\isURL.js","./lib/isUUID":"D:\\React\\videoport\\node_modules\\validator\\lib\\isUUID.js","./lib/isUppercase":"D:\\React\\videoport\\node_modules\\validator\\lib\\isUppercase.js","./lib/isVariableWidth":"D:\\React\\videoport\\node_modules\\validator\\lib\\isVariableWidth.js","./lib/isWhitelisted":"D:\\React\\videoport\\node_modules\\validator\\lib\\isWhitelisted.js","./lib/ltrim":"D:\\React\\videoport\\node_modules\\validator\\lib\\ltrim.js","./lib/matches":"D:\\React\\videoport\\node_modules\\validator\\lib\\matches.js","./lib/normalizeEmail":"D:\\React\\videoport\\node_modules\\validator\\lib\\normalizeEmail.js","./lib/rtrim":"D:\\React\\videoport\\node_modules\\validator\\lib\\rtrim.js","./lib/stripLow":"D:\\React\\videoport\\node_modules\\validator\\lib\\stripLow.js","./lib/toBoolean":"D:\\React\\videoport\\node_modules\\validator\\lib\\toBoolean.js","./lib/toDate":"D:\\React\\videoport\\node_modules\\validator\\lib\\toDate.js","./lib/toFloat":"D:\\React\\videoport\\node_modules\\validator\\lib\\toFloat.js","./lib/toInt":"D:\\React\\videoport\\node_modules\\validator\\lib\\toInt.js","./lib/trim":"D:\\React\\videoport\\node_modules\\validator\\lib\\trim.js","./lib/unescape":"D:\\React\\videoport\\node_modules\\validator\\lib\\unescape.js","./lib/util/toString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\toString.js","./lib/whitelist":"D:\\React\\videoport\\node_modules\\validator\\lib\\whitelist.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\alpha.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50016,7 +50402,7 @@ for (var _locale, _i = 0; _i < arabicLocales.length; _i++) {
   alpha[_locale] = alpha.ar;
   alphanumeric[_locale] = alphanumeric.ar;
 }
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\blacklist.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\validator\\lib\\blacklist.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50035,7 +50421,7 @@ function blacklist(str, chars) {
   return str.replace(new RegExp('[' + chars + ']+', 'g'), '');
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\contains.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\contains.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50058,7 +50444,7 @@ function contains(str, elem) {
   return str.indexOf((0, _toString2.default)(elem)) >= 0;
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js","./util/toString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\toString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\equals.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js","./util/toString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\toString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\equals.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50077,7 +50463,7 @@ function equals(str, comparison) {
   return str === comparison;
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\escape.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\escape.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50096,7 +50482,7 @@ function escape(str) {
       return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#x27;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\//g, '&#x2F;').replace(/`/g, '&#96;');
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isAfter.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isAfter.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50123,7 +50509,7 @@ function isAfter(str) {
   return !!(original && comparison && original > comparison);
 }
 module.exports = exports['default'];
-},{"./toDate":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\toDate.js","./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isAlpha.js":[function(require,module,exports){
+},{"./toDate":"D:\\React\\videoport\\node_modules\\validator\\lib\\toDate.js","./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isAlpha.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50149,7 +50535,7 @@ function isAlpha(str) {
   throw new Error('Invalid locale \'' + locale + '\'');
 }
 module.exports = exports['default'];
-},{"./alpha":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\alpha.js","./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isAlphanumeric.js":[function(require,module,exports){
+},{"./alpha":"D:\\React\\videoport\\node_modules\\validator\\lib\\alpha.js","./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isAlphanumeric.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50175,7 +50561,7 @@ function isAlphanumeric(str) {
   throw new Error('Invalid locale \'' + locale + '\'');
 }
 module.exports = exports['default'];
-},{"./alpha":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\alpha.js","./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isAscii.js":[function(require,module,exports){
+},{"./alpha":"D:\\React\\videoport\\node_modules\\validator\\lib\\alpha.js","./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isAscii.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50198,7 +50584,7 @@ function isAscii(str) {
   return ascii.test(str);
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isBase64.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isBase64.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50224,7 +50610,7 @@ function isBase64(str) {
   return firstPaddingChar === -1 || firstPaddingChar === len - 1 || firstPaddingChar === len - 2 && str[len - 1] === '=';
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isBefore.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isBefore.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50251,7 +50637,7 @@ function isBefore(str) {
   return !!(original && comparison && original < comparison);
 }
 module.exports = exports['default'];
-},{"./toDate":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\toDate.js","./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isBoolean.js":[function(require,module,exports){
+},{"./toDate":"D:\\React\\videoport\\node_modules\\validator\\lib\\toDate.js","./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isBoolean.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50270,7 +50656,7 @@ function isBoolean(str) {
   return ['true', 'false', '1', '0'].indexOf(str) >= 0;
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isByteLength.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isByteLength.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50304,7 +50690,7 @@ function isByteLength(str, options) {
   return len >= min && (typeof max === 'undefined' || len <= max);
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isCreditCard.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isCreditCard.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50350,7 +50736,7 @@ function isCreditCard(str) {
   return !!(sum % 10 === 0 ? sanitized : false);
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isCurrency.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isCurrency.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50439,7 +50825,7 @@ function isCurrency(str, options) {
   return currencyRegex(options).test(str);
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js","./util/merge":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\merge.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isDataURI.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js","./util/merge":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\merge.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isDataURI.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50460,7 +50846,7 @@ function isDataURI(str) {
   return dataURI.test(str);
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isDate.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isDate.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50561,7 +50947,7 @@ function isDate(str) {
   return false;
 }
 module.exports = exports['default'];
-},{"./isISO8601":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isISO8601.js","./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isDecimal.js":[function(require,module,exports){
+},{"./isISO8601":"D:\\React\\videoport\\node_modules\\validator\\lib\\isISO8601.js","./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isDecimal.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50582,7 +50968,7 @@ function isDecimal(str) {
   return str !== '' && decimal.test(str);
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isDivisibleBy.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isDivisibleBy.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50605,7 +50991,7 @@ function isDivisibleBy(str, num) {
   return (0, _toFloat2.default)(str) % parseInt(num, 10) === 0;
 }
 module.exports = exports['default'];
-},{"./toFloat":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\toFloat.js","./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isEmail.js":[function(require,module,exports){
+},{"./toFloat":"D:\\React\\videoport\\node_modules\\validator\\lib\\toFloat.js","./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isEmail.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50692,7 +51078,7 @@ function isEmail(str, options) {
   return true;
 }
 module.exports = exports['default'];
-},{"./isByteLength":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isByteLength.js","./isFQDN":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isFQDN.js","./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js","./util/merge":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\merge.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isFQDN.js":[function(require,module,exports){
+},{"./isByteLength":"D:\\React\\videoport\\node_modules\\validator\\lib\\isByteLength.js","./isFQDN":"D:\\React\\videoport\\node_modules\\validator\\lib\\isFQDN.js","./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js","./util/merge":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\merge.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isFQDN.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50750,7 +51136,7 @@ function isFDQN(str, options) {
   return true;
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js","./util/merge":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\merge.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isFloat.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js","./util/merge":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\merge.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isFloat.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50775,7 +51161,7 @@ function isFloat(str, options) {
   return float.test(str) && (!options.hasOwnProperty('min') || str >= options.min) && (!options.hasOwnProperty('max') || str <= options.max);
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isFullWidth.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isFullWidth.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50796,7 +51182,7 @@ function isFullWidth(str) {
   (0, _assertString2.default)(str);
   return fullWidth.test(str);
 }
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isHalfWidth.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isHalfWidth.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50817,7 +51203,7 @@ function isHalfWidth(str) {
   (0, _assertString2.default)(str);
   return halfWidth.test(str);
 }
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isHexColor.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isHexColor.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50838,7 +51224,7 @@ function isHexColor(str) {
   return hexcolor.test(str);
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isHexadecimal.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isHexadecimal.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50859,7 +51245,7 @@ function isHexadecimal(str) {
   return hexadecimal.test(str);
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isIP.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isIP.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50941,7 +51327,7 @@ function isIP(str) {
   return false;
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isISBN.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isISBN.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50999,7 +51385,7 @@ function isISBN(str) {
   return false;
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isISIN.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isISIN.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -51048,7 +51434,7 @@ function isISIN(str) {
   return parseInt(str.substr(str.length - 1), 10) === (10000 - sum) % 10;
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isISO8601.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isISO8601.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -51071,7 +51457,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // from http://goo.gl/0ejHHW
 var iso8601 = exports.iso8601 = /^([\+-]?\d{4}(?!\d{2}\b))((-?)((0[1-9]|1[0-2])(\3([12]\d|0[1-9]|3[01]))?|W([0-4]\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\d|[12]\d{2}|3([0-5]\d|6[1-6])))([T\s]((([01]\d|2[0-3])((:?)[0-5]\d)?|24:?00)([\.,]\d+(?!:))?)?(\17[0-5]\d([\.,]\d+)?)?([zZ]|([\+-])([01]\d|2[0-3]):?([0-5]\d)?)?)?)?$/;
 /* eslint-enable max-len */
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isIn.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isIn.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -51111,7 +51497,7 @@ function isIn(str, options) {
   return false;
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js","./util/toString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\toString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isInt.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js","./util/toString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\toString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isInt.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -51143,7 +51529,7 @@ function isInt(str, options) {
   return regex.test(str) && minCheckPassed && maxCheckPassed;
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isJSON.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isJSON.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -51169,7 +51555,7 @@ function isJSON(str) {
   return false;
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isLength.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isLength.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -51204,7 +51590,7 @@ function isLength(str, options) {
   return len >= min && (typeof max === 'undefined' || len <= max);
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isLowercase.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isLowercase.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -51223,7 +51609,7 @@ function isLowercase(str) {
   return str === str.toLowerCase();
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isMACAddress.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isMACAddress.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -51244,7 +51630,7 @@ function isMACAddress(str) {
   return macAddress.test(str);
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isMD5.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isMD5.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -51265,7 +51651,7 @@ function isMD5(str) {
   return md5.test(str);
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isMobilePhone.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isMobilePhone.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -51330,7 +51716,7 @@ function isMobilePhone(str, locale) {
   return false;
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isMongoId.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isMongoId.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -51353,7 +51739,7 @@ function isMongoId(str) {
   return (0, _isHexadecimal2.default)(str) && str.length === 24;
 }
 module.exports = exports['default'];
-},{"./isHexadecimal":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isHexadecimal.js","./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isMultibyte.js":[function(require,module,exports){
+},{"./isHexadecimal":"D:\\React\\videoport\\node_modules\\validator\\lib\\isHexadecimal.js","./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isMultibyte.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -51376,7 +51762,7 @@ function isMultibyte(str) {
   return multibyte.test(str);
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isNull.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isNull.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -51395,7 +51781,7 @@ function isNull(str) {
   return str.length === 0;
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isNumeric.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isNumeric.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -51416,7 +51802,7 @@ function isNumeric(str) {
   return numeric.test(str);
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isSurrogatePair.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isSurrogatePair.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -51437,7 +51823,7 @@ function isSurrogatePair(str) {
   return surrogatePair.test(str);
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isURL.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isURL.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -51580,7 +51966,7 @@ function isURL(url, options) {
   return true;
 }
 module.exports = exports['default'];
-},{"./isFQDN":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isFQDN.js","./isIP":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isIP.js","./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js","./util/merge":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\merge.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isUUID.js":[function(require,module,exports){
+},{"./isFQDN":"D:\\React\\videoport\\node_modules\\validator\\lib\\isFQDN.js","./isIP":"D:\\React\\videoport\\node_modules\\validator\\lib\\isIP.js","./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js","./util/merge":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\merge.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isUUID.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -51609,7 +51995,7 @@ function isUUID(str) {
   return pattern && pattern.test(str);
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isUppercase.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isUppercase.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -51628,7 +52014,7 @@ function isUppercase(str) {
   return str === str.toUpperCase();
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isVariableWidth.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isVariableWidth.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -51651,7 +52037,7 @@ function isVariableWidth(str) {
   return _isFullWidth.fullWidth.test(str) && _isHalfWidth.halfWidth.test(str);
 }
 module.exports = exports['default'];
-},{"./isFullWidth":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isFullWidth.js","./isHalfWidth":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isHalfWidth.js","./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isWhitelisted.js":[function(require,module,exports){
+},{"./isFullWidth":"D:\\React\\videoport\\node_modules\\validator\\lib\\isFullWidth.js","./isHalfWidth":"D:\\React\\videoport\\node_modules\\validator\\lib\\isHalfWidth.js","./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\isWhitelisted.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -51675,7 +52061,7 @@ function isWhitelisted(str, chars) {
   return true;
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\ltrim.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\ltrim.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -51695,7 +52081,7 @@ function ltrim(str, chars) {
   return str.replace(pattern, '');
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\matches.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\matches.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -51717,7 +52103,7 @@ function matches(str, pattern, modifiers) {
   return pattern.test(str);
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\normalizeEmail.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\normalizeEmail.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -51766,7 +52152,7 @@ function normalizeEmail(email, options) {
   return parts.join('@');
 }
 module.exports = exports['default'];
-},{"./isEmail":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\isEmail.js","./util/merge":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\merge.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\rtrim.js":[function(require,module,exports){
+},{"./isEmail":"D:\\React\\videoport\\node_modules\\validator\\lib\\isEmail.js","./util/merge":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\merge.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\rtrim.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -51792,7 +52178,7 @@ function rtrim(str, chars) {
   return idx < str.length ? str.substr(0, idx + 1) : str;
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\stripLow.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\stripLow.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -51816,7 +52202,7 @@ function stripLow(str, keep_new_lines) {
   return (0, _blacklist2.default)(str, chars);
 }
 module.exports = exports['default'];
-},{"./blacklist":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\blacklist.js","./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\toBoolean.js":[function(require,module,exports){
+},{"./blacklist":"D:\\React\\videoport\\node_modules\\validator\\lib\\blacklist.js","./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\toBoolean.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -51838,7 +52224,7 @@ function toBoolean(str, strict) {
   return str !== '0' && str !== 'false' && str !== '';
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\toDate.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\toDate.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -51858,7 +52244,7 @@ function toDate(date) {
   return !isNaN(date) ? new Date(date) : null;
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\toFloat.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\toFloat.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -51877,7 +52263,7 @@ function toFloat(str) {
   return parseFloat(str);
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\toInt.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\toInt.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -51896,7 +52282,7 @@ function toInt(str, radix) {
   return parseInt(str, radix || 10);
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\trim.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\trim.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -51918,7 +52304,7 @@ function trim(str, chars) {
   return (0, _rtrim2.default)((0, _ltrim2.default)(str, chars), chars);
 }
 module.exports = exports['default'];
-},{"./ltrim":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\ltrim.js","./rtrim":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\rtrim.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\unescape.js":[function(require,module,exports){
+},{"./ltrim":"D:\\React\\videoport\\node_modules\\validator\\lib\\ltrim.js","./rtrim":"D:\\React\\videoport\\node_modules\\validator\\lib\\rtrim.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\unescape.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -51937,7 +52323,7 @@ function unescape(str) {
       return str.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#x27;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&#x2F;/g, '/').replace(/&#96;/g, '`');
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -51950,7 +52336,7 @@ function assertString(input) {
   }
 }
 module.exports = exports['default'];
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\merge.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\merge.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -51969,7 +52355,7 @@ function merge() {
   return obj;
 }
 module.exports = exports['default'];
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\toString.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\toString.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -51992,7 +52378,7 @@ function toString(input) {
   return String(input);
 }
 module.exports = exports['default'];
-},{}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\whitelist.js":[function(require,module,exports){
+},{}],"D:\\React\\videoport\\node_modules\\validator\\lib\\whitelist.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -52011,7 +52397,7 @@ function whitelist(str, chars) {
   return str.replace(new RegExp('[^' + chars + ']+', 'g'), '');
 }
 module.exports = exports['default'];
-},{"./util/assertString":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\validator\\lib\\util\\assertString.js"}],"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\warning\\browser.js":[function(require,module,exports){
+},{"./util/assertString":"D:\\React\\videoport\\node_modules\\validator\\lib\\util\\assertString.js"}],"D:\\React\\videoport\\node_modules\\warning\\browser.js":[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-2015, Facebook, Inc.
@@ -52076,7 +52462,7 @@ module.exports = warning;
 
 }).call(this,require('_process'))
 
-},{"_process":"C:\\Users\\akira\\Desktop\\video_portal_api-master\\node_modules\\process\\browser.js"}]},{},["C:\\Users\\akira\\Desktop\\video_portal_api-master\\client\\src\\index.js"])
+},{"_process":"D:\\React\\videoport\\node_modules\\process\\browser.js"}]},{},["D:\\React\\videoport\\client\\src\\index.js"])
 
 
 //# sourceMappingURL=bundle.js.map

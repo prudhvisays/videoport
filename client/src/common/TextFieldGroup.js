@@ -8,7 +8,9 @@ const TextFieldGroup = ({ field, value, label, type, onChange}) => {
              value={value}
              type={type}
              name={field}
-             placeholder={label}>
+             placeholder={label}
+             className="txtInput"
+             >
              </input>
     </div>
   );

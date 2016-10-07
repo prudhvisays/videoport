@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from "react-router";
 import { connect } from "react-redux";
 import LoginModal from "../modals/LoginModal";
+import Login from '../Login/LoginPage'
 
 class Greetings extends React.Component {
   constructor(props){
@@ -37,18 +38,17 @@ logoColor(){
     const videoListUrl = `/videoslist/${sessionId}`;
     return (
       <div className="landingBody">
-    <main>
-    <div className="bloc-logo">
-    <canvas id="logo-canvas"></canvas>
-    <a href="index.html" className="logo-mask">Granim.js</a>
-    </div>
-    <div className="panel pink">
-  <button>LOGIN</button>
-  <LoginModal/>
-  <Link to="/login">LoginPage</Link>
-  <Link to={videoListUrl}>view</Link>
-</div>
-    </main>
+          <main>
+              <div className="bloc-logo">
+                  <canvas id="logo-canvas"></canvas>
+                  <a href="index.html" className="logo-mask">Granim.js</a>
+              </div>
+              <div className="panel pink">
+                  <Login />
+                  <Link to="/login">LoginPage</Link>
+                  <Link to={videoListUrl}>view</Link>
+              </div>
+          </main>
       </div>
     );
   }

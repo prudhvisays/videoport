@@ -51,7 +51,7 @@ class LoginForm extends React.Component {
     return (
       <form onSubmit={this.onSubmit}>
 
-        {errors.error && <span>{errors.error}</span>}
+
 
         <TextFieldGroup
         field="username"
@@ -66,7 +66,10 @@ class LoginForm extends React.Component {
         label="Password"
         type="password"
         />
-        <button>loginss</button>
+        <div>
+          {errors.error && <span><i className="errorMsg">{errors.error}</i></span>}
+        </div>
+      <button className="loginBtn">LOGIN</button>
 
       </form>
     )

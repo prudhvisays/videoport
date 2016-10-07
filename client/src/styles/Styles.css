@@ -23,6 +23,7 @@ main{
     width: 1030px;
     height: 232px;
     float: left;
+    margin-bottom: 5%;
 }
 
 .bloc-logo canvas,
@@ -30,6 +31,7 @@ main{
     display: block;
     width: 1030px;
     height: 232px;
+
 }
 
 .bloc-logo .logo-mask {
@@ -611,4 +613,30 @@ h6{
 }
 p{
   font-size: 0.86rem !important;
+}
+
+.txtInput{
+  background-color: white;
+  border: 0;
+  outline: 0;
+  border-bottom: 2px solid skyblue;
+  padding: 1%;
+  margin: 1%;
+  width: 25%;
+  transition: : all 2s ease-in;
+  color: skyblue;
+}
+
+.txtInput:focus{
+  background-color: skyblue;
+  color: white;
+}
+
+.loginBtn{
+    margin-top: 3%;
+    padding: 1% 8% 1% 8%;
+}
+
+.errorMsg{
+  color: red;
 }
