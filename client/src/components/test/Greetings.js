@@ -41,7 +41,7 @@ logoColor(){
           <main>
               <div className="bloc-logo">
                   <canvas id="logo-canvas"></canvas>
-                  <a href="index.html" className="logo-mask">Granim.js</a>
+                  <a className="logo-mask">Granim.js</a>
               </div>
               <div className="panel pink">
                   <Login />

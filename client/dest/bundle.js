@@ -1101,7 +1101,7 @@ var Greetings = function (_React$Component) {
             _react2.default.createElement("canvas", { id: "logo-canvas" }),
             _react2.default.createElement(
               "a",
-              { href: "index.html", className: "logo-mask" },
+              { className: "logo-mask" },
               "Granim.js"
             )
           ),
